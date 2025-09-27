@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -25,8 +26,21 @@ const categoryIcons = {
   "Healthcare System": Calendar,
 }
 
+interface Project {
+  id: string;
+  title: string;
+  description: string;
+  status: keyof typeof statusConfig;
+  techStack: string[];
+  features: string[];
+  githubUrl: string;
+  demoUrl: string | null;
+  images: string[];
+  category: keyof typeof categoryIcons;
+}
+
 export function ProjectsSection() {
-  const [selectedProject, setSelectedProject] = useState(null)
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
 
   return (
     <section id="projects" className="py-24 px-4 sm:px-6 lg:px-8">
@@ -40,9 +54,20 @@ export function ProjectsSection() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projectsData.projects.map((project) => {
-            const IconComponent = categoryIcons[project.category] || Code
-            const statusStyle = statusConfig[project.status]
+          {projectsData.projects.map((projectData) => {
+            // Asegurarse de que el proyecto cumpla con la interfaz Project
+            const project: Project = {
+              ...projectData,
+              status: (['in-progress', 'production', 'competition', 'prototype'].includes(projectData.status) 
+                ? projectData.status 
+                : 'in-progress') as keyof typeof statusConfig,
+              category: (projectData.category in categoryIcons 
+                ? projectData.category 
+                : 'Web Application') as keyof typeof categoryIcons
+            };
+            
+            const IconComponent = categoryIcons[project.category] || Code;
+            const statusStyle = statusConfig[project.status];
 
             return (
               <Card key={project.id} className="group hover:shadow-lg transition-all duration-300 h-full flex flex-col">
@@ -123,17 +148,25 @@ export function ProjectsSection() {
                         <div className="space-y-6">
                           {/* Project Images */}
                           <div className="grid md:grid-cols-2 gap-4">
-                            {project.images.map((image, index) => (
-                              <div key={index} className="aspect-video bg-muted rounded-lg overflow-hidden">
-                                <img
-                                  src={`/placeholder_image.png?height=300&width=500&text=${project.title} Screenshot ${
-                                    index + 1
-                                  }`}
-                                  alt={`${project.title} screenshot ${index + 1}`}
-                                  className="w-full h-full object-cover"
-                                />
-                              </div>
-                            ))}
+                            {project.images && project.images.map((image, index) => {
+                              const fullPath = image.startsWith('/') ? image : `/${image}`;
+                              return (
+                                <div key={index} className="relative aspect-video bg-muted rounded-lg overflow-hidden">
+                                  <Image
+                                    src={fullPath}
+                                    alt={`${project.title} screenshot ${index + 1}`}
+                                    fill
+                                    className="object-cover"
+                                    onError={(e) => {
+                                      console.error(`Error loading image: ${fullPath}`);
+                                      const target = e.target as HTMLImageElement;
+                                      target.src = `/placeholder.png?height=300&width=500&text=${encodeURIComponent(project.title)}`;
+                                      target.onerror = null; // Prevenir bucles de error
+                                    }}
+                                  />
+                                </div>
+                              );
+                            })}
                           </div>
 
                           {/* Description */}

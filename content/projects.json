@@ -14,7 +14,7 @@
       ],
       "githubUrl": "https://github.com/Repetto-A/Cruisely",
       "demoUrl": null,
-      "images": ["/projects/cruisely-1.jpg", "/projects/cruisely-2.jpg"],
+      "images": ["/projects/cruisely-1.png", "/projects/cruisely-2.png"],
       "category": "Web Application"
     },
     {
@@ -32,7 +32,7 @@
       ],
       "githubUrl": "https://github.com/Repetto-A/cotibot",
       "demoUrl": "https://cotibot-demo.vercel.app",
-      "images": ["/projects/cotibot-1.jpg", "/projects/cotibot-2.jpg", "/projects/cotibot-3.jpg"],
+      "images": ["/projects/cotibot-1.png", "/projects/cotibot-2.png", "/projects/cotibot-3.png", "/projects/cotibot-4.png"],
       "category": "Business Automation"
     },
     {
@@ -51,7 +51,7 @@
       ],
       "githubUrl": "https://github.com/Repetto-A/Real_Estate_System",
       "demoUrl": "https://realestate-demo.vercel.app",
-      "images": ["/projects/realestate-1.jpg", "/projects/realestate-2.jpg", "/projects/realestate-3.jpg"],
+      "images": ["/projects/realestate-1.png", "/projects/realestate-2.png", "/projects/realestate-3.png", "/projects/realestate-4.png", "/projects/realestate-5.png", "/projects/realestate-6.png", "/projects/realestate-7.png", "/projects/realestate-8.png"],
       "category": "Management System"
     },
     {
@@ -69,7 +69,7 @@
       ],
       "githubUrl": "https://github.com/MiguelMussi/NASA_SpaceApps2024",
       "demoUrl": null,
-      "images": ["/projects/nasa-1.jpg", "/projects/nasa-2.jpg"],
+      "images": ["/projects/nasa-1.png", "/projects/nasa-2.png"],
       "category": "AI/ML Research"
     },
     {
@@ -97,7 +97,7 @@
       ],
       "githubUrl": "https://github.com/lucianoacosta23/Bridgify",
       "demoUrl": "https://bridgify-demo.vercel.app",
-      "images": ["/projects/bridgify-1.jpg", "/projects/bridgify-2.jpg"],
+      "images": ["/projects/bridgify-1.png", "/projects/bridgify-2.png"],
       "category": "Blockchain/DeFi"
     },
     {
@@ -116,7 +116,7 @@
       ],
       "githubUrl": "https://github.com/Repetto-A/kinesio_web",
       "demoUrl": "https://kinesio-demo.vercel.app",
-      "images": ["/projects/kinesio-1.jpg", "/projects/kinesio-2.jpg"],
+      "images": ["/projects/kinesio-1.png", "/projects/kinesio-2.png"],
       "category": "Healthcare System"
     }
   ]

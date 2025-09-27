@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowLeft, Github, ExternalLink, Calendar, Code, Zap, Eye } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import projectsData from "@/content/projects.json"
 import type { Metadata } from "next"
 
@@ -111,17 +112,55 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
           <p className="text-lg text-muted-foreground leading-relaxed">{project.description}</p>
         </div>
 
+        {/* Debug Info */}
+        <div className="mb-6 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+          <h3 className="font-bold mb-2">Debug Info:</h3>
+          <pre className="text-xs overflow-x-auto">
+            {JSON.stringify({
+              projectId: project.id,
+              imagePaths: project.images,
+              basePath: process.env.NEXT_PUBLIC_BASE_PATH || '/',
+              publicFiles: [
+                ...(project.images?.map(img => ({
+                  path: img,
+                  exists: 'Needs verification'
+                })) || [])
+              ]
+            }, null, 2)}
+          </pre>
+        </div>
+
         {/* Project Images */}
         <div className="grid md:grid-cols-2 gap-6 mb-12">
-          {project.images.map((image, index) => (
-            <div key={index} className="aspect-video bg-muted rounded-lg overflow-hidden">
-              <img
-                src={`/placeholder.png?height=400&width=600&text=${project.title} Screenshot ${index + 1}`}
-                alt={`${project.title} screenshot ${index + 1}`}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          ))}
+          {project.images && project.images.map((image, index) => {
+            const fullPath = image.startsWith('/') ? image : `/${image}`;
+            
+            return (
+              <div key={index} className="border rounded-lg p-4">
+                <div className="aspect-video bg-muted rounded-lg overflow-hidden mb-2 relative">
+                  <Image
+                    src={fullPath}
+                    alt={`${project.title} screenshot ${index + 1}`}
+                    fill
+                    className="object-cover"
+                    priority={index < 2}
+                    onError={(e) => {
+                      console.error(`Error loading image: ${fullPath}`);
+                      const target = e.target as HTMLImageElement;
+                      target.src = `/placeholder.png?height=400&width=600&text=${encodeURIComponent(project.title)}`;
+                      target.onerror = null; // Prevenir bucles de error
+                    }}
+                  />
+                </div>
+                <div className="text-xs text-muted-foreground break-all mt-2 p-2 bg-muted rounded">
+                  <div className="font-mono">{fullPath}</div>
+                  <div className="text-xs opacity-70">
+                    {`${project.title} - Imagen ${index + 1}`}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
