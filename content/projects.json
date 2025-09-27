@@ -1,0 +1,123 @@
+{
+  "projects": [
+    {
+      "id": "cruisely",
+      "title": "Cruisely",
+      "description": "A comprehensive cruise booking and management platform currently in development. Features partial functionality with demo capabilities for cruise search, booking workflows, and user management systems.",
+      "status": "in-progress",
+      "techStack": ["TypeScript", "React", "Next.js", "FastAPI", "PostgreSQL", "Redis", "Celery", "Tailwind"],
+      "features": [
+        "Cruise search and filtering system",
+        "Booking workflow (partial implementation)",
+        "User authentication and profiles",
+        "Admin dashboard for cruise management"
+      ],
+      "githubUrl": "https://github.com/Repetto-A/Cruisely",
+      "demoUrl": null,
+      "images": ["/projects/cruisely-1.jpg", "/projects/cruisely-2.jpg"],
+      "category": "Web Application"
+    },
+    {
+      "id": "cotibot",
+      "title": "Cotibot",
+      "description": "An intelligent factory quoting system that streamlines the quotation process for manufacturing businesses. Features automated PDF generation, AFIP CUIT lookup integration for Argentine tax validation, and a comprehensive admin pricing panel.",
+      "status": "production",
+      "techStack": ["TypeScript", "React", "FastAPI", "PostgreSQL", "Tailwind"],
+      "features": [
+        "Automated PDF quote generation",
+        "AFIP CUIT lookup integration",
+        "Admin pricing management panel",
+        "Client quote history tracking",
+        "Real-time pricing calculations"
+      ],
+      "githubUrl": "https://github.com/Repetto-A/cotibot",
+      "demoUrl": "https://cotibot-demo.vercel.app",
+      "images": ["/projects/cotibot-1.jpg", "/projects/cotibot-2.jpg", "/projects/cotibot-3.jpg"],
+      "category": "Business Automation"
+    },
+    {
+      "id": "real-estate-system",
+      "title": "Real Estate Management System",
+      "description": "A comprehensive property management platform featuring calendar-based booking system, automated agent email confirmations, internal blog for property updates, newsletter system, and Telegram bot integration for instant notifications.",
+      "status": "production",
+      "techStack": ["Python", "Django", "MySQL", "Bootstrap 5", "Tailwind"],
+      "features": [
+        "Calendar booking system for property viewings",
+        "Automated email confirmations for agents",
+        "Internal blog for property updates",
+        "Newsletter subscription system",
+        "Telegram bot for instant notifications",
+        "Property listing management"
+      ],
+      "githubUrl": "https://github.com/Repetto-A/Real_Estate_System",
+      "demoUrl": "https://realestate-demo.vercel.app",
+      "images": ["/projects/realestate-1.jpg", "/projects/realestate-2.jpg", "/projects/realestate-3.jpg"],
+      "category": "Management System"
+    },
+    {
+      "id": "nasa-spaceapps",
+      "title": "NASA Space Apps 2024 - Seismic Detection",
+      "description": "AI/ML-powered seismic detection system for lunar and Martian environments. Developed as part of NASA Space Apps Challenge 2024, this project uses machine learning models to analyze seismic data and detect potential moonquakes and marsquakes.",
+      "status": "competition",
+      "techStack": ["Python", "TensorFlow", "Keras", "NumPy", "Pandas", "Matplotlib"],
+      "features": [
+        "Machine learning model for seismic pattern recognition",
+        "Data preprocessing pipeline for space seismic data",
+        "Real-time seismic event detection",
+        "Visualization dashboard for seismic activity",
+        "Scientific data analysis and reporting"
+      ],
+      "githubUrl": "https://github.com/MiguelMussi/NASA_SpaceApps2024",
+      "demoUrl": null,
+      "images": ["/projects/nasa-1.jpg", "/projects/nasa-2.jpg"],
+      "category": "AI/ML Research"
+    },
+    {
+      "id": "bridgify",
+      "title": "Bridgify",
+      "description": "A cryptocurrency swap ramp platform developed during a hackathon. Currently features mock data demonstrating the intended user flow and architecture for seamless crypto-to-fiat and fiat-to-crypto transactions.",
+      "status": "prototype",
+      "techStack": [
+        "TypeScript",
+        "Next.js",
+        "Solidity",
+        "Hardhat",
+        "Web3.js",
+        "Ethers.js",
+        "IPFS",
+        "Filecoin",
+        "Tailwind"
+      ],
+      "features": [
+        "Cryptocurrency swap interface",
+        "Fiat on/off ramp simulation",
+        "Wallet integration (MetaMask)",
+        "Transaction history tracking",
+        "Multi-currency support (mock data)"
+      ],
+      "githubUrl": "https://github.com/lucianoacosta23/Bridgify",
+      "demoUrl": "https://bridgify-demo.vercel.app",
+      "images": ["/projects/bridgify-1.jpg", "/projects/bridgify-2.jpg"],
+      "category": "Blockchain/DeFi"
+    },
+    {
+      "id": "kinesio-web",
+      "title": "Kinesio Web",
+      "description": "A specialized appointment scheduling system designed for kinesiologists and physical therapy practices. Features patient management, appointment booking, treatment history tracking, and automated reminder systems.",
+      "status": "production",
+      "techStack": ["React", "Node.js", "MySQL", "Express", "Socket.io"],
+      "features": [
+        "Patient appointment scheduling",
+        "Treatment history management",
+        "Automated appointment reminders",
+        "Therapist availability management",
+        "Patient progress tracking",
+        "Billing and payment integration"
+      ],
+      "githubUrl": "https://github.com/Repetto-A/kinesio_web",
+      "demoUrl": "https://kinesio-demo.vercel.app",
+      "images": ["/projects/kinesio-1.jpg", "/projects/kinesio-2.jpg"],
+      "category": "Healthcare System"
+    }
+  ]
+}
