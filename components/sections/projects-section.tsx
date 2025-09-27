@@ -6,15 +6,15 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { ExternalLink, Github, Eye, Calendar, Code, Zap } from "lucide-react"
+import { ImageLightbox, useImageLightboxAnalytics } from "@/components/ui/image-lightbox"
+import { ExternalLink, Github, Eye, Calendar, Code, Zap, ZoomIn } from "lucide-react"
 import Link from "next/link"
 import projectsData from "@/content/projects.json"
+import { cn } from "@/lib/utils"
 
 const statusConfig = {
   "in-progress": { label: "In Progress", color: "bg-yellow-500/10 text-yellow-500 border-yellow-500/20" },
-  production: { label: "Production", color: "bg-green-500/10 text-green-500 border-green-500/20" },
-  competition: { label: "Competition", color: "bg-blue-500/10 text-blue-500 border-blue-500/20" },
-  prototype: { label: "Prototype", color: "bg-purple-500/10 text-purple-500 border-purple-500/20" },
+  production: { label: "Production", color: "bg-green-500/10 text-green-500 border-green-500/20" }
 }
 
 const categoryIcons = {
@@ -27,20 +27,37 @@ const categoryIcons = {
 }
 
 interface Project {
-  id: string;
-  title: string;
-  description: string;
-  status: keyof typeof statusConfig;
-  techStack: string[];
-  features: string[];
-  githubUrl: string;
-  demoUrl: string | null;
-  images: string[];
-  category: keyof typeof categoryIcons;
+  id: string
+  title: string
+  description: string
+  status: keyof typeof statusConfig
+  techStack: string[]
+  features: string[]
+  githubUrl: string
+  demoUrl: string | null
+  images: string[]
+  category: keyof typeof categoryIcons
 }
 
 export function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
+  const [lightboxOpen, setLightboxOpen] = useState(false)
+  const [lightboxImages, setLightboxImages] = useState<string[]>([])
+  const [lightboxInitialIndex, setLightboxInitialIndex] = useState(0)
+  const [lightboxProjectTitle, setLightboxProjectTitle] = useState("")
+
+  const { trackImageOpen, trackImageClose, trackImageDownload } = useImageLightboxAnalytics()
+
+  const openLightbox = (images: string[], initialIndex: number, projectTitle: string) => {
+    setLightboxImages(images)
+    setLightboxInitialIndex(initialIndex)
+    setLightboxProjectTitle(projectTitle)
+    setLightboxOpen(true)
+  }
+
+  const closeLightbox = () => {
+    setLightboxOpen(false)
+  }
 
   return (
     <section id="projects" className="py-24 px-4 sm:px-6 lg:px-8">
@@ -55,19 +72,18 @@ export function ProjectsSection() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projectsData.projects.map((projectData) => {
-            // Asegurarse de que el proyecto cumpla con la interfaz Project
             const project: Project = {
               ...projectData,
-              status: (['in-progress', 'production', 'competition', 'prototype'].includes(projectData.status) 
-                ? projectData.status 
-                : 'in-progress') as keyof typeof statusConfig,
-              category: (projectData.category in categoryIcons 
-                ? projectData.category 
-                : 'Web Application') as keyof typeof categoryIcons
-            };
-            
-            const IconComponent = categoryIcons[project.category] || Code;
-            const statusStyle = statusConfig[project.status];
+              status: (["in-progress", "production"].includes(projectData.status)
+                ? projectData.status
+                : "in-progress") as keyof typeof statusConfig,
+              category: (projectData.category in categoryIcons
+                ? projectData.category
+                : "Web Application") as keyof typeof categoryIcons,
+            }
+
+            const IconComponent = categoryIcons[project.category] || Code
+            const statusStyle = statusConfig[project.status]
 
             return (
               <Card key={project.id} className="group hover:shadow-lg transition-all duration-300 h-full flex flex-col">
@@ -146,27 +162,66 @@ export function ProjectsSection() {
                         </DialogHeader>
 
                         <div className="space-y-6">
-                          {/* Project Images */}
                           <div className="grid md:grid-cols-2 gap-4">
-                            {project.images && project.images.map((image, index) => {
-                              const fullPath = image.startsWith('/') ? image : `/${image}`;
-                              return (
-                                <div key={index} className="relative aspect-video bg-muted rounded-lg overflow-hidden">
-                                  <Image
-                                    src={fullPath}
-                                    alt={`${project.title} screenshot ${index + 1}`}
-                                    fill
-                                    className="object-cover"
-                                    onError={(e) => {
-                                      console.error(`Error loading image: ${fullPath}`);
-                                      const target = e.target as HTMLImageElement;
-                                      target.src = `/placeholder.png?height=300&width=500&text=${encodeURIComponent(project.title)}`;
-                                      target.onerror = null; // Prevenir bucles de error
+                            {project.images &&
+                              project.images.map((image, index) => {
+                                const fullPath = image.startsWith("/") ? image : `/${image}`
+                                return (
+                                  <div
+                                    key={index}
+                                    className="group relative aspect-video bg-muted rounded-lg overflow-hidden cursor-pointer"
+                                    onClick={() => openLightbox(project.images, index, project.title)}
+                                    tabIndex={0}
+                                    role="button"
+                                    aria-label={`View ${project.title} screenshot ${index + 1} in lightbox`}
+                                    onKeyDown={(e) => {
+                                      if (e.key === "Enter" || e.key === " ") {
+                                        e.preventDefault()
+                                        openLightbox(project.images, index, project.title)
+                                      }
                                     }}
-                                  />
-                                </div>
-                              );
-                            })}
+                                  >
+                                    <Image
+                                      src={fullPath || "/placeholder.svg"}
+                                      alt={`${project.title} screenshot ${index + 1}`}
+                                      fill
+                                      className={cn(
+                                        "object-cover transition-all duration-300",
+                                        "group-hover:scale-105",
+                                      )}
+                                      onError={(e) => {
+                                        console.error(`Error loading image: ${fullPath}`)
+                                        const target = e.target as HTMLImageElement
+                                        target.src = `/placeholder.png?height=300&width=500&text=${encodeURIComponent(project.title)}`
+                                        target.onerror = null
+                                      }}
+                                    />
+
+                                    <div
+                                      className={cn(
+                                        "absolute inset-0 bg-black/0 flex items-center justify-center transition-all duration-300",
+                                        "group-hover:bg-black/20 group-focus:bg-black/20",
+                                      )}
+                                    >
+                                      <div
+                                        className={cn(
+                                          "bg-white/90 backdrop-blur-sm rounded-full p-3 transform scale-0 transition-all duration-300",
+                                          "group-hover:scale-100 group-focus:scale-100",
+                                          "shadow-lg",
+                                        )}
+                                      >
+                                        <ZoomIn className="h-5 w-5 text-gray-800" />
+                                      </div>
+                                    </div>
+
+                                    {project.images.length > 1 && (
+                                      <div className="absolute top-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded-full">
+                                        {index + 1}/{project.images.length}
+                                      </div>
+                                    )}
+                                  </div>
+                                )
+                              })}
                           </div>
 
                           {/* Description */}
@@ -241,6 +296,17 @@ export function ProjectsSection() {
           </div>
         </div>
       </div>
+
+      <ImageLightbox
+        images={lightboxImages}
+        initialIndex={lightboxInitialIndex}
+        isOpen={lightboxOpen}
+        onClose={closeLightbox}
+        projectTitle={lightboxProjectTitle}
+        onImageOpen={(index) => trackImageOpen(lightboxProjectTitle, index)}
+        onImageClose={trackImageClose}
+        onImageDownload={trackImageDownload}
+      />
     </section>
   )
 }

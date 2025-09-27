@@ -8,8 +8,13 @@ const nextConfig = {
   },
   images: {
     unoptimized: false, // Habilitar la optimización de imágenes
-    domains: ['localhost'], // Permitir imágenes desde localhost
     remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: process.env.PORT || '3000',
+        pathname: '/**',
+      },
       {
         protocol: 'https',
         hostname: '**',

@@ -1,20 +1,14 @@
 "use client"
 
-import type React from "react"
-
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import { Mail, Linkedin, Github, Send, MapPin, Shield } from "lucide-react"
+import { Mail, Linkedin, Github, Send, MapPin } from "lucide-react"
 import Link from "next/link"
-
-interface CaptchaData {
-  question: string
-  token: string
-}
+import { toast } from "sonner"
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -23,33 +17,13 @@ export function ContactSection() {
     subject: "",
     message: "",
   })
-  const [captcha, setCaptcha] = useState<CaptchaData | null>(null)
-  const [captchaAnswer, setCaptchaAnswer] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
-  const [errorMessage, setErrorMessage] = useState("")
-
-  // Load CAPTCHA on component mount
-  useEffect(() => {
-    loadCaptcha()
-  }, [])
-
-  const loadCaptcha = async () => {
-    try {
-      const response = await fetch("/api/contact")
-      if (response.ok) {
-        const data = await response.json()
-        setCaptcha(data.captcha)
-      }
-    } catch (error) {
-      console.error("Failed to load CAPTCHA:", error)
-    }
-  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    setErrorMessage("")
+    setSubmitStatus("idle")
 
     try {
       const response = await fetch("/api/contact", {
@@ -57,11 +31,7 @@ export function ContactSection() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          ...formData,
-          captchaToken: captcha?.token,
-          captchaAnswer: Number.parseInt(captchaAnswer, 10),
-        }),
+        body: JSON.stringify(formData),
       })
 
       const result = await response.json()
@@ -69,29 +39,28 @@ export function ContactSection() {
       if (response.ok) {
         setSubmitStatus("success")
         setFormData({ name: "", email: "", subject: "", message: "" })
-        setCaptchaAnswer("")
-        loadCaptcha() // Load new CAPTCHA
+        toast.success("¡Mensaje enviado con éxito!")
       } else {
         setSubmitStatus("error")
-        setErrorMessage(result.error || "Failed to send message")
-        if (result.error?.includes("CAPTCHA")) {
-          loadCaptcha() // Reload CAPTCHA on CAPTCHA error
-        }
+        toast.error(result.error || "Error al enviar el mensaje")
       }
     } catch (error) {
       setSubmitStatus("error")
-      setErrorMessage("Network error. Please try again.")
+      toast.error("Error de red. Por favor, inténtalo de nuevo.")
     } finally {
       setIsSubmitting(false)
     }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData((prev) => ({
+    const { name, value } = e.target
+    setFormData(prev => ({
       ...prev,
-      [e.target.name]: e.target.value,
+      [name]: value
     }))
   }
+
+  const isFormValid = formData.name && formData.email && formData.subject && formData.message
 
   return (
     <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8">
@@ -251,7 +220,7 @@ export function ContactSection() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
+                  <Label htmlFor="message">Mensaje</Label>
                   <Textarea
                     id="message"
                     name="message"
@@ -260,50 +229,27 @@ export function ContactSection() {
                     required
                     maxLength={5000}
                     rows={5}
-                    placeholder="Tell me about your project or how I can help..."
+                    placeholder="Cuéntame sobre tu proyecto o cómo puedo ayudarte..."
                   />
                 </div>
 
-                {captcha && (
-                  <div className="space-y-2">
-                    <Label htmlFor="captcha" className="flex items-center gap-2">
-                      <Shield className="h-4 w-4" />
-                      Security Check: {captcha.question}
-                    </Label>
-                    <Input
-                      id="captcha"
-                      type="number"
-                      value={captchaAnswer}
-                      onChange={(e) => setCaptchaAnswer(e.target.value)}
-                      required
-                      placeholder="Enter the answer"
-                      className="max-w-32"
-                    />
-                  </div>
-                )}
-
-                {submitStatus === "success" && (
-                  <div className="p-4 bg-green-500/10 border border-green-500/20 rounded-lg">
-                    <p className="text-green-600 text-sm">Message sent successfully! I'll get back to you soon.</p>
-                  </div>
-                )}
-
                 {submitStatus === "error" && (
-                  <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-lg">
-                    <p className="text-red-600 text-sm">
-                      {errorMessage ||
-                        "There was an error sending your message. Please try again or contact me directly via email."}
-                    </p>
+                  <div className="p-3 bg-red-50 text-red-700 rounded-md text-sm">
+                    Error al enviar el mensaje. Por favor, inténtalo de nuevo.
                   </div>
                 )}
 
-                <Button type="submit" disabled={isSubmitting || !captcha} className="w-full">
+                <Button 
+                  type="submit" 
+                  className="w-full" 
+                  disabled={!isFormValid || isSubmitting}
+                >
                   {isSubmitting ? (
-                    "Sending..."
+                    <span className="animate-pulse">Enviando...</span>
                   ) : (
                     <>
                       <Send className="mr-2 h-4 w-4" />
-                      Send Message
+                      Enviar mensaje
                     </>
                   )}
                 </Button>

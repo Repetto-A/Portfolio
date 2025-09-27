@@ -1,181 +1,113 @@
-import { type NextRequest, NextResponse } from "next/server"
-import {
-  checkRateLimit,
-  sanitizeInput,
-  validateEmail,
-  createSMTPTransporter,
-  generateEmailContent,
-  queueMessage,
-  processMessageQueue,
-  type EmailData,
-  type SMTPConfig,
-} from "@/lib/email"
+import { NextResponse } from "next/server";
+import nodemailer from "nodemailer";
 
-// Simple in-memory CAPTCHA store (in production, use Redis)
-const captchaStore = new Map<string, { answer: number; expires: number }>()
-
-function generateCaptcha(): { question: string; answer: number; token: string } {
-  const a = Math.floor(Math.random() * 10) + 1
-  const b = Math.floor(Math.random() * 10) + 1
-  const answer = a + b
-  const token = Math.random().toString(36).substr(2, 9)
-
-  captchaStore.set(token, { answer, expires: Date.now() + 5 * 60 * 1000 }) // 5 minutes
-
-  return { question: `${a} + ${b} = ?`, answer, token }
-}
-
-function verifyCaptcha(token: string, userAnswer: number): boolean {
-  const stored = captchaStore.get(token)
-  if (!stored || Date.now() > stored.expires) {
-    captchaStore.delete(token)
-    return false
-  }
-
-  captchaStore.delete(token)
-  return stored.answer === userAnswer
-}
-
-function getClientIP(request: NextRequest): string {
-  const forwarded = request.headers.get("x-forwarded-for")
-  const realIP = request.headers.get("x-real-ip")
-
-  if (forwarded) {
-    return forwarded.split(",")[0].trim()
-  }
-  if (realIP) {
-    return realIP
-  }
-  return "unknown"
-}
-
-function getSMTPConfig(): SMTPConfig | null {
-  const host = process.env.SMTP_HOST
-  const port = process.env.SMTP_PORT
-  const user = process.env.SMTP_USER
-  const password = process.env.SMTP_PASSWORD
-  const from = process.env.SMTP_FROM
-
-  if (!host || !port || !user || !password || !from) {
-    console.error(
-      "Missing SMTP configuration. Required env vars: SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASSWORD, SMTP_FROM",
-    )
-    return null
-  }
-
-  return {
-    host,
-    port: Number.parseInt(port, 10),
-    user,
-    password,
-    from,
-  }
-}
-
-export async function GET() {
-  // Generate CAPTCHA for the form
-  const captcha = generateCaptcha()
-  return NextResponse.json({
-    captcha: {
-      question: captcha.question,
-      token: captcha.token,
-    },
-  })
-}
-
-export async function POST(request: NextRequest) {
+export async function POST(request: Request) {
   try {
-    const clientIP = getClientIP(request)
-
-    // Rate limiting
-    if (!checkRateLimit(clientIP)) {
-      return NextResponse.json({ error: "Too many requests. Please try again later." }, { status: 429 })
-    }
-
-    const body = await request.json()
-    const { name, email, subject, message, captchaToken, captchaAnswer } = body
-
-    // Validate required fields
-    if (!name || !email || !subject || !message) {
-      return NextResponse.json({ error: "All fields are required" }, { status: 400 })
-    }
-
-    // Validate CAPTCHA
-    if (!captchaToken || typeof captchaAnswer !== "number" || !verifyCaptcha(captchaToken, captchaAnswer)) {
-      return NextResponse.json({ error: "Invalid CAPTCHA. Please try again." }, { status: 400 })
-    }
-
-    // Sanitize inputs
-    const sanitizedData = {
-      name: sanitizeInput(name),
-      email: sanitizeInput(email),
-      subject: sanitizeInput(subject),
-      message: sanitizeInput(message),
-    }
-
-    // Validate email format
-    if (!validateEmail(sanitizedData.email)) {
-      return NextResponse.json({ error: "Invalid email format" }, { status: 400 })
-    }
-
-    // Validate input lengths
-    if (sanitizedData.name.length > 100 || sanitizedData.subject.length > 200 || sanitizedData.message.length > 5000) {
-      return NextResponse.json({ error: "Input too long" }, { status: 400 })
-    }
-
-    const emailData: EmailData = {
-      ...sanitizedData,
-      timestamp: new Date().toISOString(),
-      ip: clientIP,
-    }
-
-    const smtpConfig = getSMTPConfig()
-
-    if (!smtpConfig) {
-      // Development mode - just log the message
-      if (process.env.NODE_ENV === "development") {
-        console.log("📧 [DEV MODE] Contact form submission:", emailData)
-        return NextResponse.json({ message: "Message logged successfully (dev mode)" }, { status: 200 })
-      }
-
-      return NextResponse.json({ error: "Email service not configured" }, { status: 500 })
-    }
-
-    try {
-      // Try to send immediately
-      const transporter = createSMTPTransporter(smtpConfig)
-      const { text, html } = generateEmailContent(emailData)
-
-      await transporter.sendMail({
-        from: smtpConfig.from,
-        to: "repettoalejandroing@gmail.com",
-        replyTo: sanitizedData.email,
-        subject: "New message from portfolio contact form",
-        text,
-        html,
-      })
-
-      console.log("✅ Email sent successfully to repettoalejandroing@gmail.com")
-      return NextResponse.json({ message: "Message sent successfully" }, { status: 200 })
-    } catch (emailError) {
-      console.error("❌ Failed to send email immediately, queuing for retry:", emailError)
-
-      // Queue for retry
-      const messageId = await queueMessage(emailData)
-
-      // Process queue in background (in production, use a proper job queue)
-      setTimeout(() => processMessageQueue(smtpConfig), 1000)
-
+    const body = await request.json();
+    
+    // Validaciones básicas
+    if (!body.name || !body.email || !body.subject || !body.message) {
       return NextResponse.json(
-        {
-          message: "Message queued for delivery",
-          messageId,
-        },
-        { status: 202 },
-      )
+        { success: false, error: "Todos los campos son obligatorios" },
+        { status: 400 }
+      );
     }
-  } catch (error) {
-    console.error("Contact form error:", error)
-    return NextResponse.json({ error: "Internal server error" }, { status: 500 })
+
+    // Validar formato de email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(body.email)) {
+      return NextResponse.json(
+        { success: false, error: "Formato de correo electrónico inválido" },
+        { status: 400 }
+      );
+    }
+
+    // Verificar variables de entorno
+    const requiredEnvVars = ['SMTP_HOST', 'SMTP_PORT', 'SMTP_USER', 'SMTP_PASSWORD', 'SMTP_FROM'];
+    const missingVars = requiredEnvVars.filter(varName => !process.env[varName]);
+    
+    if (missingVars.length > 0) {
+      return NextResponse.json(
+        { 
+          success: false, 
+          error: `Error de configuración del servidor. Por favor, contacta al administrador.`
+        },
+        { status: 500 }
+      );
+    }
+
+    // Configuración del transporte SMTP
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: parseInt(process.env.SMTP_PORT || "587"),
+      secure: false,
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASSWORD,
+      },
+      tls: {
+        rejectUnauthorized: false
+      }
+    });
+
+    // Opciones del correo
+    const mailOptions = {
+      from: process.env.SMTP_FROM,
+      to: "repettoalejandroing@gmail.com",
+      replyTo: `${body.name} <${body.email}>`,
+      subject: `[Portfolio] ${body.subject}`,
+      text: `
+        Nombre: ${body.name}
+        Email: ${body.email}
+        Asunto: ${body.subject}
+        
+        Mensaje:
+        ${body.message}
+      `,
+      html: `
+        <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto;">
+          <h2 style="color: #2563eb;">Nuevo mensaje del formulario de contacto</h2>
+          <div style="background-color: #f8fafc; padding: 20px; border-radius: 8px; margin-top: 20px;">
+            <p><strong>Nombre:</strong> ${body.name}</p>
+            <p><strong>Email:</strong> ${body.email}</p>
+            <p><strong>Asunto:</strong> ${body.subject}</p>
+            <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e2e8f0;">
+              <p><strong>Mensaje:</strong></p>
+              <p style="white-space: pre-line;">${body.message}</p>
+            </div>
+          </div>
+        </div>
+      `,
+    };
+
+    const info = await transporter.sendMail(mailOptions);
+
+    return NextResponse.json(
+      { 
+        success: true,
+        message: "¡Mensaje enviado con éxito! Me pondré en contacto contigo pronto.",
+      },
+      { status: 200 }
+    );
+  } catch (error: any) {
+    return NextResponse.json(
+      { 
+        success: false, 
+        error: "Error al procesar la solicitud. Por favor, inténtalo de nuevo más tarde."
+      },
+      { status: 500 }
+    );
   }
+}
+
+// Agregar método OPTIONS para CORS
+export async function OPTIONS() {
+  return new Response(null, {
+    status: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    },
+  });
 }

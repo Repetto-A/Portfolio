@@ -4,15 +4,13 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowLeft, Github, ExternalLink, Calendar, Code, Zap, Eye } from "lucide-react"
 import Link from "next/link"
-import Image from "next/image"
 import projectsData from "@/content/projects.json"
 import type { Metadata } from "next"
+import { ProjectImageGallery } from "@/components/project-image-gallery"
 
 const statusConfig = {
   "in-progress": { label: "In Progress", color: "bg-yellow-500/10 text-yellow-500 border-yellow-500/20" },
-  production: { label: "Production", color: "bg-green-500/10 text-green-500 border-green-500/20" },
-  competition: { label: "Competition", color: "bg-blue-500/10 text-blue-500 border-blue-500/20" },
-  prototype: { label: "Prototype", color: "bg-purple-500/10 text-purple-500 border-purple-500/20" },
+  production: { label: "Production", color: "bg-green-500/10 text-green-500 border-green-500/20" }
 }
 
 const categoryIcons = {
@@ -44,21 +42,40 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
   }
 }
 
+type ProjectStatus = keyof typeof statusConfig;
+
 export async function generateStaticParams() {
-  return projectsData.projects.map((project) => ({
-    id: project.id,
-  }))
+  return projectsData.projects.map((project) => {
+    // Asegurarse de que el status sea uno de los permitidos
+    const validStatus: ProjectStatus = 
+      project.status in statusConfig 
+        ? project.status as ProjectStatus 
+        : "in-progress";
+    
+    return {
+      id: project.id,
+      status: validStatus
+    };
+  });
 }
 
 export default function ProjectPage({ params }: { params: { id: string } }) {
-  const project = projectsData.projects.find((p) => p.id === params.id)
+  const projectData = projectsData.projects.find((p) => p.id === params.id)
 
-  if (!project) {
+  if (!projectData) {
     notFound()
   }
 
-  const IconComponent = categoryIcons[project.category] || Code
-  const statusStyle = statusConfig[project.status]
+  // Asegurarse de que el status sea uno de los permitidos
+  const project = {
+    ...projectData,
+    status: (projectData.status in statusConfig 
+      ? projectData.status 
+      : "in-progress") as ProjectStatus,
+  };
+
+  const IconComponent = categoryIcons[project.category] || Code;
+  const statusStyle = statusConfig[project.status];
 
   return (
     <main className="min-h-screen bg-background pt-24 pb-16">
@@ -112,56 +129,8 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
           <p className="text-lg text-muted-foreground leading-relaxed">{project.description}</p>
         </div>
 
-        {/* Debug Info */}
-        <div className="mb-6 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-          <h3 className="font-bold mb-2">Debug Info:</h3>
-          <pre className="text-xs overflow-x-auto">
-            {JSON.stringify({
-              projectId: project.id,
-              imagePaths: project.images,
-              basePath: process.env.NEXT_PUBLIC_BASE_PATH || '/',
-              publicFiles: [
-                ...(project.images?.map(img => ({
-                  path: img,
-                  exists: 'Needs verification'
-                })) || [])
-              ]
-            }, null, 2)}
-          </pre>
-        </div>
-
         {/* Project Images */}
-        <div className="grid md:grid-cols-2 gap-6 mb-12">
-          {project.images && project.images.map((image, index) => {
-            const fullPath = image.startsWith('/') ? image : `/${image}`;
-            
-            return (
-              <div key={index} className="border rounded-lg p-4">
-                <div className="aspect-video bg-muted rounded-lg overflow-hidden mb-2 relative">
-                  <Image
-                    src={fullPath}
-                    alt={`${project.title} screenshot ${index + 1}`}
-                    fill
-                    className="object-cover"
-                    priority={index < 2}
-                    onError={(e) => {
-                      console.error(`Error loading image: ${fullPath}`);
-                      const target = e.target as HTMLImageElement;
-                      target.src = `/placeholder.png?height=400&width=600&text=${encodeURIComponent(project.title)}`;
-                      target.onerror = null; // Prevenir bucles de error
-                    }}
-                  />
-                </div>
-                <div className="text-xs text-muted-foreground break-all mt-2 p-2 bg-muted rounded">
-                  <div className="font-mono">{fullPath}</div>
-                  <div className="text-xs opacity-70">
-                    {`${project.title} - Imagen ${index + 1}`}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+        <ProjectImageGallery images={project.images || []} projectTitle={project.title} className="mb-12" />
 
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Main Content */}
