@@ -229,7 +229,7 @@ export function ContactSection() {
                     required
                     maxLength={5000}
                     rows={5}
-                    placeholder="Cuéntame sobre tu proyecto o cómo puedo ayudarte..."
+                    placeholder="Tell me about your project or how I can help you..."
                   />
                 </div>
 
