@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     "Portfolio of Alejandro Repetto, a 23-year-old systems engineering student specializing in management systems, automation, and AI/ML development.",
   keywords: ["systems engineering", "AI/ML", "automation", "web development", "portfolio"],
   authors: [{ name: "Alejandro Repetto" }],
-  metadataBase: new URL("https://alex-repetto.vercel.app"),
+  metadataBase: new URL("https://repetto-a.com"),
   alternates: {
     canonical: "/",
   },
@@ -31,14 +31,15 @@ export const metadata: Metadata = {
     description: "Portfolio showcasing projects in management systems, automation, and AI/ML development.",
     type: "website",
     locale: "en_US",
-    url: "https://alex-repetto.vercel.app",
+    url: "https://repetto-a.com",
     siteName: "Alejandro Repetto Portfolio",
     images: [
       {
-        url: "/og-image.png",
+        url: new URL('/og-image.png', 'https://repetto-a.com').toString(),
         width: 1200,
         height: 630,
         alt: "Alejandro Repetto - Systems Engineer & AI/ML Developer",
+        type: 'image/png',
       },
     ],
   },
@@ -46,7 +47,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Alejandro Repetto - Systems Engineer & AI/ML Developer",
     description: "Portfolio showcasing projects in management systems, automation, and AI/ML development.",
-    images: ["/og-image.png"],
+    images: [new URL('/og-image.png', 'https://repetto-a.com').toString()],
+    creator: '@tuusuario', // Reemplaza con tu usuario de Twitter si lo tienes
   },
   robots: {
     index: true,
