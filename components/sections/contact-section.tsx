@@ -220,7 +220,7 @@ export function ContactSection() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="message">Mensaje</Label>
+                  <Label htmlFor="message">Message</Label>
                   <Textarea
                     id="message"
                     name="message"
@@ -235,7 +235,7 @@ export function ContactSection() {
 
                 {submitStatus === "error" && (
                   <div className="p-3 bg-red-50 text-red-700 rounded-md text-sm">
-                    Error al enviar el mensaje. Por favor, inténtalo de nuevo.
+                    Error sending message. Please try again.
                   </div>
                 )}
 
@@ -245,11 +245,11 @@ export function ContactSection() {
                   disabled={!isFormValid || isSubmitting}
                 >
                   {isSubmitting ? (
-                    <span className="animate-pulse">Enviando...</span>
+                    <span className="animate-pulse">Sending...</span>
                   ) : (
                     <>
                       <Send className="mr-2 h-4 w-4" />
-                      Enviar mensaje
+                      Send message
                     </>
                   )}
                 </Button>
