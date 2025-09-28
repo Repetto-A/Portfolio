@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     "Portfolio of Alejandro Repetto, a 23-year-old systems engineering student specializing in management systems, automation, and AI/ML development.",
   keywords: ["systems engineering", "AI/ML", "automation", "web development", "portfolio"],
   authors: [{ name: "Alejandro Repetto" }],
-  metadataBase: new URL("https://repetto-a.com"),
+  metadataBase: new URL("https://www.repetto-a.com"),
   alternates: {
     canonical: "/",
   },
@@ -31,11 +31,11 @@ export const metadata: Metadata = {
     description: "Portfolio showcasing projects in management systems, automation, and AI/ML development.",
     type: "website",
     locale: "en_US",
-    url: "https://repetto-a.com",
+    url: "https://www.repetto-a.com",
     siteName: "Alejandro Repetto Portfolio",
     images: [
       {
-        url: 'https://repetto-a.com/og-image.png',
+        url: 'https://www.repetto-a.com/og-image.png',
         width: 1200,
         height: 630,
         alt: "Alejandro Repetto - Systems Engineer & AI/ML Developer",
@@ -85,8 +85,8 @@ export default function RootLayout({
               jobTitle: "Systems Engineering Student",
               description:
                 "Systems engineering student specializing in management systems, automation, and AI/ML development",
-              url: "https://repetto-a.com",
-              sameAs: ["https://github.com/Repetto-A", "https://linkedin.com/in/alex-repetto"],
+              url: "https://www.repetto-a.com",
+              sameAs: ["https://github.com/Repetto-A", "https://linkedin.com/in/alejandro-repetto"],
               knowsAbout: [
                 "Systems Engineering",
                 "Artificial Intelligence",
