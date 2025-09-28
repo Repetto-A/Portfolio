@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     siteName: "Alejandro Repetto Portfolio",
     images: [
       {
-        url: new URL('/og-image.png', 'https://repetto-a.com').toString(),
+        url: 'https://repetto-a.com/og-image.png',
         width: 1200,
         height: 630,
         alt: "Alejandro Repetto - Systems Engineer & AI/ML Developer",
@@ -85,7 +85,7 @@ export default function RootLayout({
               jobTitle: "Systems Engineering Student",
               description:
                 "Systems engineering student specializing in management systems, automation, and AI/ML development",
-              url: "https://alex-repetto.vercel.app",
+              url: "https://repetto-a.com",
               sameAs: ["https://github.com/Repetto-A", "https://linkedin.com/in/alex-repetto"],
               knowsAbout: [
                 "Systems Engineering",
@@ -102,7 +102,7 @@ export default function RootLayout({
             }),
           }}
         />
-        <script defer data-domain="alex-repetto.vercel.app" src="https://plausible.io/js/script.js"></script>
+        <script defer data-domain="repetto-a.com" src="https://plausible.io/js/script.js"></script>
       </head>
       <body>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
