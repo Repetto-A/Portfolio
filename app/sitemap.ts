@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next"
 import projectsData from "@/content/projects.json"
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://alex-repetto.vercel.app"
+  const baseUrl = "https://www.repetto-a.com"
 
   // Static pages
   const staticPages = [

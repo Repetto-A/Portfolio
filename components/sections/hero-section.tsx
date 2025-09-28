@@ -15,8 +15,7 @@ export function HeroSection() {
               </h1>
               <h2 className="text-xl sm:text-2xl text-muted-foreground font-mono">Systems Engineering Student</h2>
               <p className="text-lg text-muted-foreground leading-relaxed text-pretty max-w-2xl">
-                Building intelligent management systems, automation solutions, and AI/ML applications. Passionate about
-                creating technology that solves real-world problems and drives innovation.
+              I build intelligent management systems, automation tools, and AI/ML applications that save people time and simplify complex processes.
               </p>
             </div>
 
@@ -57,11 +56,11 @@ export function HeroSection() {
           {/* Right Column - Profile Image */}
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
-              <div className="w-80 h-80 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center border border-border">
+              <div className="w-96 h-96 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center border border-border">
                 <img
                   src="/placeholder.jpg?key=8aw7l"
                   alt="Alejandro Repetto - Systems Engineer"
-                  className="w-72 h-72 rounded-xl object-cover"
+                  className="w-11/12 h-11/12 rounded-xl object-cover"
                 />
               </div>
 

@@ -6,8 +6,7 @@ export function AboutSection() {
           <div className="text-center space-y-4">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground">About</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-              A passionate systems engineering student with a focus on creating intelligent solutions that bridge the
-              gap between complex problems and elegant technology.
+            A passionate systems engineering student dedicated to building intelligent solutions that save people time and simplify complex processes. I focus on creating automation systems, management platforms, and AI/ML applications that transform everyday business challenges into streamlined, efficient workflows.
             </p>
           </div>
 
@@ -22,10 +21,7 @@ export function AboutSection() {
                   challenges.
                 </p>
                 <p>
-                  From factory quoting systems to real estate management platforms, I enjoy building comprehensive
-                  applications that streamline operations and enhance user experiences. My recent work includes
-                  AI-powered seismic detection for NASA's Space Apps Challenge and various automation tools for
-                  different industries.
+                From factory quoting systems to real estate management platforms, I enjoy building applications that not only optimize operations but also create smoother, more intuitive user experiences. Recently, I contributed to NASA’s Space Apps Challenge with an AI-powered seismic detection solution, alongside developing automation tools for various industries.
                 </p>
               </div>
             </div>
@@ -35,9 +31,7 @@ export function AboutSection() {
               <h3 className="text-xl font-semibold text-foreground">Approach</h3>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  I believe in building technology that's both powerful and accessible. Every project starts with
-                  understanding the core problem and designing solutions that are scalable, maintainable, and
-                  user-focused.
+                I believe technology should give people back their time. Every project begins with deeply understanding the core problem, then designing solutions that are scalable, maintainable, and user-focused.
                 </p>
                 <p>
                   My experience spans full-stack development, machine learning implementation, and system architecture.
