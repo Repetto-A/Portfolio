@@ -159,13 +159,13 @@ importers:
         specifier: latest
         version: 7.0.6
       react:
-        specifier: ^18.3.1
+        specifier: ^18
         version: 18.3.1
       react-day-picker:
         specifier: latest
         version: 9.11.0(react@18.3.1)
       react-dom:
-        specifier: ^18.3.1
+        specifier: ^18
         version: 18.3.1(react@18.3.1)
       react-hook-form:
         specifier: latest
@@ -205,7 +205,7 @@ importers:
         specifier: ^7.0.1
         version: 7.0.1
       '@types/react':
-        specifier: ^18.3.24
+        specifier: ^18
         version: 18.3.24
       '@types/react-dom':
         specifier: ^18
