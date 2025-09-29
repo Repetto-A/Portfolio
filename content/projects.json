@@ -3,19 +3,18 @@
     {
       "id": "real-estate-system",
       "title": "Real Estate Management System",
-      "description": "A comprehensive property management platform featuring calendar-based booking system, automated agent email confirmations, internal blog for property updates, newsletter system, and Telegram bot integration for instant notifications.",
+      "description": "A comprehensive property management platform featuring calendar-based booking system, automated agent email confirmations, internal blog for SEO optimization and content generation, newsletter system.",
       "status": "production",
       "techStack": ["Python", "Django", "MySQL", "Bootstrap 5", "Tailwind"],
       "features": [
         "Calendar booking system for property viewings",
         "Automated email confirmations for agents",
-        "Internal blog for property updates",
+        "Internal blog",
         "Newsletter subscription system",
-        "Telegram bot for instant notifications",
         "Property listing management"
       ],
       "githubUrl": "https://github.com/Repetto-A/Real_Estate_System",
-      "demoUrl": "https://realestate-demo.vercel.app",
+      "demoUrl": "https://realestatesystem-production.up.railway.app/",
       "images": ["/projects/realestate-1.png", "/projects/realestate-2.png", "/projects/realestate-3.png", "/projects/realestate-4.png", "/projects/realestate-5.png", "/projects/realestate-6.png", "/projects/realestate-7.png", "/projects/realestate-8.png"],
       "category": "Management System"
     },

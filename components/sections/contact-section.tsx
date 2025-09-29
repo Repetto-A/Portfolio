@@ -155,16 +155,16 @@ export function ContactSection() {
               <CardContent>
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
+                    <span className="text-muted-foreground">Consulting</span>
+                    <span className="text-slate-600 font-medium">Available</span>
+                  </div>
+                  <div className="flex items-center justify-between">
                     <span className="text-muted-foreground">Freelance Projects</span>
                     <span className="text-slate-600 font-medium">Available</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-muted-foreground">Full-time Opportunities</span>
                     <span className="text-indigo-600 font-medium">Open to Discuss</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-muted-foreground">Consulting</span>
-                    <span className="text-slate-600 font-medium">Available</span>
                   </div>
                 </div>
               </CardContent>
