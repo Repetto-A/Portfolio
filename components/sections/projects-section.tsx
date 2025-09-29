@@ -1,16 +1,22 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { ImageLightbox, useImageLightboxAnalytics } from "@/components/ui/image-lightbox"
+import { ImageLightbox } from "@/components/ui/image-lightbox"
 import { ExternalLink, Github, Eye, Calendar, Code, Zap, ZoomIn } from "lucide-react"
 import Link from "next/link"
 import projectsData from "@/content/projects.json"
 import { cn } from "@/lib/utils"
+
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
 
 const statusConfig = {
   "in-progress": { label: "In Progress", color: "bg-yellow-500/10 text-yellow-500 border-yellow-500/20" },
@@ -46,7 +52,34 @@ export function ProjectsSection() {
   const [lightboxInitialIndex, setLightboxInitialIndex] = useState(0)
   const [lightboxProjectTitle, setLightboxProjectTitle] = useState("")
 
-  const { trackImageOpen, trackImageClose, trackImageDownload } = useImageLightboxAnalytics()
+  // Usar un estado para manejar si estamos en el cliente
+  const [isClient, setIsClient] = useState(false)
+  
+  // Importar dinámicamente el hook solo en el cliente
+  const { trackImageOpen, trackImageClose, trackImageDownload } = isClient ? 
+    (() => {
+      try {
+        // @ts-ignore - Importación dinámica
+        const { useImageLightboxAnalytics } = require("@/components/ui/image-lightbox")
+        return useImageLightboxAnalytics()
+      } catch (e) {
+        // Retornar funciones vacías si hay algún error
+        return {
+          trackImageOpen: () => {},
+          trackImageClose: () => {},
+          trackImageDownload: () => {}
+        }
+      }
+    })() : {
+      trackImageOpen: () => {},
+      trackImageClose: () => {},
+      trackImageDownload: () => {}
+    }
+
+  // Efecto para establecer que estamos en el cliente
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
 
   const openLightbox = (images: string[], initialIndex: number, projectTitle: string) => {
     setLightboxImages(images)
