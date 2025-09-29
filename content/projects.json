@@ -85,7 +85,7 @@
         "User authentication and profiles",
         "Admin dashboard for cruise management"
       ],
-      "githubUrl": "https://github.com/Repetto-A/Cruisely",
+      "githubUrl": null,
       "demoUrl": null,
       "images": ["/projects/cruisely-1.png", "/projects/cruisely-2.png", "/projects/cruisely-3.png", "/projects/cruisely-4.png", "/projects/cruisely-5.png", "/projects/cruisely-6.png"],
       "category": "Web Application"
