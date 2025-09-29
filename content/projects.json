@@ -5,7 +5,7 @@
       "title": "Real Estate Management System",
       "description": "A comprehensive property management platform featuring calendar-based booking system, automated agent email confirmations, internal blog for SEO optimization and content generation, newsletter system.",
       "status": "production",
-      "techStack": ["Python", "Django", "MySQL", "Bootstrap 5", "Tailwind"],
+      "techStack": ["Python", "Django", "SQLite", "Bootstrap 5", "Tailwind"],
       "features": [
         "Calendar booking system for property viewings",
         "Automated email confirmations for agents",
@@ -50,7 +50,7 @@
         "Real-time pricing calculations"
       ],
       "githubUrl": "https://github.com/Repetto-A/cotibot",
-      "demoUrl": "https://cotibot-demo.vercel.app",
+      "demoUrl": "null",
       "images": ["/projects/cotibot-1.png", "/projects/cotibot-2.png", "/projects/cotibot-3.png", "/projects/cotibot-4.png"],
       "category": "Business Automation"
     },
@@ -69,7 +69,7 @@
         "Billing and payment integration"
       ],
       "githubUrl": "https://github.com/Repetto-A/kinesio_web",
-      "demoUrl": "https://kinesio-demo.vercel.app",
+      "demoUrl": "null",
       "images": ["/projects/kinesio-1.png", "/projects/kinesio-2.png"],
       "category": "Healthcare System"
     },
@@ -114,7 +114,7 @@
         "Multi-currency support (mock data)"
       ],
       "githubUrl": "https://github.com/lucianoacosta23/Bridgify",
-      "demoUrl": "https://bridgify-demo.vercel.app",
+      "demoUrl": null,
       "images": ["/projects/bridgify-1.png", "/projects/bridgify-2.png"],
       "category": "Blockchain/DeFi"
     }
