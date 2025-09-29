@@ -52,34 +52,27 @@ export function ProjectsSection() {
   const [lightboxInitialIndex, setLightboxInitialIndex] = useState(0)
   const [lightboxProjectTitle, setLightboxProjectTitle] = useState("")
 
-  // Usar un estado para manejar si estamos en el cliente
-  const [isClient, setIsClient] = useState(false)
-  
-  // Importar dinámicamente el hook solo en el cliente
-  const { trackImageOpen, trackImageClose, trackImageDownload } = isClient ? 
-    (() => {
-      try {
-        // @ts-ignore - Importación dinámica
-        const { useImageLightboxAnalytics } = require("@/components/ui/image-lightbox")
-        return useImageLightboxAnalytics()
-      } catch (e) {
-        // Retornar funciones vacías si hay algún error
-        return {
-          trackImageOpen: () => {},
-          trackImageClose: () => {},
-          trackImageDownload: () => {}
-        }
-      }
-    })() : {
-      trackImageOpen: () => {},
-      trackImageClose: () => {},
-      trackImageDownload: () => {}
-    }
+  // Inicializar con funciones vacías
+  const [analytics, setAnalytics] = useState({
+    trackImageOpen: () => {},
+    trackImageClose: () => {},
+    trackImageDownload: () => {}
+  })
 
-  // Efecto para establecer que estamos en el cliente
+  // Cargar el hook solo en el cliente
   useEffect(() => {
-    setIsClient(true)
+    const loadAnalytics = async () => {
+      try {
+        const module = await import("@/components/ui/image-lightbox")
+        setAnalytics(module.useImageLightboxAnalytics())
+      } catch (e) {
+        console.error("Error loading analytics:", e)
+      }
+    }
+    loadAnalytics()
   }, [])
+
+  const { trackImageOpen, trackImageClose, trackImageDownload } = analytics
 
   const openLightbox = (images: string[], initialIndex: number, projectTitle: string) => {
     setLightboxImages(images)
