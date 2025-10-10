@@ -55,23 +55,56 @@
       "category": "Business Automation"
     },
     {
-      "id": "kinesio-web",
-      "title": "Kinesio Web",
-      "description": "A specialized appointment scheduling system designed for kinesiologists and physical therapy practices. Features patient management, appointment booking, treatment history tracking, and automated reminder systems.",
-      "status": "production",
-      "techStack": ["React", "Node.js", "MySQL", "Express", "Socket.io"],
+      "id": "farmhero",
+      "title": "NASA Space Apps Rosario Winners - FarmHero",
+      "description": "Educational simulator that uses real NASA and CONAE satellites data to teach resource-management and sustainable agriculture decisions. Players restore degraded land by managing limited capital and choosing interventions (fertilizers, biocontrols, irrigation), whose short- and long-term effects the game simulates. Winner of NASA Space Apps Rosario 2025; currently under Global Judging.",
+      "status": "winner-local / in-evaluation-global",
+      "techStack": ["Next.js", "TypeScript", "TailwindCSS"],
       "features": [
-        "Patient appointment scheduling",
-        "Treatment history management",
-        "Automated appointment reminders",
-        "Therapist availability management",
-        "Patient progress tracking",
-        "Billing and payment integration"
+        "Simulation of agricultural interventions (irrigation, fertilization, biocontrols) with short and long-term effects",
+        "Real data ingestion and normalization: NASA and CONAE satellite layers",
+        "Educational UI with step-by-step guidance widgets",
+        "Agricultural rules and heuristics engine (extensible with ML)",
+        "Simulation of climatic/statistical events (droughts, heat waves, floods) with probabilistic impacts on crops and resources to evaluate mitigation strategies",
+        "Prototype developed in 48 hours; continuous post-hackathon iteration"
       ],
-      "githubUrl": "https://github.com/Repetto-A/kinesio_web",
-      "demoUrl": null,
-      "images": ["/projects/kinesio-1.png", "/projects/kinesio-2.png"],
-      "category": "Healthcare System"
+      "githubUrl": "https://github.com/Repetto-A/FarmHero",
+      "demoUrl": "https://farmhero-sepia.vercel.app/",
+      "images": [
+        "/projects/farmhero-1.jpg",
+        "/projects/farmhero-2.jpg",
+        "/projects/farmhero-3.jpg",
+        "/projects/farmhero-4.jpg",
+        "/projects/farmhero-5.jpg"
+      ],
+      "category": "Game / AgTech",
+      "timeline": [
+        {
+          "date": "2025-10-04",
+          "title": "Hackathon Opening",
+          "description": "Competition begins."
+        },
+        {
+          "date": "2025-10-09",
+          "title": "Rosario Winners",
+          "description": "First place with FarmHero — NASA Space Apps Rosario 2025."
+        },
+        {
+          "date": "2025-11-05",
+          "title": "2025 Global Nominees",
+          "description": "Projects selected by local and universal judges to advance to global stage."
+        },
+        {
+          "date": "2025-11-26",
+          "title": "2025 Global Finalists",
+          "description": "Review by NASA experts and partner agencies to determine finalists and honorable mentions."
+        },
+        {
+          "date": "2025-12-18",
+          "title": "2025 Global Winners",
+          "description": "NASA executive committee and partners select the 10 global winners among finalists."
+        }
+      ]
     },
     {
       "id": "cruisely",

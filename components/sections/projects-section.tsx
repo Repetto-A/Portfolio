@@ -11,6 +11,7 @@ import { ExternalLink, Github, Eye, Calendar, Code, Zap, ZoomIn } from "lucide-r
 import Link from "next/link"
 import projectsData from "@/content/projects.json"
 import { cn } from "@/lib/utils"
+import { ProjectTimeline } from "@/components/project-timeline"
 
 declare global {
   interface Window {
@@ -20,7 +21,9 @@ declare global {
 
 const statusConfig = {
   "in-progress": { label: "In Progress", color: "bg-yellow-500/10 text-yellow-500 border-yellow-500/20" },
-  production: { label: "Production", color: "bg-green-500/10 text-green-500 border-green-500/20" }
+  production: { label: "Production", color: "bg-green-500/10 text-green-500 border-green-500/20" },
+  "winner-local / in-evaluation-global": { label: "Winner - Under Global Evaluation", color: "bg-blue-500/10 text-blue-500 border-blue-500/20" },
+  prototype: { label: "Prototype", color: "bg-purple-500/10 text-purple-500 border-purple-500/20" }
 }
 
 const categoryIcons = {
@@ -30,6 +33,7 @@ const categoryIcons = {
   "AI/ML Research": Eye,
   "Blockchain/DeFi": ExternalLink,
   "Healthcare System": Calendar,
+  "Game / AgTech": Eye,
 }
 
 interface Project {
@@ -100,7 +104,7 @@ export function ProjectsSection() {
           {projectsData.projects.map((projectData) => {
             const project: Project = {
               ...projectData,
-              status: (["in-progress", "production"].includes(projectData.status)
+              status: (projectData.status in statusConfig
                 ? projectData.status
                 : "in-progress") as keyof typeof statusConfig,
               category: (projectData.category in categoryIcons
@@ -108,7 +112,7 @@ export function ProjectsSection() {
                 : "Web Application") as keyof typeof categoryIcons,
             }
 
-            const IconComponent = categoryIcons[project.category] || Code
+            const IconComponent = categoryIcons[project.category as keyof typeof categoryIcons] || Code
             const statusStyle = statusConfig[project.status]
 
             return (
@@ -280,6 +284,11 @@ export function ProjectsSection() {
                               ))}
                             </ul>
                           </div>
+
+                          {/* Timeline - only show if project has timeline */}
+                          {(projectData as any).timeline && (
+                            <ProjectTimeline timeline={(projectData as any).timeline} />
+                          )}
 
                           {/* Links */}
                           <div className="flex items-center space-x-4 pt-4 border-t border-border">
