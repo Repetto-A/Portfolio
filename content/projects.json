@@ -31,7 +31,7 @@
         "Visualization dashboard for seismic activity",
         "Scientific data analysis and reporting"
       ],
-      "githubUrl": "https://github.com/MiguelMussi/NASA_SpaceApps2024",
+      "githubUrl": "https://github.com/Repetto-A/AI-Seismic-Detection",
       "demoUrl": null,
       "images": ["/projects/nasa-1.png", "/projects/nasa-2.png", "/projects/nasa-3.png"],
       "category": "AI/ML Research"
