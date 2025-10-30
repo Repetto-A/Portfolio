@@ -16,21 +16,9 @@ interface ImageLightboxProps {
   isOpen: boolean
   onClose: () => void
   projectTitle?: string
-  onImageOpen?: (index: number) => void
-  onImageClose?: () => void
-  onImageDownload?: (imageUrl: string, index: number) => void
 }
 
-export function ImageLightbox({
-  images,
-  initialIndex = 0,
-  isOpen,
-  onClose,
-  projectTitle,
-  onImageOpen,
-  onImageClose,
-  onImageDownload,
-}: ImageLightboxProps) {
+export function ImageLightbox({ images, initialIndex = 0, isOpen, onClose, projectTitle }: ImageLightboxProps) {
   const [currentIndex, setCurrentIndex] = useState(initialIndex)
   const [isLoading, setIsLoading] = useState(true)
   const [isZoomed, setIsZoomed] = useState(false)
@@ -44,11 +32,8 @@ export function ImageLightbox({
       setCurrentIndex(initialIndex)
       setIsZoomed(false)
       setIsLoading(true)
-      onImageOpen?.(initialIndex)
-    } else {
-      onImageClose?.()
     }
-  }, [isOpen, initialIndex, onImageOpen, onImageClose])
+  }, [isOpen, initialIndex])
 
   // Preload adjacent images for smooth navigation
   useEffect(() => {
@@ -131,7 +116,6 @@ export function ImageLightbox({
 
   const handleDownload = useCallback(async () => {
     const currentImage = images[currentIndex]
-    onImageDownload?.(currentImage, currentIndex)
 
     try {
       const response = await fetch(currentImage)
@@ -147,7 +131,7 @@ export function ImageLightbox({
     } catch (error) {
       console.error("Download failed:", error)
     }
-  }, [images, currentIndex, projectTitle, onImageDownload])
+  }, [images, currentIndex, projectTitle])
 
   // Touch/swipe handling
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -332,38 +316,4 @@ export function ImageLightbox({
       </DialogContent>
     </Dialog>
   )
-}
-
-// Hook for analytics tracking
-export function useImageLightboxAnalytics() {
-  const trackImageOpen = useCallback((projectTitle: string, imageIndex: number) => {
-    // Analytics implementation
-    if (typeof window !== "undefined" && window.gtag) {
-      window.gtag("event", "image_open", {
-        project_name: projectTitle,
-        image_index: imageIndex,
-      })
-    }
-  }, [])
-
-  const trackImageClose = useCallback(() => {
-    if (typeof window !== "undefined" && window.gtag) {
-      window.gtag("event", "image_close")
-    }
-  }, [])
-
-  const trackImageDownload = useCallback((imageUrl: string, imageIndex: number) => {
-    if (typeof window !== "undefined" && window.gtag) {
-      window.gtag("event", "image_download", {
-        image_url: imageUrl,
-        image_index: imageIndex,
-      })
-    }
-  }, [])
-
-  return {
-    trackImageOpen,
-    trackImageClose,
-    trackImageDownload,
-  }
 }

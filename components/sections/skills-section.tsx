@@ -1,10 +1,16 @@
+"use client"
+
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { useTranslations, getTranslation } from "@/lib/i18n-context"
 
 export function SkillsSection() {
+  const [translations] = useTranslations()
+
   const skillCategories = [
     {
-      title: "Languages & Frameworks",
+      titleKey: "skills.categories.languages",
+      titleDefault: "Languages & Frameworks",
       skills: [
         "Python",
         "C",
@@ -25,7 +31,8 @@ export function SkillsSection() {
       ],
     },
     {
-      title: "AI/ML & Data Science",
+      titleKey: "skills.categories.frameworks",
+      titleDefault: "AI/ML & Data Science",
       skills: [
         "TensorFlow",
         "PyTorch",
@@ -42,7 +49,8 @@ export function SkillsSection() {
       ],
     },
     {
-      title: "Databases & Infrastructure",
+      titleKey: "skills.categories.databases",
+      titleDefault: "Databases & Infrastructure",
       skills: [
         "MySQL",
         "PostgreSQL",
@@ -59,7 +67,8 @@ export function SkillsSection() {
       ],
     },
     {
-      title: "Automation & Integration",
+      titleKey: "skills.categories.tools",
+      titleDefault: "Automation & Integration",
       skills: [
         "REST APIs",
         "GraphQL",
@@ -81,10 +90,15 @@ export function SkillsSection() {
     <section className="py-24 px-4 sm:px-6 lg:px-8 bg-muted/30">
       <div className="max-w-7xl mx-auto">
         <div className="text-center space-y-4 mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Skills & Technologies</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
+            {getTranslation(translations, "skills.title", "Skills & Technologies")}
+          </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-            A comprehensive toolkit for building modern applications, from frontend interfaces to AI-powered backend
-            systems.
+            {getTranslation(
+              translations,
+              "skills.subtitle",
+              "A comprehensive toolkit for building modern applications, from frontend interfaces to AI-powered backend systems."
+            )}
           </p>
         </div>
 
@@ -92,7 +106,9 @@ export function SkillsSection() {
           {skillCategories.map((category, index) => (
             <Card key={index} className="h-full">
               <CardHeader>
-                <CardTitle className="text-lg">{category.title}</CardTitle>
+                <CardTitle className="text-lg">
+                  {getTranslation(translations, category.titleKey, category.titleDefault)}
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
@@ -114,16 +130,28 @@ export function SkillsSection() {
         {/* Experience Highlights */}
         <div className="mt-16 grid md:grid-cols-3 gap-8">
           <div className="text-center space-y-2">
-            <div className="text-3xl font-bold text-primary">Full-Stack</div>
-            <div className="text-sm text-muted-foreground">End-to-end application development</div>
+            <div className="text-3xl font-bold text-primary">
+              {getTranslation(translations, "skills.highlights.fullstack.title", "Full-Stack")}
+            </div>
+            <div className="text-sm text-muted-foreground">
+              {getTranslation(translations, "skills.highlights.fullstack.description", "End-to-end application development")}
+            </div>
           </div>
           <div className="text-center space-y-2">
-            <div className="text-3xl font-bold text-primary">AI/ML</div>
-            <div className="text-sm text-muted-foreground">Machine learning model implementation</div>
+            <div className="text-3xl font-bold text-primary">
+              {getTranslation(translations, "skills.highlights.aiml.title", "AI/ML")}
+            </div>
+            <div className="text-sm text-muted-foreground">
+              {getTranslation(translations, "skills.highlights.aiml.description", "Machine learning model implementation")}
+            </div>
           </div>
           <div className="text-center space-y-2">
-            <div className="text-3xl font-bold text-primary">Automation</div>
-            <div className="text-sm text-muted-foreground">Business process optimization</div>
+            <div className="text-3xl font-bold text-primary">
+              {getTranslation(translations, "skills.highlights.automation.title", "Automation")}
+            </div>
+            <div className="text-sm text-muted-foreground">
+              {getTranslation(translations, "skills.highlights.automation.description", "Business process optimization")}
+            </div>
           </div>
         </div>
       </div>

@@ -1,0 +1,173 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "name": "Alejandro Repetto",
+    "title": "Systems Engineering Student",
+    "description": "I build intelligent management systems, automation tools, and AI/ML applications that save people time and simplify complex processes.",
+    "cta": {
+      "projects": "See Projects",
+      "resume": "Download Resume"
+    },
+    "stats": {
+      "projects": "Projects",
+      "experience": "Years Experience",
+      "specialization": "Specialization"
+    },
+    "status": {
+      "currently": "Currently",
+      "building": "Building AI Solutions",
+      "focus": "Focus",
+      "automation": "Automation & ML"
+    },
+    "scroll": "Learn more"
+  },
+  "about": {
+    "title": "About",
+    "bio": {
+      "short": "I'm a nerd who loves building intelligent solutions that solve real problems. I work with AI/ML, automation, and distributed systems—creating applications that are both algorithmically efficient and architecturally sound. My competitive programming background drives me to understand not just how to use technologies, but how they work and when they make sense.",
+      "background": {
+        "title": "Background",
+        "text": "I've been programming seriously since 2022, when I placed 6th in my first ICPC tournament. A 2024 winter training camp was a turning point that transformed how I approach technical challenges.\n\nI'm learning distributed systems and design patterns through hands-on implementation—building load balancers, message brokers, and experimenting with database architectures.\n\nMy AI/ML projects range from seismic prediction algorithms for NASA Space Apps to production-grade systems with RAG architectures. I focus on understanding not just how to use technologies, but how they work and when they make sense architecturally."
+      },
+      "approach": {
+        "title": "Approach",
+        "text": "I think about efficiency first—competitive programming trained me to analyze complexity before coding. But I'm pragmatic about execution: MVPs ship fast, production systems are built to last.\n\nMy process: research what exists, understand the problem deeply, consult when needed, then iterate rapidly. I focus on writing code that's maintainable and scalable without over-engineering early stages.\n\nI work well independently and in teams. I adapt to what the project needs and focus on delivering solutions that work now and scale later."
+      }
+    }
+  },
+  "skills": {
+    "title": "Skills & Technologies",
+    "subtitle": "A comprehensive toolkit for building modern applications, from frontend interfaces to AI-powered backend systems.",
+    "categories": {
+      "languages": "Languages & Frameworks",
+      "frameworks": "AI/ML & Data Science",
+      "databases": "Databases & Infrastructure",
+      "tools": "Automation & Integration"
+    },
+    "highlights": {
+      "fullstack": {
+        "title": "Full-Stack",
+        "description": "End-to-end application development"
+      },
+      "aiml": {
+        "title": "AI/ML",
+        "description": "Machine learning model implementation"
+      },
+      "automation": {
+        "title": "Automation",
+        "description": "Business process optimization"
+      }
+    }
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "description": "A collection of systems engineering projects spanning automation, AI/ML, and management solutions built to solve real-world challenges.",
+    "categories": {
+      "Web Application": "Web Application",
+      "Business Automation": "Business Automation",
+      "Management System": "Management System",
+      "AI/ML Research": "AI/ML Research",
+      "Blockchain/DeFi": "Blockchain/DeFi",
+      "Healthcare System": "Healthcare System",
+      "Game / AgTech": "Game / AgTech"
+    },
+    "status": {
+      "in-progress": "In Progress",
+      "production": "Production",
+      "prototype": "Prototype",
+      "winner-local / in-evaluation-global": "Winner - Under Global Evaluation"
+    },
+    "cta": {
+      "learnMore": "Learn More",
+      "viewCode": "View Code",
+      "liveDemo": "Live Demo",
+      "getInTouch": "Get In Touch",
+      "backToProjects": "Back to Projects"
+    },
+    "details": {
+      "about": "About This Project",
+      "techStack": "Technology Stack",
+      "features": "Key Features",
+      "links": "Links",
+      "viewSourceCode": "View Source Code"
+    },
+    "timeline": {
+      "title": "Project Timeline",
+      "today": "Today"
+    },
+    "collaboration": {
+      "title": "Interested in collaborating?",
+      "description": "I'm always open to discussing new projects and opportunities in systems engineering and AI/ML."
+    }
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "description": "Ready to discuss your next project or explore collaboration opportunities? I'd love to hear from you.",
+    "form": {
+      "title": "Send a Message",
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "projectType": "Project Type",
+      "projectTypePlaceholder": "Select project type",
+      "message": "Message",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "namePlaceholder": "Your name",
+      "emailPlaceholder": "your.email@example.com",
+      "subjectPlaceholder": "Project inquiry, collaboration, etc.",
+      "messagePlaceholder": "Tell me about your project or how I can help you...",
+      "characters": "characters"
+    },
+    "validation": {
+      "nameRequired": "Name is required",
+      "nameMin": "Name must be at least 2 characters",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email",
+      "subjectRequired": "Subject is required",
+      "subjectMin": "Subject must be at least 5 characters",
+      "messageRequired": "Message is required",
+      "messageMin": "Message must be at least 20 characters"
+    },
+    "projectTypes": {
+      "hire": "Full-time Position",
+      "freelance": "Freelance Project",
+      "collaborate": "Collaboration",
+      "consulting": "Consulting",
+      "other": "Other"
+    },
+    "info": {
+      "title": "Let's Connect",
+      "description": "I'm always interested in discussing new opportunities, whether it's a challenging systems engineering project, AI/ML implementation, or automation solution. Feel free to reach out through any of the channels below."
+    },
+    "methods": {
+      "email": "Email",
+      "location": "Location",
+      "timezone": "Timezone"
+    },
+    "availability": {
+      "title": "Current Availability",
+      "consulting": "Consulting",
+      "freelance": "Freelance Projects",
+      "fulltime": "Full-time Opportunities",
+      "available": "Available",
+      "discuss": "Open to Discuss"
+    },
+    "successMessage": "Message sent successfully! I'll get back to you soon.",
+    "errorMessage": "Error sending message. Please try again."
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "built": "Built with Next.js and Tailwind CSS"
+  },
+  "language": {
+    "switch": "Switch to Spanish",
+    "current": "English"
+  }
+}

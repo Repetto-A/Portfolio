@@ -1,11 +1,14 @@
+"use client"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Calendar, CheckCircle2 } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { useTranslations, getTranslation } from "@/lib/i18n-context"
 
 interface TimelineEvent {
   date: string
-  title: string
-  description: string
+  title: string | { en: string; es: string }
+  description: string | { en: string; es: string }
 }
 
 interface ProjectTimelineProps {
@@ -14,6 +17,8 @@ interface ProjectTimelineProps {
 }
 
 export function ProjectTimeline({ timeline, className }: ProjectTimelineProps) {
+  const [translations, locale] = useTranslations()
+  
   // Parse dates and find current/future events
   const now = new Date()
   
@@ -23,12 +28,18 @@ export function ProjectTimeline({ timeline, className }: ProjectTimelineProps) {
     return new Date(year, month - 1, day) // month is 0-indexed in JS
   }
   
+  // Helper to get localized content
+  const getLocalizedContent = (content: string | { en: string; es: string }) => {
+    if (typeof content === 'string') return content
+    return content[locale as 'en' | 'es'] || content.en
+  }
+  
   return (
     <Card className={cn("", className)}>
       <CardHeader>
         <CardTitle className="flex items-center space-x-2">
           <Calendar className="h-5 w-5 text-primary" />
-          <span>Project Timeline</span>
+          <span>{getTranslation(translations, "projects.timeline.title", "Project Timeline")}</span>
         </CardTitle>
       </CardHeader>
       <CardContent>
@@ -66,7 +77,7 @@ export function ProjectTimeline({ timeline, className }: ProjectTimelineProps) {
                       )}
                       dateTime={event.date}
                     >
-                      {eventDate.toLocaleDateString("en-US", {
+                      {eventDate.toLocaleDateString(locale === 'es' ? 'es-ES' : 'en-US', {
                         month: "short",
                         day: "numeric",
                         year: "numeric",
@@ -74,7 +85,7 @@ export function ProjectTimeline({ timeline, className }: ProjectTimelineProps) {
                     </time>
                     {isToday && (
                       <span className="text-xs font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded-full">
-                        Today
+                        {getTranslation(translations, "projects.timeline.today", "Today")}
                       </span>
                     )}
                   </div>
@@ -84,7 +95,7 @@ export function ProjectTimeline({ timeline, className }: ProjectTimelineProps) {
                       isPast || isToday ? "text-foreground" : "text-muted-foreground"
                     )}
                   >
-                    {event.title}
+                    {getLocalizedContent(event.title)}
                   </h4>
                   <p
                     className={cn(
@@ -92,7 +103,7 @@ export function ProjectTimeline({ timeline, className }: ProjectTimelineProps) {
                       isPast || isToday ? "text-muted-foreground" : "text-muted-foreground/70"
                     )}
                   >
-                    {event.description}
+                    {getLocalizedContent(event.description)}
                   </p>
                 </div>
               </div>

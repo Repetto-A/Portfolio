@@ -1,10 +1,9 @@
 import type React from "react"
 import { Inter, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
 import type { Metadata } from "next"
-import { Analytics } from "@vercel/analytics/next"
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { ThemeProvider } from "@/components/theme-provider"
+import { I18nProvider } from "@/lib/i18n-context"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -23,51 +22,9 @@ export const metadata: Metadata = {
   keywords: ["systems engineering", "AI/ML", "automation", "web development", "portfolio"],
   authors: [{ name: "Alejandro Repetto" }],
   icons: {
-    icon: '/favicon.ico',
+    icon: "/favicon.ico",
   },
-  metadataBase: new URL("https://www.repetto-a.com"),
-  alternates: {
-    canonical: "/",
-  },
-  openGraph: {
-    title: "Alejandro Repetto - Systems Engineer & AI/ML Developer",
-    description: "Portfolio showcasing projects in management systems, automation, and AI/ML development.",
-    type: "website",
-    locale: "en_US",
-    url: "https://www.repetto-a.com",
-    siteName: "Alejandro Repetto Portfolio",
-    images: [
-      {
-        url: 'https://www.repetto-a.com/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: "Alejandro Repetto - Systems Engineer & AI/ML Developer",
-        type: 'image/png',
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Alejandro Repetto - Systems Engineer & AI/ML Developer",
-    description: "Portfolio showcasing projects in management systems, automation, and AI/ML development.",
-    images: [new URL('/og-image.png', 'https://repetto-a.com').toString()],
-    creator: '@alerepetto5',
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  verification: {
-    google: "your-google-verification-code",
-  },
-    generator: 'v0.app'
+  generator: 'v0.app'
 }
 
 export default function RootLayout({
@@ -76,42 +33,17 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} antialiased`} suppressHydrationWarning>
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Alejandro Repetto",
-              jobTitle: "Systems Engineering Student",
-              description:
-                "Systems engineering student specializing in management systems, automation, and AI/ML development",
-              url: "https://www.repetto-a.com",
-              sameAs: ["https://github.com/Repetto-A", "https://linkedin.com/in/alejandro-repetto"],
-              knowsAbout: [
-                "Systems Engineering",
-                "Artificial Intelligence",
-                "Machine Learning",
-                "Automation",
-                "Web Development",
-                "Management Systems",
-              ],
-              alumniOf: {
-                "@type": "EducationalOrganization",
-                name: "Systems Engineering Program",
-              },
-            }),
-          }}
-        />
-        <script defer data-domain="repetto-a.com" src="https://plausible.io/js/script.js"></script>
-      </head>
+    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
       <body>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-          {children}
-          <Analytics />
-          <SpeedInsights />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <I18nProvider>
+            {children}
+          </I18nProvider>
         </ThemeProvider>
       </body>
     </html>

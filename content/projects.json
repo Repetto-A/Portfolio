@@ -1,133 +1,294 @@
 {
   "projects": [
     {
-      "id": "real-estate-system",
-      "title": "Real Estate Management System",
-      "description": "A comprehensive property management platform featuring calendar-based booking system, automated agent email confirmations, internal blog for SEO optimization and content generation, newsletter system.",
-      "status": "production",
-      "techStack": ["Python", "Django", "SQLite", "Bootstrap 5", "Tailwind"],
-      "features": [
-        "Calendar booking system for property viewings",
-        "Automated email confirmations for agents",
-        "Internal blog",
-        "Newsletter subscription system",
-        "Property listing management"
+      "id": "farmhero",
+      "locales": {
+        "en": {
+          "title": "FarmHero — NASA Space Apps Rosario 2025 Winners",
+          "short": "Educational simulator using real NASA/CONAE data to teach sustainable agriculture. Winner of NASA Space Apps Rosario 2025, under Global Judging.",
+          "description": "Educational simulator that uses real NASA and CONAE satellite data to teach resource-management and sustainable agriculture decisions. Players restore degraded land by managing limited capital and choosing interventions (fertilizers, pesticides and irrigation), whose short- and long-term effects the game simulates. Winner of NASA Space Apps Rosario 2025; currently under Global Judging.",
+          "features": [
+            "Simulation of agricultural interventions (irrigation, fertilization, pesticides) with short and long-term effects",
+            "Real data ingestion and normalization: NASA and CONAE satellite layers",
+            "Educational UI with step-by-step guidance widgets",
+            "Agricultural rules and heuristics engine (extensible with ML)",
+            "Simulation of climatic/statistical events (droughts, heat waves, floods) with probabilistic impacts on crops and resources to evaluate mitigation strategies",
+            "Prototype developed in 48 hours; continuous post-hackathon iteration"
+          ]
+        },
+        "es": {
+          "title": "FarmHero — Ganadores NASA Space Apps Rosario 2025",
+          "short": "Simulador educativo que usa datos reales de NASA/CONAE para enseñar agricultura sostenible. Ganador de NASA Space Apps Rosario 2025, en evaluación global.",
+          "description": "Simulador educativo que utiliza datos reales de satélites de NASA y CONAE para enseñar gestión de recursos y decisiones de agricultura sostenible. Los jugadores restauran tierras degradadas gestionando capital limitado y eligiendo intervenciones (fertilizantes, plaguicidas e irrigación), cuyos efectos a corto y largo plazo simula el juego. Ganador de NASA Space Apps Rosario 2025; actualmente bajo evaluación global.",
+          "features": [
+            "Simulación de intervenciones agrícolas (irrigación, fertilización, plaguicidas) con efectos a corto y largo plazo",
+            "Ingesta y normalización de datos reales: capas satelitales de NASA y CONAE",
+            "Interfaz educativa con widgets de orientación paso a paso",
+            "Motor de reglas y heurísticas agrícolas (extensible con ML)",
+            "Simulación de eventos climáticos/estadísticos (sequías, olas de calor, inundaciones) con impactos probabilísticos en cultivos y recursos para evaluar estrategias de mitigación",
+            "Prototipo desarrollado en 48 horas; iteración continua post-hackathon"
+          ]
+        }
+      },
+      "status": "winner-local / in-evaluation-global",
+      "techStack": ["Next.js", "TypeScript", "TailwindCSS"],
+      "githubUrl": "https://github.com/Repetto-A/FarmHero",
+      "demoUrl": "https://farmhero-sepia.vercel.app/",
+      "images": [
+        "/projects/farmhero-1.jpg",
+        "/projects/farmhero-2.jpg",
+        "/projects/farmhero-3.jpg"
       ],
-      "githubUrl": "https://github.com/Repetto-A/Real_Estate_System",
-      "demoUrl": "https://realestatesystem-production.up.railway.app/",
-      "images": ["/projects/realestate-1.png", "/projects/realestate-2.png", "/projects/realestate-3.png", "/projects/realestate-4.png", "/projects/realestate-5.png", "/projects/realestate-6.png", "/projects/realestate-7.png", "/projects/realestate-8.png"],
-      "category": "Management System"
+      "category": "Game / AgTech",
+      "timeline": [
+        {
+          "date": "2025-10-04",
+          "title": {
+            "en": "Hackathon Opening",
+            "es": "Apertura del Hackathon"
+          },
+          "description": {
+            "en": "Competition begins.",
+            "es": "Inicia la competencia."
+          }
+        },
+        {
+          "date": "2025-10-09",
+          "title": {
+            "en": "Rosario Winners",
+            "es": "Ganadores Rosario"
+          },
+          "description": {
+            "en": "First place with FarmHero — NASA Space Apps Rosario 2025.",
+            "es": "Primer puesto con FarmHero — NASA Space Apps Rosario 2025."
+          }
+        },
+        {
+          "date": "2025-11-05",
+          "title": {
+            "en": "2025 Global Nominees",
+            "es": "Nominados Globales 2025"
+          },
+          "description": {
+            "en": "Projects selected by local and universal judges to advance to global stage.",
+            "es": "Proyectos seleccionados por jueces locales y universales para avanzar a instancia global."
+          }
+        },
+        {
+          "date": "2025-11-26",
+          "title": {
+            "en": "2025 Global Finalists",
+            "es": "Finalistas Globales 2025"
+          },
+          "description": {
+            "en": "Review by NASA experts and partner agencies to determine finalists and honorable mentions.",
+            "es": "Revisión por expertos de NASA y agencias asociadas para determinar finalistas y menciones honoríficas."
+          }
+        },
+        {
+          "date": "2025-12-18",
+          "title": {
+            "en": "2025 Global Winners",
+            "es": "Ganadores Globales 2025"
+          },
+          "description": {
+            "en": "NASA executive committee and partners select the 10 global winners among finalists.",
+            "es": "Comité ejecutivo de NASA y partners elige a los 10 ganadores globales entre los finalistas."
+          }
+        }
+      ]
     },
     {
       "id": "nasa-spaceapps",
-      "title": "NASA Space Apps 2024 - Seismic Detection",
-      "description": "AI/ML-powered seismic detection system for lunar and Martian environments. Developed as part of NASA Space Apps Challenge 2024, this project uses machine learning models to analyze seismic data and detect potential moonquakes and marsquakes.",
+      "locales": {
+        "en": {
+          "title": "Seismic Detection - NASA Space Apps 2024",
+          "short": "AI/ML-powered seismic detection system for lunar and Martian environments using machine learning models.",
+          "description": "AI/ML-powered seismic detection system for lunar and Martian environments. Developed as part of NASA Space Apps Challenge 2024, this project uses machine learning models to analyze seismic data and detect potential moonquakes and marsquakes.",
+          "features": [
+            "Machine learning model for seismic pattern recognition",
+            "Data preprocessing pipeline for space seismic data",
+            "Real-time seismic event detection",
+            "Visualization dashboard for seismic activity",
+            "Scientific data analysis and reporting"
+          ]
+        },
+        "es": {
+          "title": "Detección de actividad Sísmica - NASA Space Apps 2024",
+          "short": "Sistema de detección sísmica potenciado por IA/ML para entornos lunares y marcianos usando modelos de aprendizaje automático.",
+          "description": "Sistema de detección sísmica potenciado por IA/ML para entornos lunares y marcianos. Desarrollado como parte del NASA Space Apps Challenge 2024, este proyecto utiliza modelos de aprendizaje automático para analizar datos sísmicos y detectar posibles terremotos lunares y marcianos.",
+          "features": [
+            "Modelo de aprendizaje automático para reconocimiento de patrones sísmicos",
+            "Pipeline de preprocesamiento de datos sísmicos espaciales",
+            "Detección de eventos sísmicos en tiempo real",
+            "Panel de visualización de actividad sísmica",
+            "Análisis y reportes de datos científicos"
+          ]
+        }
+      },
       "status": "production",
       "techStack": ["Python", "TensorFlow", "Keras", "NumPy", "Pandas", "Matplotlib"],
-      "features": [
-        "Machine learning model for seismic pattern recognition",
-        "Data preprocessing pipeline for space seismic data",
-        "Real-time seismic event detection",
-        "Visualization dashboard for seismic activity",
-        "Scientific data analysis and reporting"
-      ],
       "githubUrl": "https://github.com/Repetto-A/AI-Seismic-Detection",
       "demoUrl": null,
       "images": ["/projects/nasa-1.png", "/projects/nasa-2.png", "/projects/nasa-3.png"],
       "category": "AI/ML Research"
     },
     {
+      "id": "braintumorai-web",
+      "locales": {
+        "en": {
+          "title": "Brain Tumor Classifier",
+          "short": "Deep learning brain tumor classifier (95% accuracy) running in your browser for full privacy.",
+          "description": "AI-powered brain tumor classification running entirely in your browser with no server required, ensuring complete privacy. Transform PyTorch deep learning models into real-time web applications with ONNX Runtime Web. Features 95.4% test accuracy on 4 tumor classes (Glioma, Meningioma, Pituitary, No Tumor) with blazing fast 200-400ms predictions after warmup.",
+          "features": [
+            "100% client-side inference - images never leave your device",
+            "95.4% test accuracy on 7,000+ brain MRI images",
+            "WebGL-accelerated computation with 200-400ms predictions",
+            "4 tumor classes: Glioma, Meningioma, Pituitary, No Tumor",
+            "Offline-capable after first model load",
+            "Responsive design - works on any modern browser"
+          ]
+        },
+        "es": {
+          "title": "Clasificador de Tumores Cerebrales",
+          "short": "Clasificador de tumores cerebrales con deep learning (95% precisión) ejecutándose en tu navegador con privacidad total.",
+          "description": "Clasificación de tumores cerebrales potenciada por IA que se ejecuta completamente en tu navegador sin necesidad de servidor, garantizando privacidad total. Transforma modelos de deep learning de PyTorch en aplicaciones web en tiempo real con ONNX Runtime Web. Presenta 95.4% de precisión en 4 clases de tumores (Glioma, Meningioma, Pituitaria, Sin Tumor) con predicciones ultra rápidas de 200-400ms después del calentamiento.",
+          "features": [
+            "Inferencia 100% del lado del cliente - las imágenes nunca salen de tu dispositivo",
+            "95.4% de precisión en más de 7,000 imágenes de resonancia magnética cerebral",
+            "Cómputo acelerado por WebGL con predicciones de 200-400ms",
+            "4 clases de tumores: Glioma, Meningioma, Pituitaria, Sin Tumor",
+            "Funciona sin conexión después de la primera carga del modelo",
+            "Diseño responsivo - funciona en cualquier navegador moderno"
+          ]
+        }
+      },
+      "status": "production",
+      "techStack": ["Next.js", "TypeScript", "ONNX Runtime Web", "PyTorch", "TailwindCSS", "shadcn/ui"],
+      "githubUrl": "https://github.com/Repetto-A/BrainTumorAI-Web",
+      "demoUrl": "https://brain-tumor-ai-web.vercel.app",
+      "images": [
+        "/projects/braintumorai-1.jpg",
+        "/projects/braintumorai-2.jpg",
+        "/projects/braintumorai-3.jpg"
+      ],
+      "category": "AI/ML Research"
+    },
+    {
       "id": "cotibot",
-      "title": "Cotibot",
-      "description": "An intelligent factory quoting system that streamlines the quotation process for manufacturing businesses. Features automated PDF generation, AFIP CUIT lookup integration for Argentine tax validation, and a comprehensive admin pricing panel.",
+      "locales": {
+        "en": {
+          "title": "Cotibot",
+          "short": "Speed up quoting for an agricultural manufacturer: PDF quotes, AFIP CUIT lookup, admin pricing.",
+          "description": "An intelligent factory quoting system that streamlines the quotation process for manufacturing businesses. Features automated PDF generation, AFIP CUIT lookup integration for Argentine tax validation, and a comprehensive admin pricing panel.",
+          "features": [
+            "Automated PDF quote generation",
+            "AFIP CUIT lookup integration",
+            "Admin pricing management panel",
+            "Client quote history tracking",
+            "Real-time pricing calculations"
+          ]
+        },
+        "es": {
+          "title": "Cotibot",
+          "short": "Acelera las cotizaciones para un fabricante agrícola: cotizaciones PDF, búsqueda CUIT AFIP, precios de administrador.",
+          "description": "Un sistema inteligente de cotización para fábricas que agiliza el proceso de cotización para empresas manufactureras. Incluye generación automática de PDF, integración de búsqueda CUIT AFIP para validación fiscal argentina, y un panel integral de precios para administradores.",
+          "features": [
+            "Generación automática de cotizaciones en PDF",
+            "Integración con búsqueda de CUIT en AFIP",
+            "Panel de gestión de precios para administradores",
+            "Seguimiento del historial de cotizaciones de clientes",
+            "Cálculos de precios en tiempo real"
+          ]
+        }
+      },
       "status": "production",
       "techStack": ["TypeScript", "React", "FastAPI", "PostgreSQL", "Tailwind"],
-      "features": [
-        "Automated PDF quote generation",
-        "AFIP CUIT lookup integration",
-        "Admin pricing management panel",
-        "Client quote history tracking",
-        "Real-time pricing calculations"
-      ],
       "githubUrl": "https://github.com/Repetto-A/cotibot",
-      "demoUrl": null,
-      "images": ["/projects/cotibot-1.png", "/projects/cotibot-2.png", "/projects/cotibot-3.png", "/projects/cotibot-4.png"],
+      "demoUrl": "https://cotibot-demo.vercel.app",
+      "images": [
+        "/projects/cotibot-1.png",
+        "/projects/cotibot-2.png",
+        "/projects/cotibot-3.png",
+        "/projects/cotibot-4.png"
+      ],
       "category": "Business Automation"
     },
     {
-      "id": "farmhero",
-      "title": "NASA Space Apps Rosario Winners - FarmHero",
-      "description": "Educational simulator that uses real NASA and CONAE satellites data to teach resource-management and sustainable agriculture decisions. Players restore degraded land by managing limited capital and choosing interventions (fertilizers, biocontrols, irrigation), whose short- and long-term effects the game simulates. Winner of NASA Space Apps Rosario 2025; currently under Global Judging.",
-      "status": "winner-local / in-evaluation-global",
-      "techStack": ["Next.js", "TypeScript", "TailwindCSS"],
-      "features": [
-        "Simulation of agricultural interventions (irrigation, fertilization, biocontrols) with short and long-term effects",
-        "Real data ingestion and normalization: NASA and CONAE satellite layers",
-        "Educational UI with step-by-step guidance widgets",
-        "Agricultural rules and heuristics engine (extensible with ML)",
-        "Simulation of climatic/statistical events (droughts, heat waves, floods) with probabilistic impacts on crops and resources to evaluate mitigation strategies",
-        "Prototype developed in 48 hours; continuous post-hackathon iteration"
-      ],
-      "githubUrl": "https://github.com/Repetto-A/FarmHero",
-      "demoUrl": "https://farmhero-sepia.vercel.app/",
-      "images": [
-        "/projects/farmhero-1.jpg",
-        "/projects/farmhero-2.jpg",
-        "/projects/farmhero-3.jpg",
-        "/projects/farmhero-4.jpg",
-        "/projects/farmhero-5.jpg"
-      ],
-      "category": "Game / AgTech",
-      "timeline": [
-        {
-          "date": "2025-10-04",
-          "title": "Hackathon Opening",
-          "description": "Competition begins."
+      "id": "real-estate-system",
+      "locales": {
+        "en": {
+          "title": "Real Estate Management System",
+          "short": "Comprehensive property management with calendar booking, agent notifications, and Telegram bot integration.",
+          "description": "A comprehensive property management platform featuring calendar-based booking system, automated agent email confirmations, internal blog for SEO optimization and content generation, newsletter system.",
+          "features": [
+            "Calendar booking system for property viewings",
+            "Automated email confirmations for agents",
+            "Internal blog for property updates",
+            "Newsletter subscription system",
+            "Telegram bot for instant notifications",
+            "Property listing management"
+          ]
         },
-        {
-          "date": "2025-10-09",
-          "title": "Rosario Winners",
-          "description": "First place with FarmHero — NASA Space Apps Rosario 2025."
-        },
-        {
-          "date": "2025-11-05",
-          "title": "2025 Global Nominees",
-          "description": "Projects selected by local and universal judges to advance to global stage."
-        },
-        {
-          "date": "2025-11-26",
-          "title": "2025 Global Finalists",
-          "description": "Review by NASA experts and partner agencies to determine finalists and honorable mentions."
-        },
-        {
-          "date": "2025-12-18",
-          "title": "2025 Global Winners",
-          "description": "NASA executive committee and partners select the 10 global winners among finalists."
+        "es": {
+          "title": "Sistema de Gestión Inmobiliaria",
+          "short": "Gestión integral de propiedades con reservas por calendario, notificaciones a agentes e integración con bot de Telegram.",
+          "description": "Una plataforma integral de gestión de propiedades que incluye sistema de reservas basado en calendario, confirmaciones automáticas por email para agentes, blog interno para actualizaciones de propiedades, sistema de newsletter e integración con bot de Telegram para notificaciones instantáneas.",
+          "features": [
+            "Sistema de reservas por calendario para visitas a propiedades",
+            "Confirmaciones automáticas por email para agentes",
+            "Blog interno para actualizaciones de propiedades",
+            "Sistema de suscripción a newsletter",
+            "Bot de Telegram para notificaciones instantáneas",
+            "Gestión de listados de propiedades"
+          ]
         }
-      ]
-    },
-    {
-      "id": "cruisely",
-      "title": "Cruisely",
-      "description": "A comprehensive cruise booking and management platform currently in development. Features partial functionality with demo capabilities for cruise search, booking workflows, and user management systems.",
-      "status": "in-progress",
-      "techStack": ["TypeScript", "React", "Next.js", "FastAPI", "PostgreSQL", "Redis", "Celery", "Tailwind"],
-      "features": [
-        "Cruise search and filtering system",
-        "Booking workflow (partial implementation)",
-        "User authentication and profiles",
-        "Admin dashboard for cruise management"
+      },
+      "status": "production",
+      "techStack": ["Python", "Django", "MySQL", "Bootstrap 5", "Tailwind"],
+      "githubUrl": "https://github.com/Repetto-A/Real_Estate_System",
+      "demoUrl": "https://realestatesystem-production.up.railway.app/",
+      "images": [
+        "/projects/realestate-1.png",
+        "/projects/realestate-2.png",
+        "/projects/realestate-3.png",
+        "/projects/realestate-4.png",
+        "/projects/realestate-5.png",
+        "/projects/realestate-6.png",
+        "/projects/realestate-7.png",
+        "/projects/realestate-8.png"
       ],
-      "githubUrl": "https://github.com/Repetto-A/Cruisely",
-      "demoUrl": null,
-      "images": ["/projects/cruisely-1.png", "/projects/cruisely-2.png", "/projects/cruisely-3.png", "/projects/cruisely-4.png", "/projects/cruisely-5.png", "/projects/cruisely-6.png"],
-      "category": "Web Application"
+      "category": "Management System"
     },
     {
       "id": "bridgify",
-      "title": "Bridgify",
-      "description": "A cryptocurrency swap ramp platform developed during a hackathon. Currently features mock data demonstrating the intended user flow and architecture for seamless crypto-to-fiat and fiat-to-crypto transactions.",
-      "status": "prototype",
+      "locales": {
+        "en": {
+          "title": "Bridgify",
+          "short": "Cryptocurrency swap ramp platform with fiat on/off ramp simulation and wallet integration (hackathon prototype).",
+          "description": "A cryptocurrency swap ramp platform developed during a hackathon. Currently features mock data demonstrating the intended user flow and architecture for seamless crypto-to-fiat and fiat-to-crypto transactions.",
+          "features": [
+            "Cryptocurrency swap interface",
+            "Fiat on/off ramp simulation",
+            "Wallet integration (MetaMask)",
+            "Transaction history tracking",
+            "Multi-currency support (mock data)"
+          ]
+        },
+        "es": {
+          "title": "Bridgify",
+          "short": "Plataforma de intercambio de criptomonedas con simulación de rampa fiat y integración de billetera (prototipo de hackathon).",
+          "description": "Una plataforma de intercambio de criptomonedas desarrollada durante un hackathon. Actualmente incluye datos simulados que demuestran el flujo de usuario previsto y la arquitectura para transacciones fluidas de cripto-a-fiat y fiat-a-cripto.",
+          "features": [
+            "Interfaz de intercambio de criptomonedas",
+            "Simulación de rampa de entrada/salida fiat",
+            "Integración con billetera (MetaMask)",
+            "Seguimiento del historial de transacciones",
+            "Soporte multi-moneda (datos simulados)"
+          ]
+        }
+      },
+      "status": "in-progress",
       "techStack": [
         "TypeScript",
         "Next.js",
@@ -138,13 +299,6 @@
         "IPFS",
         "Filecoin",
         "Tailwind"
-      ],
-      "features": [
-        "Cryptocurrency swap interface",
-        "Fiat on/off ramp simulation",
-        "Wallet integration (MetaMask)",
-        "Transaction history tracking",
-        "Multi-currency support (mock data)"
       ],
       "githubUrl": "https://github.com/Repetto-A/Bridgify/",
       "demoUrl": null,

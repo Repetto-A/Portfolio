@@ -1,0 +1,173 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "about": "Acerca",
+    "skills": "Habilidades",
+    "projects": "Proyectos",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "name": "Alejandro Repetto",
+    "title": "Estudiante de Ingeniería en Sistemas",
+    "description": "Desarrollo sistemas de gestión inteligentes, herramientas de automatización y aplicaciones con IA/ML que ahorran tiempo y simplifican procesos complejos.",
+    "cta": {
+      "projects": "Ver Proyectos",
+      "resume": "Descargar CV"
+    },
+    "stats": {
+      "projects": "Proyectos",
+      "experience": "Años de Experiencia",
+      "specialization": "Especialización"
+    },
+    "status": {
+      "currently": "Actualmente",
+      "building": "Desarrollando Soluciones IA",
+      "focus": "Enfoque",
+      "automation": "Automatización y ML"
+    },
+    "scroll": "Conoce más"
+  },
+  "about": {
+    "title": "Acerca de Mí",
+    "bio": {
+      "short": "Estudiante de ingeniería en sistemas dedicado a crear soluciones inteligentes que ahorran tiempo y simplifican procesos complejos. Me especializo en sistemas de automatización, plataformas de gestión y aplicaciones de IA/ML que transforman desafíos empresariales en flujos de trabajo eficientes.",
+      "background": {
+        "title": "Trayectoria",
+        "text": "Soy un estudiante de ingeniería en sistemas de 23 años especializado en sistemas de gestión, automatización y desarrollo de IA/ML. Mi trabajo se centra en crear soluciones prácticas que resuelven desafíos empresariales reales.\n\nDesde sistemas de cotización para fábricas hasta plataformas de gestión inmobiliaria, disfruto construir aplicaciones que no solo optimizan operaciones sino que también crean experiencias de usuario más fluidas e intuitivas. Recientemente, contribuí al NASA Space Apps Challenge con una solución de detección sísmica potenciada por IA, junto con el desarrollo de herramientas de automatización para diversas industrias."
+      },
+      "approach": {
+        "title": "Enfoque",
+        "text": "Creo que la tecnología debe devolver tiempo a las personas. Cada proyecto comienza con una comprensión profunda del problema central, para luego diseñar soluciones escalables, mantenibles y centradas en el usuario.\n\nMi experiencia abarca desarrollo full-stack, implementación de machine learning y arquitectura de sistemas. Me interesa particularmente cómo la IA y la automatización pueden transformar los procesos empresariales tradicionales y crear nuevas oportunidades de innovación."
+      }
+    }
+  },
+  "skills": {
+    "title": "Habilidades y Tecnologías",
+    "subtitle": "Un conjunto completo de herramientas para construir aplicaciones modernas, desde interfaces frontend hasta sistemas backend potenciados por IA.",
+    "categories": {
+      "languages": "Lenguajes y Frameworks",
+      "frameworks": "IA/ML y Ciencia de Datos",
+      "databases": "Bases de Datos e Infraestructura",
+      "tools": "Automatización e Integración"
+    },
+    "highlights": {
+      "fullstack": {
+        "title": "Full-Stack",
+        "description": "Desarrollo de aplicaciones de extremo a extremo"
+      },
+      "aiml": {
+        "title": "IA/ML",
+        "description": "Implementación de modelos de aprendizaje automático"
+      },
+      "automation": {
+        "title": "Automatización",
+        "description": "Optimización de procesos empresariales"
+      }
+    }
+  },
+  "projects": {
+    "title": "Proyectos Destacados",
+    "description": "Una colección de proyectos de ingeniería en sistemas que abarcan automatización, IA/ML y soluciones de gestión construidas para resolver desafíos del mundo real.",
+    "categories": {
+      "Web Application": "Aplicación Web",
+      "Business Automation": "Automatización Empresarial",
+      "Management System": "Sistema de Gestión",
+      "AI/ML Research": "Investigación IA/ML",
+      "Blockchain/DeFi": "Blockchain/DeFi",
+      "Healthcare System": "Sistema de Salud",
+      "Game / AgTech": "Juego / AgTech"
+    },
+    "status": {
+      "in-progress": "En Progreso",
+      "production": "Producción",
+      "prototype": "Prototipo",
+      "winner-local / in-evaluation-global": "Ganador - En Evaluación Global"
+    },
+    "cta": {
+      "learnMore": "Conoce Más",
+      "viewCode": "Ver Código",
+      "liveDemo": "Demo en Vivo",
+      "getInTouch": "Contactar",
+      "backToProjects": "Volver a Proyectos"
+    },
+    "details": {
+      "about": "Acerca de Este Proyecto",
+      "techStack": "Stack Tecnológico",
+      "features": "Características Clave",
+      "links": "Enlaces",
+      "viewSourceCode": "Ver Código Fuente"
+    },
+    "timeline": {
+      "title": "Cronología del Proyecto",
+      "today": "Hoy"
+    },
+    "collaboration": {
+      "title": "¿Interesado en colaborar?",
+      "description": "Siempre estoy abierto a discutir nuevos proyectos y oportunidades en ingeniería en sistemas e IA/ML."
+    }
+  },
+  "contact": {
+    "title": "Contacto",
+    "description": "¿Listo para discutir tu próximo proyecto? Me encantaría conocer tus ideas.",
+    "info": {
+      "title": "Conectemos",
+      "description": "Siempre estoy interesado en discutir nuevas oportunidades, ya sea un desafío de ingeniería en sistemas, implementación de IA/ML o solución de automatización. No dudes en contactarme por cualquiera de estos canales."
+    },
+    "methods": {
+      "email": "Email",
+      "location": "Ubicación",
+      "timezone": "Zona Horaria"
+    },
+    "availability": {
+      "title": "Disponibilidad Actual",
+      "consulting": "Consultoría",
+      "freelance": "Proyectos Freelance",
+      "fulltime": "Oportunidades Full-time",
+      "available": "Disponible",
+      "discuss": "Abierto a Conversar"
+    },
+    "form": {
+      "title": "Enviar Mensaje",
+      "name": "Nombre",
+      "email": "Email",
+      "subject": "Asunto",
+      "projectType": "Tipo de Proyecto",
+      "projectTypePlaceholder": "Selecciona el tipo de proyecto",
+      "message": "Mensaje",
+      "send": "Enviar Mensaje",
+      "sending": "Enviando...",
+      "namePlaceholder": "Tu nombre",
+      "emailPlaceholder": "tu.email@ejemplo.com",
+      "subjectPlaceholder": "Consulta de proyecto, colaboración, etc.",
+      "messagePlaceholder": "Cuéntame sobre tu proyecto o cómo puedo ayudarte...",
+      "characters": "caracteres"
+    },
+    "validation": {
+      "nameRequired": "El nombre es requerido",
+      "nameMin": "El nombre debe tener al menos 2 caracteres",
+      "emailRequired": "El email es requerido",
+      "emailInvalid": "Por favor ingresa un email válido",
+      "subjectRequired": "El asunto es requerido",
+      "subjectMin": "El asunto debe tener al menos 5 caracteres",
+      "messageRequired": "El mensaje es requerido",
+      "messageMin": "El mensaje debe tener al menos 20 caracteres"
+    },
+    "projectTypes": {
+      "hire": "Posición Full-time",
+      "freelance": "Proyecto Freelance",
+      "collaborate": "Colaboración",
+      "consulting": "Consultoría",
+      "other": "Otro"
+    },
+    "successMessage": "¡Mensaje enviado exitosamente! Te responderé pronto.",
+    "errorMessage": "Error al enviar mensaje. Por favor intenta de nuevo."
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "built": "Construido con Next.js y Tailwind CSS"
+  },
+  "language": {
+    "switch": "Cambiar a Inglés",
+    "current": "Español"
+  }
+}

@@ -234,20 +234,6 @@ const yourFont = YourFont({ subsets: ['latin'] })
 - **XSS Protection**: React's built-in XSS protection
 - **HTTPS**: Enforced in production
 
-## 📱 Browser Support
-
-- Chrome 90+
-- Firefox 88+
-- Safari 14+
-- Edge 90+
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
 
 ## 📄 License
 

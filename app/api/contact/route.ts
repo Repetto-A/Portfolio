@@ -90,6 +90,7 @@ export async function POST(request: Request) {
       { status: 200 }
     );
   } catch (error: any) {
+    console.error('Error sending email:', error);
     return NextResponse.json(
       { 
         success: false, 

@@ -24,7 +24,7 @@ export function Footer() {
             </Link>
 
             <Link
-              href="https://linkedin.com/in/alejandro-repetto"
+              href="https://linkedin.com/in/alex-repetto"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"
@@ -34,7 +34,7 @@ export function Footer() {
             </Link>
 
             <Link
-              href="mailto:repettoalejandroing@gmail.com"
+              href="mailto:alex.repetto@example.com"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               <Mail className="h-5 w-5" />

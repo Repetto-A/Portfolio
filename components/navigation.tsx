@@ -1,24 +1,21 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Moon, Sun, Menu, X } from "lucide-react"
-import { useTheme } from "next-themes"
+import { Menu, X } from "lucide-react"
+import { LanguageSwitcher } from "@/components/language-switcher"
+import { ThemeToggle } from "@/components/theme-toggle"
+import { useTranslations, getTranslation } from "@/lib/i18n-context"
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
-  const [mounted, setMounted] = useState(false)
-  const { theme, setTheme } = useTheme()
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+  const [translations, locale, loading] = useTranslations()
 
   const navItems = [
-    { href: "#about", label: "About" },
-    { href: "#projects", label: "Projects" },
-    { href: "#contact", label: "Contact" },
+    { href: "#about", label: getTranslation(translations, "navigation.about", "About") },
+    { href: "#projects", label: getTranslation(translations, "navigation.projects", "Projects") },
+    { href: "#contact", label: getTranslation(translations, "navigation.contact", "Contact") },
   ]
 
   return (
@@ -33,7 +30,7 @@ export function Navigation() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-4">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -44,32 +41,16 @@ export function Navigation() {
               </Link>
             ))}
 
-            {mounted && (
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="w-9 h-9 p-0"
-              >
-                {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-                <span className="sr-only">Toggle theme</span>
-              </Button>
-            )}
+            <div className="flex items-center space-x-2">
+              <ThemeToggle />
+              <LanguageSwitcher />
+            </div>
           </div>
 
           {/* Mobile Navigation Button */}
           <div className="md:hidden flex items-center space-x-2">
-            {mounted && (
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="w-9 h-9 p-0"
-              >
-                {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-                <span className="sr-only">Toggle theme</span>
-              </Button>
-            )}
+            <ThemeToggle />
+            <LanguageSwitcher />
 
             <Button variant="ghost" size="sm" onClick={() => setIsOpen(!isOpen)} className="w-9 h-9 p-0">
               {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}

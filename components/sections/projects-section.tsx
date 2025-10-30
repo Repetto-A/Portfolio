@@ -1,30 +1,37 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Image from "next/image"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { ImageLightbox } from "@/components/ui/image-lightbox"
-import { ExternalLink, Github, Eye, Calendar, Code, Zap, ZoomIn } from "lucide-react"
+import { ExternalLink, Github, Eye, Calendar, Code, Zap, ZoomIn, Clock, Star } from "lucide-react"
 import Link from "next/link"
 import projectsData from "@/content/projects.json"
 import { cn } from "@/lib/utils"
+import { useTranslations, getTranslation } from "@/lib/i18n-context"
 import { ProjectTimeline } from "@/components/project-timeline"
 
-declare global {
-  interface Window {
-    gtag?: (...args: any[]) => void;
-  }
-}
-
-const statusConfig = {
-  "in-progress": { label: "In Progress", color: "bg-yellow-500/10 text-yellow-500 border-yellow-500/20" },
-  production: { label: "Production", color: "bg-green-500/10 text-green-500 border-green-500/20" },
-  "winner-local / in-evaluation-global": { label: "Winner - Under Global Evaluation", color: "bg-blue-500/10 text-blue-500 border-blue-500/20" },
-  prototype: { label: "Prototype", color: "bg-purple-500/10 text-purple-500 border-purple-500/20" }
-}
+const getStatusConfig = (translations: any) => ({
+  "in-progress": {
+    label: getTranslation(translations, "projects.status.in-progress", "In Progress"),
+    color: "bg-yellow-500/10 text-yellow-500 border-yellow-500/20",
+  },
+  production: {
+    label: getTranslation(translations, "projects.status.production", "Production"),
+    color: "bg-green-500/10 text-green-500 border-green-500/20",
+  },
+  prototype: {
+    label: getTranslation(translations, "projects.status.prototype", "Prototype"),
+    color: "bg-purple-500/10 text-purple-500 border-purple-500/20",
+  },
+  "winner-local / in-evaluation-global": {
+    label: getTranslation(translations, "projects.status.winner-local / in-evaluation-global", "Winner - Under Global Evaluation"),
+    color: "bg-blue-500/10 text-blue-500 border-blue-500/20",
+  },
+})
 
 const categoryIcons = {
   "Web Application": Code,
@@ -38,11 +45,16 @@ const categoryIcons = {
 
 interface Project {
   id: string
-  title: string
-  description: string
-  status: keyof typeof statusConfig
+  locales: {
+    [key: string]: {
+      title: string
+      short: string
+      description: string
+      features: string[]
+    }
+  }
+  status: string
   techStack: string[]
-  features: string[]
   githubUrl: string
   demoUrl: string | null
   images: string[]
@@ -50,33 +62,14 @@ interface Project {
 }
 
 export function ProjectsSection() {
+  const [translations, locale, loading] = useTranslations()
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [lightboxImages, setLightboxImages] = useState<string[]>([])
   const [lightboxInitialIndex, setLightboxInitialIndex] = useState(0)
   const [lightboxProjectTitle, setLightboxProjectTitle] = useState("")
 
-  // Inicializar con funciones vacías
-  const [analytics, setAnalytics] = useState({
-    trackImageOpen: () => {},
-    trackImageClose: () => {},
-    trackImageDownload: () => {}
-  })
-
-  // Cargar el hook solo en el cliente
-  useEffect(() => {
-    const loadAnalytics = async () => {
-      try {
-        const module = await import("@/components/ui/image-lightbox")
-        setAnalytics(module.useImageLightboxAnalytics())
-      } catch (e) {
-        console.error("Error loading analytics:", e)
-      }
-    }
-    loadAnalytics()
-  }, [])
-
-  const { trackImageOpen, trackImageClose, trackImageDownload } = analytics
+  const statusConfig = getStatusConfig(translations)
 
   const openLightbox = (images: string[], initialIndex: number, projectTitle: string) => {
     setLightboxImages(images)
@@ -89,14 +82,27 @@ export function ProjectsSection() {
     setLightboxOpen(false)
   }
 
+  const handleProjectModalOpen = (project: Project) => {
+    setSelectedProject(project)
+  }
+
+  const handleLinkClick = (type: "github" | "demo", projectId: string) => {
+    console.log(`Project ${type} Click`, { projectId })
+  }
+
   return (
     <section id="projects" className="py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center space-y-4 mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Featured Projects</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
+            {getTranslation(translations, "projects.title", "Featured Projects")}
+          </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-            A collection of systems engineering projects spanning automation, AI/ML, and management solutions built to
-            solve real-world challenges.
+            {getTranslation(
+              translations,
+              "projects.description",
+              "A collection of systems engineering projects spanning automation, AI/ML, and management solutions built to solve real-world challenges.",
+            )}
           </p>
         </div>
 
@@ -104,16 +110,18 @@ export function ProjectsSection() {
           {projectsData.projects.map((projectData) => {
             const project: Project = {
               ...projectData,
-              status: (projectData.status in statusConfig
+              status: projectData.status in statusConfig
                 ? projectData.status
-                : "in-progress") as keyof typeof statusConfig,
+                : "in-progress",
               category: (projectData.category in categoryIcons
                 ? projectData.category
                 : "Web Application") as keyof typeof categoryIcons,
             }
 
-            const IconComponent = categoryIcons[project.category as keyof typeof categoryIcons] || Code
-            const statusStyle = statusConfig[project.status]
+            const IconComponent = categoryIcons[project.category] || Code
+            const statusStyle = statusConfig[project.status as keyof typeof statusConfig] || statusConfig["in-progress"]
+
+            const projectContent = project.locales[locale] || project.locales["en"]
 
             return (
               <Card key={project.id} className="group hover:shadow-lg transition-all duration-300 h-full flex flex-col">
@@ -126,15 +134,17 @@ export function ProjectsSection() {
                       </Badge>
                     </div>
                     <Badge variant="secondary" className="text-xs">
-                      {project.category}
+                      {getTranslation(translations, `projects.categories.${project.category}`, project.category)}
                     </Badge>
                   </div>
 
-                  <CardTitle className="text-xl group-hover:text-primary transition-colors">{project.title}</CardTitle>
+                  <CardTitle className="text-xl group-hover:text-primary transition-colors">
+                    {projectContent.title}
+                  </CardTitle>
                 </CardHeader>
 
                 <CardContent className="flex-1 flex flex-col space-y-4">
-                  <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">{project.description}</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">{projectContent.short}</p>
 
                   <div className="flex flex-wrap gap-1">
                     {project.techStack.slice(0, 3).map((tech) => (
@@ -156,6 +166,7 @@ export function ProjectsSection() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-muted-foreground hover:text-foreground transition-colors"
+                        onClick={() => handleLinkClick("github", project.id)}
                       >
                         <Github className="h-4 w-4" />
                         <span className="sr-only">View on GitHub</span>
@@ -167,6 +178,7 @@ export function ProjectsSection() {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-muted-foreground hover:text-foreground transition-colors"
+                          onClick={() => handleLinkClick("demo", project.id)}
                         >
                           <ExternalLink className="h-4 w-4" />
                           <span className="sr-only">View live demo</span>
@@ -176,15 +188,20 @@ export function ProjectsSection() {
 
                     <Dialog>
                       <DialogTrigger asChild>
-                        <Button variant="ghost" size="sm" onClick={() => setSelectedProject(project)}>
-                          Learn More
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => handleProjectModalOpen(project)}
+                          aria-label={`Learn more about ${projectContent.title}`}
+                        >
+                          {getTranslation(translations, "projects.cta.learnMore", "Learn More")}
                         </Button>
                       </DialogTrigger>
                       <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
                         <DialogHeader>
                           <DialogTitle className="flex items-center space-x-2">
                             <IconComponent className="h-5 w-5 text-primary" />
-                            <span>{project.title}</span>
+                            <span>{projectContent.title}</span>
                             <Badge variant="outline" className={statusStyle.color}>
                               {statusStyle.label}
                             </Badge>
@@ -200,20 +217,20 @@ export function ProjectsSection() {
                                   <div
                                     key={index}
                                     className="group relative aspect-video bg-muted rounded-lg overflow-hidden cursor-pointer"
-                                    onClick={() => openLightbox(project.images, index, project.title)}
+                                    onClick={() => openLightbox(project.images, index, projectContent.title)}
                                     tabIndex={0}
                                     role="button"
-                                    aria-label={`View ${project.title} screenshot ${index + 1} in lightbox`}
+                                    aria-label={`View ${projectContent.title} screenshot ${index + 1} in lightbox`}
                                     onKeyDown={(e) => {
                                       if (e.key === "Enter" || e.key === " ") {
                                         e.preventDefault()
-                                        openLightbox(project.images, index, project.title)
+                                        openLightbox(project.images, index, projectContent.title)
                                       }
                                     }}
                                   >
                                     <Image
                                       src={fullPath || "/placeholder.svg"}
-                                      alt={`${project.title} screenshot ${index + 1}`}
+                                      alt={`${projectContent.title} screenshot ${index + 1}`}
                                       fill
                                       className={cn(
                                         "object-cover transition-all duration-300",
@@ -222,7 +239,7 @@ export function ProjectsSection() {
                                       onError={(e) => {
                                         console.error(`Error loading image: ${fullPath}`)
                                         const target = e.target as HTMLImageElement
-                                        target.src = `/placeholder.png?height=300&width=500&text=${encodeURIComponent(project.title)}`
+                                        target.src = `/placeholder.png?height=300&width=500&text=${encodeURIComponent(projectContent.title)}`
                                         target.onerror = null
                                       }}
                                     />
@@ -254,15 +271,17 @@ export function ProjectsSection() {
                               })}
                           </div>
 
-                          {/* Description */}
                           <div>
-                            <h4 className="font-semibold text-foreground mb-2">About This Project</h4>
-                            <p className="text-muted-foreground leading-relaxed">{project.description}</p>
+                            <h4 className="font-semibold text-foreground mb-2">
+                              {getTranslation(translations, "projects.details.about", "About This Project")}
+                            </h4>
+                            <p className="text-muted-foreground leading-relaxed">{projectContent.description}</p>
                           </div>
 
-                          {/* Tech Stack */}
                           <div>
-                            <h4 className="font-semibold text-foreground mb-3">Technology Stack</h4>
+                            <h4 className="font-semibold text-foreground mb-3">
+                              {getTranslation(translations, "projects.details.techStack", "Technology Stack")}
+                            </h4>
                             <div className="flex flex-wrap gap-2">
                               {project.techStack.map((tech) => (
                                 <Badge key={tech} variant="secondary">
@@ -272,11 +291,12 @@ export function ProjectsSection() {
                             </div>
                           </div>
 
-                          {/* Key Features */}
                           <div>
-                            <h4 className="font-semibold text-foreground mb-3">Key Features</h4>
+                            <h4 className="font-semibold text-foreground mb-3">
+                              {getTranslation(translations, "projects.details.features", "Key Features")}
+                            </h4>
                             <ul className="space-y-2">
-                              {project.features.map((feature, index) => (
+                              {(projectContent.features || []).map((feature, index) => (
                                 <li key={index} className="flex items-start space-x-2 text-muted-foreground">
                                   <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
                                   <span className="text-sm">{feature}</span>
@@ -290,12 +310,11 @@ export function ProjectsSection() {
                             <ProjectTimeline timeline={(projectData as any).timeline} />
                           )}
 
-                          {/* Links */}
                           <div className="flex items-center space-x-4 pt-4 border-t border-border">
                             <Button asChild variant="default">
                               <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                                 <Github className="mr-2 h-4 w-4" />
-                                View Code
+                                {getTranslation(translations, "projects.cta.viewCode", "View Code")}
                               </Link>
                             </Button>
 
@@ -303,7 +322,7 @@ export function ProjectsSection() {
                               <Button asChild variant="outline">
                                 <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer">
                                   <ExternalLink className="mr-2 h-4 w-4" />
-                                  Live Demo
+                                  {getTranslation(translations, "projects.cta.liveDemo", "Live Demo")}
                                 </Link>
                               </Button>
                             )}
@@ -318,15 +337,20 @@ export function ProjectsSection() {
           })}
         </div>
 
-        {/* Call to Action */}
         <div className="text-center mt-16">
           <div className="space-y-4">
-            <h3 className="text-xl font-semibold text-foreground">Interested in collaborating?</h3>
+            <h3 className="text-xl font-semibold text-foreground">
+              {getTranslation(translations, "projects.collaboration.title", "Interested in collaborating?")}
+            </h3>
             <p className="text-muted-foreground">
-              I'm always open to discussing new projects and opportunities in systems engineering and AI/ML.
+              {getTranslation(
+                translations,
+                "projects.collaboration.description",
+                "I'm always open to discussing new projects and opportunities in systems engineering and AI/ML.",
+              )}
             </p>
             <Button asChild size="lg">
-              <Link href="#contact">Get In Touch</Link>
+              <Link href="#contact">{getTranslation(translations, "projects.cta.getInTouch", "Get In Touch")}</Link>
             </Button>
           </div>
         </div>
@@ -338,9 +362,6 @@ export function ProjectsSection() {
         isOpen={lightboxOpen}
         onClose={closeLightbox}
         projectTitle={lightboxProjectTitle}
-        onImageOpen={(index) => trackImageOpen(lightboxProjectTitle, index)}
-        onImageClose={trackImageClose}
-        onImageDownload={trackImageDownload}
       />
     </section>
   )
