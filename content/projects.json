@@ -4,7 +4,7 @@
       "id": "farmhero",
       "locales": {
         "en": {
-          "title": "FarmHero — NASA Space Apps Rosario 2025 Winners",
+          "title": "FarmHero — NASA Space Apps Global nominees 2025",
           "short": "Educational simulator using real NASA/CONAE data to teach sustainable agriculture. Winner of NASA Space Apps Rosario 2025, under Global Judging.",
           "description": "Educational simulator that uses real NASA and CONAE satellite data to teach resource-management and sustainable agriculture decisions. Players restore degraded land by managing limited capital and choosing interventions (fertilizers, pesticides and irrigation), whose short- and long-term effects the game simulates. Winner of NASA Space Apps Rosario 2025; currently under Global Judging.",
           "features": [
@@ -17,7 +17,7 @@
           ]
         },
         "es": {
-          "title": "FarmHero — Ganadores NASA Space Apps Rosario 2025",
+          "title": "FarmHero — Nominados globales NASA Space Apps 2025",
           "short": "Simulador educativo que usa datos reales de NASA/CONAE para enseñar agricultura sostenible. Ganador de NASA Space Apps Rosario 2025, en evaluación global.",
           "description": "Simulador educativo que utiliza datos reales de satélites de NASA y CONAE para enseñar gestión de recursos y decisiones de agricultura sostenible. Los jugadores restauran tierras degradadas gestionando capital limitado y eligiendo intervenciones (fertilizantes, plaguicidas e irrigación), cuyos efectos a corto y largo plazo simula el juego. Ganador de NASA Space Apps Rosario 2025; actualmente bajo evaluación global.",
           "features": [
@@ -32,7 +32,7 @@
       },
       "status": "winner-local / in-evaluation-global",
       "techStack": ["Next.js", "TypeScript", "TailwindCSS"],
-      "githubUrl": "https://github.com/Repetto-A/FarmHero",
+      "githubUrl": "https://github.com/Repetto-A/NASA-FarmHero",
       "demoUrl": "https://nasa-farm-hero.vercel.app/",
       "images": [
         "/projects/farmhero-1.jpg",
