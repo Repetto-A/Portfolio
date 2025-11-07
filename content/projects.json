@@ -33,7 +33,7 @@
       "status": "winner-local / in-evaluation-global",
       "techStack": ["Next.js", "TypeScript", "TailwindCSS"],
       "githubUrl": "https://github.com/Repetto-A/FarmHero",
-      "demoUrl": "https://farmhero-sepia.vercel.app/",
+      "demoUrl": "https://nasa-farm-hero.vercel.app/",
       "images": [
         "/projects/farmhero-1.jpg",
         "/projects/farmhero-2.jpg",
