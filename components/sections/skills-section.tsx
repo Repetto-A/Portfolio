@@ -2,6 +2,10 @@
 
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Container } from "@/components/layout/container"
+import { Section } from "@/components/layout/section"
+import { SectionHeader } from "@/components/layout/section-header"
+import { Grid } from "@/components/layout/grid"
 import { useTranslations, getTranslation } from "@/lib/i18n-context"
 
 export function SkillsSection() {
@@ -87,22 +91,18 @@ export function SkillsSection() {
   ]
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-muted/30">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center space-y-4 mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-            {getTranslation(translations, "skills.title", "Skills & Technologies")}
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-            {getTranslation(
-              translations,
-              "skills.subtitle",
-              "A comprehensive toolkit for building modern applications, from frontend interfaces to AI-powered backend systems."
-            )}
-          </p>
-        </div>
+    <Section variant="muted" spacing="default">
+      <Container maxWidth="7xl">
+        <SectionHeader
+          title={getTranslation(translations, "skills.title", "Skills & Technologies")}
+          description={getTranslation(
+            translations,
+            "skills.subtitle",
+            "A comprehensive toolkit for building modern applications, from frontend interfaces to AI-powered backend systems.",
+          )}
+        />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <Grid cols={{ md: 2, lg: 4 }} gap="md">
           {skillCategories.map((category, index) => (
             <Card key={index} className="h-full">
               <CardHeader>
@@ -125,36 +125,50 @@ export function SkillsSection() {
               </CardContent>
             </Card>
           ))}
-        </div>
+        </Grid>
 
         {/* Experience Highlights */}
-        <div className="mt-16 grid md:grid-cols-3 gap-8">
-          <div className="text-center space-y-2">
-            <div className="text-3xl font-bold text-primary">
-              {getTranslation(translations, "skills.highlights.fullstack.title", "Full-Stack")}
+        <div className="mt-12 lg:mt-16">
+          <Grid cols={{ md: 3 }} gap="lg">
+            <div className="text-center space-y-2">
+              <div className="font-bold text-primary" style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>
+                {getTranslation(translations, "skills.highlights.fullstack.title", "Full-Stack")}
+              </div>
+              <div className="text-sm text-muted-foreground">
+                {getTranslation(
+                  translations,
+                  "skills.highlights.fullstack.description",
+                  "End-to-end application development",
+                )}
+              </div>
             </div>
-            <div className="text-sm text-muted-foreground">
-              {getTranslation(translations, "skills.highlights.fullstack.description", "End-to-end application development")}
+            <div className="text-center space-y-2">
+              <div className="font-bold text-primary" style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>
+                {getTranslation(translations, "skills.highlights.aiml.title", "AI/ML")}
+              </div>
+              <div className="text-sm text-muted-foreground">
+                {getTranslation(
+                  translations,
+                  "skills.highlights.aiml.description",
+                  "Machine learning model implementation",
+                )}
+              </div>
             </div>
-          </div>
-          <div className="text-center space-y-2">
-            <div className="text-3xl font-bold text-primary">
-              {getTranslation(translations, "skills.highlights.aiml.title", "AI/ML")}
+            <div className="text-center space-y-2">
+              <div className="font-bold text-primary" style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>
+                {getTranslation(translations, "skills.highlights.automation.title", "Automation")}
+              </div>
+              <div className="text-sm text-muted-foreground">
+                {getTranslation(
+                  translations,
+                  "skills.highlights.automation.description",
+                  "Business process optimization",
+                )}
+              </div>
             </div>
-            <div className="text-sm text-muted-foreground">
-              {getTranslation(translations, "skills.highlights.aiml.description", "Machine learning model implementation")}
-            </div>
-          </div>
-          <div className="text-center space-y-2">
-            <div className="text-3xl font-bold text-primary">
-              {getTranslation(translations, "skills.highlights.automation.title", "Automation")}
-            </div>
-            <div className="text-sm text-muted-foreground">
-              {getTranslation(translations, "skills.highlights.automation.description", "Business process optimization")}
-            </div>
-          </div>
+          </Grid>
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   )
 }

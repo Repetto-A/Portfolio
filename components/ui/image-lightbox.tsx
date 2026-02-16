@@ -18,6 +18,24 @@ interface ImageLightboxProps {
   projectTitle?: string
 }
 
+export function useImageLightboxAnalytics() {
+  const trackEvent = useCallback((eventName: string, properties?: Record<string, string | number>) => {
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", eventName, properties)
+    }
+  }, [])
+
+  return {
+    trackImageOpen: (projectTitle: string, imageIndex: number) =>
+      trackEvent("image_open", { project: projectTitle, index: imageIndex }),
+    trackImageClose: (projectTitle: string) => trackEvent("image_close", { project: projectTitle }),
+    trackImageNavigate: (projectTitle: string, imageIndex: number) =>
+      trackEvent("image_navigate", { project: projectTitle, index: imageIndex }),
+    trackImageDownload: (projectTitle: string, imageIndex: number) =>
+      trackEvent("image_download", { project: projectTitle, index: imageIndex }),
+  }
+}
+
 export function ImageLightbox({ images, initialIndex = 0, isOpen, onClose, projectTitle }: ImageLightboxProps) {
   const [currentIndex, setCurrentIndex] = useState(initialIndex)
   const [isLoading, setIsLoading] = useState(true)
@@ -25,6 +43,7 @@ export function ImageLightbox({ images, initialIndex = 0, isOpen, onClose, proje
   const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(null)
   const imageRef = useRef<HTMLImageElement>(null)
   const dialogRef = useRef<HTMLDivElement>(null)
+  const analytics = useImageLightboxAnalytics()
 
   // Reset state when dialog opens/closes
   useEffect(() => {
@@ -32,8 +51,15 @@ export function ImageLightbox({ images, initialIndex = 0, isOpen, onClose, proje
       setCurrentIndex(initialIndex)
       setIsZoomed(false)
       setIsLoading(true)
+      if (projectTitle) {
+        analytics.trackImageOpen(projectTitle, initialIndex)
+      }
+    } else {
+      if (projectTitle) {
+        analytics.trackImageClose(projectTitle)
+      }
     }
-  }, [isOpen, initialIndex])
+  }, [isOpen, initialIndex, projectTitle, analytics])
 
   // Preload adjacent images for smooth navigation
   useEffect(() => {
@@ -95,16 +121,22 @@ export function ImageLightbox({ images, initialIndex = 0, isOpen, onClose, proje
       setCurrentIndex((prev) => prev + 1)
       setIsLoading(true)
       setIsZoomed(false)
+      if (projectTitle) {
+        analytics.trackImageNavigate(projectTitle, currentIndex + 1)
+      }
     }
-  }, [currentIndex, images.length])
+  }, [currentIndex, images.length, projectTitle, analytics])
 
   const navigateToPrevious = useCallback(() => {
     if (currentIndex > 0) {
       setCurrentIndex((prev) => prev - 1)
       setIsLoading(true)
       setIsZoomed(false)
+      if (projectTitle) {
+        analytics.trackImageNavigate(projectTitle, currentIndex - 1)
+      }
     }
-  }, [currentIndex])
+  }, [currentIndex, projectTitle, analytics])
 
   const toggleFullscreen = useCallback(() => {
     if (!document.fullscreenElement) {
@@ -128,10 +160,13 @@ export function ImageLightbox({ images, initialIndex = 0, isOpen, onClose, proje
       a.click()
       document.body.removeChild(a)
       window.URL.revokeObjectURL(url)
+      if (projectTitle) {
+        analytics.trackImageDownload(projectTitle, currentIndex)
+      }
     } catch (error) {
       console.error("Download failed:", error)
     }
-  }, [images, currentIndex, projectTitle])
+  }, [images, currentIndex, projectTitle, analytics])
 
   // Touch/swipe handling
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -302,6 +337,9 @@ export function ImageLightbox({ images, initialIndex = 0, isOpen, onClose, proje
                     setCurrentIndex(index)
                     setIsLoading(true)
                     setIsZoomed(false)
+                    if (projectTitle) {
+                      analytics.trackImageNavigate(projectTitle, index)
+                    }
                   }}
                   className={cn(
                     "w-2 h-2 rounded-full transition-colors",

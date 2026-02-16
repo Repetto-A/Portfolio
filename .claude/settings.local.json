@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir:*)",
+      "Bash(npx next build:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npm ls:*)",
+      "Bash(npm install:*)",
+      "Bash(pnpm add:*)",
+      "Bash(npx playwright install:*)",
+      "Bash(curl:*)",
+      "Bash(pnpm dev)",
+      "Bash(timeout 20 bash -c 'while ! curl -s -o /dev/null -w \"\"%{http_code}\"\" http://localhost:3000 2>/dev/null | grep -q \"\"200\"\"; do sleep 2; echo \"\"Waiting...\"\"; done; echo \"\"Server ready!\"\"')",
+      "Bash(npx playwright test:*)",
+      "Bash(timeout 25 bash:*)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(taskkill:*)",
+      "Bash(timeout 30 bash:*)",
+      "Bash(node -e:*)",
+      "Bash(node:*)"
+    ]
+  }
+}

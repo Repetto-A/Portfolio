@@ -2,7 +2,6 @@
   "navigation": {
     "home": "Home",
     "about": "About",
-    "skills": "Skills",
     "projects": "Projects",
     "contact": "Contact"
   },
@@ -107,8 +106,6 @@
     }
   },
   "contact": {
-    "title": "Get In Touch",
-    "description": "Ready to discuss your next project or explore collaboration opportunities? I'd love to hear from you.",
     "form": {
       "title": "Send a Message",
       "name": "Name",

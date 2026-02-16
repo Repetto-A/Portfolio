@@ -31,6 +31,10 @@ const getButtonClasses = (variant = "default", size = "default") => {
   return `${baseClasses} ${variantClasses[variant as keyof typeof variantClasses]} ${sizeClasses[size as keyof typeof sizeClasses]}`
 }
 
+export const buttonVariants = (variant: ButtonProps["variant"] = "default", size: ButtonProps["size"] = "default") => {
+  return getButtonClasses(variant, size)
+}
+
 function Button({ className, variant = "default", size = "default", asChild = false, ...props }: ButtonProps) {
   const Comp = asChild ? Slot : "button"
 

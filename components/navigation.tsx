@@ -7,10 +7,13 @@ import { Menu, X } from "lucide-react"
 import { LanguageSwitcher } from "@/components/language-switcher"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { useTranslations, getTranslation } from "@/lib/i18n-context"
+import { useScrollContext } from "@/lib/scroll-context"
+import { cn } from "@/lib/utils"
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [translations, locale, loading] = useTranslations()
+  const { registerNavTitleRef, isFloatingTitleActive, scrollProgress, fontsReady, animationHasRun } = useScrollContext()
 
   const navItems = [
     { href: "#about", label: getTranslation(translations, "navigation.about", "About") },
@@ -24,9 +27,16 @@ export function Navigation() {
         <div className="flex justify-between items-center h-16">
           <Link
             href="/"
-            className="font-mono text-lg font-semibold text-foreground hover:text-primary transition-colors"
+            className={cn(
+              "font-mono text-lg font-semibold text-foreground hover:text-primary transition-colors transition-opacity duration-100",
+              // Show the nav brand only when:
+              // 1. Fonts are ready AND animation has completed its first run AND user is scrolled past hero
+              // 2. OR animation was never eligible (e.g. reduced motion, mid-page landing)
+              // In all other cases, hide it to avoid overlap with hero h1 or floating clone.
+              !(fontsReady && animationHasRun && scrollProgress >= 1) && "opacity-0",
+            )}
           >
-            Alejandro Repetto
+            <span ref={registerNavTitleRef}>Alejandro Repetto</span>
           </Link>
 
           {/* Desktop Navigation */}

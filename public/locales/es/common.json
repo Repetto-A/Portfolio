@@ -2,7 +2,6 @@
   "navigation": {
     "home": "Inicio",
     "about": "Acerca",
-    "skills": "Habilidades",
     "projects": "Proyectos",
     "contact": "Contacto"
   },
@@ -107,8 +106,6 @@
     }
   },
   "contact": {
-    "title": "Contacto",
-    "description": "¿Listo para discutir tu próximo proyecto? Me encantaría conocer tus ideas.",
     "info": {
       "title": "Conectemos",
       "description": "Siempre estoy interesado en discutir nuevas oportunidades, ya sea un desafío de ingeniería en sistemas, implementación de IA/ML o solución de automatización. No dudes en contactarme por cualquiera de estos canales."

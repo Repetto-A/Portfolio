@@ -79,18 +79,6 @@ export function ContactSection() {
   return (
     <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center space-y-4 mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-            {getTranslation(translations, "contact.title", "Get In Touch")}
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-            {getTranslation(
-              translations,
-              "contact.description",
-              "Ready to collaborate on your next systems engineering project? Let's discuss how we can build something amazing together.",
-            )}
-          </p>
-        </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Information */}

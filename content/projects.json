@@ -34,11 +34,7 @@
       "techStack": ["Next.js", "TypeScript", "TailwindCSS"],
       "githubUrl": "https://github.com/Repetto-A/NASA-FarmHero",
       "demoUrl": "https://nasa-farm-hero.vercel.app/",
-      "images": [
-        "/projects/farmhero-1.jpg",
-        "/projects/farmhero-2.jpg",
-        "/projects/farmhero-3.jpg"
-      ],
+      "images": ["/projects/farmhero-1.jpg", "/projects/farmhero-2.jpg", "/projects/farmhero-3.jpg"],
       "category": "Game / AgTech",
       "timeline": [
         {
@@ -167,11 +163,7 @@
       "techStack": ["Next.js", "TypeScript", "ONNX Runtime Web", "PyTorch", "TailwindCSS", "shadcn/ui"],
       "githubUrl": "https://github.com/Repetto-A/BrainTumorAI-Web",
       "demoUrl": "https://brain-tumor-ai-web.vercel.app",
-      "images": [
-        "/projects/braintumorai-1.jpg",
-        "/projects/braintumorai-2.jpg",
-        "/projects/braintumorai-3.jpg"
-      ],
+      "images": ["/projects/braintumorai-1.jpg", "/projects/braintumorai-2.jpg", "/projects/braintumorai-3.jpg"],
       "category": "AI/ML Research"
     },
     {
@@ -259,51 +251,6 @@
         "/projects/realestate-8.png"
       ],
       "category": "Management System"
-    },
-    {
-      "id": "bridgify",
-      "locales": {
-        "en": {
-          "title": "Bridgify",
-          "short": "Cryptocurrency swap ramp platform with fiat on/off ramp simulation and wallet integration (hackathon prototype).",
-          "description": "A cryptocurrency swap ramp platform developed during a hackathon. Currently features mock data demonstrating the intended user flow and architecture for seamless crypto-to-fiat and fiat-to-crypto transactions.",
-          "features": [
-            "Cryptocurrency swap interface",
-            "Fiat on/off ramp simulation",
-            "Wallet integration (MetaMask)",
-            "Transaction history tracking",
-            "Multi-currency support (mock data)"
-          ]
-        },
-        "es": {
-          "title": "Bridgify",
-          "short": "Plataforma de intercambio de criptomonedas con simulación de rampa fiat y integración de billetera (prototipo de hackathon).",
-          "description": "Una plataforma de intercambio de criptomonedas desarrollada durante un hackathon. Actualmente incluye datos simulados que demuestran el flujo de usuario previsto y la arquitectura para transacciones fluidas de cripto-a-fiat y fiat-a-cripto.",
-          "features": [
-            "Interfaz de intercambio de criptomonedas",
-            "Simulación de rampa de entrada/salida fiat",
-            "Integración con billetera (MetaMask)",
-            "Seguimiento del historial de transacciones",
-            "Soporte multi-moneda (datos simulados)"
-          ]
-        }
-      },
-      "status": "in-progress",
-      "techStack": [
-        "TypeScript",
-        "Next.js",
-        "Solidity",
-        "Hardhat",
-        "Web3.js",
-        "Ethers.js",
-        "IPFS",
-        "Filecoin",
-        "Tailwind"
-      ],
-      "githubUrl": "https://github.com/Repetto-A/Bridgify/",
-      "demoUrl": null,
-      "images": ["/projects/bridgify-1.png", "/projects/bridgify-2.png"],
-      "category": "Blockchain/DeFi"
     }
   ]
 }
