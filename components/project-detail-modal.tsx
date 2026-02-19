@@ -10,15 +10,13 @@ import {
 } from "@/components/ui/dialog"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ScrollArea } from "@/components/ui/scroll-area"
 import { ImageLightbox } from "@/components/ui/image-lightbox"
-import { Github, ExternalLink, Newspaper, ChevronDown, ChevronUp } from "lucide-react"
+import { Github, ExternalLink, Newspaper, ChevronDown } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { useTranslations, getTranslation } from "@/lib/i18n-context"
 import { getAwardForProject } from "@/lib/project-utils"
 import { PressArticleItem, PressVideoItem } from "@/components/press-modal"
-import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible"
 import type { Project } from "@/types/project"
 import type { PressLink } from "@/data/awards"
 
@@ -41,6 +39,8 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
   const pressLinks: PressLink[] =
     award?.press?.enabled && award.press.links.length > 0 ? award.press.links : []
 
+  console.log("[DEBUG] project.id:", project.id, "| award:", !!award, "| pressLinks:", pressLinks.length)
+
   const handleOpenChange = (open: boolean) => {
     if (!open) onClose()
   }
@@ -62,7 +62,7 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
             <DialogDescription className="sr-only">{content.short}</DialogDescription>
           </DialogHeader>
 
-          <ScrollArea className="flex-1 overflow-y-auto">
+          <div className="flex-1 overflow-y-auto">
             <div className="px-6 py-4 space-y-6">
               {/* Image thumbnails */}
               {project.images?.length > 0 && (
@@ -127,17 +127,21 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
 
               {/* Press & Media */}
               {pressLinks.length > 0 && (
-                <Collapsible open={pressOpen} onOpenChange={setPressOpen}>
-                  {/* Sticky header — stays visible at the top while scrolling through items */}
-                  <CollapsibleTrigger className="flex items-center gap-2 w-full text-sm font-semibold text-foreground hover:text-primary transition-colors group sticky top-0 z-10 bg-background/95 backdrop-blur-sm py-1 -my-1">
+                <>
+                  {/* Sticky header — stays visible at the top while scrolling */}
+                  <button
+                    type="button"
+                    onClick={() => setPressOpen((o) => !o)}
+                    className="flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary transition-colors sticky -top-1 z-10 bg-background border-y border-border px-6 py-2 -mx-6 w-[calc(100%+3rem)]"
+                  >
                     <Newspaper className="h-4 w-4" />
                     {locale === "es" ? "Prensa y Medios" : "Press & Media"}
                     <Badge variant="secondary" className="text-xs ml-1">
                       {pressLinks.length}
                     </Badge>
-                    <ChevronDown className="h-4 w-4 ml-auto transition-transform group-data-[state=open]:rotate-180" />
-                  </CollapsibleTrigger>
-                  <CollapsibleContent className="mt-3">
+                    <ChevronDown className={`h-4 w-4 ml-auto transition-transform ${pressOpen ? "rotate-180" : ""}`} />
+                  </button>
+                  {pressOpen && (
                     <div className="space-y-2">
                       {pressLinks.map((link) =>
                         link.type === "video" ? (
@@ -147,8 +151,8 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
                         ),
                       )}
                     </div>
-                  </CollapsibleContent>
-                </Collapsible>
+                  )}
+                </>
               )}
 
               {/* Links */}
@@ -171,7 +175,7 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
                 )}
               </div>
             </div>
-          </ScrollArea>
+          </div>
         </DialogContent>
       </Dialog>
 
