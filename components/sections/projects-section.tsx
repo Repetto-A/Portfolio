@@ -100,11 +100,7 @@ export function ProjectsSection() {
       <Container maxWidth="7xl">
         <SectionHeader
           title={getTranslation(translations, "projects.title")}
-          description={getTranslation(
-            translations,
-            "projects.description",
-            "A collection of engineering projects spanning management systems, automation, and AI/ML applied to solve real-world challenges.",
-          )}
+          description={getTranslation(translations, "projects.description")}
         />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -129,7 +125,7 @@ export function ProjectsSection() {
                       </Badge>
                     </div>
                     <Badge variant="secondary" className="text-xs">
-                      {getTranslation(translations, `projects.categories.${project.category}`, project.category)}
+                      {getTranslation(translations, `projects.categories.${project.category}`) || project.category}
                     </Badge>
                   </div>
 
@@ -207,11 +203,7 @@ export function ProjectsSection() {
               {getTranslation(translations, "projects.collaboration.title")}
             </h3>
             <p className="text-muted-foreground">
-              {getTranslation(
-                translations,
-                "projects.collaboration.description",
-                "I'm always open to discussing new projects and opportunities in systems engineering and AI/ML.",
-              )}
+              {getTranslation(translations, "projects.collaboration.description")}
             </p>
             <Button asChild size="lg">
               <Link href="#contact">{getTranslation(translations, "projects.cta.getInTouch")}</Link>
@@ -244,11 +236,7 @@ function getStatusConfig(translations: any) {
       color: "bg-purple-500/10 text-purple-500 border-purple-500/20",
     },
     "regional-winner-global-nominee": {
-      label: getTranslation(
-        translations,
-        "projects.status.regional-winner-global-nominee",
-        "Regional Winner · Global Nominee",
-      ),
+      label: getTranslation(translations, "projects.status.regional-winner-global-nominee"),
       color: "bg-blue-500/10 text-blue-500 border-blue-500/20",
     },
   }

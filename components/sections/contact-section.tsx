@@ -97,11 +97,7 @@ export function ContactSection() {
                 {getTranslation(translations, "contact.info.title")}
               </h3>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                {getTranslation(
-                  translations,
-                  "contact.info.description",
-                  "I'm always interested in discussing new opportunities, whether it's a challenging systems engineering project, AI/ML implementation, or automation solution. Feel free to reach out through any of the channels below."
-                )}
+                {getTranslation(translations, "contact.info.description")}
               </p>
 
               <Link
@@ -197,22 +193,14 @@ export function ContactSection() {
             <Card>
               <CardHeader>
                 <CardTitle className="text-lg">
-                  {getTranslation(
-                    translations,
-                    "contact.availability.title",
-                    "Current Availability"
-                  )}
+                  {getTranslation(translations, "contact.availability.title")}
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <span className="text-muted-foreground">
-                      {getTranslation(
-                        translations,
-                        "contact.availability.consulting",
-                        "Consulting"
-                      )}
+                      {getTranslation(translations, "contact.availability.consulting")}
                     </span>
                     <span className="text-emerald-600 dark:text-emerald-400 font-medium">
                       {getTranslation(translations, "contact.availability.available")}
@@ -220,11 +208,7 @@ export function ContactSection() {
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-muted-foreground">
-                      {getTranslation(
-                        translations,
-                        "contact.availability.freelance",
-                        "Freelance Projects"
-                      )}
+                      {getTranslation(translations, "contact.availability.freelance")}
                     </span>
                     <span className="text-emerald-600 dark:text-emerald-400 font-medium">
                       {getTranslation(translations, "contact.availability.available")}
@@ -232,18 +216,10 @@ export function ContactSection() {
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-muted-foreground">
-                      {getTranslation(
-                        translations,
-                        "contact.availability.fulltime",
-                        "Full-time Opportunities"
-                      )}
+                      {getTranslation(translations, "contact.availability.fulltime")}
                     </span>
                     <span className="text-primary font-medium">
-                      {getTranslation(
-                        translations,
-                        "contact.availability.discuss",
-                        "Open to Discuss"
-                      )}
+                      {getTranslation(translations, "contact.availability.discuss")}
                     </span>
                   </div>
                 </div>
@@ -272,11 +248,7 @@ export function ContactSection() {
                       onChange={handleChange}
                       required
                       maxLength={100}
-                      placeholder={getTranslation(
-                        translations,
-                        "contact.form.namePlaceholder",
-                        "Your name"
-                      )}
+                      placeholder={getTranslation(translations, "contact.form.namePlaceholder")}
                     />
                   </div>
 
@@ -291,11 +263,7 @@ export function ContactSection() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      placeholder={getTranslation(
-                        translations,
-                        "contact.form.emailPlaceholder",
-                        "your.email@example.com"
-                      )}
+                      placeholder={getTranslation(translations, "contact.form.emailPlaceholder")}
                     />
                   </div>
                 </div>
@@ -311,11 +279,7 @@ export function ContactSection() {
                     onChange={handleChange}
                     required
                     maxLength={200}
-                    placeholder={getTranslation(
-                      translations,
-                      "contact.form.subjectPlaceholder",
-                      "Project inquiry, collaboration, etc."
-                    )}
+                    placeholder={getTranslation(translations, "contact.form.subjectPlaceholder")}
                   />
                 </div>
 
@@ -331,11 +295,7 @@ export function ContactSection() {
                     required
                     maxLength={5000}
                     rows={5}
-                    placeholder={getTranslation(
-                      translations,
-                      "contact.form.messagePlaceholder",
-                      "Tell me about your project or how I can help you..."
-                    )}
+                    placeholder={getTranslation(translations, "contact.form.messagePlaceholder")}
                   />
                   <p className="text-xs text-muted-foreground">
                     {formData.message.length}/5000{" "}
@@ -350,11 +310,7 @@ export function ContactSection() {
                   >
                     <CheckCircle className="h-4 w-4" />
                     <span>
-                      {getTranslation(
-                        translations,
-                        "contact.successMessage",
-                        "Message sent successfully! I'll get back to you soon."
-                      )}
+                      {getTranslation(translations, "contact.successMessage")}
                     </span>
                   </div>
                 )}
@@ -366,11 +322,7 @@ export function ContactSection() {
                   >
                     <AlertCircle className="h-4 w-4" />
                     <span>
-                      {getTranslation(
-                        translations,
-                        "contact.errorMessage",
-                        "Error sending message. Please try again."
-                      )}
+                      {getTranslation(translations, "contact.errorMessage")}
                     </span>
                   </div>
                 )}

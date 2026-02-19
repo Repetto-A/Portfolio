@@ -12,11 +12,15 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { ImageLightbox } from "@/components/ui/image-lightbox"
-import { Github, ExternalLink } from "lucide-react"
+import { Github, ExternalLink, Newspaper, ChevronDown, ChevronUp } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { useTranslations, getTranslation } from "@/lib/i18n-context"
+import { getAwardForProject } from "@/lib/project-utils"
+import { PressArticleItem, PressVideoItem } from "@/components/press-modal"
+import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible"
 import type { Project } from "@/types/project"
+import type { PressLink } from "@/data/awards"
 
 interface ProjectDetailModalProps {
   project: Project | null
@@ -28,10 +32,14 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
   const [translations, locale] = useTranslations()
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState(0)
+  const [pressOpen, setPressOpen] = useState(false)
 
   if (!project) return null
 
   const content = project.locales[locale] || project.locales["en"]
+  const award = getAwardForProject(project.id)
+  const pressLinks: PressLink[] =
+    award?.press?.enabled && award.press.links.length > 0 ? award.press.links : []
 
   const handleOpenChange = (open: boolean) => {
     if (!open) onClose()
@@ -44,10 +52,10 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
           <DialogHeader className="px-6 pt-6 pb-4 border-b border-border">
             <div className="flex items-center gap-2 mb-1">
               <Badge variant="outline">
-                {getTranslation(translations, `projects.categories.${project.category}`, project.category)}
+                {getTranslation(translations, `projects.categories.${project.category}`) || project.category}
               </Badge>
               <Badge variant="secondary" className="text-xs">
-                {getTranslation(translations, `projects.status.${project.status}`, project.status)}
+                {getTranslation(translations, `projects.status.${project.status}`) || project.status}
               </Badge>
             </div>
             <DialogTitle className="text-xl">{content.title}</DialogTitle>
@@ -116,6 +124,32 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
                   ))}
                 </div>
               </div>
+
+              {/* Press & Media */}
+              {pressLinks.length > 0 && (
+                <Collapsible open={pressOpen} onOpenChange={setPressOpen}>
+                  {/* Sticky header — stays visible at the top while scrolling through items */}
+                  <CollapsibleTrigger className="flex items-center gap-2 w-full text-sm font-semibold text-foreground hover:text-primary transition-colors group sticky top-0 z-10 bg-background/95 backdrop-blur-sm py-1 -my-1">
+                    <Newspaper className="h-4 w-4" />
+                    {locale === "es" ? "Prensa y Medios" : "Press & Media"}
+                    <Badge variant="secondary" className="text-xs ml-1">
+                      {pressLinks.length}
+                    </Badge>
+                    <ChevronDown className="h-4 w-4 ml-auto transition-transform group-data-[state=open]:rotate-180" />
+                  </CollapsibleTrigger>
+                  <CollapsibleContent className="mt-3">
+                    <div className="space-y-2">
+                      {pressLinks.map((link) =>
+                        link.type === "video" ? (
+                          <PressVideoItem key={link.id} link={link} />
+                        ) : (
+                          <PressArticleItem key={link.id} link={link} locale={locale} />
+                        ),
+                      )}
+                    </div>
+                  </CollapsibleContent>
+                </Collapsible>
+              )}
 
               {/* Links */}
               <div className="flex flex-wrap gap-3 pt-2">

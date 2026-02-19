@@ -95,11 +95,7 @@ export function SkillsSection() {
       <Container maxWidth="7xl">
         <SectionHeader
           title={getTranslation(translations, "skills.title")}
-          description={getTranslation(
-            translations,
-            "skills.subtitle",
-            "A comprehensive toolkit for building modern applications, from frontend interfaces to AI-powered backend systems.",
-          )}
+          description={getTranslation(translations, "skills.subtitle")}
         />
 
         <Grid cols={{ md: 2, lg: 4 }} gap="md">
@@ -107,7 +103,7 @@ export function SkillsSection() {
             <Card key={index} className="h-full">
               <CardHeader>
                 <CardTitle className="text-lg">
-                  {getTranslation(translations, category.titleKey, category.titleDefault)}
+                  {getTranslation(translations, category.titleKey)}
                 </CardTitle>
               </CardHeader>
               <CardContent>

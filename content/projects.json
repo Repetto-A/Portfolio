@@ -30,7 +30,7 @@
           ]
         }
       },
-      "status": "regional-winner-global-nominee",
+      "status": "production",
       "techStack": ["Next.js", "React", "TypeScript", "Tailwind CSS", "NASA & CONAE Data"],
       "githubUrl": "https://github.com/Repetto-A/NASA-FarmHero",
       "demoUrl": "https://nasa-farm-hero.vercel.app/",
@@ -47,9 +47,9 @@
       "id": "nasa-spaceapps",
       "locales": {
         "en": {
-          "title": "Seismic Detection - NASA Space Apps 2024",
-          "short": "AI/ML-powered seismic detection system for lunar and Martian environments using machine learning models. 2nd place regional.",
-          "description": "AI/ML-powered seismic detection system for lunar and Martian environments. Developed as part of NASA Space Apps Challenge 2024, this project uses machine learning models to analyze seismic data and detect potential moonquakes and marsquakes.",
+          "title": "Lunar & Martian Seismic Detection",
+          "short": "On-board LSTM model trained on NASA Apollo & InSight data to filter seismic signals from noise in deep space. 2nd place NASA Space Apps 2024.",
+          "description": "Seismic detection system trained on real data from NASA's Apollo (Moon) and InSight (Mars) missions using LSTM (Long Short-Term Memory) neural networks. Transmitting data from distant bodies requires energy that scales with distance, and seismic events are rare, so most transmitted data is noise. Our solution runs classification algorithms on-board to separate seismic signals from noise in situ, sending only useful data back to Earth. The required software and hardware are low-cost in terms of development, operation, energy, and footprint, maximizing the scientific value of every transmitted byte.",
           "features": [
             "Machine learning model for seismic pattern recognition",
             "Data preprocessing pipeline for space seismic data",
@@ -59,9 +59,9 @@
           ]
         },
         "es": {
-          "title": "Detección de actividad Sísmica - NASA Space Apps 2024",
-          "short": "Sistema de detección sísmica potenciado por IA/ML para entornos lunares y marcianos usando modelos de aprendizaje automático. 2do puesto regional.",
-          "description": "Sistema de detección sísmica potenciado por IA/ML para entornos lunares y marcianos. Desarrollado como parte del NASA Space Apps Challenge 2024, este proyecto utiliza modelos de aprendizaje automático para analizar datos sísmicos y detectar posibles terremotos lunares y marcianos.",
+          "title": "Detección Sísmica en la Luna y Marte",
+          "short": "Modelo LSTM entrenado con datos de misiones Apollo e InSight para filtrar in situ señales sísmicas del ruido en el espacio profundo. 2do puesto NASA 2024.",
+          "description": "Sistema de detección sísmica entrenado con datos reales de las misiones Apollo (Luna) e InSight (Marte) de la NASA usando redes neuronales LSTM (Long Short-Term Memory). Transmitir datos desde cuerpos distantes requiere un consumo energético que escala con la distancia, y los eventos sísmicos son raros, por lo que la mayor parte de los datos transmitidos es ruido. Nuestra solución ejecuta algoritmos de clasificación a bordo para separar las señales sísmicas del ruido in situ, enviando solo datos útiles a la Tierra. El software y hardware necesarios son de bajo costo en desarrollo, operación, energía y espacio, maximizando el valor científico de cada byte transmitido.",
           "features": [
             "Modelo de aprendizaje automático para reconocimiento de patrones sísmicos",
             "Pipeline de preprocesamiento de datos sísmicos espaciales",

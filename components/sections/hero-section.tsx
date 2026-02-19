@@ -41,11 +41,7 @@ export function HeroSection() {
                 style={{ fontSize: "clamp(1rem, 1.5vw, 1.125rem)" }}
               >
                 {(() => {
-                  const desc = getTranslation(
-                    translations,
-                    "hero.description",
-                    ""
-                  )
+                  const desc = getTranslation(translations, "hero.description")
                   const [main, awards] = desc.split("\n")
                   return (
                     <>
