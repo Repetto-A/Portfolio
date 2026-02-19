@@ -99,7 +99,7 @@ export function ProjectsSection() {
     <Section id="projects" variant="default" spacing="default">
       <Container maxWidth="7xl">
         <SectionHeader
-          title={getTranslation(translations, "projects.title", "Featured Projects")}
+          title={getTranslation(translations, "projects.title")}
           description={getTranslation(
             translations,
             "projects.description",
@@ -192,7 +192,7 @@ export function ProjectsSection() {
                       size="sm"
                       onClick={() => handleProjectModalOpen(project)}
                     >
-                      {getTranslation(translations, "projects.cta.learnMore", "Learn More")}
+                      {getTranslation(translations, "projects.cta.learnMore")}
                     </Button>
                   </div>
                 </CardContent>
@@ -204,7 +204,7 @@ export function ProjectsSection() {
         <div className="text-center mt-16">
           <div className="space-y-4">
             <h3 className="text-3xl sm:text-4xl font-bold text-foreground">
-              {getTranslation(translations, "projects.collaboration.title", "Interested in collaborating?")}
+              {getTranslation(translations, "projects.collaboration.title")}
             </h3>
             <p className="text-muted-foreground">
               {getTranslation(
@@ -214,7 +214,7 @@ export function ProjectsSection() {
               )}
             </p>
             <Button asChild size="lg">
-              <Link href="#contact">{getTranslation(translations, "projects.cta.getInTouch", "Get In Touch")}</Link>
+              <Link href="#contact">{getTranslation(translations, "projects.cta.getInTouch")}</Link>
             </Button>
           </div>
         </div>
@@ -232,15 +232,15 @@ export function ProjectsSection() {
 function getStatusConfig(translations: any) {
   return {
     "in-progress": {
-      label: getTranslation(translations, "projects.status.in-progress", "In Progress"),
+      label: getTranslation(translations, "projects.status.in-progress"),
       color: "bg-yellow-500/10 text-yellow-500 border-yellow-500/20",
     },
     production: {
-      label: getTranslation(translations, "projects.status.production", "Production"),
+      label: getTranslation(translations, "projects.status.production"),
       color: "bg-green-500/10 text-green-500 border-green-500/20",
     },
     prototype: {
-      label: getTranslation(translations, "projects.status.prototype", "Prototype"),
+      label: getTranslation(translations, "projects.status.prototype"),
       color: "bg-purple-500/10 text-purple-500 border-purple-500/20",
     },
     "regional-winner-global-nominee": {

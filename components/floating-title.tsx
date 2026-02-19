@@ -81,7 +81,7 @@ export function FloatingTitle() {
   const targetScale = navFontPx / heroFontPx
   const scale = lerp(1, targetScale, t)
 
-  const name = getTranslation(translations, "hero.name", "Alejandro Repetto")
+  const name = getTranslation(translations, "hero.name")
 
   return (
     <div

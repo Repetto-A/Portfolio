@@ -12,13 +12,13 @@ import { cn } from "@/lib/utils"
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
-  const [translations, locale, loading] = useTranslations()
+  const [translations, locale] = useTranslations()
   const { registerNavTitleRef, isFloatingTitleActive, scrollProgress, fontsReady } = useScrollContext()
 
   const navItems = [
-    { href: "#about", label: getTranslation(translations, "navigation.about", "About") },
-    { href: "#projects", label: getTranslation(translations, "navigation.projects", "Projects") },
-    { href: "#contact", label: getTranslation(translations, "navigation.contact", "Contact") },
+    { href: "#about", label: getTranslation(translations, "navigation.about") },
+    { href: "#projects", label: getTranslation(translations, "navigation.projects") },
+    { href: "#contact", label: getTranslation(translations, "navigation.contact") },
   ]
 
   return (

@@ -94,7 +94,7 @@ export function SkillsSection() {
     <Section variant="muted" spacing="default">
       <Container maxWidth="7xl">
         <SectionHeader
-          title={getTranslation(translations, "skills.title", "Skills & Technologies")}
+          title={getTranslation(translations, "skills.title")}
           description={getTranslation(
             translations,
             "skills.subtitle",

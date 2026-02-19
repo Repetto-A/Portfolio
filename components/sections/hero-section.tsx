@@ -28,13 +28,13 @@ export function HeroSection() {
                 )}
                 style={{ fontSize: "clamp(2rem, 5vw, 3.75rem)" }}
               >
-                {getTranslation(translations, "hero.name", "Alejandro Repetto")}
+                {getTranslation(translations, "hero.name")}
               </h1>
               <h2
                 className="font-mono text-muted-foreground"
                 style={{ fontSize: "clamp(1.125rem, 2.5vw, 1.5rem)" }}
               >
-                {getTranslation(translations, "hero.title", "Award-Winning Systems Engineer")}
+                {getTranslation(translations, "hero.title")}
               </h2>
               <p
                 className="text-muted-foreground leading-relaxed text-pretty max-w-2xl"
@@ -44,7 +44,7 @@ export function HeroSection() {
                   const desc = getTranslation(
                     translations,
                     "hero.description",
-                    "I'm obsessed with reducing complexity. I build fast, ship faster, and refine until it's state of the art.\nAwarded at NASA Space Apps, ETH Argentina, and ETH Global."
+                    ""
                   )
                   const [main, awards] = desc.split("\n")
                   return (
@@ -71,7 +71,7 @@ export function HeroSection() {
             <div>
               <Button asChild size="lg" className="group w-full sm:w-auto">
                 <Link href="#projects">
-                  {getTranslation(translations, "hero.cta.projects", "Explore Projects")}
+                  {getTranslation(translations, "hero.cta.projects")}
                   <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
@@ -98,19 +98,19 @@ export function HeroSection() {
               {/* Floating Elements */}
               <div className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 bg-card border border-border rounded-lg p-2 sm:p-3 shadow-lg backdrop-blur-sm">
                 <div className="text-xs text-muted-foreground whitespace-nowrap">
-                  {getTranslation(translations, "hero.status.currently", "Currently")}
+                  {getTranslation(translations, "hero.status.currently")}
                 </div>
                 <div className="text-xs sm:text-sm font-semibold text-foreground whitespace-nowrap">
-                  {getTranslation(translations, "hero.status.building", "Building AI Solutions")}
+                  {getTranslation(translations, "hero.status.building")}
                 </div>
               </div>
 
               <div className="absolute -bottom-3 -left-3 sm:-bottom-4 sm:-left-4 bg-card border border-border rounded-lg p-2 sm:p-3 shadow-lg backdrop-blur-sm">
                 <div className="text-xs text-muted-foreground whitespace-nowrap">
-                  {getTranslation(translations, "hero.status.focus", "Focus")}
+                  {getTranslation(translations, "hero.status.focus")}
                 </div>
                 <div className="text-xs sm:text-sm font-semibold text-foreground whitespace-nowrap">
-                  {getTranslation(translations, "hero.status.automation", "Automation & ML")}
+                  {getTranslation(translations, "hero.status.automation")}
                 </div>
               </div>
             </div>
@@ -122,7 +122,7 @@ export function HeroSection() {
           <Link href="#about" className="group" aria-label="Scroll to about section">
             <div className="flex flex-col items-center space-y-2 text-muted-foreground hover:text-foreground transition-colors">
               <span className="text-sm">
-                {getTranslation(translations, "hero.scroll", "Learn more")}
+                {getTranslation(translations, "hero.scroll")}
               </span>
               <ArrowDown className="h-4 w-4 animate-bounce" />
             </div>
