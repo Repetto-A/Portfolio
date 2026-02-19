@@ -39,7 +39,7 @@ export function ProjectTimeline({ timeline, className }: ProjectTimelineProps) {
       <CardHeader>
         <CardTitle className="flex items-center space-x-2">
           <Calendar className="h-5 w-5 text-primary" />
-          <span>{getTranslation(translations, "projects.timeline.title", "Project Timeline")}</span>
+          <span>{getTranslation(translations, "projects.timeline.title")}</span>
         </CardTitle>
       </CardHeader>
       <CardContent>
@@ -85,7 +85,7 @@ export function ProjectTimeline({ timeline, className }: ProjectTimelineProps) {
                     </time>
                     {isToday && (
                       <span className="text-xs font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded-full">
-                        {getTranslation(translations, "projects.timeline.today", "Today")}
+                        {getTranslation(translations, "projects.timeline.today")}
                       </span>
                     )}
                   </div>

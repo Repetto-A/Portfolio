@@ -94,7 +94,7 @@ export function ContactSection() {
           <div className="space-y-8">
             <div>
               <h3 className="text-xl font-semibold text-foreground mb-6">
-                {getTranslation(translations, "contact.info.title", "Let's Connect")}
+                {getTranslation(translations, "contact.info.title")}
               </h3>
               <p className="text-muted-foreground leading-relaxed mb-6">
                 {getTranslation(
@@ -111,7 +111,7 @@ export function ContactSection() {
                 className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-lg border border-border bg-card hover:bg-accent transition-colors text-sm font-medium"
               >
                 <Download className="h-4 w-4" />
-                {getTranslation(translations, "hero.cta.resume", "Download Resume")}
+                {getTranslation(translations, "hero.cta.resume")}
               </Link>
             </div>
 
@@ -123,7 +123,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <div className="font-medium text-foreground">
-                    {getTranslation(translations, "contact.methods.email", "Email")}
+                    {getTranslation(translations, "contact.methods.email")}
                   </div>
                   <Link
                     href="mailto:repettoalejandroing@gmail.com"
@@ -174,7 +174,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <div className="font-medium text-foreground">
-                    {getTranslation(translations, "contact.methods.location", "Location")}
+                    {getTranslation(translations, "contact.methods.location")}
                   </div>
                   <span className="text-muted-foreground">Argentina</span>
                 </div>
@@ -186,7 +186,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <div className="font-medium text-foreground">
-                    {getTranslation(translations, "contact.methods.timezone", "Timezone")}
+                    {getTranslation(translations, "contact.methods.timezone")}
                   </div>
                   <span className="text-muted-foreground">UTC-3 (Argentina)</span>
                 </div>
@@ -215,7 +215,7 @@ export function ContactSection() {
                       )}
                     </span>
                     <span className="text-emerald-600 dark:text-emerald-400 font-medium">
-                      {getTranslation(translations, "contact.availability.available", "Available")}
+                      {getTranslation(translations, "contact.availability.available")}
                     </span>
                   </div>
                   <div className="flex items-center justify-between">
@@ -227,7 +227,7 @@ export function ContactSection() {
                       )}
                     </span>
                     <span className="text-emerald-600 dark:text-emerald-400 font-medium">
-                      {getTranslation(translations, "contact.availability.available", "Available")}
+                      {getTranslation(translations, "contact.availability.available")}
                     </span>
                   </div>
                   <div className="flex items-center justify-between">
@@ -255,7 +255,7 @@ export function ContactSection() {
           <Card>
             <CardHeader>
               <CardTitle>
-                {getTranslation(translations, "contact.form.title", "Send a Message")}
+                {getTranslation(translations, "contact.form.title")}
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -263,7 +263,7 @@ export function ContactSection() {
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="name">
-                      {getTranslation(translations, "contact.form.name", "Name")} *
+                      {getTranslation(translations, "contact.form.name")} *
                     </Label>
                     <Input
                       id="name"
@@ -282,7 +282,7 @@ export function ContactSection() {
 
                   <div className="space-y-2">
                     <Label htmlFor="email">
-                      {getTranslation(translations, "contact.form.email", "Email")} *
+                      {getTranslation(translations, "contact.form.email")} *
                     </Label>
                     <Input
                       id="email"
@@ -302,7 +302,7 @@ export function ContactSection() {
 
                 <div className="space-y-2">
                   <Label htmlFor="subject">
-                    {getTranslation(translations, "contact.form.subject", "Subject")} *
+                    {getTranslation(translations, "contact.form.subject")} *
                   </Label>
                   <Input
                     id="subject"
@@ -321,7 +321,7 @@ export function ContactSection() {
 
                 <div className="space-y-2">
                   <Label htmlFor="message">
-                    {getTranslation(translations, "contact.form.message", "Message")} *
+                    {getTranslation(translations, "contact.form.message")} *
                   </Label>
                   <Textarea
                     id="message"
@@ -339,7 +339,7 @@ export function ContactSection() {
                   />
                   <p className="text-xs text-muted-foreground">
                     {formData.message.length}/5000{" "}
-                    {getTranslation(translations, "contact.form.characters", "characters")}
+                    {getTranslation(translations, "contact.form.characters")}
                   </p>
                 </div>
 
@@ -378,12 +378,12 @@ export function ContactSection() {
                 <Button type="submit" className="w-full" disabled={!isFormValid || isSubmitting}>
                   {isSubmitting ? (
                     <span className="animate-pulse">
-                      {getTranslation(translations, "contact.form.sending", "Sending...")}
+                      {getTranslation(translations, "contact.form.sending")}
                     </span>
                   ) : (
                     <>
                       <Send className="mr-2 h-4 w-4" />
-                      {getTranslation(translations, "contact.form.send", "Send Message")}
+                      {getTranslation(translations, "contact.form.send")}
                     </>
                   )}
                 </Button>

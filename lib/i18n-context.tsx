@@ -1,60 +1,36 @@
 "use client"
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from "react"
+import React, { createContext, useContext, useState, useEffect, useLayoutEffect, ReactNode } from "react"
+import en from "@/public/locales/en/common.json"
+import es from "@/public/locales/es/common.json"
 
-export interface Translations {
-  [key: string]: any
-}
+export type Translations = typeof en
+
+const TRANSLATIONS: Record<string, Translations> = { en, es }
 
 interface I18nContextType {
   translations: Translations
   locale: string
-  loading: boolean
   setLocale: (locale: string) => void
 }
 
 const I18nContext = createContext<I18nContextType | undefined>(undefined)
 
+// Runs synchronously before paint on client, falls back to useEffect on server
+const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect
+
 export function I18nProvider({ children }: { children: ReactNode }) {
   const [locale, setLocaleState] = useState<string>("en")
-  const [translations, setTranslations] = useState<Translations>({})
-  const [loading, setLoading] = useState(true)
 
-  // Load translations when locale changes
-  useEffect(() => {
-    const loadTranslations = async () => {
-      try {
-        setLoading(true)
-        const response = await fetch(`/locales/${locale}/common.json`)
-        const data = await response.json()
-        setTranslations(data)
-      } catch (error) {
-        console.error("Error loading translations:", error)
-        // Fallback to English if translation fails
-        if (locale !== "en") {
-          try {
-            const fallbackResponse = await fetch("/locales/en/common.json")
-            const fallbackData = await fallbackResponse.json()
-            setTranslations(fallbackData)
-          } catch (fallbackError) {
-            console.error("Error loading fallback translations:", fallbackError)
-          }
-        }
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    loadTranslations()
-  }, [locale])
-
-  // Load stored locale preference on mount
-  useEffect(() => {
-    const storedLocale = localStorage.getItem("preferred-locale")
-    if (storedLocale && (storedLocale === "en" || storedLocale === "es")) {
-      setLocaleState(storedLocale)
+  // Read stored locale before first paint (never runs on server)
+  useIsomorphicLayoutEffect(() => {
+    const stored = localStorage.getItem("preferred-locale")
+    if (stored && stored in TRANSLATIONS) {
+      setLocaleState(stored)
     }
   }, [])
+
+  const translations = TRANSLATIONS[locale] ?? en
 
   const setLocale = (newLocale: string) => {
     setLocaleState(newLocale)
@@ -62,19 +38,19 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   }
 
   return (
-    <I18nContext.Provider value={{ translations, locale, loading, setLocale }}>
+    <I18nContext.Provider value={{ translations, locale, setLocale }}>
       {children}
     </I18nContext.Provider>
   )
 }
 
 // Hook to use translations
-export function useTranslations(): [Translations, string, boolean] {
+export function useTranslations(): [Translations, string] {
   const context = useContext(I18nContext)
   if (!context) {
     throw new Error("useTranslations must be used within I18nProvider")
   }
-  return [context.translations, context.locale, context.loading]
+  return [context.translations, context.locale]
 }
 
 // Hook to get locale setter
@@ -87,19 +63,19 @@ export function useLocale() {
 }
 
 // Helper function to get nested translation values
-export function getTranslation(translations: Translations, key: string, fallback?: string): string {
+export function getTranslation(translations: Translations, key: string): string {
   const keys = key.split(".")
-  let value = translations
+  let value: unknown = translations
 
   for (const k of keys) {
     if (value && typeof value === "object" && k in value) {
-      value = value[k]
+      value = (value as Record<string, unknown>)[k]
     } else {
-      return fallback || key
+      return ""
     }
   }
 
-  return typeof value === "string" ? value : fallback || key
+  return typeof value === "string" ? value : ""
 }
 
 // Helper function to get locale-specific resume URL

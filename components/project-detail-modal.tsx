@@ -67,7 +67,7 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
                         setLightboxOpen(true)
                       }}
                       className="relative aspect-video rounded-md overflow-hidden border border-border hover:ring-2 ring-primary transition-all focus:outline-none focus:ring-2 focus:ring-primary"
-                      aria-label={`${content.title} — ${getTranslation(translations, "projects.image", "image")} ${i + 1}`}
+                      aria-label={`${content.title} — ${getTranslation(translations, "projects.image")} ${i + 1}`}
                     >
                       <Image
                         src={img}
@@ -90,7 +90,7 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
               {content.features?.length > 0 && (
                 <div>
                   <h4 className="text-sm font-semibold text-foreground mb-3">
-                    {getTranslation(translations, "projects.features", "Key Features")}
+                    {getTranslation(translations, "projects.features")}
                   </h4>
                   <ul className="space-y-2">
                     {content.features.map((f, i) => (
@@ -106,7 +106,7 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
               {/* Tech stack */}
               <div>
                 <h4 className="text-sm font-semibold text-foreground mb-3">
-                  {getTranslation(translations, "projects.techStack", "Technology Stack")}
+                  {getTranslation(translations, "projects.techStack")}
                 </h4>
                 <div className="flex flex-wrap gap-1.5">
                   {project.techStack.map((t) => (
@@ -123,7 +123,7 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
                   <Button asChild variant="outline" size="sm">
                     <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                       <Github className="mr-2 h-4 w-4" />
-                      {getTranslation(translations, "projects.cta.code", "Code")}
+                      {getTranslation(translations, "projects.cta.code")}
                     </Link>
                   </Button>
                 )}

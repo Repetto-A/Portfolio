@@ -13,7 +13,7 @@ export function AboutSection() {
       <Container maxWidth="4xl">
         <div className="space-y-12">
           <SectionHeader
-            title={getTranslation(translations, "about.title", "About")}
+            title={getTranslation(translations, "about.title")}
             description={getTranslation(
               translations,
               "about.bio.short",
@@ -25,7 +25,7 @@ export function AboutSection() {
             {/* Background */}
             <div className="space-y-6">
               <h3 className="text-xl font-semibold text-foreground">
-                {getTranslation(translations, "about.bio.background.title", "Background")}
+                {getTranslation(translations, "about.bio.background.title")}
               </h3>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 {getTranslation(
@@ -43,7 +43,7 @@ export function AboutSection() {
             {/* Approach */}
             <div className="space-y-6">
               <h3 className="text-xl font-semibold text-foreground">
-                {getTranslation(translations, "about.bio.approach.title", "Approach")}
+                {getTranslation(translations, "about.bio.approach.title")}
               </h3>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 {getTranslation(
