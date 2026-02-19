@@ -126,48 +126,6 @@ export function SkillsSection() {
             </Card>
           ))}
         </Grid>
-
-        {/* Experience Highlights */}
-        <div className="mt-12 lg:mt-16">
-          <Grid cols={{ md: 3 }} gap="lg">
-            <div className="text-center space-y-2">
-              <div className="font-bold text-primary" style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>
-                {getTranslation(translations, "skills.highlights.fullstack.title", "Full-Stack")}
-              </div>
-              <div className="text-sm text-muted-foreground">
-                {getTranslation(
-                  translations,
-                  "skills.highlights.fullstack.description",
-                  "End-to-end application development",
-                )}
-              </div>
-            </div>
-            <div className="text-center space-y-2">
-              <div className="font-bold text-primary" style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>
-                {getTranslation(translations, "skills.highlights.aiml.title", "AI/ML")}
-              </div>
-              <div className="text-sm text-muted-foreground">
-                {getTranslation(
-                  translations,
-                  "skills.highlights.aiml.description",
-                  "Machine learning model implementation",
-                )}
-              </div>
-            </div>
-            <div className="text-center space-y-2">
-              <div className="font-bold text-primary" style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>
-                {getTranslation(translations, "skills.highlights.automation.title", "Automation")}
-              </div>
-              <div className="text-sm text-muted-foreground">
-                {getTranslation(
-                  translations,
-                  "skills.highlights.automation.description",
-                  "Business process optimization",
-                )}
-              </div>
-            </div>
-          </Grid>
-        </div>
       </Container>
     </Section>
   )

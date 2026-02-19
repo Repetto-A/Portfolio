@@ -7,16 +7,16 @@
   },
   "hero": {
     "name": "Alejandro Repetto",
-    "title": "Estudiante de Ingeniería en Sistemas",
-    "description": "Desarrollo sistemas de gestión inteligentes, herramientas de automatización y aplicaciones con IA/ML que ahorran tiempo y simplifican procesos complejos.",
+    "title": "Software Engineer",
+    "description": "Estoy obsesionado con reducir la complejidad. Construyo rápido, itero más rápido, y no duermo hasta que pasen todos los tests.\nPremiado en NASA Space Apps, ETH Argentina y ETH Global.",
     "cta": {
-      "projects": "Ver Proyectos",
+      "projects": "Explorar Proyectos",
       "resume": "Descargar CV"
     },
     "stats": {
       "projects": "Proyectos",
-      "experience": "Años de Experiencia",
-      "specialization": "Especialización"
+      "experience": "Premios en Hackathons",
+      "specialization": "Hackathons"
     },
     "status": {
       "currently": "Actualmente",
@@ -29,20 +29,20 @@
   "about": {
     "title": "Acerca de Mí",
     "bio": {
-      "short": "Estudiante de ingeniería en sistemas dedicado a crear soluciones inteligentes que ahorran tiempo y simplifican procesos complejos. Me especializo en sistemas de automatización, plataformas de gestión y aplicaciones de IA/ML que transforman desafíos empresariales en flujos de trabajo eficientes.",
+      "short": "Soy estudiante de Ingeniería en Sistemas y un nerd al que le fascina resolver problemas. Encontré en el software mi santo grial para lograrlo. Soy muy bueno automatizando tareas que solían llevar incontables horas y empleados, y lo hago de forma escalable, eficiente y segura, gracias a mi pasión por la programación competitiva y la ciberseguridad. Ante todo soy curioso y me encantan los desafíos.",
       "background": {
         "title": "Trayectoria",
-        "text": "Soy un estudiante de ingeniería en sistemas de 23 años especializado en sistemas de gestión, automatización y desarrollo de IA/ML. Mi trabajo se centra en crear soluciones prácticas que resuelven desafíos empresariales reales.\n\nDesde sistemas de cotización para fábricas hasta plataformas de gestión inmobiliaria, disfruto construir aplicaciones que no solo optimizan operaciones sino que también crean experiencias de usuario más fluidas e intuitivas. Recientemente, contribuí al NASA Space Apps Challenge con una solución de detección sísmica potenciada por IA, junto con el desarrollo de herramientas de automatización para diversas industrias."
+        "text": "Programo seriamente desde el 2022, cuando obtuve el 6to puesto en mi primer torneo ICPC. Un training camp de invierno en 2024 fue un punto de inflexión que transformó mi forma de abordar desafíos técnicos.\n\nMis proyectos van desde algoritmos de predicción para NASA Space Apps hasta sistemas en producción con arquitecturas RAG."
       },
       "approach": {
         "title": "Enfoque",
-        "text": "Creo que la tecnología debe devolver tiempo a las personas. Cada proyecto comienza con una comprensión profunda del problema central, para luego diseñar soluciones escalables, mantenibles y centradas en el usuario.\n\nMi experiencia abarca desarrollo full-stack, implementación de machine learning y arquitectura de sistemas. Me interesa particularmente cómo la IA y la automatización pueden transformar los procesos empresariales tradicionales y crear nuevas oportunidades de innovación."
+        "text": "Soy muy pragmático, si bien la programación competitiva me entrenó para siempre analizar la complejidad temporal y espacial de mis proyectos, las múltiples hackathones en las que participé me enseñaron a desarrollar y validar MVP's rápido, sin olvidar la arquitectura y el correcto diseño de sistemas distribuidos que me dió la ingenieria."
       }
     }
   },
   "skills": {
     "title": "Habilidades y Tecnologías",
-    "subtitle": "Un conjunto completo de herramientas para construir aplicaciones modernas, desde interfaces frontend hasta sistemas backend potenciados por IA.",
+    "subtitle": "Un conjunto completo de herramientas para construir aplicaciones completas, desde sistemas web modernos hasta automatizaciones potenciadas por IA.",
     "categories": {
       "languages": "Lenguajes y Frameworks",
       "frameworks": "IA/ML y Ciencia de Datos",
@@ -66,13 +66,14 @@
   },
   "projects": {
     "title": "Proyectos Destacados",
-    "description": "Una colección de proyectos de ingeniería en sistemas que abarcan automatización, IA/ML y soluciones de gestión construidas para resolver desafíos del mundo real.",
+    "description": "Una colección de proyectos de ingeniería que abarcan sistemas de gestión, automatizaciones e IA/ML aplicada para resolver desafíos del mundo real.",
     "categories": {
       "Web Application": "Aplicación Web",
       "Business Automation": "Automatización Empresarial",
       "Management System": "Sistema de Gestión",
       "AI/ML Research": "Investigación IA/ML",
       "Blockchain/DeFi": "Blockchain/DeFi",
+      "Blockchain/AI": "Blockchain/IA",
       "Healthcare System": "Sistema de Salud",
       "Game / AgTech": "Juego / AgTech"
     },

@@ -29,11 +29,23 @@ export function useScrollProgress({ threshold }: UseScrollProgressOptions) {
     }
 
     window.addEventListener("scroll", handleScroll, { passive: true })
+
+    // Handle mobile viewport changes (URL bar hide/show changes scroll geometry)
+    const vv = window.visualViewport
+    if (vv) {
+      vv.addEventListener("resize", handleScroll)
+      vv.addEventListener("scroll", handleScroll)
+    }
+
     handleScroll()
 
     return () => {
       window.removeEventListener("scroll", handleScroll)
       mql.removeEventListener("change", onChange)
+      if (vv) {
+        vv.removeEventListener("resize", handleScroll)
+        vv.removeEventListener("scroll", handleScroll)
+      }
       if (rafRef.current) cancelAnimationFrame(rafRef.current)
     }
   }, [threshold])

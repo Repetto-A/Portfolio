@@ -18,7 +18,17 @@
       "Bash(taskkill:*)",
       "Bash(timeout 30 bash:*)",
       "Bash(node -e:*)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(npx:*)",
+      "Bash(npm run build:*)",
+      "Bash(grep:*)",
+      "WebFetch(domain:nude-project.com)",
+      "Bash(git commit:*)",
+      "Bash(echo:*)",
+      "Bash(git add:*)",
+      "Bash(GIT_TRACE=1 git commit:*)",
+      "Bash(cmd /c \"del /f \"\"d:\\\\Usuario\\\\Desktop\\\\trdtyyyy\\\\Portfolio\\\\app\\\\projects\\\\[id]\\\\page.tsx\"\" && del /f \"\"d:\\\\Usuario\\\\Desktop\\\\trdtyyyy\\\\Portfolio\\\\app\\\\projects\\\\[id]\\\\not-found.tsx\"\"\")",
+      "Bash(cmd /c \"del /f \"\"d:\\\\Usuario\\\\Desktop\\\\trdtyyyy\\\\Portfolio\\\\app\\\\projects\\\\[id]\\\\page.tsx\"\"\")"
     ]
   }
 }

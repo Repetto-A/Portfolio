@@ -47,14 +47,14 @@ interface ScrollContextType {
   navTitleRect: Rect | null
   /** Computed styles read from the hero h1 — used by the floating clone */
   heroComputedStyles: ComputedTitleStyles | null
+  /** Computed font-size of the nav brand (px string, e.g. "18px") */
+  navFontSize: string | null
   /** True only after document.fonts.ready has resolved */
   fontsReady: boolean
   registerHeroTitleRef: (el: HTMLElement | null) => void
   registerNavTitleRef: (el: HTMLElement | null) => void
-  /** True when the floating title should be visible (0 < progress < 1, no reduced motion, fonts ready, animation not yet completed) */
+  /** True when the floating title should be visible (0 < progress < 1, no reduced motion, fonts ready) */
   isFloatingTitleActive: boolean
-  /** True once the animation has completed its first run (scrollProgress reached 1). Prevents replays. */
-  animationHasRun: boolean
 }
 
 const ScrollContext = createContext<ScrollContextType | undefined>(undefined)
@@ -62,22 +62,24 @@ const ScrollContext = createContext<ScrollContextType | undefined>(undefined)
 const FALLBACK_THRESHOLD = 700
 /** Multiplier applied to the computed hero-to-nav distance. >1 = slower animation */
 const THRESHOLD_SCALE = 1.4
+/** Minimum scroll distance (px) so the animation never feels too abrupt on mobile */
+const MIN_THRESHOLD = 250
 
 export function ScrollProvider({ children }: { children: ReactNode }) {
   const heroRef = useRef<HTMLElement | null>(null)
   const navRef = useRef<HTMLElement | null>(null)
+  // Reactive state for IntersectionObserver to track
+  const [heroEl, setHeroEl] = useState<HTMLElement | null>(null)
   const [heroTitleRect, setHeroTitleRect] = useState<Rect | null>(null)
   const [navTitleRect, setNavTitleRect] = useState<Rect | null>(null)
   const [heroComputedStyles, setHeroComputedStyles] = useState<ComputedTitleStyles | null>(null)
+  const [navFontSize, setNavFontSize] = useState<string | null>(null)
   const [fontsReady, setFontsReady] = useState(false)
 
-  // --- Animation-once guard ---
-  // Tracks whether the hero was visible on initial mount (prevents animation
-  // when landing mid-page, e.g. via #projects deep link).
+  // Becomes true the first time the hero element enters the viewport.
+  // Using IntersectionObserver instead of a one-time check in measure()
+  // so it works even when the page loads mid-scroll or via deep link.
   const [heroWasVisible, setHeroWasVisible] = useState(false)
-  // Once the animation completes (scrollProgress >= 1), this becomes true
-  // permanently (until page reload), preventing replays.
-  const [animationHasRun, setAnimationHasRun] = useState(false)
 
   // Dynamic threshold: the document-space distance the title needs to travel
   const threshold = useMemo(() => {
@@ -89,7 +91,7 @@ export function ScrollProvider({ children }: { children: ReactNode }) {
     // We want: heroTitleRect.top - scrollY = navTitleRect.top
     // => scrollY = heroTitleRect.top - navTitleRect.top
     const computed = (heroTitleRect.top - navTitleRect.top) * THRESHOLD_SCALE
-    return computed > 0 ? computed : FALLBACK_THRESHOLD
+    return Math.max(computed > 0 ? computed : FALLBACK_THRESHOLD, MIN_THRESHOLD)
   }, [heroTitleRect, navTitleRect])
 
   const { scrollY, scrollProgress, prefersReducedMotion } = useScrollProgress({ threshold })
@@ -98,17 +100,9 @@ export function ScrollProvider({ children }: { children: ReactNode }) {
   const { locale } = useLocale()
   const { theme } = useTheme()
 
-  // Tracks whether we've already checked hero visibility on initial load.
-  // We only check once — if the hero was in the viewport the first time
-  // we measure after fonts.ready, the animation is eligible.
-  const heroVisibilityChecked = useRef(false)
-
   /**
    * Measure both bounding rects and read the hero's computed styles.
    * Called only after fonts are ready to guarantee correct metrics.
-   *
-   * Also performs a one-time hero visibility check on the first call
-   * to determine if the animation should be eligible to run.
    */
   const measure = useCallback(() => {
     if (heroRef.current) {
@@ -129,20 +123,9 @@ export function ScrollProvider({ children }: { children: ReactNode }) {
         lineHeight: cs.lineHeight,
         letterSpacing: cs.letterSpacing,
         color: cs.color,
-        webkitFontSmoothing: (cs as unknown as Record<string, string>).webkitFontSmoothing ?? "antialiased",
+        webkitFontSmoothing:
+          (cs as unknown as Record<string, string>).webkitFontSmoothing ?? "antialiased",
       })
-
-      // One-time hero visibility check: if the hero is in the viewport
-      // on the first measurement, the animation is eligible to run.
-      // If the user lands mid-page (e.g. via #contact anchor), the hero
-      // won't be visible and the animation will never activate.
-      if (!heroVisibilityChecked.current) {
-        heroVisibilityChecked.current = true
-        const isInViewport = rect.bottom > 0 && rect.top < window.innerHeight
-        if (isInViewport) {
-          setHeroWasVisible(true)
-        }
-      }
     }
     if (navRef.current) {
       const rect = navRef.current.getBoundingClientRect()
@@ -153,33 +136,55 @@ export function ScrollProvider({ children }: { children: ReactNode }) {
         width: rect.width,
         height: rect.height,
       })
+      setNavFontSize(window.getComputedStyle(navRef.current).fontSize)
     }
   }, [])
 
-  const registerHeroTitleRef = useCallback(
-    (el: HTMLElement | null) => {
-      heroRef.current = el
-      // Don't measure immediately — wait for fonts.ready in the effect
-    },
-    [],
-  )
+  const registerHeroTitleRef = useCallback((el: HTMLElement | null) => {
+    heroRef.current = el
+    setHeroEl(el)
+    // Don't measure immediately — wait for fonts.ready in the effect
+  }, [])
 
-  const registerNavTitleRef = useCallback(
-    (el: HTMLElement | null) => {
-      navRef.current = el
-    },
-    [],
-  )
+  // Watch for the hero entering the viewport at any point.
+  // Once seen, heroWasVisible stays true and the observer disconnects.
+  useEffect(() => {
+    if (!heroEl || heroWasVisible) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
+          setHeroWasVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.1 }
+    )
+
+    observer.observe(heroEl)
+    return () => observer.disconnect()
+  }, [heroEl, heroWasVisible])
+
+  const registerNavTitleRef = useCallback((el: HTMLElement | null) => {
+    navRef.current = el
+  }, [])
 
   // Wait for fonts.ready before first measurement, then remeasure on triggers
   useEffect(() => {
     let cancelled = false
+    let resizeTimer: ReturnType<typeof setTimeout>
 
     const doMeasure = () => {
       if (!cancelled) {
         measure()
         if (!fontsReady) setFontsReady(true)
       }
+    }
+
+    // Debounce resize/viewport changes to avoid measuring mid-transition
+    const debouncedMeasure = () => {
+      clearTimeout(resizeTimer)
+      resizeTimer = setTimeout(doMeasure, 100)
     }
 
     // Always await fonts.ready before measuring — this is the critical gate
@@ -191,26 +196,28 @@ export function ScrollProvider({ children }: { children: ReactNode }) {
       doMeasure()
     }
 
-    window.addEventListener("resize", doMeasure)
+    window.addEventListener("resize", debouncedMeasure)
+
+    // Handle mobile viewport changes (URL bar hide/show)
+    const vv = window.visualViewport
+    if (vv) {
+      vv.addEventListener("resize", debouncedMeasure)
+    }
+
     return () => {
       cancelled = true
-      window.removeEventListener("resize", doMeasure)
+      clearTimeout(resizeTimer)
+      window.removeEventListener("resize", debouncedMeasure)
+      if (vv) {
+        vv.removeEventListener("resize", debouncedMeasure)
+      }
     }
   }, [measure, fontsReady, locale, theme])
-
-  // Mark animation as completed once scrollProgress reaches 1 for the first time.
-  // After this, the floating title will never re-appear (until a full page reload).
-  useEffect(() => {
-    if (!animationHasRun && heroWasVisible && scrollProgress >= 1) {
-      setAnimationHasRun(true)
-    }
-  }, [animationHasRun, heroWasVisible, scrollProgress])
 
   const isFloatingTitleActive =
     !prefersReducedMotion &&
     fontsReady &&
     heroWasVisible &&
-    !animationHasRun &&
     scrollProgress > 0 &&
     scrollProgress < 1
 
@@ -222,11 +229,11 @@ export function ScrollProvider({ children }: { children: ReactNode }) {
       heroTitleRect,
       navTitleRect,
       heroComputedStyles,
+      navFontSize,
       fontsReady,
       registerHeroTitleRef,
       registerNavTitleRef,
       isFloatingTitleActive,
-      animationHasRun,
     }),
     [
       scrollY,
@@ -235,12 +242,12 @@ export function ScrollProvider({ children }: { children: ReactNode }) {
       heroTitleRect,
       navTitleRect,
       heroComputedStyles,
+      navFontSize,
       fontsReady,
       registerHeroTitleRef,
       registerNavTitleRef,
       isFloatingTitleActive,
-      animationHasRun,
-    ],
+    ]
   )
 
   return <ScrollContext.Provider value={value}>{children}</ScrollContext.Provider>

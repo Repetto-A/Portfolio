@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cmd /c \"dir \"\"d:\\\\Usuario\\\\Desktop\\\\trdtyyyy\\\\Portfolio\\\\app\\\\projects\"\" /s\")",
+      "Bash(cmd /c \"del /f \"\"d:\\\\Usuario\\\\Desktop\\\\trdtyyyy\\\\Portfolio\\\\components\\\\project-detail-modal.tsx\"\"\")",
+      "Bash(powershell -Command:*)",
+      "WebFetch(domain:www.repetto-a.com)",
+      "WebFetch(domain:localhost)"
+    ]
+  }
+}

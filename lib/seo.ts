@@ -15,9 +15,9 @@ export interface SEOProps {
 
 const siteConfig = {
   name: "Alejandro Repetto",
-  title: "Alejandro Repetto - Systems Engineer & AI/ML Developer",
+  title: "Alejandro Repetto: Systems Engineer & Full-Stack Developer | Portfolio",
   description:
-    "Portfolio of Alejandro Repetto, a systems engineering student specializing in AI/ML, automation, and full-stack development. Winner of NASA Space Apps Challenge and ETH Global hackathons.",
+    "Award-winning systems engineer specializing in automation and full-stack development. NASA Space Apps winner, ETH Global finalist. View projects, case studies, and get in touch.",
   url: "https://www.repetto-a.com",
   ogImage: "https://www.repetto-a.com/og-image.png",
   keywords: [
@@ -53,7 +53,7 @@ export function generateMetadata({
   authors,
   noindex = false,
 }: SEOProps): Metadata {
-  const finalTitle = title === siteConfig.name ? title : `${title} | ${siteConfig.name}`
+  const finalTitle = title === siteConfig.name || title === siteConfig.title ? title : `${title} | ${siteConfig.name}`
   const finalCanonical = canonical || siteConfig.url
   const finalOgImage = ogImage || siteConfig.ogImage
   const finalKeywords = [...siteConfig.keywords, ...keywords]
@@ -105,11 +105,12 @@ export function generatePersonSchema() {
     name: "Alejandro Repetto",
     alternateName: "Repetto-A",
     url: "https://www.repetto-a.com",
-    image: "https://www.repetto-a.com/placeholder.jpg",
+    image: "https://www.repetto-a.com/og-image.png",
     jobTitle: "Systems Engineer & AI/ML Developer",
     worksFor: {
-      "@type": "Organization",
-      name: "Freelance",
+      "@type": "EducationalOrganization",
+      name: "UTN - Universidad Tecnológica Nacional",
+      url: "https://www.frro.utn.edu.ar/",
     },
     alumniOf: {
       "@type": "EducationalOrganization",

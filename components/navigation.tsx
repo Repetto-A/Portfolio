@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils"
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [translations, locale, loading] = useTranslations()
-  const { registerNavTitleRef, isFloatingTitleActive, scrollProgress, fontsReady, animationHasRun } = useScrollContext()
+  const { registerNavTitleRef, isFloatingTitleActive, scrollProgress, fontsReady } = useScrollContext()
 
   const navItems = [
     { href: "#about", label: getTranslation(translations, "navigation.about", "About") },
@@ -28,12 +28,10 @@ export function Navigation() {
           <Link
             href="/"
             className={cn(
-              "font-mono text-lg font-semibold text-foreground hover:text-primary transition-colors transition-opacity duration-100",
-              // Show the nav brand only when:
-              // 1. Fonts are ready AND animation has completed its first run AND user is scrolled past hero
-              // 2. OR animation was never eligible (e.g. reduced motion, mid-page landing)
-              // In all other cases, hide it to avoid overlap with hero h1 or floating clone.
-              !(fontsReady && animationHasRun && scrollProgress >= 1) && "opacity-0",
+              "font-mono text-lg font-semibold text-foreground hover:text-primary transition-[color,opacity] duration-100",
+              // Show the nav brand only when scrolled past hero
+              // Hide it to avoid overlap with hero h1 or floating clone
+              !(fontsReady && scrollProgress >= 1) && "opacity-0",
             )}
           >
             <span ref={registerNavTitleRef}>Alejandro Repetto</span>

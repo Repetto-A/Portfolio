@@ -19,11 +19,10 @@ export function FloatingTitle() {
   const {
     scrollY,
     scrollProgress,
-    prefersReducedMotion,
     heroTitleRect,
     navTitleRect,
     heroComputedStyles,
-    fontsReady,
+    navFontSize,
     isFloatingTitleActive,
   } = useScrollContext()
   const [translations] = useTranslations()
@@ -32,12 +31,13 @@ export function FloatingTitle() {
 
   // Determine if the clone should be in the DOM at all.
   // Uses isFloatingTitleActive from context which includes: !prefersReducedMotion,
-  // fontsReady, heroWasVisible, !animationHasRun, 0 < scrollProgress < 1
+  // fontsReady, heroWasVisible, 0 < scrollProgress < 1
   const shouldMount =
     isFloatingTitleActive &&
     heroTitleRect != null &&
     navTitleRect != null &&
-    heroComputedStyles != null
+    heroComputedStyles != null &&
+    navFontSize != null
 
   // Opacity-gated reveal: mount with opacity 0, then reveal after one rAF
   // so the browser has time to apply computed styles before painting.
@@ -55,7 +55,7 @@ export function FloatingTitle() {
     }
   }, [shouldMount, revealed])
 
-  if (!shouldMount || !heroTitleRect || !navTitleRect || !heroComputedStyles) {
+  if (!shouldMount || !heroTitleRect || !navTitleRect || !heroComputedStyles || !navFontSize) {
     return null
   }
 
@@ -74,9 +74,12 @@ export function FloatingTitle() {
   const deltaX = (navViewportLeft - heroViewportLeft) * t
   const deltaY = (navViewportTop - heroViewportTop) * t
 
-  // Scale from hero size down to nav size
-  const scaleX = lerp(1, navTitleRect.width / heroTitleRect.width, t)
-  const scaleY = lerp(1, navTitleRect.height / heroTitleRect.height, t)
+  // Scale based on font-size ratio (not element height) so line-wrapping
+  // on mobile doesn't cause the title to shrink more than it should.
+  const heroFontPx = parseFloat(heroComputedStyles.fontSize)
+  const navFontPx = parseFloat(navFontSize)
+  const targetScale = navFontPx / heroFontPx
+  const scale = lerp(1, targetScale, t)
 
   const name = getTranslation(translations, "hero.name", "Alejandro Repetto")
 
@@ -89,7 +92,7 @@ export function FloatingTitle() {
         width: heroTitleRect.width,
         height: heroTitleRect.height,
         transformOrigin: "top left",
-        transform: `translate3d(${deltaX}px, ${deltaY}px, 0) scale(${scaleX}, ${scaleY})`,
+        transform: `translate3d(${deltaX}px, ${deltaY}px, 0) scale(${scale})`,
         willChange: revealed ? "transform, opacity" : undefined,
         opacity: revealed ? 1 : 0,
       }}

@@ -51,14 +51,14 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
               </Badge>
             </div>
             <DialogTitle className="text-xl">{content.title}</DialogTitle>
-            <DialogDescription>{content.short}</DialogDescription>
+            <DialogDescription className="sr-only">{content.short}</DialogDescription>
           </DialogHeader>
 
           <ScrollArea className="flex-1 overflow-y-auto">
             <div className="px-6 py-4 space-y-6">
               {/* Image thumbnails */}
               {project.images?.length > 0 && (
-                <div className="grid grid-cols-3 gap-2">
+                <div className="grid grid-cols-2 gap-3">
                   {project.images.map((img, i) => (
                     <button
                       key={img}
@@ -74,7 +74,7 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
                         alt={`${content.title} screenshot ${i + 1}`}
                         fill
                         className="object-cover"
-                        sizes="(max-width: 640px) 30vw, 180px"
+                        sizes="(max-width: 640px) 45vw, 280px"
                       />
                     </button>
                   ))}
@@ -135,11 +135,6 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
                     </Link>
                   </Button>
                 )}
-                <Button asChild variant="ghost" size="sm">
-                  <Link href={`/projects/${project.id}`}>
-                    {getTranslation(translations, "projects.cta.learnMore", "Learn More")}
-                  </Link>
-                </Button>
               </div>
             </div>
           </ScrollArea>

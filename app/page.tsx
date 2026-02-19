@@ -10,7 +10,7 @@ import type { Metadata } from "next"
 import { generateMetadata, siteConfig } from "@/lib/seo"
 
 export const metadata: Metadata = generateMetadata({
-  title: siteConfig.name,
+  title: siteConfig.title,
   description: siteConfig.description,
   canonical: siteConfig.url,
   ogType: "profile",

@@ -4,9 +4,9 @@
       "id": "farmhero",
       "locales": {
         "en": {
-          "title": "FarmHero — NASA Space Apps Global nominees 2025",
-          "short": "Educational simulator using real NASA/CONAE data to teach sustainable agriculture. Winner of NASA Space Apps Rosario 2025, under Global Judging.",
-          "description": "Educational simulator that uses real NASA and CONAE satellite data to teach resource-management and sustainable agriculture decisions. Players restore degraded land by managing limited capital and choosing interventions (fertilizers, pesticides and irrigation), whose short- and long-term effects the game simulates. Winner of NASA Space Apps Rosario 2025; currently under Global Judging.",
+          "title": "FarmHero",
+          "short": "Educational simulator using real NASA/CONAE data to teach sustainable agriculture. Regional Winner and Global Nominee at NASA Space Apps 2025.",
+          "description": "Educational simulator that uses real NASA and CONAE satellite data to teach resource-management and sustainable agriculture decisions. Players restore degraded land by managing limited capital and choosing interventions (fertilizers, pesticides and irrigation), whose short- and long-term effects the game simulates. Regional Winner and Global Nominee at NASA Space Apps 2025.",
           "features": [
             "Simulation of agricultural interventions (irrigation, fertilization, pesticides) with short and long-term effects",
             "Real data ingestion and normalization: NASA and CONAE satellite layers",
@@ -17,9 +17,9 @@
           ]
         },
         "es": {
-          "title": "FarmHero — Nominados globales NASA Space Apps 2025",
-          "short": "Simulador educativo que usa datos reales de NASA/CONAE para enseñar agricultura sostenible. Ganador de NASA Space Apps Rosario 2025, en evaluación global.",
-          "description": "Simulador educativo que utiliza datos reales de satélites de NASA y CONAE para enseñar gestión de recursos y decisiones de agricultura sostenible. Los jugadores restauran tierras degradadas gestionando capital limitado y eligiendo intervenciones (fertilizantes, plaguicidas e irrigación), cuyos efectos a corto y largo plazo simula el juego. Ganador de NASA Space Apps Rosario 2025; actualmente bajo evaluación global.",
+          "title": "FarmHero",
+          "short": "Simulador educativo que utiliza datos satelitales de NASA y CONAE para enseñar agricultura sostenible. Ganador Regional y Nominado Global por la NASA.",
+          "description": "Simulador educativo que utiliza datos reales de satélites de NASA y CONAE para enseñar gestión de recursos y decisiones de agricultura sostenible. Los jugadores restauran tierras degradadas gestionando capital limitado y eligiendo intervenciones (fertilizantes, plaguicidas e irrigación), cuyos efectos a corto y largo plazo simula el juego. Ganador Regional y Nominado Global en NASA Space Apps 2025.",
           "features": [
             "Simulación de intervenciones agrícolas (irrigación, fertilización, plaguicidas) con efectos a corto y largo plazo",
             "Ingesta y normalización de datos reales: capas satelitales de NASA y CONAE",
@@ -30,76 +30,25 @@
           ]
         }
       },
-      "status": "winner-local / in-evaluation-global",
-      "techStack": ["Next.js", "TypeScript", "TailwindCSS"],
+      "status": "regional-winner-global-nominee",
+      "techStack": ["Next.js", "React", "TypeScript", "Tailwind CSS", "NASA & CONAE Data"],
       "githubUrl": "https://github.com/Repetto-A/NASA-FarmHero",
       "demoUrl": "https://nasa-farm-hero.vercel.app/",
-      "images": ["/projects/farmhero-1.jpg", "/projects/farmhero-2.jpg", "/projects/farmhero-3.jpg"],
-      "category": "Game / AgTech",
-      "timeline": [
-        {
-          "date": "2025-10-04",
-          "title": {
-            "en": "Hackathon Opening",
-            "es": "Apertura del Hackathon"
-          },
-          "description": {
-            "en": "Competition begins.",
-            "es": "Inicia la competencia."
-          }
-        },
-        {
-          "date": "2025-10-09",
-          "title": {
-            "en": "Rosario Winners",
-            "es": "Ganadores Rosario"
-          },
-          "description": {
-            "en": "First place with FarmHero — NASA Space Apps Rosario 2025.",
-            "es": "Primer puesto con FarmHero — NASA Space Apps Rosario 2025."
-          }
-        },
-        {
-          "date": "2025-11-05",
-          "title": {
-            "en": "2025 Global Nominees",
-            "es": "Nominados Globales 2025"
-          },
-          "description": {
-            "en": "Projects selected by local and universal judges to advance to global stage.",
-            "es": "Proyectos seleccionados por jueces locales y universales para avanzar a instancia global."
-          }
-        },
-        {
-          "date": "2025-11-26",
-          "title": {
-            "en": "2025 Global Finalists",
-            "es": "Finalistas Globales 2025"
-          },
-          "description": {
-            "en": "Review by NASA experts and partner agencies to determine finalists and honorable mentions.",
-            "es": "Revisión por expertos de NASA y agencias asociadas para determinar finalistas y menciones honoríficas."
-          }
-        },
-        {
-          "date": "2025-12-18",
-          "title": {
-            "en": "2025 Global Winners",
-            "es": "Ganadores Globales 2025"
-          },
-          "description": {
-            "en": "NASA executive committee and partners select the 10 global winners among finalists.",
-            "es": "Comité ejecutivo de NASA y partners elige a los 10 ganadores globales entre los finalistas."
-          }
-        }
-      ]
+      "images": [
+        "/projects/farmhero-1.jpg",
+        "/projects/farmhero-2.jpg",
+        "/projects/farmhero-3.jpg",
+        "/projects/farmhero-4.jpg",
+        "/projects/farmhero-5.jpg"
+      ],
+      "category": "Game / AgTech"
     },
     {
       "id": "nasa-spaceapps",
       "locales": {
         "en": {
           "title": "Seismic Detection - NASA Space Apps 2024",
-          "short": "AI/ML-powered seismic detection system for lunar and Martian environments using machine learning models.",
+          "short": "AI/ML-powered seismic detection system for lunar and Martian environments using machine learning models. 2nd place regional.",
           "description": "AI/ML-powered seismic detection system for lunar and Martian environments. Developed as part of NASA Space Apps Challenge 2024, this project uses machine learning models to analyze seismic data and detect potential moonquakes and marsquakes.",
           "features": [
             "Machine learning model for seismic pattern recognition",
@@ -111,7 +60,7 @@
         },
         "es": {
           "title": "Detección de actividad Sísmica - NASA Space Apps 2024",
-          "short": "Sistema de detección sísmica potenciado por IA/ML para entornos lunares y marcianos usando modelos de aprendizaje automático.",
+          "short": "Sistema de detección sísmica potenciado por IA/ML para entornos lunares y marcianos usando modelos de aprendizaje automático. 2do puesto regional.",
           "description": "Sistema de detección sísmica potenciado por IA/ML para entornos lunares y marcianos. Desarrollado como parte del NASA Space Apps Challenge 2024, este proyecto utiliza modelos de aprendizaje automático para analizar datos sísmicos y detectar posibles terremotos lunares y marcianos.",
           "features": [
             "Modelo de aprendizaje automático para reconocimiento de patrones sísmicos",
@@ -123,7 +72,7 @@
         }
       },
       "status": "production",
-      "techStack": ["Python", "TensorFlow", "Keras", "NumPy", "Pandas", "Matplotlib"],
+      "techStack": ["Python", "TensorFlow", "Keras", "Scikit-learn", "Pandas", "NumPy", "Matplotlib"],
       "githubUrl": "https://github.com/Repetto-A/AI-Seismic-Detection",
       "demoUrl": null,
       "images": ["/projects/nasa-1.png", "/projects/nasa-2.png", "/projects/nasa-3.png"],
@@ -134,7 +83,7 @@
       "locales": {
         "en": {
           "title": "Brain Tumor Classifier",
-          "short": "Deep learning brain tumor classifier (95% accuracy) running in your browser for full privacy.",
+          "short": "Deep learning brain tumor classifier running in your browser for full privacy. ~95% accuracy.",
           "description": "AI-powered brain tumor classification running entirely in your browser with no server required, ensuring complete privacy. Transform PyTorch deep learning models into real-time web applications with ONNX Runtime Web. Features 95.4% test accuracy on 4 tumor classes (Glioma, Meningioma, Pituitary, No Tumor) with blazing fast 200-400ms predictions after warmup.",
           "features": [
             "100% client-side inference - images never leave your device",
@@ -147,7 +96,7 @@
         },
         "es": {
           "title": "Clasificador de Tumores Cerebrales",
-          "short": "Clasificador de tumores cerebrales con deep learning (95% precisión) ejecutándose en tu navegador con privacidad total.",
+          "short": "Clasificador de tumores cerebrales con deep learning ejecutándose en tu navegador para lograr privacidad total. ~95% de precisión.",
           "description": "Clasificación de tumores cerebrales potenciada por IA que se ejecuta completamente en tu navegador sin necesidad de servidor, garantizando privacidad total. Transforma modelos de deep learning de PyTorch en aplicaciones web en tiempo real con ONNX Runtime Web. Presenta 95.4% de precisión en 4 clases de tumores (Glioma, Meningioma, Pituitaria, Sin Tumor) con predicciones ultra rápidas de 200-400ms después del calentamiento.",
           "features": [
             "Inferencia 100% del lado del cliente - las imágenes nunca salen de tu dispositivo",
@@ -160,84 +109,123 @@
         }
       },
       "status": "production",
-      "techStack": ["Next.js", "TypeScript", "ONNX Runtime Web", "PyTorch", "TailwindCSS", "shadcn/ui"],
+      "techStack": ["Python", "Next.js", "React", "TypeScript", "Tailwind CSS", "PyTorch", "Matplotlib", "Pillow", "NumPy", "Scikit-learn"],
       "githubUrl": "https://github.com/Repetto-A/BrainTumorAI-Web",
       "demoUrl": "https://brain-tumor-ai-web.vercel.app",
-      "images": ["/projects/braintumorai-1.jpg", "/projects/braintumorai-2.jpg", "/projects/braintumorai-3.jpg"],
+      "images": [
+        "/projects/braintumorai-1.jpg",
+        "/projects/braintumorai-2.jpg",
+        "/projects/braintumorai-3.jpg"
+      ],
       "category": "AI/ML Research"
     },
     {
-      "id": "cotibot",
+      "id": "zorrito-finance",
       "locales": {
         "en": {
-          "title": "Cotibot",
-          "short": "Speed up quoting for an agricultural manufacturer: PDF quotes, AFIP CUIT lookup, admin pricing.",
-          "description": "An intelligent factory quoting system that streamlines the quotation process for manufacturing businesses. Features automated PDF generation, AFIP CUIT lookup integration for Argentine tax validation, and a comprehensive admin pricing panel.",
+          "title": "Zorrito Finance",
+          "short": "No-loss lottery where you save, win, and raise your own virtual Zorrito. 2nd Best dApp Using Filecoin at ETH Global 2025.",
+          "description": "A decentralized finance platform that enables users to earn yield on their savings without risking their principal. Built during ETH Global 2025, awarded 2nd Best dApp Using Filecoin. Users deposit funds into smart contracts that automatically allocate capital to yield-generating protocols, while maintaining full liquidity and zero loss of principal.",
           "features": [
-            "Automated PDF quote generation",
-            "AFIP CUIT lookup integration",
-            "Admin pricing management panel",
-            "Client quote history tracking",
-            "Real-time pricing calculations"
+            "No-loss savings mechanism with yield generation",
+            "Smart contract-based fund allocation",
+            "Integration with Filecoin for decentralized storage",
+            "Real-time yield tracking dashboard",
+            "Instant withdrawals with no penalties",
+            "Multi-protocol yield optimization"
           ]
         },
         "es": {
-          "title": "Cotibot",
-          "short": "Acelera las cotizaciones para un fabricante agrícola: cotizaciones PDF, búsqueda CUIT AFIP, precios de administrador.",
-          "description": "Un sistema inteligente de cotización para fábricas que agiliza el proceso de cotización para empresas manufactureras. Incluye generación automática de PDF, integración de búsqueda CUIT AFIP para validación fiscal argentina, y un panel integral de precios para administradores.",
+          "title": "Zorrito Finance",
+          "short": "Lotería sin pérdidas en la que ahorrás y ganás mientras cuidás a tu propio Zorrito virtual. 2da Mejor dApp Usando Filecoin en ETH Global 2025.",
+          "description": "Una plataforma de finanzas descentralizadas que permite a los usuarios ganar rendimientos sobre sus ahorros sin arriesgar su capital principal. Construida durante ETH Global 2025, premiada como 2do Mejor dApp Usando Filecoin. Los usuarios depositan fondos en contratos inteligentes que asignan automáticamente capital a protocolos generadores de rendimiento, manteniendo liquidez total y cero pérdida de principal.",
           "features": [
-            "Generación automática de cotizaciones en PDF",
-            "Integración con búsqueda de CUIT en AFIP",
-            "Panel de gestión de precios para administradores",
-            "Seguimiento del historial de cotizaciones de clientes",
-            "Cálculos de precios en tiempo real"
+            "Mecanismo de ahorro sin pérdidas con generación de rendimientos",
+            "Asignación de fondos basada en contratos inteligentes",
+            "Integración con Filecoin para almacenamiento descentralizado",
+            "Panel de seguimiento de rendimientos en tiempo real",
+            "Retiros instantáneos sin penalizaciones",
+            "Optimización de rendimientos multi-protocolo"
+          ]
+        }
+      },
+      "status": "in-progress",
+      "techStack": ["Solidity", "Filecoin", "IPFS", "Self Protocol", "Next.js", "React", "TypeScript", "AI SDK", "Tailwind CSS"],
+      "githubUrl": "https://github.com/Repetto-A/zorrito-finance",
+      "demoUrl": "https://zorrito.vercel.app/",
+      "images": [
+        "/projects/zorrito-1.jpg",
+        "/projects/zorrito-2.jpg",
+        "/projects/zorrito-3.jpg",
+        "/projects/zorrito-4.jpeg"
+      ],
+      "category": "Blockchain/DeFi"
+    },
+    {
+      "id": "roxium-dao-ops",
+      "locales": {
+        "en": {
+          "title": "Roxium DAO Ops",
+          "short": "DAO management system that brings transparency and visibility over the status of proposals and tasks. 1st place PowerHouse Ecosystem prize at ETH Argentina.",
+          "description": "DAO operations platform built for ETH Argentina. Roxium brings transparency and visibility to DAOs by tracking proposals and tasks with full status history, dashboards and analytics, and AI-powered daily digests that summarize key factors and overall progress contributors need to pay attention to.",
+          "features": [
+            "Proposal and task tracking with full status history",
+            "Dashboards and analytics for DAO activity",
+            "AI-powered daily digest with key factor summaries",
+            "Overall progress overview for contributors",
+            "Bottleneck identification through status trends"
+          ]
+        },
+        "es": {
+          "title": "Roxium DAO Ops",
+          "short": "Sistema de gestión de DAOs que brinda transparencia y visibilidad sobre el estado de proposals y tasks. 1er premio del ecosistema PowerHouse en ETH Argentina.",
+          "description": "Plataforma de operaciones para DAOs construida para ETH Argentina. Roxium brinda transparencia y visibilidad al trackear proposals y tasks con historial de estados completo, dashboards, analytics y resúmenes diarios potenciados con IA que sintetizan los factores clave y el estado general al que los contribuidores deben prestarle atención.",
+          "features": [
+            "Tracking de proposals y tasks con historial de estados completo",
+            "Dashboards y analytics de actividad del DAO",
+            "Resumen diario potenciado con IA con factores clave",
+            "Vista general del progreso para contribuidores",
+            "Identificación de cuellos de botella a través de tendencias de estado"
           ]
         }
       },
       "status": "production",
-      "techStack": ["TypeScript", "React", "FastAPI", "PostgreSQL", "Tailwind"],
-      "githubUrl": "https://github.com/Repetto-A/cotibot",
-      "demoUrl": "https://cotibot-demo.vercel.app",
-      "images": [
-        "/projects/cotibot-1.png",
-        "/projects/cotibot-2.png",
-        "/projects/cotibot-3.png",
-        "/projects/cotibot-4.png"
-      ],
-      "category": "Business Automation"
+      "techStack": ["TypeScript", "Next.js", "React", "PowerHouse", "Vetra", "LangChain", "GraphQL", "Tailwind CSS"],
+      "githubUrl": "https://github.com/Repetto-A/roxium-dao-ops",
+      "demoUrl": "https://roxium-dao-ops.up.railway.app/",
+      "images": ["/projects/roxium-1.jpg", "/projects/roxium-2.jpg", "/projects/roxium-3.jpg"],
+      "category": "Blockchain/AI"
     },
     {
       "id": "real-estate-system",
       "locales": {
         "en": {
           "title": "Real Estate Management System",
-          "short": "Comprehensive property management with calendar booking, agent notifications, and Telegram bot integration.",
+          "short": "Property management system with visit calendars, booking notifications for agents, SEO blog, and more.",
           "description": "A comprehensive property management platform featuring calendar-based booking system, automated agent email confirmations, internal blog for SEO optimization and content generation, newsletter system.",
           "features": [
             "Calendar booking system for property viewings",
             "Automated email confirmations for agents",
             "Internal blog for property updates",
             "Newsletter subscription system",
-            "Telegram bot for instant notifications",
             "Property listing management"
           ]
         },
         "es": {
           "title": "Sistema de Gestión Inmobiliaria",
-          "short": "Gestión integral de propiedades con reservas por calendario, notificaciones a agentes e integración con bot de Telegram.",
-          "description": "Una plataforma integral de gestión de propiedades que incluye sistema de reservas basado en calendario, confirmaciones automáticas por email para agentes, blog interno para actualizaciones de propiedades, sistema de newsletter e integración con bot de Telegram para notificaciones instantáneas.",
+          "short": "Sistema de gestión de propiedades que incluye calendarios de visita, reservas con notificaciones a los agentes, newsletter, blog para mejorar el SEO, etc.",
+          "description": "Una plataforma integral de gestión de propiedades que incluye sistema de reservas basado en calendario, confirmaciones automáticas por email para agentes, blog interno para actualizaciones de propiedades y sistema de newsletter.",
           "features": [
             "Sistema de reservas por calendario para visitas a propiedades",
             "Confirmaciones automáticas por email para agentes",
             "Blog interno para actualizaciones de propiedades",
             "Sistema de suscripción a newsletter",
-            "Bot de Telegram para notificaciones instantáneas",
             "Gestión de listados de propiedades"
           ]
         }
       },
       "status": "production",
-      "techStack": ["Python", "Django", "MySQL", "Bootstrap 5", "Tailwind"],
+      "techStack": ["Python", "Django", "LangChain", "MySQL", "Bootstrap 5", "Tailwind CSS", "Pillow"],
       "githubUrl": "https://github.com/Repetto-A/Real_Estate_System",
       "demoUrl": "https://realestatesystem-production.up.railway.app/",
       "images": [
@@ -251,6 +239,46 @@
         "/projects/realestate-8.png"
       ],
       "category": "Management System"
+    },
+    {
+      "id": "cotibot",
+      "locales": {
+        "en": {
+          "title": "Cotibot",
+          "short": "Custom-built system for an agricultural machinery manufacturer: PDF quotes, AFIP CUIT lookup, WhatsApp bot, and more.",
+          "description": "An intelligent factory quoting system that streamlines the quotation process for manufacturing businesses. Features automated PDF generation, AFIP CUIT lookup integration for Argentine tax validation, and a comprehensive admin pricing panel.",
+          "features": [
+            "Automated PDF quote generation",
+            "AFIP CUIT lookup integration",
+            "Admin pricing management panel",
+            "Client quote history tracking",
+            "Real-time pricing calculations"
+          ]
+        },
+        "es": {
+          "title": "Cotibot",
+          "short": "Sistema a medida para un fabricante de maquinaria agrícola: cotizaciones PDF, búsqueda de información en AFIP a partir del CUIT, bot de WhatsApp, etc.",
+          "description": "Un sistema inteligente de cotización para fábricas que agiliza el proceso de cotización para empresas manufactureras. Incluye generación automática de PDF, integración de búsqueda CUIT AFIP para validación fiscal argentina, y un panel integral de precios para administradores.",
+          "features": [
+            "Generación automática de cotizaciones en PDF",
+            "Integración con búsqueda de CUIT en AFIP",
+            "Panel de gestión de precios para administradores",
+            "Seguimiento del historial de cotizaciones de clientes",
+            "Cálculos de precios en tiempo real"
+          ]
+        }
+      },
+      "status": "production",
+      "techStack": ["TypeScript", "Python", "React", "FastAPI", "PostgreSQL", "Tailwind CSS", "Pillow"],
+      "githubUrl": "https://github.com/Repetto-A/cotibot",
+      "demoUrl": "https://cotibot-demo.vercel.app",
+      "images": [
+        "/projects/cotibot-1.png",
+        "/projects/cotibot-2.png",
+        "/projects/cotibot-3.png",
+        "/projects/cotibot-4.png"
+      ],
+      "category": "Business Automation"
     }
   ]
 }
