@@ -2,22 +2,21 @@
   "navigation": {
     "home": "Home",
     "about": "About",
-    "skills": "Skills",
     "projects": "Projects",
     "contact": "Contact"
   },
   "hero": {
     "name": "Alejandro Repetto",
-    "title": "Systems Engineering Student",
-    "description": "I build intelligent management systems, automation tools, and AI/ML applications that save people time and simplify complex processes.",
+    "title": "Software Engineer",
+    "description": "I'm obsessed with reducing complexity. I build fast, ship faster, and I don't sleep until every test passes.\nAwarded at NASA Space Apps, ETH Argentina, and ETH Global.",
     "cta": {
-      "projects": "See Projects",
+      "projects": "Explore Projects",
       "resume": "Download Resume"
     },
     "stats": {
       "projects": "Projects",
-      "experience": "Years Experience",
-      "specialization": "Specialization"
+      "experience": "Hackathon Wins",
+      "specialization": "Hackathons"
     },
     "status": {
       "currently": "Currently",
@@ -30,20 +29,20 @@
   "about": {
     "title": "About",
     "bio": {
-      "short": "I'm a nerd who loves building intelligent solutions that solve real problems. I work with AI/ML, automation, and distributed systems—creating applications that are both algorithmically efficient and architecturally sound. My competitive programming background drives me to understand not just how to use technologies, but how they work and when they make sense.",
+      "short": "I'm a Systems Engineering student and a nerd who loves solving problems. I found in software my holy grail for doing it. I'm very good at automating tasks that used to take countless hours and entire teams, doing it scalably, efficiently and securely, driven by my passion for competitive programming and cybersecurity. Above all, I'm curious and love a good challenge.",
       "background": {
         "title": "Background",
-        "text": "I've been programming seriously since 2022, when I placed 6th in my first ICPC tournament. A 2024 winter training camp was a turning point that transformed how I approach technical challenges.\n\nI'm learning distributed systems and design patterns through hands-on implementation—building load balancers, message brokers, and experimenting with database architectures.\n\nMy AI/ML projects range from seismic prediction algorithms for NASA Space Apps to production-grade systems with RAG architectures. I focus on understanding not just how to use technologies, but how they work and when they make sense architecturally."
+        "text": "I've been programming seriously since 2022, when I placed 6th in my first ICPC tournament. A 2024 winter training camp was a turning point that transformed how I approach technical challenges.\n\nMy projects range from NASA Space Apps prediction algorithms to production systems with RAG architectures."
       },
       "approach": {
         "title": "Approach",
-        "text": "I think about efficiency first—competitive programming trained me to analyze complexity before coding. But I'm pragmatic about execution: MVPs ship fast, production systems are built to last.\n\nMy process: research what exists, understand the problem deeply, consult when needed, then iterate rapidly. I focus on writing code that's maintainable and scalable without over-engineering early stages.\n\nI work well independently and in teams. I adapt to what the project needs and focus on delivering solutions that work now and scale later."
+        "text": "I'm very pragmatic. Competitive programming trained me to always analyze the time and space complexity of my projects, but the multiple hackathons I competed in taught me to build and validate MVPs fast, without losing sight of the architecture and distributed systems design that engineering gave me."
       }
     }
   },
   "skills": {
     "title": "Skills & Technologies",
-    "subtitle": "A comprehensive toolkit for building modern applications, from frontend interfaces to AI-powered backend systems.",
+    "subtitle": "A complete toolkit for building full applications, from modern web systems to AI-powered automations.",
     "categories": {
       "languages": "Languages & Frameworks",
       "frameworks": "AI/ML & Data Science",
@@ -67,13 +66,14 @@
   },
   "projects": {
     "title": "Featured Projects",
-    "description": "A collection of systems engineering projects spanning automation, AI/ML, and management solutions built to solve real-world challenges.",
+    "description": "A collection of engineering projects spanning management systems, automation, and applied AI/ML built to solve real-world challenges.",
     "categories": {
       "Web Application": "Web Application",
       "Business Automation": "Business Automation",
       "Management System": "Management System",
       "AI/ML Research": "AI/ML Research",
       "Blockchain/DeFi": "Blockchain/DeFi",
+      "Blockchain/AI": "Blockchain/AI",
       "Healthcare System": "Healthcare System",
       "Game / AgTech": "Game / AgTech"
     },
@@ -107,8 +107,6 @@
     }
   },
   "contact": {
-    "title": "Get In Touch",
-    "description": "Ready to discuss your next project or explore collaboration opportunities? I'd love to hear from you.",
     "form": {
       "title": "Send a Message",
       "name": "Name",

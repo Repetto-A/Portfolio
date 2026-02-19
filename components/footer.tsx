@@ -2,14 +2,14 @@ import Link from "next/link"
 import { Github, Linkedin, Mail } from "lucide-react"
 
 export function Footer() {
+  const currentYear = new Date().getFullYear()
+
   return (
     <footer className="bg-card border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-4 md:mb-0">
-            <p className="text-muted-foreground text-sm">
-              © 2025 Alejandro Repetto.
-            </p>
+        <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <div>
+            <p className="text-muted-foreground text-sm">© {currentYear} Alejandro Repetto. All rights reserved.</p>
           </div>
 
           <div className="flex items-center space-x-6">
@@ -18,24 +18,27 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"
+              aria-label="Visit GitHub profile"
             >
               <Github className="h-5 w-5" />
               <span className="sr-only">GitHub</span>
             </Link>
 
             <Link
-              href="https://linkedin.com/in/alex-repetto"
+              href="https://www.linkedin.com/in/alejandro-repetto"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"
+              aria-label="Visit LinkedIn profile"
             >
               <Linkedin className="h-5 w-5" />
               <span className="sr-only">LinkedIn</span>
             </Link>
 
             <Link
-              href="mailto:alex.repetto@example.com"
+              href="mailto:repettoalejandroing@gmail.com"
               className="text-muted-foreground hover:text-foreground transition-colors"
+              aria-label="Send email"
             >
               <Mail className="h-5 w-5" />
               <span className="sr-only">Email</span>

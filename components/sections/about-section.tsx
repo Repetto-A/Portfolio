@@ -1,28 +1,27 @@
 "use client"
 
+import { Container } from "@/components/layout/container"
+import { Section } from "@/components/layout/section"
+import { SectionHeader } from "@/components/layout/section-header"
 import { useTranslations, getTranslation } from "@/lib/i18n-context"
 
 export function AboutSection() {
   const [translations] = useTranslations()
 
   return (
-    <section id="about" className="py-24 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
+    <Section id="about" variant="default" spacing="default">
+      <Container maxWidth="4xl">
         <div className="space-y-12">
-          <div className="text-center space-y-4">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-              {getTranslation(translations, "about.title", "About")}
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-              {getTranslation(
-                translations,
-                "about.bio.short",
-                "A passionate systems engineering student dedicated to building intelligent solutions that save people time and simplify complex processes. I focus on creating automation systems, management platforms, and AI/ML applications that transform everyday business challenges into streamlined, efficient workflows."
-              )}
-            </p>
-          </div>
+          <SectionHeader
+            title={getTranslation(translations, "about.title", "About")}
+            description={getTranslation(
+              translations,
+              "about.bio.short",
+              "I'm a nerd who loves building intelligent solutions that solve real problems. I work with automation and distributed systems, creating applications that are both algorithmically efficient and architecturally sound. My competitive programming background drives me to understand not just how to use technologies, but how they work and when they make sense.",
+            )}
+          />
 
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
             {/* Background */}
             <div className="space-y-6">
               <h3 className="text-xl font-semibold text-foreground">
@@ -32,7 +31,7 @@ export function AboutSection() {
                 {getTranslation(
                   translations,
                   "about.bio.background.text",
-                  "I'm a 23-year-old systems engineering student specializing in management systems, automation, and AI/ML development. My work focuses on creating practical solutions that solve real-world business challenges.\n\nFrom factory quoting systems to real estate management platforms, I enjoy building applications that not only optimize operations but also create smoother, more intuitive user experiences. Recently, I contributed to NASA's Space Apps Challenge with an AI-powered seismic detection solution, alongside developing automation tools for various industries."
+                  "I've been programming seriously since 2022, when I placed 6th in my first ICPC tournament. A 2024 winter training camp was a turning point that transformed how I approach technical challenges.\n\nI'm learning distributed systems and design patterns through hands-on implementation: building load balancers, message brokers, and experimenting with database architectures.\n\nMy projects range from NASA Space Apps prediction algorithms to production systems with RAG architectures. I don't just use technologies. I dig into how they work and when they actually make sense architecturally.",
                 )
                   .split("\n\n")
                   .map((paragraph, index) => (
@@ -50,7 +49,7 @@ export function AboutSection() {
                 {getTranslation(
                   translations,
                   "about.bio.approach.text",
-                  "I believe technology should give people back their time. Every project begins with deeply understanding the core problem, then designing solutions that are scalable, maintainable, and user-focused.\n\nMy experience spans full-stack development, machine learning implementation, and system architecture. I'm particularly interested in how AI and automation can transform traditional business processes and create new opportunities for innovation."
+                  "I think about efficiency first. Competitive programming trained me to analyze complexity before coding. But I'm pragmatic about execution: MVPs ship fast, production systems are built to last.\n\nMy process: research what exists, understand the problem deeply, consult when needed, then iterate rapidly. I focus on writing code that's maintainable and scalable without over-engineering early stages.\n\nI work well independently and in teams, and I adapt to what the project needs. Local hackathon wins and real-world deployments both prove the same thing: I deliver solutions that work now and scale later.",
                 )
                   .split("\n\n")
                   .map((paragraph, index) => (
@@ -60,7 +59,7 @@ export function AboutSection() {
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   )
 }

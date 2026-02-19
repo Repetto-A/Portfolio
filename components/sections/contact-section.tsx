@@ -1,6 +1,6 @@
 "use client"
 
-import type React from "react"
+import React from "react"
 
 import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -8,9 +8,19 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import { Mail, Linkedin, Github, Send, MapPin, Clock, CheckCircle, AlertCircle } from "lucide-react"
+import {
+  Mail,
+  Linkedin,
+  Github,
+  Send,
+  MapPin,
+  Clock,
+  CheckCircle,
+  AlertCircle,
+  Download,
+} from "lucide-react"
 import Link from "next/link"
-import { useTranslations, getTranslation } from "@/lib/i18n-context"
+import { useTranslations, getTranslation, getResumeUrl } from "@/lib/i18n-context"
 
 interface FormData {
   name: string
@@ -20,7 +30,8 @@ interface FormData {
 }
 
 export function ContactSection() {
-  const [translations, locale, loading] = useTranslations()
+  const [translations, locale] = useTranslations()
+  const resumeUrl = getResumeUrl(locale)
 
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -30,7 +41,6 @@ export function ContactSection() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
-
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -46,7 +56,7 @@ export function ContactSection() {
         body: JSON.stringify(formData),
       })
 
-      const result = await response.json()
+      await response.json()
 
       if (response.ok) {
         setSubmitStatus("success")
@@ -79,19 +89,6 @@ export function ContactSection() {
   return (
     <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center space-y-4 mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-            {getTranslation(translations, "contact.title", "Get In Touch")}
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-            {getTranslation(
-              translations,
-              "contact.description",
-              "Ready to collaborate on your next systems engineering project? Let's discuss how we can build something amazing together.",
-            )}
-          </p>
-        </div>
-
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div className="space-y-8">
@@ -99,13 +96,23 @@ export function ContactSection() {
               <h3 className="text-xl font-semibold text-foreground mb-6">
                 {getTranslation(translations, "contact.info.title", "Let's Connect")}
               </h3>
-              <p className="text-muted-foreground leading-relaxed mb-8">
+              <p className="text-muted-foreground leading-relaxed mb-6">
                 {getTranslation(
                   translations,
                   "contact.info.description",
-                  "I'm always interested in discussing new opportunities, whether it's a challenging systems engineering project, AI/ML implementation, or automation solution. Feel free to reach out through any of the channels below.",
+                  "I'm always interested in discussing new opportunities, whether it's a challenging systems engineering project, AI/ML implementation, or automation solution. Feel free to reach out through any of the channels below."
                 )}
               </p>
+
+              <Link
+                href={resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-lg border border-border bg-card hover:bg-accent transition-colors text-sm font-medium"
+              >
+                <Download className="h-4 w-4" />
+                {getTranslation(translations, "hero.cta.resume", "Download Resume")}
+              </Link>
             </div>
 
             {/* Contact Methods */}
@@ -190,33 +197,53 @@ export function ContactSection() {
             <Card>
               <CardHeader>
                 <CardTitle className="text-lg">
-                  {getTranslation(translations, "contact.availability.title", "Current Availability")}
+                  {getTranslation(
+                    translations,
+                    "contact.availability.title",
+                    "Current Availability"
+                  )}
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <span className="text-muted-foreground">
-                      {getTranslation(translations, "contact.availability.consulting", "Consulting")}
+                      {getTranslation(
+                        translations,
+                        "contact.availability.consulting",
+                        "Consulting"
+                      )}
                     </span>
-                    <span className="text-slate-600 font-medium">
+                    <span className="text-emerald-600 dark:text-emerald-400 font-medium">
                       {getTranslation(translations, "contact.availability.available", "Available")}
                     </span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-muted-foreground">
-                      {getTranslation(translations, "contact.availability.freelance", "Freelance Projects")}
+                      {getTranslation(
+                        translations,
+                        "contact.availability.freelance",
+                        "Freelance Projects"
+                      )}
                     </span>
-                    <span className="text-slate-600 font-medium">
+                    <span className="text-emerald-600 dark:text-emerald-400 font-medium">
                       {getTranslation(translations, "contact.availability.available", "Available")}
                     </span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-muted-foreground">
-                      {getTranslation(translations, "contact.availability.fulltime", "Full-time Opportunities")}
+                      {getTranslation(
+                        translations,
+                        "contact.availability.fulltime",
+                        "Full-time Opportunities"
+                      )}
                     </span>
-                    <span className="text-indigo-600 font-medium">
-                      {getTranslation(translations, "contact.availability.discuss", "Open to Discuss")}
+                    <span className="text-primary font-medium">
+                      {getTranslation(
+                        translations,
+                        "contact.availability.discuss",
+                        "Open to Discuss"
+                      )}
                     </span>
                   </div>
                 </div>
@@ -227,13 +254,17 @@ export function ContactSection() {
           {/* Contact Form */}
           <Card>
             <CardHeader>
-              <CardTitle>{getTranslation(translations, "contact.form.title", "Send a Message")}</CardTitle>
+              <CardTitle>
+                {getTranslation(translations, "contact.form.title", "Send a Message")}
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="name">{getTranslation(translations, "contact.form.name", "Name")} *</Label>
+                    <Label htmlFor="name">
+                      {getTranslation(translations, "contact.form.name", "Name")} *
+                    </Label>
                     <Input
                       id="name"
                       name="name"
@@ -241,12 +272,18 @@ export function ContactSection() {
                       onChange={handleChange}
                       required
                       maxLength={100}
-                      placeholder={getTranslation(translations, "contact.form.namePlaceholder", "Your name")}
+                      placeholder={getTranslation(
+                        translations,
+                        "contact.form.namePlaceholder",
+                        "Your name"
+                      )}
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="email">{getTranslation(translations, "contact.form.email", "Email")} *</Label>
+                    <Label htmlFor="email">
+                      {getTranslation(translations, "contact.form.email", "Email")} *
+                    </Label>
                     <Input
                       id="email"
                       name="email"
@@ -257,14 +294,16 @@ export function ContactSection() {
                       placeholder={getTranslation(
                         translations,
                         "contact.form.emailPlaceholder",
-                        "your.email@example.com",
+                        "your.email@example.com"
                       )}
                     />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="subject">{getTranslation(translations, "contact.form.subject", "Subject")} *</Label>
+                  <Label htmlFor="subject">
+                    {getTranslation(translations, "contact.form.subject", "Subject")} *
+                  </Label>
                   <Input
                     id="subject"
                     name="subject"
@@ -275,13 +314,15 @@ export function ContactSection() {
                     placeholder={getTranslation(
                       translations,
                       "contact.form.subjectPlaceholder",
-                      "Project inquiry, collaboration, etc.",
+                      "Project inquiry, collaboration, etc."
                     )}
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="message">{getTranslation(translations, "contact.form.message", "Message")} *</Label>
+                  <Label htmlFor="message">
+                    {getTranslation(translations, "contact.form.message", "Message")} *
+                  </Label>
                   <Textarea
                     id="message"
                     name="message"
@@ -293,7 +334,7 @@ export function ContactSection() {
                     placeholder={getTranslation(
                       translations,
                       "contact.form.messagePlaceholder",
-                      "Tell me about your project or how I can help you...",
+                      "Tell me about your project or how I can help you..."
                     )}
                   />
                   <p className="text-xs text-muted-foreground">
@@ -303,23 +344,33 @@ export function ContactSection() {
                 </div>
 
                 {submitStatus === "success" && (
-                  <div className="p-3 bg-green-50 text-green-700 rounded-md text-sm flex items-center space-x-2">
+                  <div
+                    className="p-3 bg-green-50 dark:bg-green-950/30 text-green-700 dark:text-green-400 rounded-md text-sm flex items-center space-x-2"
+                    aria-live="polite"
+                  >
                     <CheckCircle className="h-4 w-4" />
                     <span>
                       {getTranslation(
                         translations,
                         "contact.successMessage",
-                        "Message sent successfully! I'll get back to you soon.",
+                        "Message sent successfully! I'll get back to you soon."
                       )}
                     </span>
                   </div>
                 )}
 
                 {submitStatus === "error" && (
-                  <div className="p-3 bg-red-50 text-red-700 rounded-md text-sm flex items-center space-x-2">
+                  <div
+                    className="p-3 bg-red-50 dark:bg-red-950/30 text-red-700 dark:text-red-400 rounded-md text-sm flex items-center space-x-2"
+                    aria-live="polite"
+                  >
                     <AlertCircle className="h-4 w-4" />
                     <span>
-                      {getTranslation(translations, "contact.errorMessage", "Error sending message. Please try again.")}
+                      {getTranslation(
+                        translations,
+                        "contact.errorMessage",
+                        "Error sending message. Please try again."
+                      )}
                     </span>
                   </div>
                 )}
