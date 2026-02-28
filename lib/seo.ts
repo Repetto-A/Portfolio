@@ -35,7 +35,7 @@ const siteConfig = {
   author: {
     name: "Alejandro Repetto",
     url: "https://www.repetto-a.com",
-    email: "repettoalejandroing@gmail.com",
+    email: "contact@repetto-a.com",
     github: "https://github.com/Repetto-A",
     linkedin: "https://www.linkedin.com/in/alejandro-repetto",
   },
@@ -126,7 +126,7 @@ export function generatePersonSchema() {
       "Full-Stack Development",
     ],
     sameAs: ["https://github.com/Repetto-A", "https://www.linkedin.com/in/alejandro-repetto"],
-    email: "repettoalejandroing@gmail.com",
+    email: "contact@repetto-a.com",
     award: [
       "ETH Argentina 2025 - Roxium DAO Ops, Best Powerhouse App (1st Prize)",
       "NASA Space Apps Challenge 2025 - FarmHero, Local Winner & Global Nominee",

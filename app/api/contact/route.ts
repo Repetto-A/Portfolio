@@ -53,7 +53,7 @@ export async function POST(request: Request) {
     // Opciones del correo
     const mailOptions = {
       from: process.env.SMTP_FROM,
-      to: "repettoalejandroing@gmail.com",
+      to: "contact@repetto-a.com",
       replyTo: `${body.name} <${body.email}>`,
       subject: `[Portfolio] ${body.subject}`,
       text: `

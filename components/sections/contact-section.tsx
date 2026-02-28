@@ -122,10 +122,10 @@ export function ContactSection() {
                     {getTranslation(translations, "contact.methods.email")}
                   </div>
                   <Link
-                    href="mailto:repettoalejandroing@gmail.com"
+                    href="mailto:contact@repetto-a.com"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    repettoalejandroing@gmail.com
+                    contact@repetto-a.com
                   </Link>
                 </div>
               </div>

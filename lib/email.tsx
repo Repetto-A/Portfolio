@@ -173,7 +173,7 @@ export async function processMessageQueue(config: SMTPConfig): Promise<void> {
 
       await transporter.sendMail({
         from: config.from,
-        to: "repettoalejandroing@gmail.com",
+        to: "contact@repetto-a.com",
         replyTo: message.data.email,
         subject: "New message from portfolio contact form",
         text,

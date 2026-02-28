@@ -36,7 +36,7 @@ export function Footer() {
             </Link>
 
             <Link
-              href="mailto:repettoalejandroing@gmail.com"
+              href="mailto:contact@repetto-a.com"
               className="text-muted-foreground hover:text-foreground transition-colors"
               aria-label="Send email"
             >

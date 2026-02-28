@@ -242,7 +242,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 For questions or support:
-- Email: repettoalejandroing@gmail.com
+- Email: contact@repetto-a.com
 - LinkedIn: [linkedin.com/in/alejandro-repetto](https://linkedin.com/in/alejandro-repetto)
 - GitHub: [github.com/Repetto-A](https://github.com/Repetto-A)
 
