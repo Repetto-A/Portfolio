@@ -1,6 +1,6 @@
 "use client"
 
-import React, { createContext, useContext, useState, useEffect, useLayoutEffect, ReactNode } from "react"
+import React, { createContext, useContext, useState, useEffect, useLayoutEffect, type ReactNode } from "react"
 import en from "@/public/locales/en/common.json"
 import es from "@/public/locales/es/common.json"
 
