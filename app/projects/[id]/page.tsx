@@ -63,7 +63,7 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
     })
   }
 
-  const projectContent = (projectData as ProjectWithLocales).locales?.en || {}
+  const projectContent: ProjectContent = (projectData as ProjectWithLocales).locales?.en ?? {}
   const keywords = [...projectData.techStack, projectData.category, "project", "portfolio"]
 
   return genMetadata({
@@ -93,8 +93,7 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
     status: projectData.status in statusConfig ? projectData.status : "in-progress",
   }
 
-  const projectContent =
-    (project as { locales?: { en?: Record<string, unknown> } }).locales?.en || {}
+  const projectContent: ProjectContent = (project as ProjectWithLocales).locales?.en ?? {}
   const IconComponent = categoryIcons[project.category as keyof typeof categoryIcons] || Code
   const statusStyle =
     statusConfig[project.status as keyof typeof statusConfig] || statusConfig["in-progress"]

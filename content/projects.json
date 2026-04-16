@@ -72,7 +72,15 @@
         }
       },
       "status": "production",
-      "techStack": ["Python", "TensorFlow", "Keras", "Scikit-learn", "Pandas", "NumPy", "Matplotlib"],
+      "techStack": [
+        "Python",
+        "TensorFlow",
+        "Keras",
+        "Scikit-learn",
+        "Pandas",
+        "NumPy",
+        "Matplotlib"
+      ],
       "githubUrl": "https://github.com/Repetto-A/AI-Seismic-Detection",
       "demoUrl": null,
       "images": ["/projects/nasa-1.png", "/projects/nasa-2.png", "/projects/nasa-3.png"],
@@ -109,7 +117,18 @@
         }
       },
       "status": "production",
-      "techStack": ["Python", "Next.js", "React", "TypeScript", "Tailwind CSS", "PyTorch", "Matplotlib", "Pillow", "NumPy", "Scikit-learn"],
+      "techStack": [
+        "Python",
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "PyTorch",
+        "Matplotlib",
+        "Pillow",
+        "NumPy",
+        "Scikit-learn"
+      ],
       "githubUrl": "https://github.com/Repetto-A/BrainTumorAI-Web",
       "demoUrl": "https://brain-tumor-ai-web.vercel.app",
       "images": [
@@ -150,7 +169,17 @@
         }
       },
       "status": "in-progress",
-      "techStack": ["Solidity", "Filecoin", "IPFS", "Self Protocol", "Next.js", "React", "TypeScript", "AI SDK", "Tailwind CSS"],
+      "techStack": [
+        "Solidity",
+        "Filecoin",
+        "IPFS",
+        "Self Protocol",
+        "Next.js",
+        "React",
+        "TypeScript",
+        "AI SDK",
+        "Tailwind CSS"
+      ],
       "githubUrl": "https://github.com/Repetto-A/zorrito-finance",
       "demoUrl": "https://zorrito.vercel.app/",
       "images": [
@@ -190,7 +219,16 @@
         }
       },
       "status": "production",
-      "techStack": ["TypeScript", "Next.js", "React", "PowerHouse", "Vetra", "LangChain", "GraphQL", "Tailwind CSS"],
+      "techStack": [
+        "TypeScript",
+        "Next.js",
+        "React",
+        "PowerHouse",
+        "Vetra",
+        "LangChain",
+        "GraphQL",
+        "Tailwind CSS"
+      ],
       "githubUrl": "https://github.com/Repetto-A/roxium-dao-ops",
       "demoUrl": "https://roxium-dao-ops.up.railway.app/",
       "images": ["/projects/roxium-1.jpg", "/projects/roxium-2.jpg", "/projects/roxium-3.jpg"],
@@ -225,7 +263,15 @@
         }
       },
       "status": "production",
-      "techStack": ["Python", "Django", "LangChain", "MySQL", "Bootstrap 5", "Tailwind CSS", "Pillow"],
+      "techStack": [
+        "Python",
+        "Django",
+        "LangChain",
+        "MySQL",
+        "Bootstrap 5",
+        "Tailwind CSS",
+        "Pillow"
+      ],
       "githubUrl": "https://github.com/Repetto-A/Real_Estate_System",
       "demoUrl": "https://realestatesystem-production.up.railway.app/",
       "images": [
@@ -269,7 +315,15 @@
         }
       },
       "status": "production",
-      "techStack": ["TypeScript", "Python", "React", "FastAPI", "PostgreSQL", "Tailwind CSS", "Pillow"],
+      "techStack": [
+        "TypeScript",
+        "Python",
+        "React",
+        "FastAPI",
+        "PostgreSQL",
+        "Tailwind CSS",
+        "Pillow"
+      ],
       "githubUrl": "https://github.com/Repetto-A/cotibot",
       "demoUrl": "https://cotibot-demo.vercel.app",
       "images": [

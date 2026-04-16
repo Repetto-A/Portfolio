@@ -8,7 +8,9 @@ export default function NotFound() {
       <div className="text-center space-y-6">
         <div className="space-y-2">
           <h1 className="text-4xl font-bold text-foreground">Project Not Found</h1>
-          <p className="text-muted-foreground">The project you're looking for doesn't exist or has been moved.</p>
+          <p className="text-muted-foreground">
+            The project you're looking for doesn't exist or has been moved.
+          </p>
         </div>
 
         <Button asChild>

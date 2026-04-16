@@ -9,7 +9,9 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div>
-            <p className="font-mono font-semibold text-foreground text-sm mb-1">Alejandro Repetto</p>
+            <p className="font-mono font-semibold text-foreground text-sm mb-1">
+              Alejandro Repetto
+            </p>
             <p className="text-muted-foreground text-xs">© {currentYear} · All rights reserved.</p>
           </div>
 

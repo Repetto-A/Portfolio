@@ -10,3 +10,6 @@ yarn.lock
 .gitignore
 public
 *.md
+.claude
+test-results
+e2e

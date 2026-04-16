@@ -40,7 +40,7 @@ export function Grid({ children, className, cols, gap = "md" }: GridProps) {
         gridCols.lg,
         gridCols.xl,
         gapClasses[gap],
-        className,
+        className
       )}
     >
       {children}
