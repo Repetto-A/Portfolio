@@ -2,9 +2,9 @@
 
 import type React from "react"
 
-import { useState, useEffect, useCallback, useRef } from "react"
+import { useState, useEffect, useCallback, useRef, useMemo } from "react"
 import Image from "next/image"
-import { Dialog, DialogContent } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { X, ChevronLeft, ChevronRight, Download, Maximize, Loader2 } from "lucide-react"
@@ -25,7 +25,7 @@ export function useImageLightboxAnalytics() {
     }
   }, [])
 
-  return {
+  return useMemo(() => ({
     trackImageOpen: (projectTitle: string, imageIndex: number) =>
       trackEvent("image_open", { project: projectTitle, index: imageIndex }),
     trackImageClose: (projectTitle: string) => trackEvent("image_close", { project: projectTitle }),
@@ -33,7 +33,7 @@ export function useImageLightboxAnalytics() {
       trackEvent("image_navigate", { project: projectTitle, index: imageIndex }),
     trackImageDownload: (projectTitle: string, imageIndex: number) =>
       trackEvent("image_download", { project: projectTitle, index: imageIndex }),
-  }
+  }), [trackEvent])
 }
 
 const MIN_SCALE = 1
@@ -290,19 +290,14 @@ export function ImageLightbox({ images, initialIndex = 0, isOpen, onClose, proje
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="lightbox-title"
-        aria-describedby="lightbox-description"
+        showCloseButton={false}
       >
         {/* Header */}
         <div className="absolute top-0 left-0 right-0 z-50 flex items-center justify-between p-4 bg-gradient-to-b from-black/80 to-transparent">
           <div className="flex items-center space-x-3">
-            {projectTitle && (
-              <h2 id="lightbox-title" className="text-white font-semibold">
-                {projectTitle}
-              </h2>
-            )}
+            <DialogTitle className={cn("font-semibold text-white text-base", !projectTitle && "sr-only")}>
+              {projectTitle || "Image lightbox"}
+            </DialogTitle>
             {hasMultipleImages && (
               <Badge variant="secondary" className="bg-white/20 text-white border-white/30">
                 {currentIndex + 1} of {images.length}
@@ -418,11 +413,11 @@ export function ImageLightbox({ images, initialIndex = 0, isOpen, onClose, proje
 
         {/* Bottom Caption/Info */}
         <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
-          <p id="lightbox-description" className="text-white/80 text-sm text-center">
+          <DialogDescription className="text-white/80 text-sm text-center">
             {projectTitle && `${projectTitle} - `}
             Screenshot {currentIndex + 1}
             {hasMultipleImages && ` of ${images.length}`}
-          </p>
+          </DialogDescription>
 
           {hasMultipleImages && (
             <div className="flex justify-center mt-2 space-x-1">
