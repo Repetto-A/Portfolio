@@ -100,8 +100,8 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
 
   const projectSchema = generateProjectSchema({
     id: project.id,
-    title: projectContent.title,
-    description: projectContent.description,
+    title: projectContent.title ?? "",
+    description: projectContent.description ?? "",
     status: project.status,
     techStack: project.techStack,
     githubUrl: project.githubUrl,
@@ -177,7 +177,7 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
           {/* Project Images */}
           <ProjectImageGallery
             images={project.images || []}
-            projectTitle={projectContent.title}
+            projectTitle={projectContent.title ?? ""}
             className="mb-12"
           />
 
