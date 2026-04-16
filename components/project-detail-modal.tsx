@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useCallback } from "react"
 import {
   Dialog,
   DialogContent,
@@ -11,7 +11,15 @@ import {
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ImageLightbox } from "@/components/ui/image-lightbox"
-import { Github, ExternalLink, Newspaper, ChevronDown } from "lucide-react"
+import {
+  Github,
+  ExternalLink,
+  Newspaper,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  Expand,
+} from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { useTranslations, getTranslation } from "@/lib/i18n-context"
@@ -31,6 +39,16 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState(0)
   const [pressOpen, setPressOpen] = useState(false)
+  const [carouselIndex, setCarouselIndex] = useState(0)
+
+  const navigateCarousel = useCallback(
+    (dir: 1 | -1) => {
+      if (!project) return
+      const len = project.images?.length || 0
+      setCarouselIndex((prev) => (prev + dir + len) % len)
+    },
+    [project]
+  )
 
   if (!project) return null
 
@@ -39,10 +57,12 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
   const pressLinks: PressLink[] =
     award?.press?.enabled && award.press.links.length > 0 ? award.press.links : []
 
-  console.log("[DEBUG] project.id:", project.id, "| award:", !!award, "| pressLinks:", pressLinks.length)
-
   const handleOpenChange = (open: boolean) => {
-    if (!open) onClose()
+    if (!open) {
+      onClose()
+      setCarouselIndex(0)
+      setPressOpen(false)
+    }
   }
 
   return (
@@ -52,10 +72,12 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
           <DialogHeader className="px-6 pt-6 pb-4 border-b border-border">
             <div className="flex items-center gap-2 mb-1">
               <Badge variant="outline">
-                {getTranslation(translations, `projects.categories.${project.category}`) || project.category}
+                {getTranslation(translations, `projects.categories.${project.category}`) ||
+                  project.category}
               </Badge>
               <Badge variant="secondary" className="text-xs">
-                {getTranslation(translations, `projects.status.${project.status}`) || project.status}
+                {getTranslation(translations, `projects.status.${project.status}`) ||
+                  project.status}
               </Badge>
             </div>
             <DialogTitle className="text-xl">{content.title}</DialogTitle>
@@ -64,35 +86,90 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
 
           <div className="flex-1 overflow-y-auto">
             <div className="px-6 py-4 space-y-6">
-              {/* Image thumbnails */}
+              {/* Image carousel */}
               {project.images?.length > 0 && (
-                <div className="grid grid-cols-2 gap-3">
-                  {project.images.map((img, i) => (
+                <div className="space-y-3">
+                  {/* Main image */}
+                  <div className="group/carousel relative aspect-video rounded-lg overflow-hidden border border-border bg-muted">
                     <button
-                      key={img}
                       onClick={() => {
-                        setLightboxIndex(i)
+                        setLightboxIndex(carouselIndex)
                         setLightboxOpen(true)
                       }}
-                      className="relative aspect-video rounded-md overflow-hidden border border-border hover:ring-2 ring-primary transition-all focus:outline-none focus:ring-2 focus:ring-primary"
-                      aria-label={`${content.title} — ${getTranslation(translations, "projects.image")} ${i + 1}`}
+                      className="block w-full h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      aria-label={`${content.title} — ${getTranslation(translations, "projects.image") || "Image"} ${carouselIndex + 1}. Click to expand.`}
                     >
                       <Image
-                        src={img}
-                        alt={`${content.title} screenshot ${i + 1}`}
+                        src={project.images[carouselIndex]}
+                        alt={`${content.title} screenshot ${carouselIndex + 1}`}
                         fill
                         className="object-cover"
-                        sizes="(max-width: 640px) 45vw, 280px"
+                        sizes="(max-width: 640px) 100vw, 640px"
                       />
+                      {/* Expand icon overlay */}
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover/carousel:bg-black/10 transition-colors">
+                        <Expand className="h-5 w-5 text-white opacity-0 group-hover/carousel:opacity-80 transition-opacity drop-shadow-lg" />
+                      </div>
                     </button>
-                  ))}
+
+                    {/* Navigation arrows */}
+                    {project.images.length > 1 && (
+                      <>
+                        <button
+                          onClick={() => navigateCarousel(-1)}
+                          className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-background/80 backdrop-blur-sm border border-border flex items-center justify-center opacity-0 group-hover/carousel:opacity-100 transition-opacity hover:bg-background"
+                          aria-label="Previous image"
+                        >
+                          <ChevronLeft className="h-4 w-4" />
+                        </button>
+                        <button
+                          onClick={() => navigateCarousel(1)}
+                          className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-background/80 backdrop-blur-sm border border-border flex items-center justify-center opacity-0 group-hover/carousel:opacity-100 transition-opacity hover:bg-background"
+                          aria-label="Next image"
+                        >
+                          <ChevronRight className="h-4 w-4" />
+                        </button>
+                      </>
+                    )}
+
+                    {/* Image counter */}
+                    {project.images.length > 1 && (
+                      <div className="absolute bottom-2 right-2 px-2 py-0.5 rounded-md bg-background/80 backdrop-blur-sm border border-border text-xs text-muted-foreground">
+                        {carouselIndex + 1} / {project.images.length}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Thumbnail strip */}
+                  {project.images.length > 1 && (
+                    <div className="flex gap-2 overflow-x-auto pb-1">
+                      {project.images.map((img, i) => (
+                        <button
+                          key={img}
+                          onClick={() => setCarouselIndex(i)}
+                          className={`relative w-16 h-10 rounded-md overflow-hidden border-2 flex-shrink-0 transition-all ${
+                            i === carouselIndex
+                              ? "border-foreground/60 ring-1 ring-foreground/20"
+                              : "border-border opacity-60 hover:opacity-100"
+                          }`}
+                          aria-label={`View image ${i + 1}`}
+                        >
+                          <Image
+                            src={img}
+                            alt={`${content.title} thumbnail ${i + 1}`}
+                            fill
+                            className="object-cover"
+                            sizes="64px"
+                          />
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </div>
               )}
 
               {/* Description */}
-              <p className="text-muted-foreground leading-relaxed text-sm">
-                {content.description}
-              </p>
+              <p className="text-muted-foreground leading-relaxed text-sm">{content.description}</p>
 
               {/* Features */}
               {content.features?.length > 0 && (
@@ -139,7 +216,9 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
                     <Badge variant="secondary" className="text-xs ml-1">
                       {pressLinks.length}
                     </Badge>
-                    <ChevronDown className={`h-4 w-4 ml-auto transition-transform ${pressOpen ? "rotate-180" : ""}`} />
+                    <ChevronDown
+                      className={`h-4 w-4 ml-auto transition-transform ${pressOpen ? "rotate-180" : ""}`}
+                    />
                   </button>
                   {pressOpen && (
                     <div className="space-y-2">
@@ -148,7 +227,7 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
                           <PressVideoItem key={link.id} link={link} />
                         ) : (
                           <PressArticleItem key={link.id} link={link} locale={locale} />
-                        ),
+                        )
                       )}
                     </div>
                   )}

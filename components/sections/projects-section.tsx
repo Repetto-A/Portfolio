@@ -51,13 +51,15 @@ export function ProjectsSection() {
 
   const statusConfig = getStatusConfig(translations)
 
-  const projects = projectsData.projects.map((projectData): Project => ({
-    ...projectData,
-    status: projectData.status in statusConfig ? projectData.status : "in-progress",
-    category: (projectData.category in categoryIcons
-      ? projectData.category
-      : "Web Application") as keyof typeof categoryIcons,
-  }))
+  const projects = projectsData.projects.map(
+    (projectData): Project => ({
+      ...projectData,
+      status: projectData.status in statusConfig ? projectData.status : "in-progress",
+      category: (projectData.category in categoryIcons
+        ? projectData.category
+        : "Web Application") as keyof typeof categoryIcons,
+    })
+  )
 
   projectsRef.current.clear()
   for (const p of projects) projectsRef.current.set(p.id, p)
@@ -101,9 +103,11 @@ export function ProjectsSection() {
         />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project) => {
+          {projects.map((project, index) => {
             const IconComponent = categoryIcons[project.category] || Code
-            const statusStyle = statusConfig[project.status as keyof typeof statusConfig] || statusConfig["in-progress"]
+            const statusStyle =
+              statusConfig[project.status as keyof typeof statusConfig] ||
+              statusConfig["in-progress"]
             const projectContent = project.locales[locale] || project.locales["en"]
 
             return (
@@ -111,7 +115,7 @@ export function ProjectsSection() {
                 key={project.id}
                 id={`project-${project.id}`}
                 data-project-id={project.id}
-                className="group hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col overflow-hidden border-border hover:border-primary/30 scroll-reveal"
+                className={`group hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 h-full flex flex-col overflow-hidden border-border hover:border-primary/30 scroll-reveal-stagger-${(index % 3) + 1}`}
               >
                 {/* Project thumbnail — -mt-6 to break out of Card's py-6 top padding */}
                 {project.images?.[0] && (
@@ -137,7 +141,8 @@ export function ProjectsSection() {
                       </Badge>
                     </div>
                     <Badge variant="secondary" className="text-xs whitespace-nowrap">
-                      {getTranslation(translations, `projects.categories.${project.category}`) || project.category}
+                      {getTranslation(translations, `projects.categories.${project.category}`) ||
+                        project.category}
                     </Badge>
                   </div>
 
@@ -227,16 +232,12 @@ export function ProjectsSection() {
         </div>
       </Container>
 
-      <ProjectDetailModal
-        project={selectedProject}
-        isOpen={modalOpen}
-        onClose={handleModalClose}
-      />
+      <ProjectDetailModal project={selectedProject} isOpen={modalOpen} onClose={handleModalClose} />
     </Section>
   )
 }
 
-function getStatusConfig(translations: any) {
+function getStatusConfig(translations: Record<string, unknown>) {
   return {
     "in-progress": {
       label: getTranslation(translations, "projects.status.in-progress"),

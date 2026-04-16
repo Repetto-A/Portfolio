@@ -7,16 +7,7 @@ import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { SectionHeader } from "@/components/layout/section-header"
 import { PressModal } from "@/components/press-modal"
-import {
-  Trophy,
-  Award,
-  ExternalLink,
-  Users,
-  ArrowRight,
-  Lightbulb,
-  Globe,
-  Eye,
-} from "lucide-react"
+import { Trophy, Award, ExternalLink, Users, ArrowRight, Lightbulb, Globe, Eye } from "lucide-react"
 import Link from "next/link"
 import { getVisibleAwards, localize } from "@/data/awards"
 import type { Award as AwardType } from "@/data/awards"
@@ -34,16 +25,20 @@ function AwardCard({
   award,
   locale,
   onSeeMore,
+  index,
 }: {
   award: AwardType
   locale: string
   onSeeMore: (projectId: string) => void
+  index: number
 }) {
   const IconComponent = ICON_MAP[award.icon] ?? Trophy
   const showSeeMore = hasMatchingProject(award.projectId)
 
   return (
-    <Card className="group hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border-2 overflow-hidden relative scroll-reveal">
+    <Card
+      className={`group hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border-2 overflow-hidden relative scroll-reveal-stagger-${(index % 3) + 1}`}
+    >
       <div
         className={`absolute inset-0 bg-gradient-to-br ${award.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
       />
@@ -94,22 +89,13 @@ function AwardCard({
           {/* Press CTA -- only if press is enabled and has links */}
           {award.press?.enabled && award.press.links.length > 0 && (
             <div className="pt-4 border-t border-border">
-              <PressModal
-                awardTitle={award.title}
-                links={award.press.links}
-                locale={locale}
-              />
+              <PressModal awardTitle={award.title} links={award.press.links} locale={locale} />
             </div>
           )}
 
           {award.proofUrl && (
             <div className="pt-4 border-t border-border">
-              <Button
-                asChild
-                variant="ghost"
-                size="sm"
-                className="group/btn w-full justify-start"
-              >
+              <Button asChild variant="ghost" size="sm" className="group/btn w-full justify-start">
                 <Link href={award.proofUrl} target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="mr-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                   {locale === "es" ? "Ver Detalles del Premio" : "View Award Details"}
@@ -153,16 +139,24 @@ export function AwardsSection() {
   }
 
   return (
-    <Section id="awards" variant="gradient" spacing="default">
+    <Section id="awards" variant="gradient" spacing="relaxed">
       <Container maxWidth="7xl">
         <SectionHeader
-          title={locale === "es" ? "Algunos premios y reconocimientos" : "Some Awards & Recognition"}
+          title={
+            locale === "es" ? "Algunos premios y reconocimientos" : "Some Awards & Recognition"
+          }
           eyebrow={locale === "es" ? "Reconocimientos" : "Recognition"}
         />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {visibleAwards.map((award) => (
-            <AwardCard key={award.id} award={award} locale={locale} onSeeMore={handleSeeMore} />
+          {visibleAwards.map((award, index) => (
+            <AwardCard
+              key={award.id}
+              award={award}
+              locale={locale}
+              onSeeMore={handleSeeMore}
+              index={index}
+            />
           ))}
         </div>
       </Container>

@@ -9,7 +9,7 @@ export function AboutSection() {
   const [translations] = useTranslations()
 
   return (
-    <Section id="about" variant="default" spacing="default">
+    <Section id="about" variant="default" spacing="compact">
       <Container maxWidth="4xl">
         <div className="space-y-14">
           <SectionHeader
@@ -21,7 +21,7 @@ export function AboutSection() {
             {/* Background */}
             <div className="space-y-5">
               <div className="flex items-center gap-3">
-                <div className="w-5 h-px bg-primary" />
+                <div className="w-8 h-0.5 bg-primary rounded-full" />
                 <h3 className="text-base font-semibold text-foreground uppercase tracking-wide">
                   {getTranslation(translations, "about.bio.background.title")}
                 </h3>
@@ -38,7 +38,7 @@ export function AboutSection() {
             {/* Approach */}
             <div className="space-y-5">
               <div className="flex items-center gap-3">
-                <div className="w-5 h-px bg-primary" />
+                <div className="w-8 h-0.5 bg-primary rounded-full" />
                 <h3 className="text-base font-semibold text-foreground uppercase tracking-wide">
                   {getTranslation(translations, "about.bio.approach.title")}
                 </h3>

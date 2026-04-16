@@ -11,8 +11,6 @@ import { useTranslations, getTranslation } from "@/lib/i18n-context"
 const skillCategories = [
   {
     titleKey: "skills.categories.languages",
-    topBorder: "border-t-primary",
-    badgeHover: "hover:bg-primary/10 hover:text-primary hover:border-primary/40",
     skills: [
       "Python",
       "C",
@@ -34,8 +32,6 @@ const skillCategories = [
   },
   {
     titleKey: "skills.categories.frameworks",
-    topBorder: "border-t-violet-500",
-    badgeHover: "hover:bg-violet-500/10 hover:text-violet-600 dark:hover:text-violet-400 hover:border-violet-500/40",
     skills: [
       "TensorFlow",
       "PyTorch",
@@ -53,8 +49,6 @@ const skillCategories = [
   },
   {
     titleKey: "skills.categories.databases",
-    topBorder: "border-t-cyan-500",
-    badgeHover: "hover:bg-cyan-500/10 hover:text-cyan-600 dark:hover:text-cyan-400 hover:border-cyan-500/40",
     skills: [
       "MySQL",
       "PostgreSQL",
@@ -72,8 +66,6 @@ const skillCategories = [
   },
   {
     titleKey: "skills.categories.tools",
-    topBorder: "border-t-amber-500",
-    badgeHover: "hover:bg-amber-500/10 hover:text-amber-600 dark:hover:text-amber-400 hover:border-amber-500/40",
     skills: [
       "REST APIs",
       "GraphQL",
@@ -107,7 +99,7 @@ export function SkillsSection() {
           {skillCategories.map((category, index) => (
             <Card
               key={index}
-              className={`h-full border-t-2 ${category.topBorder} scroll-reveal`}
+              className={`h-full border-t-2 border-t-foreground/20 scroll-reveal-stagger-${index + 1}`}
             >
               <CardHeader className="pb-3">
                 <CardTitle className="text-base font-semibold">
@@ -120,7 +112,7 @@ export function SkillsSection() {
                     <Badge
                       key={skillIndex}
                       variant="outline"
-                      className={`text-xs cursor-default transition-all duration-150 ${category.badgeHover}`}
+                      className="text-xs cursor-default transition-all duration-150 hover:bg-foreground/5 hover:border-foreground/30"
                     >
                       {skill}
                     </Badge>

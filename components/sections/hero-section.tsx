@@ -17,14 +17,14 @@ export function HeroSection() {
     <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16 overflow-hidden">
       {/* Subtle dot-grid background */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.035] dark:opacity-[0.06]"
+        className="pointer-events-none absolute inset-0 opacity-[0.04] dark:opacity-[0.07]"
         style={{
-          backgroundImage: "radial-gradient(oklch(0.52 0.22 263) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(currentColor 1px, transparent 1px)",
           backgroundSize: "32px 32px",
         }}
       />
       {/* Top-right ambient glow */}
-      <div className="pointer-events-none absolute -top-40 -right-40 w-[600px] h-[600px] bg-primary/8 dark:bg-primary/10 rounded-full blur-[120px]" />
+      <div className="pointer-events-none absolute -top-40 -right-40 w-[600px] h-[600px] bg-foreground/[0.03] dark:bg-foreground/[0.05] rounded-full blur-[120px]" />
 
       <div className="w-full max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
@@ -34,7 +34,7 @@ export function HeroSection() {
               <h1
                 ref={registerHeroTitleRef}
                 className={cn(
-                  "font-mono font-semibold text-foreground leading-tight text-balance transition-opacity duration-100",
+                  "font-mono font-semibold text-foreground leading-tight whitespace-nowrap transition-opacity duration-100",
                   fontsReady && isFloatingTitleActive && "opacity-0"
                 )}
                 style={{ fontSize: "clamp(2rem, 5vw, 3.75rem)" }}
@@ -43,7 +43,7 @@ export function HeroSection() {
               </h1>
 
               <h2
-                className="font-mono text-primary font-medium"
+                className="font-mono text-muted-foreground font-medium"
                 style={{ fontSize: "clamp(1rem, 2.2vw, 1.375rem)" }}
               >
                 {getTranslation(translations, "hero.title")}
@@ -78,7 +78,11 @@ export function HeroSection() {
 
             {/* CTAs */}
             <div className="flex flex-wrap gap-3">
-              <Button asChild size="lg" className="group w-full sm:w-auto shadow-lg shadow-primary/20">
+              <Button
+                asChild
+                size="lg"
+                className="group w-full sm:w-auto shadow-lg shadow-primary/20 font-semibold"
+              >
                 <Link href="#projects">
                   {getTranslation(translations, "hero.cta.projects")}
                   <ArrowDown className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-y-0.5" />
@@ -88,7 +92,7 @@ export function HeroSection() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="group w-full sm:w-auto"
+                className="group w-full sm:w-auto border-border/60"
               >
                 <Link href={resumeUrl} target="_blank" rel="noopener noreferrer">
                   {getTranslation(translations, "hero.cta.resume")}
@@ -116,7 +120,7 @@ export function HeroSection() {
                   quality={90}
                 />
                 {/* Subtle gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/25 via-transparent to-primary/8 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/25 via-transparent to-transparent pointer-events-none" />
               </div>
 
               {/* Floating card — top right */}
@@ -148,11 +152,9 @@ export function HeroSection() {
         {/* Scroll Indicator */}
         <div className="flex justify-center mt-14 sm:mt-18">
           <Link href="#about" className="group" aria-label="Scroll to about section">
-            <div className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors duration-200">
-              <span className="text-xs tracking-widest uppercase font-medium opacity-60 group-hover:opacity-100 transition-opacity">
-                {getTranslation(translations, "hero.scroll")}
-              </span>
-              <ArrowDown className="h-4 w-4 animate-bounce" />
+            <div className="flex flex-col items-center gap-0">
+              <div className="w-px h-8 bg-border group-hover:bg-primary transition-colors duration-300" />
+              <div className="w-1.5 h-1.5 rounded-full bg-muted-foreground group-hover:bg-primary transition-colors duration-300 mt-1" />
             </div>
           </Link>
         </div>

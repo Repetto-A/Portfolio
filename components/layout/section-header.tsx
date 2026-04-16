@@ -32,7 +32,10 @@ export function SectionHeader({
           <div className="h-px w-8 bg-primary" />
         </div>
       )}
-      <h2 className="text-3xl sm:text-4xl font-bold text-foreground text-balance leading-tight">
+      <h2
+        className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-foreground text-balance"
+        style={{ lineHeight: "1.15", letterSpacing: "-0.035em" }}
+      >
         {title}
       </h2>
       {description && (
