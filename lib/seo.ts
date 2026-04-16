@@ -53,7 +53,10 @@ export function generateMetadata({
   authors,
   noindex = false,
 }: SEOProps): Metadata {
-  const finalTitle = title === siteConfig.name || title === siteConfig.title ? title : `${title} | ${siteConfig.name}`
+  const finalTitle =
+    title === siteConfig.name || title === siteConfig.title
+      ? title
+      : `${title} | ${siteConfig.name}`
   const finalCanonical = canonical || siteConfig.url
   const finalOgImage = ogImage || siteConfig.ogImage
   const finalKeywords = [...siteConfig.keywords, ...keywords]
@@ -250,7 +253,10 @@ export function generateBreadcrumbSchema(items: { name: string; url: string }[])
   }
 }
 
-export function generateOGImageUrl(title: string, type: "project" | "article" | "default" = "default"): string {
+export function generateOGImageUrl(
+  title: string,
+  type: "project" | "article" | "default" = "default"
+): string {
   const params = new URLSearchParams({
     title: title.slice(0, 100),
     type,

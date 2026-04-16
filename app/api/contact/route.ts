@@ -1,39 +1,39 @@
-import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { NextResponse } from "next/server"
+import nodemailer from "nodemailer"
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
-    
+    const body = await request.json()
+
     // Validaciones básicas
     if (!body.name || !body.email || !body.subject || !body.message) {
       return NextResponse.json(
         { success: false, error: "Todos los campos son obligatorios" },
         { status: 400 }
-      );
+      )
     }
 
     // Validar formato de email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!emailRegex.test(body.email)) {
       return NextResponse.json(
         { success: false, error: "Formato de correo electrónico inválido" },
         { status: 400 }
-      );
+      )
     }
 
     // Verificar variables de entorno
-    const requiredEnvVars = ['SMTP_HOST', 'SMTP_PORT', 'SMTP_USER', 'SMTP_PASSWORD', 'SMTP_FROM'];
-    const missingVars = requiredEnvVars.filter(varName => !process.env[varName]);
-    
+    const requiredEnvVars = ["SMTP_HOST", "SMTP_PORT", "SMTP_USER", "SMTP_PASSWORD", "SMTP_FROM"]
+    const missingVars = requiredEnvVars.filter((varName) => !process.env[varName])
+
     if (missingVars.length > 0) {
       return NextResponse.json(
-        { 
-          success: false, 
-          error: `Error de configuración del servidor. Por favor, contacta al administrador.`
+        {
+          success: false,
+          error: `Error de configuración del servidor. Por favor, contacta al administrador.`,
         },
         { status: 500 }
-      );
+      )
     }
 
     // Configuración del transporte SMTP
@@ -46,9 +46,9 @@ export async function POST(request: Request) {
         pass: process.env.SMTP_PASSWORD,
       },
       tls: {
-        rejectUnauthorized: false
-      }
-    });
+        rejectUnauthorized: false,
+      },
+    })
 
     // Opciones del correo
     const mailOptions = {
@@ -78,26 +78,26 @@ export async function POST(request: Request) {
           </div>
         </div>
       `,
-    };
+    }
 
-    const info = await transporter.sendMail(mailOptions);
+    await transporter.sendMail(mailOptions)
 
     return NextResponse.json(
-      { 
+      {
         success: true,
         message: "¡Mensaje enviado con éxito! Me pondré en contacto contigo pronto.",
       },
       { status: 200 }
-    );
-  } catch (error: any) {
-    console.error('Error sending email:', error);
+    )
+  } catch (error: unknown) {
+    console.error("Error sending email:", error)
     return NextResponse.json(
-      { 
-        success: false, 
-        error: "Error al procesar la solicitud. Por favor, inténtalo de nuevo más tarde."
+      {
+        success: false,
+        error: "Error al procesar la solicitud. Por favor, inténtalo de nuevo más tarde.",
       },
       { status: 500 }
-    );
+    )
   }
 }
 
@@ -106,9 +106,9 @@ export async function OPTIONS() {
   return new Response(null, {
     status: 200,
     headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type',
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "POST, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type",
     },
-  });
+  })
 }

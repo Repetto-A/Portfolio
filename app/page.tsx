@@ -23,8 +23,14 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <SkillsSection />
+      <div className="flex justify-center">
+        <div className="h-px w-16 bg-border" />
+      </div>
       <AwardsSection />
       <ProjectsSection />
+      <div className="flex justify-center">
+        <div className="h-px w-16 bg-border" />
+      </div>
       <ContactSection />
       <Footer />
     </main>

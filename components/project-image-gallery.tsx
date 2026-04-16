@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { ImageLightbox, useImageLightboxAnalytics } from "@/components/ui/image-lightbox"
+import { ImageLightbox } from "@/components/ui/image-lightbox"
 import { ZoomIn } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -15,8 +15,6 @@ interface ProjectImageGalleryProps {
 export function ProjectImageGallery({ images, projectTitle, className }: ProjectImageGalleryProps) {
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [lightboxInitialIndex, setLightboxInitialIndex] = useState(0)
-
-  const { trackImageOpen, trackImageClose, trackImageDownload } = useImageLightboxAnalytics()
 
   const openLightbox = (initialIndex: number) => {
     setLightboxInitialIndex(initialIndex)
@@ -69,14 +67,14 @@ export function ProjectImageGallery({ images, projectTitle, className }: Project
               <div
                 className={cn(
                   "absolute inset-0 bg-black/0 flex items-center justify-center transition-all duration-300",
-                  "group-hover:bg-black/20 group-focus:bg-black/20",
+                  "group-hover:bg-black/20 group-focus:bg-black/20"
                 )}
               >
                 <div
                   className={cn(
                     "bg-white/90 backdrop-blur-sm rounded-full p-4 transform scale-0 transition-all duration-300",
                     "group-hover:scale-100 group-focus:scale-100",
-                    "shadow-lg group-hover:shadow-xl",
+                    "shadow-lg group-hover:shadow-xl"
                   )}
                 >
                   <ZoomIn className="h-6 w-6 text-gray-800" />
@@ -105,9 +103,6 @@ export function ProjectImageGallery({ images, projectTitle, className }: Project
         isOpen={lightboxOpen}
         onClose={closeLightbox}
         projectTitle={projectTitle}
-        onImageOpen={(index) => trackImageOpen(projectTitle, index)}
-        onImageClose={trackImageClose}
-        onImageDownload={trackImageDownload}
       />
     </div>
   )

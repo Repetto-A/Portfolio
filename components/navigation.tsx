@@ -12,8 +12,8 @@ import { cn } from "@/lib/utils"
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
-  const [translations, locale] = useTranslations()
-  const { registerNavTitleRef, isFloatingTitleActive, scrollProgress, fontsReady } = useScrollContext()
+  const [translations] = useTranslations()
+  const { registerNavTitleRef, scrollProgress, fontsReady } = useScrollContext()
 
   const navItems = [
     { href: "#about", label: getTranslation(translations, "navigation.about") },
@@ -31,7 +31,7 @@ export function Navigation() {
               "font-mono text-lg font-semibold text-foreground hover:text-primary transition-[color,opacity] duration-100",
               // Show the nav brand only when scrolled past hero
               // Hide it to avoid overlap with hero h1 or floating clone
-              !(fontsReady && scrollProgress >= 1) && "opacity-0",
+              !(fontsReady && scrollProgress >= 1) && "opacity-0"
             )}
           >
             <span ref={registerNavTitleRef}>Alejandro Repetto</span>
@@ -43,7 +43,7 @@ export function Navigation() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-muted-foreground hover:text-foreground transition-colors text-sm font-medium"
+                className="text-muted-foreground hover:text-primary transition-colors duration-150 text-sm font-medium"
               >
                 {item.label}
               </Link>
@@ -60,7 +60,12 @@ export function Navigation() {
             <ThemeToggle />
             <LanguageSwitcher />
 
-            <Button variant="ghost" size="sm" onClick={() => setIsOpen(!isOpen)} className="w-9 h-9 p-0">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setIsOpen(!isOpen)}
+              className="w-9 h-9 p-0"
+            >
               {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
               <span className="sr-only">Toggle menu</span>
             </Button>
@@ -75,7 +80,7 @@ export function Navigation() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="block px-3 py-2 text-muted-foreground hover:text-foreground transition-colors text-sm font-medium"
+                  className="block px-3 py-2 text-muted-foreground hover:text-primary transition-colors duration-150 text-sm font-medium"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}

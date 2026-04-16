@@ -1,8 +1,8 @@
-import type * as React from "react"
+import { type ComponentProps } from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cn } from "@/lib/utils"
 
-interface BadgeProps extends React.ComponentProps<"span"> {
+interface BadgeProps extends ComponentProps<"span"> {
   variant?: "default" | "secondary" | "destructive" | "outline"
   asChild?: boolean
 }

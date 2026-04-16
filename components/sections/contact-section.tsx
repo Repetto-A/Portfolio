@@ -21,6 +21,9 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import { useTranslations, getTranslation, getResumeUrl } from "@/lib/i18n-context"
+import { SectionHeader } from "@/components/layout/section-header"
+import { Section } from "@/components/layout/section"
+import { Container } from "@/components/layout/container"
 
 interface FormData {
   name: string
@@ -87,8 +90,12 @@ export function ContactSection() {
   const isFormValid = formData.name && formData.email && formData.subject && formData.message
 
   return (
-    <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <Section id="contact" variant="muted" spacing="relaxed">
+      <Container maxWidth="7xl">
+        <SectionHeader
+          title={getTranslation(translations, "navigation.contact")}
+          eyebrow="Get In Touch"
+        />
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div className="space-y-8">
@@ -230,9 +237,7 @@ export function ContactSection() {
           {/* Contact Form */}
           <Card>
             <CardHeader>
-              <CardTitle>
-                {getTranslation(translations, "contact.form.title")}
-              </CardTitle>
+              <CardTitle>{getTranslation(translations, "contact.form.title")}</CardTitle>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -309,9 +314,7 @@ export function ContactSection() {
                     aria-live="polite"
                   >
                     <CheckCircle className="h-4 w-4" />
-                    <span>
-                      {getTranslation(translations, "contact.successMessage")}
-                    </span>
+                    <span>{getTranslation(translations, "contact.successMessage")}</span>
                   </div>
                 )}
 
@@ -321,9 +324,7 @@ export function ContactSection() {
                     aria-live="polite"
                   >
                     <AlertCircle className="h-4 w-4" />
-                    <span>
-                      {getTranslation(translations, "contact.errorMessage")}
-                    </span>
+                    <span>{getTranslation(translations, "contact.errorMessage")}</span>
                   </div>
                 )}
 
@@ -343,7 +344,7 @@ export function ContactSection() {
             </CardContent>
           </Card>
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   )
 }

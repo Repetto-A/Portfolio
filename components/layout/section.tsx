@@ -21,7 +21,13 @@ const spacingClasses = {
   relaxed: "py-32",
 }
 
-export function Section({ children, className, id, variant = "default", spacing = "default" }: SectionProps) {
+export function Section({
+  children,
+  className,
+  id,
+  variant = "default",
+  spacing = "default",
+}: SectionProps) {
   return (
     <section id={id} className={cn(variantClasses[variant], spacingClasses[spacing], className)}>
       {children}

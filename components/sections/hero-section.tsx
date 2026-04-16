@@ -4,41 +4,54 @@ import { Button } from "@/components/ui/button"
 import { ArrowDown, ExternalLink } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
-import { useTranslations, getTranslation } from "@/lib/i18n-context"
+import { useTranslations, getTranslation, getResumeUrl } from "@/lib/i18n-context"
 import { useScrollContext } from "@/lib/scroll-context"
 import { cn } from "@/lib/utils"
 
 export function HeroSection() {
-  const [translations] = useTranslations()
+  const [translations, locale] = useTranslations()
   const { registerHeroTitleRef, isFloatingTitleActive, fontsReady } = useScrollContext()
+  const resumeUrl = getResumeUrl(locale)
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16">
+    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16 overflow-hidden">
+      {/* Subtle dot-grid background */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.04] dark:opacity-[0.07]"
+        style={{
+          backgroundImage: "radial-gradient(currentColor 1px, transparent 1px)",
+          backgroundSize: "32px 32px",
+        }}
+      />
+      {/* Top-right ambient glow */}
+      <div className="pointer-events-none absolute -top-40 -right-40 w-[600px] h-[600px] bg-foreground/[0.03] dark:bg-foreground/[0.05] rounded-full blur-[120px]" />
+
       <div className="w-full max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left Column - Text Content */}
-          <div className="space-y-6 lg:space-y-8">
-            <div className="space-y-4">
+          <div className="space-y-8">
+            <div className="space-y-5">
               <h1
                 ref={registerHeroTitleRef}
                 className={cn(
-                  "font-mono font-semibold text-foreground leading-tight text-balance transition-opacity duration-100",
-                  // Hide hero h1 only while the floating clone is active
+                  "font-mono font-semibold text-foreground leading-tight whitespace-nowrap transition-opacity duration-100",
                   fontsReady && isFloatingTitleActive && "opacity-0"
                 )}
                 style={{ fontSize: "clamp(2rem, 5vw, 3.75rem)" }}
               >
                 {getTranslation(translations, "hero.name")}
               </h1>
+
               <h2
-                className="font-mono text-muted-foreground"
-                style={{ fontSize: "clamp(1.125rem, 2.5vw, 1.5rem)" }}
+                className="font-mono text-muted-foreground font-medium"
+                style={{ fontSize: "clamp(1rem, 2.2vw, 1.375rem)" }}
               >
                 {getTranslation(translations, "hero.title")}
               </h2>
+
               <p
-                className="text-muted-foreground leading-relaxed text-pretty max-w-2xl"
-                style={{ fontSize: "clamp(1rem, 1.5vw, 1.125rem)" }}
+                className="text-muted-foreground leading-relaxed text-pretty max-w-lg"
+                style={{ fontSize: "clamp(0.9375rem, 1.4vw, 1.0625rem)" }}
               >
                 {(() => {
                   const desc = getTranslation(translations, "hero.description")
@@ -51,7 +64,7 @@ export function HeroSection() {
                           <br />
                           <Link
                             href="#awards"
-                            className="underline-offset-4 decoration-muted-foreground/40 hover:underline hover:text-foreground transition-colors"
+                            className="underline-offset-4 decoration-primary/40 hover:underline hover:text-foreground transition-colors"
                           >
                             {awards}
                           </Link>
@@ -63,12 +76,27 @@ export function HeroSection() {
               </p>
             </div>
 
-            {/* CTA */}
-            <div>
-              <Button asChild size="lg" className="group w-full sm:w-auto">
+            {/* CTAs */}
+            <div className="flex flex-wrap gap-3">
+              <Button
+                asChild
+                size="lg"
+                className="group w-full sm:w-auto shadow-lg shadow-primary/20 font-semibold"
+              >
                 <Link href="#projects">
                   {getTranslation(translations, "hero.cta.projects")}
-                  <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  <ArrowDown className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-y-0.5" />
+                </Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="group w-full sm:w-auto border-border/60"
+              >
+                <Link href={resumeUrl} target="_blank" rel="noopener noreferrer">
+                  {getTranslation(translations, "hero.cta.resume")}
+                  <ExternalLink className="ml-2 h-4 w-4 opacity-50 group-hover:opacity-100 transition-opacity duration-200" />
                 </Link>
               </Button>
             </div>
@@ -77,32 +105,40 @@ export function HeroSection() {
           {/* Right Column - Profile Image */}
           <div className="flex justify-center lg:justify-end order-first lg:order-last pt-6">
             <div className="relative w-full max-w-md lg:max-w-none aspect-square max-h-[40vh] sm:max-h-[50vh] lg:max-h-none">
-              <div className="relative w-full h-full rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center border border-border overflow-hidden">
-                <div className="relative w-11/12 h-11/12 rounded-xl overflow-hidden">
-                  <Image
-                    src="/placeholder.jpg"
-                    alt="Alejandro Repetto - Systems Engineer specializing in AI/ML and automation"
-                    fill
-                    className="object-cover"
-                    priority
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
-                    quality={90}
-                  />
-                </div>
+              {/* Ambient glow behind image */}
+              <div className="absolute -inset-6 bg-primary/10 dark:bg-primary/15 rounded-3xl blur-3xl pointer-events-none" />
+
+              {/* Image container — edge-to-edge, clean */}
+              <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl ring-1 ring-border">
+                <Image
+                  src="/placeholder.jpg"
+                  alt="Alejandro Repetto - Systems Engineer specializing in AI/ML and automation"
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
+                  quality={90}
+                />
+                {/* Subtle gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/25 via-transparent to-transparent pointer-events-none" />
               </div>
 
-              {/* Floating Elements */}
-              <div className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 bg-card border border-border rounded-lg p-2 sm:p-3 shadow-lg backdrop-blur-sm">
-                <div className="text-xs text-muted-foreground whitespace-nowrap">
-                  {getTranslation(translations, "hero.status.currently")}
+              {/* Floating card — top right */}
+              <div className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 bg-card/95 border border-border rounded-xl p-2.5 sm:p-3 shadow-lg backdrop-blur-md">
+                <div className="flex items-center gap-1.5 mb-0.5">
+                  <span className="inline-block w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
+                  <span className="text-xs text-muted-foreground whitespace-nowrap">
+                    {getTranslation(translations, "hero.status.currently")}
+                  </span>
                 </div>
                 <div className="text-xs sm:text-sm font-semibold text-foreground whitespace-nowrap">
                   {getTranslation(translations, "hero.status.building")}
                 </div>
               </div>
 
-              <div className="absolute -bottom-3 -left-3 sm:-bottom-4 sm:-left-4 bg-card border border-border rounded-lg p-2 sm:p-3 shadow-lg backdrop-blur-sm">
-                <div className="text-xs text-muted-foreground whitespace-nowrap">
+              {/* Floating card — bottom left */}
+              <div className="absolute -bottom-3 -left-3 sm:-bottom-4 sm:-left-4 bg-card/95 border border-border rounded-xl p-2.5 sm:p-3 shadow-lg backdrop-blur-md">
+                <div className="text-xs text-muted-foreground whitespace-nowrap mb-0.5">
                   {getTranslation(translations, "hero.status.focus")}
                 </div>
                 <div className="text-xs sm:text-sm font-semibold text-foreground whitespace-nowrap">
@@ -114,13 +150,11 @@ export function HeroSection() {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="flex justify-center mt-12 sm:mt-16">
+        <div className="flex justify-center mt-14 sm:mt-18">
           <Link href="#about" className="group" aria-label="Scroll to about section">
-            <div className="flex flex-col items-center space-y-2 text-muted-foreground hover:text-foreground transition-colors">
-              <span className="text-sm">
-                {getTranslation(translations, "hero.scroll")}
-              </span>
-              <ArrowDown className="h-4 w-4 animate-bounce" />
+            <div className="flex flex-col items-center gap-0">
+              <div className="w-px h-8 bg-border group-hover:bg-primary transition-colors duration-300" />
+              <div className="w-1.5 h-1.5 rounded-full bg-muted-foreground group-hover:bg-primary transition-colors duration-300 mt-1" />
             </div>
           </Link>
         </div>

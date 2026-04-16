@@ -1,4 +1,5 @@
+packages: []
 onlyBuiltDependencies:
-  - '@tailwindcss/oxide'
-  - '@vercel/speed-insights'
+  - "@tailwindcss/oxide"
+  - "@vercel/speed-insights"
   - unrs-resolver

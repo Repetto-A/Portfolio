@@ -52,7 +52,7 @@ export function validateEmail(email: string): boolean {
 }
 
 export function createSMTPTransporter(config: SMTPConfig) {
-  return nodemailer.createTransporter({
+  return nodemailer.createTransport({
     host: config.host,
     port: config.port,
     secure: config.port === 465, // true for 465, false for other ports
@@ -180,7 +180,7 @@ export async function processMessageQueue(config: SMTPConfig): Promise<void> {
         html,
       })
 
-      console.log(`Successfully sent queued message ${message.id}`)
+      console.warn(`Successfully sent queued message ${message.id}`)
       messageQueue.splice(i, 1)
     } catch (error) {
       message.attempts++

@@ -248,7 +248,6 @@ export function PressModal({ awardTitle, links, locale }: PressModalProps) {
             ))}
           </div>
         </Tabs>
-
       </DialogContent>
     </Dialog>
   )

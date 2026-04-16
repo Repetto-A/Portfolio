@@ -18,22 +18,22 @@ interface ProjectTimelineProps {
 
 export function ProjectTimeline({ timeline, className }: ProjectTimelineProps) {
   const [translations, locale] = useTranslations()
-  
+
   // Parse dates and find current/future events
   const now = new Date()
-  
+
   // Helper to parse date as local date (not UTC)
   const parseLocalDate = (dateString: string) => {
-    const [year, month, day] = dateString.split('-').map(Number)
+    const [year, month, day] = dateString.split("-").map(Number)
     return new Date(year, month - 1, day) // month is 0-indexed in JS
   }
-  
+
   // Helper to get localized content
   const getLocalizedContent = (content: string | { en: string; es: string }) => {
-    if (typeof content === 'string') return content
-    return content[locale as 'en' | 'es'] || content.en
+    if (typeof content === "string") return content
+    return content[locale as "en" | "es"] || content.en
   }
-  
+
   return (
     <Card className={cn("", className)}>
       <CardHeader>
@@ -46,28 +46,26 @@ export function ProjectTimeline({ timeline, className }: ProjectTimelineProps) {
         <div className="relative space-y-6">
           {/* Vertical line */}
           <div className="absolute left-[7px] top-2 bottom-2 w-[2px] bg-border" />
-          
+
           {timeline.map((event, index) => {
             const eventDate = parseLocalDate(event.date)
             const isPast = eventDate <= now
             const isToday = eventDate.toDateString() === now.toDateString()
-            
+
             return (
               <div key={index} className="relative pl-8">
                 {/* Timeline dot */}
                 <div
                   className={cn(
                     "absolute left-0 top-1 w-4 h-4 rounded-full border-2 bg-background",
-                    isPast || isToday
-                      ? "border-primary bg-primary"
-                      : "border-muted-foreground/30"
+                    isPast || isToday ? "border-primary bg-primary" : "border-muted-foreground/30"
                   )}
                 >
                   {isPast && !isToday && (
                     <CheckCircle2 className="absolute -left-[2px] -top-[2px] h-4 w-4 text-primary" />
                   )}
                 </div>
-                
+
                 <div className="space-y-1">
                   <div className="flex items-center space-x-2">
                     <time
@@ -77,7 +75,7 @@ export function ProjectTimeline({ timeline, className }: ProjectTimelineProps) {
                       )}
                       dateTime={event.date}
                     >
-                      {eventDate.toLocaleDateString(locale === 'es' ? 'es-ES' : 'en-US', {
+                      {eventDate.toLocaleDateString(locale === "es" ? "es-ES" : "en-US", {
                         month: "short",
                         day: "numeric",
                         year: "numeric",

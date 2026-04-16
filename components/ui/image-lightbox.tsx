@@ -1,14 +1,20 @@
 "use client"
 
-import type React from "react"
+import React from "react"
 
-import { useState, useEffect, useCallback, useRef } from "react"
+import { useState, useEffect, useCallback, useRef, useMemo } from "react"
 import Image from "next/image"
-import { Dialog, DialogContent } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { X, ChevronLeft, ChevronRight, Download, Maximize, Loader2 } from "lucide-react"
 import { cn } from "@/lib/utils"
+
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void
+  }
+}
 
 interface ImageLightboxProps {
   images: string[]
@@ -19,28 +25,41 @@ interface ImageLightboxProps {
 }
 
 export function useImageLightboxAnalytics() {
-  const trackEvent = useCallback((eventName: string, properties?: Record<string, string | number>) => {
-    if (typeof window !== "undefined" && window.gtag) {
-      window.gtag("event", eventName, properties)
-    }
-  }, [])
+  const trackEvent = useCallback(
+    (eventName: string, properties?: Record<string, string | number>) => {
+      if (typeof window !== "undefined" && window.gtag) {
+        window.gtag("event", eventName, properties)
+      }
+    },
+    []
+  )
 
-  return {
-    trackImageOpen: (projectTitle: string, imageIndex: number) =>
-      trackEvent("image_open", { project: projectTitle, index: imageIndex }),
-    trackImageClose: (projectTitle: string) => trackEvent("image_close", { project: projectTitle }),
-    trackImageNavigate: (projectTitle: string, imageIndex: number) =>
-      trackEvent("image_navigate", { project: projectTitle, index: imageIndex }),
-    trackImageDownload: (projectTitle: string, imageIndex: number) =>
-      trackEvent("image_download", { project: projectTitle, index: imageIndex }),
-  }
+  return useMemo(
+    () => ({
+      trackImageOpen: (projectTitle: string, imageIndex: number) =>
+        trackEvent("image_open", { project: projectTitle, index: imageIndex }),
+      trackImageClose: (projectTitle: string) =>
+        trackEvent("image_close", { project: projectTitle }),
+      trackImageNavigate: (projectTitle: string, imageIndex: number) =>
+        trackEvent("image_navigate", { project: projectTitle, index: imageIndex }),
+      trackImageDownload: (projectTitle: string, imageIndex: number) =>
+        trackEvent("image_download", { project: projectTitle, index: imageIndex }),
+    }),
+    [trackEvent]
+  )
 }
 
 const MIN_SCALE = 1
 const MAX_SCALE = 3
 const SCALE_STEP = 0.5
 
-export function ImageLightbox({ images, initialIndex = 0, isOpen, onClose, projectTitle }: ImageLightboxProps) {
+export function ImageLightbox({
+  images,
+  initialIndex = 0,
+  isOpen,
+  onClose,
+  projectTitle,
+}: ImageLightboxProps) {
   const [currentIndex, setCurrentIndex] = useState(initialIndex)
   const [isLoading, setIsLoading] = useState(true)
   const dialogRef = useRef<HTMLDivElement>(null)
@@ -58,8 +77,34 @@ export function ImageLightbox({ images, initialIndex = 0, isOpen, onClose, proje
   const pinchStartScale = useRef(MIN_SCALE)
 
   const resetTransform = useCallback(() => {
-    setScale(MIN_SCALE)
-    setTranslate({ x: 0, y: 0 })
+    setScale((s) => (s === MIN_SCALE ? s : MIN_SCALE))
+    setTranslate((t) => (t.x === 0 && t.y === 0 ? t : { x: 0, y: 0 }))
+  }, [])
+
+  const navigateToNext = useCallback(() => {
+    if (currentIndex < images.length - 1) {
+      setCurrentIndex((prev) => prev + 1)
+      setIsLoading(true)
+      resetTransform()
+      if (projectTitle) analytics.trackImageNavigate(projectTitle, currentIndex + 1)
+    }
+  }, [currentIndex, images.length, projectTitle, analytics, resetTransform])
+
+  const navigateToPrevious = useCallback(() => {
+    if (currentIndex > 0) {
+      setCurrentIndex((prev) => prev - 1)
+      setIsLoading(true)
+      resetTransform()
+      if (projectTitle) analytics.trackImageNavigate(projectTitle, currentIndex - 1)
+    }
+  }, [currentIndex, projectTitle, analytics, resetTransform])
+
+  const toggleFullscreen = useCallback(() => {
+    if (!document.fullscreenElement) {
+      dialogRef.current?.requestFullscreen?.()
+    } else {
+      document.exitFullscreen?.()
+    }
   }, [])
 
   // Reset state when dialog opens/closes or image changes
@@ -124,38 +169,12 @@ export function ImageLightbox({ images, initialIndex = 0, isOpen, onClose, proje
     }
     document.addEventListener("keydown", handleKeyDown)
     return () => document.removeEventListener("keydown", handleKeyDown)
-  }, [isOpen, currentIndex, images.length, scale])
+  }, [isOpen, scale, navigateToNext, navigateToPrevious, onClose, resetTransform, toggleFullscreen])
 
   // Focus management
   useEffect(() => {
     if (isOpen && dialogRef.current) dialogRef.current.focus()
   }, [isOpen])
-
-  const navigateToNext = useCallback(() => {
-    if (currentIndex < images.length - 1) {
-      setCurrentIndex((prev) => prev + 1)
-      setIsLoading(true)
-      resetTransform()
-      if (projectTitle) analytics.trackImageNavigate(projectTitle, currentIndex + 1)
-    }
-  }, [currentIndex, images.length, projectTitle, analytics, resetTransform])
-
-  const navigateToPrevious = useCallback(() => {
-    if (currentIndex > 0) {
-      setCurrentIndex((prev) => prev - 1)
-      setIsLoading(true)
-      resetTransform()
-      if (projectTitle) analytics.trackImageNavigate(projectTitle, currentIndex - 1)
-    }
-  }, [currentIndex, projectTitle, analytics, resetTransform])
-
-  const toggleFullscreen = useCallback(() => {
-    if (!document.fullscreenElement) {
-      dialogRef.current?.requestFullscreen?.()
-    } else {
-      document.exitFullscreen?.()
-    }
-  }, [])
 
   const handleDownload = useCallback(async () => {
     const currentImage = images[currentIndex]
@@ -187,18 +206,15 @@ export function ImageLightbox({ images, initialIndex = 0, isOpen, onClose, proje
   }, [scale, resetTransform])
 
   // Wheel to zoom
-  const handleWheel = useCallback(
-    (e: React.WheelEvent) => {
-      e.preventDefault()
-      const delta = e.deltaY > 0 ? -SCALE_STEP : SCALE_STEP
-      setScale((prev) => {
-        const next = Math.min(MAX_SCALE, Math.max(MIN_SCALE, prev + delta))
-        if (next === MIN_SCALE) setTranslate({ x: 0, y: 0 })
-        return next
-      })
-    },
-    [],
-  )
+  const handleWheel = useCallback((e: React.WheelEvent) => {
+    e.preventDefault()
+    const delta = e.deltaY > 0 ? -SCALE_STEP : SCALE_STEP
+    setScale((prev) => {
+      const next = Math.min(MAX_SCALE, Math.max(MIN_SCALE, prev + delta))
+      if (next === MIN_SCALE) setTranslate({ x: 0, y: 0 })
+      return next
+    })
+  }, [])
 
   // Pointer drag for panning
   const handlePointerDown = useCallback(
@@ -209,7 +225,7 @@ export function ImageLightbox({ images, initialIndex = 0, isOpen, onClose, proje
       translateOrigin.current = { ...translate }
       ;(e.target as HTMLElement).setPointerCapture(e.pointerId)
     },
-    [scale, translate],
+    [scale, translate]
   )
 
   const handlePointerMove = useCallback(
@@ -224,7 +240,7 @@ export function ImageLightbox({ images, initialIndex = 0, isOpen, onClose, proje
         y: translateOrigin.current.y + dy / scale,
       })
     },
-    [scale],
+    [scale]
   )
 
   const handlePointerUp = useCallback((e: React.PointerEvent) => {
@@ -245,23 +261,20 @@ export function ImageLightbox({ images, initialIndex = 0, isOpen, onClose, proje
         pinchStartScale.current = scale
       }
     },
-    [scale],
+    [scale]
   )
 
-  const handleTouchMove = useCallback(
-    (e: React.TouchEvent) => {
-      if (e.touches.length === 2 && pinchStartDist.current !== null) {
-        const dx = e.touches[0].clientX - e.touches[1].clientX
-        const dy = e.touches[0].clientY - e.touches[1].clientY
-        const dist = Math.hypot(dx, dy)
-        const ratio = dist / pinchStartDist.current
-        const next = Math.min(MAX_SCALE, Math.max(MIN_SCALE, pinchStartScale.current * ratio))
-        setScale(next)
-        if (next === MIN_SCALE) setTranslate({ x: 0, y: 0 })
-      }
-    },
-    [],
-  )
+  const handleTouchMove = useCallback((e: React.TouchEvent) => {
+    if (e.touches.length === 2 && pinchStartDist.current !== null) {
+      const dx = e.touches[0].clientX - e.touches[1].clientX
+      const dy = e.touches[0].clientY - e.touches[1].clientY
+      const dist = Math.hypot(dx, dy)
+      const ratio = dist / pinchStartDist.current
+      const next = Math.min(MAX_SCALE, Math.max(MIN_SCALE, pinchStartScale.current * ratio))
+      setScale(next)
+      if (next === MIN_SCALE) setTranslate({ x: 0, y: 0 })
+    }
+  }, [])
 
   const handleTouchEnd = useCallback(
     (e: React.TouchEvent) => {
@@ -273,7 +286,7 @@ export function ImageLightbox({ images, initialIndex = 0, isOpen, onClose, proje
       if (scale > MIN_SCALE || e.changedTouches.length === 0) return
       // Swipe detection handled via pointer events on single touch
     },
-    [scale],
+    [scale]
   )
 
   if (!isOpen) return null
@@ -287,14 +300,19 @@ export function ImageLightbox({ images, initialIndex = 0, isOpen, onClose, proje
       <DialogContent
         ref={dialogRef}
         className="max-w-[95vw] max-h-[95vh] w-full h-full p-0 bg-black/95 border-0"
+        showCloseButton={false}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
-        role="dialog"
         aria-modal="true"
-        aria-labelledby="lightbox-title"
-        aria-describedby="lightbox-description"
       >
+        <DialogTitle className="sr-only">
+          {projectTitle ? `${projectTitle} — Image lightbox` : "Image lightbox"}
+        </DialogTitle>
+        <DialogDescription className="sr-only">
+          Image {currentIndex + 1}
+          {images.length > 1 ? ` of ${images.length}` : ""}. Use arrow keys to navigate.
+        </DialogDescription>
         {/* Header */}
         <div className="absolute top-0 left-0 right-0 z-50 flex items-center justify-between p-4 bg-gradient-to-b from-black/80 to-transparent">
           <div className="flex items-center space-x-3">
@@ -389,7 +407,7 @@ export function ImageLightbox({ images, initialIndex = 0, isOpen, onClose, proje
           <div
             className={cn(
               "relative w-full h-full touch-none",
-              isZoomed ? "cursor-grab active:cursor-grabbing" : "cursor-zoom-in",
+              isZoomed ? "cursor-grab active:cursor-grabbing" : "cursor-zoom-in"
             )}
             style={{
               transform: `scale(${scale}) translate(${translate.x}px, ${translate.y}px)`,
@@ -437,7 +455,7 @@ export function ImageLightbox({ images, initialIndex = 0, isOpen, onClose, proje
                   }}
                   className={cn(
                     "w-2 h-2 rounded-full transition-colors",
-                    index === currentIndex ? "bg-white" : "bg-white/40 hover:bg-white/60",
+                    index === currentIndex ? "bg-white" : "bg-white/40 hover:bg-white/60"
                   )}
                   aria-label={`Go to image ${index + 1}`}
                 />
