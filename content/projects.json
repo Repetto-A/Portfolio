@@ -1,6 +1,60 @@
 {
   "projects": [
     {
+      "id": "nexa",
+      "locales": {
+        "en": {
+          "title": "NEXA",
+          "short": "Network and operating layer for innovation communities — public discovery, organizer tooling, and cross-community event distribution. Live in Argentina.",
+          "description": "NEXA is the shared infrastructure for the innovation ecosystem in Argentina and the region. It combines a public discovery layer — community profiles, a shared event agenda, and a geographic map — with private organizer tooling: moderated onboarding, editor access management, Luma calendar sync, and segmented event alert distribution. Communities get visibility across the network. Organizers get leverage and operational tools. Ecosystem members get one curated place to find what's happening.",
+          "features": [
+            "Public community profiles and discovery with geographic map and shared event agenda",
+            "Moderated community application and onboarding flow",
+            "Organizer dashboard with editor access controls and role management",
+            "Luma calendar sync for automatic event ingestion and publishing",
+            "Geographic and format-aware event alert subscriptions with email delivery",
+            "Admin tooling for community moderation, curation, and email campaigns",
+            "MCP server at /api/mcp exposing discovery and operational workflows as tools"
+          ]
+        },
+        "es": {
+          "title": "NEXA",
+          "short": "Capa de red e infraestructura operativa para comunidades de innovación — descubrimiento público, herramientas para organizadores y distribución de eventos. En producción en Argentina.",
+          "description": "NEXA es la infraestructura compartida del ecosistema de innovación en Argentina y la región. Combina una capa pública de descubrimiento — perfiles de comunidades, agenda de eventos compartida y mapa geográfico — con herramientas privadas para organizadores: onboarding moderado, gestión de acceso de editores, sincronización con Luma y distribución segmentada de alertas de eventos. Las comunidades ganan visibilidad en toda la red. Los organizadores obtienen apalancamiento y herramientas operativas. Los miembros del ecosistema tienen un único lugar curado para saber qué está pasando.",
+          "features": [
+            "Perfiles públicos de comunidades y descubrimiento con mapa geográfico y agenda de eventos compartida",
+            "Flujo de postulación y onboarding moderado para nuevas comunidades",
+            "Dashboard de organizadores con control de acceso de editores y gestión de roles",
+            "Sincronización con Luma para ingesta y publicación automática de eventos",
+            "Suscripciones a alertas de eventos por ubicación y formato con entrega por email",
+            "Herramientas de administración para moderación, curaduría y campañas de email",
+            "Servidor MCP en /api/mcp que expone flujos de descubrimiento y operación como tools"
+          ]
+        }
+      },
+      "status": "production",
+      "techStack": [
+        "Next.js 16",
+        "React 19",
+        "TypeScript",
+        "Tailwind CSS v4",
+        "Supabase",
+        "PostgreSQL",
+        "Model Context Protocol",
+        "Playwright",
+        "Vitest"
+      ],
+      "githubUrl": null,
+      "demoUrl": null,
+      "images": [
+        "/projects/nexa-1.png",
+        "/projects/nexa-2.png",
+        "/projects/nexa-3.png",
+        "/projects/nexa-4.png"
+      ],
+      "category": "Web Application"
+    },
+    {
       "id": "farmhero",
       "locales": {
         "en": {
