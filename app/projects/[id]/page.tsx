@@ -50,7 +50,8 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
     })
   }
 
-  const projectContent = (projectData as any).locales?.en || {}
+  const projectContent =
+    (projectData as { locales?: { en?: Record<string, unknown> } }).locales?.en || {}
   const keywords = [...projectData.techStack, projectData.category, "project", "portfolio"]
 
   return genMetadata({
@@ -80,9 +81,11 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
     status: projectData.status in statusConfig ? projectData.status : "in-progress",
   }
 
-  const projectContent = (project as any).locales?.en || {}
+  const projectContent =
+    (project as { locales?: { en?: Record<string, unknown> } }).locales?.en || {}
   const IconComponent = categoryIcons[project.category as keyof typeof categoryIcons] || Code
-  const statusStyle = statusConfig[project.status as keyof typeof statusConfig] || statusConfig["in-progress"]
+  const statusStyle =
+    statusConfig[project.status as keyof typeof statusConfig] || statusConfig["in-progress"]
 
   const projectSchema = generateProjectSchema({
     id: project.id,
@@ -121,7 +124,9 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <IconComponent className="h-6 w-6 text-primary" />
-                  <h1 className="text-3xl sm:text-4xl font-bold text-foreground">{projectContent.title}</h1>
+                  <h1 className="text-3xl sm:text-4xl font-bold text-foreground">
+                    {projectContent.title}
+                  </h1>
                 </div>
 
                 <div className="flex items-center space-x-3">
@@ -153,11 +158,17 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
               </div>
             </div>
 
-            <p className="text-lg text-muted-foreground leading-relaxed">{projectContent.description}</p>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              {projectContent.description}
+            </p>
           </div>
 
           {/* Project Images */}
-          <ProjectImageGallery images={project.images || []} projectTitle={projectContent.title} className="mb-12" />
+          <ProjectImageGallery
+            images={project.images || []}
+            projectTitle={projectContent.title}
+            className="mb-12"
+          />
 
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Main Content */}
@@ -180,7 +191,9 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
               </Card>
 
               {/* Timeline - only show if project has timeline */}
-              {(project as any).timeline && <ProjectTimeline timeline={(project as any).timeline} />}
+              {(project as { timeline?: unknown }).timeline && (
+                <ProjectTimeline timeline={(project as { timeline: unknown }).timeline} />
+              )}
             </div>
 
             {/* Sidebar */}
@@ -208,7 +221,11 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
                 </CardHeader>
                 <CardContent className="space-y-3">
                   {project.githubUrl && (
-                    <Button asChild variant="outline" className="w-full justify-start bg-transparent">
+                    <Button
+                      asChild
+                      variant="outline"
+                      className="w-full justify-start bg-transparent"
+                    >
                       <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                         <Github className="mr-2 h-4 w-4" />
                         View Source Code
@@ -217,7 +234,11 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
                   )}
 
                   {project.demoUrl && (
-                    <Button asChild variant="outline" className="w-full justify-start bg-transparent">
+                    <Button
+                      asChild
+                      variant="outline"
+                      className="w-full justify-start bg-transparent"
+                    >
                       <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer">
                         <ExternalLink className="mr-2 h-4 w-4" />
                         Live Demo

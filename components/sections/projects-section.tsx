@@ -12,7 +12,7 @@ import { ExternalLink, Github, Code, Zap, Calendar, Eye } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import projectsData from "@/content/projects.json"
-import { useTranslations, getTranslation } from "@/lib/i18n-context"
+import { useTranslations, getTranslation, type Translations } from "@/lib/i18n-context"
 
 const categoryIcons = {
   "Web Application": Code,
@@ -237,7 +237,7 @@ export function ProjectsSection() {
   )
 }
 
-function getStatusConfig(translations: Record<string, unknown>) {
+function getStatusConfig(translations: Translations) {
   return {
     "in-progress": {
       label: getTranslation(translations, "projects.status.in-progress"),

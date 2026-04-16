@@ -10,6 +10,12 @@ import { Badge } from "@/components/ui/badge"
 import { X, ChevronLeft, ChevronRight, Download, Maximize, Loader2 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void
+  }
+}
+
 interface ImageLightboxProps {
   images: string[]
   initialIndex?: number
@@ -75,6 +81,32 @@ export function ImageLightbox({
     setTranslate((t) => (t.x === 0 && t.y === 0 ? t : { x: 0, y: 0 }))
   }, [])
 
+  const navigateToNext = useCallback(() => {
+    if (currentIndex < images.length - 1) {
+      setCurrentIndex((prev) => prev + 1)
+      setIsLoading(true)
+      resetTransform()
+      if (projectTitle) analytics.trackImageNavigate(projectTitle, currentIndex + 1)
+    }
+  }, [currentIndex, images.length, projectTitle, analytics, resetTransform])
+
+  const navigateToPrevious = useCallback(() => {
+    if (currentIndex > 0) {
+      setCurrentIndex((prev) => prev - 1)
+      setIsLoading(true)
+      resetTransform()
+      if (projectTitle) analytics.trackImageNavigate(projectTitle, currentIndex - 1)
+    }
+  }, [currentIndex, projectTitle, analytics, resetTransform])
+
+  const toggleFullscreen = useCallback(() => {
+    if (!document.fullscreenElement) {
+      dialogRef.current?.requestFullscreen?.()
+    } else {
+      document.exitFullscreen?.()
+    }
+  }, [])
+
   // Reset state when dialog opens/closes or image changes
   useEffect(() => {
     if (isOpen) {
@@ -137,48 +169,12 @@ export function ImageLightbox({
     }
     document.addEventListener("keydown", handleKeyDown)
     return () => document.removeEventListener("keydown", handleKeyDown)
-  }, [
-    isOpen,
-    currentIndex,
-    images.length,
-    scale,
-    navigateToNext,
-    navigateToPrevious,
-    onClose,
-    resetTransform,
-    toggleFullscreen,
-  ])
+  }, [isOpen, scale, navigateToNext, navigateToPrevious, onClose, resetTransform, toggleFullscreen])
 
   // Focus management
   useEffect(() => {
     if (isOpen && dialogRef.current) dialogRef.current.focus()
   }, [isOpen])
-
-  const navigateToNext = useCallback(() => {
-    if (currentIndex < images.length - 1) {
-      setCurrentIndex((prev) => prev + 1)
-      setIsLoading(true)
-      resetTransform()
-      if (projectTitle) analytics.trackImageNavigate(projectTitle, currentIndex + 1)
-    }
-  }, [currentIndex, images.length, projectTitle, analytics, resetTransform])
-
-  const navigateToPrevious = useCallback(() => {
-    if (currentIndex > 0) {
-      setCurrentIndex((prev) => prev - 1)
-      setIsLoading(true)
-      resetTransform()
-      if (projectTitle) analytics.trackImageNavigate(projectTitle, currentIndex - 1)
-    }
-  }, [currentIndex, projectTitle, analytics, resetTransform])
-
-  const toggleFullscreen = useCallback(() => {
-    if (!document.fullscreenElement) {
-      dialogRef.current?.requestFullscreen?.()
-    } else {
-      document.exitFullscreen?.()
-    }
-  }, [])
 
   const handleDownload = useCallback(async () => {
     const currentImage = images[currentIndex]
