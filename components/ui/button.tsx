@@ -1,8 +1,8 @@
-import type * as React from "react"
+import { type ComponentProps } from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cn } from "@/lib/utils"
 
-interface ButtonProps extends React.ComponentProps<"button"> {
+interface ButtonProps extends ComponentProps<"button"> {
   variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link"
   size?: "default" | "sm" | "lg" | "icon"
   asChild?: boolean
@@ -15,7 +15,8 @@ const getButtonClasses = (variant = "default", size = "default") => {
   const variantClasses = {
     default: "bg-primary text-primary-foreground shadow hover:bg-primary/90 hover:shadow-md",
     destructive: "bg-destructive text-white shadow hover:bg-destructive/90",
-    outline: "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground hover:border-primary/40",
+    outline:
+      "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground hover:border-primary/40",
     secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
     ghost: "hover:bg-accent hover:text-accent-foreground",
     link: "text-primary underline-offset-4 hover:underline",
@@ -31,11 +32,20 @@ const getButtonClasses = (variant = "default", size = "default") => {
   return `${baseClasses} ${variantClasses[variant as keyof typeof variantClasses]} ${sizeClasses[size as keyof typeof sizeClasses]}`
 }
 
-export const buttonVariants = (variant: ButtonProps["variant"] = "default", size: ButtonProps["size"] = "default") => {
+export const buttonVariants = ({
+  variant = "default",
+  size = "default",
+}: { variant?: ButtonProps["variant"]; size?: ButtonProps["size"] } = {}) => {
   return getButtonClasses(variant, size)
 }
 
-function Button({ className, variant = "default", size = "default", asChild = false, ...props }: ButtonProps) {
+function Button({
+  className,
+  variant = "default",
+  size = "default",
+  asChild = false,
+  ...props
+}: ButtonProps) {
   const Comp = asChild ? Slot : "button"
 
   return <Comp className={cn(getButtonClasses(variant, size), className)} {...props} />

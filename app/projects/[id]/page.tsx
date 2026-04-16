@@ -10,6 +10,19 @@ import { ProjectImageGallery } from "@/components/project-image-gallery"
 import { ProjectTimeline } from "@/components/project-timeline"
 import { generateMetadata as genMetadata, generateProjectSchema, siteConfig } from "@/lib/seo"
 
+type ProjectContent = {
+  title?: string
+  short?: string
+  description?: string
+  features?: string[]
+}
+
+type ProjectWithLocales = {
+  locales?: { en?: ProjectContent; es?: ProjectContent }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  timeline?: any
+}
+
 const categoryIcons = {
   "Web Application": Code,
   "Business Automation": Zap,
@@ -50,8 +63,7 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
     })
   }
 
-  const projectContent =
-    (projectData as { locales?: { en?: Record<string, unknown> } }).locales?.en || {}
+  const projectContent = (projectData as ProjectWithLocales).locales?.en || {}
   const keywords = [...projectData.techStack, projectData.category, "project", "portfolio"]
 
   return genMetadata({
@@ -191,8 +203,8 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
               </Card>
 
               {/* Timeline - only show if project has timeline */}
-              {(project as { timeline?: unknown }).timeline && (
-                <ProjectTimeline timeline={(project as { timeline: unknown }).timeline} />
+              {(project as ProjectWithLocales).timeline !== undefined && (
+                <ProjectTimeline timeline={(project as ProjectWithLocales).timeline} />
               )}
             </div>
 
