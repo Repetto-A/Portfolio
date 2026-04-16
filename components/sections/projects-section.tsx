@@ -10,6 +10,7 @@ import { Section } from "@/components/layout/section"
 import { SectionHeader } from "@/components/layout/section-header"
 import { ExternalLink, Github, Code, Zap, Calendar, Eye } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import projectsData from "@/content/projects.json"
 import { useTranslations, getTranslation } from "@/lib/i18n-context"
 
@@ -50,7 +51,6 @@ export function ProjectsSection() {
 
   const statusConfig = getStatusConfig(translations)
 
-  // Build project map for event-based lookup
   const projects = projectsData.projects.map((projectData): Project => ({
     ...projectData,
     status: projectData.status in statusConfig ? projectData.status : "in-progress",
@@ -59,7 +59,6 @@ export function ProjectsSection() {
       : "Web Application") as keyof typeof categoryIcons,
   }))
 
-  // Keep map in sync
   projectsRef.current.clear()
   for (const p of projects) projectsRef.current.set(p.id, p)
 
@@ -73,18 +72,15 @@ export function ProjectsSection() {
     setSelectedProject(null)
   }, [])
 
-  // Listen for "open-project" events dispatched by awards section
   useEffect(() => {
     const handler = (e: Event) => {
       const projectId = (e as CustomEvent<string>).detail
       const project = projectsRef.current.get(projectId)
       if (project) {
-        // Scroll the card into view, then open modal
         const card = document.getElementById(`project-${projectId}`)
         if (card) {
           card.scrollIntoView({ behavior: "smooth", block: "center" })
         }
-        // Small delay so the scroll is visible before modal opens
         setTimeout(() => {
           setSelectedProject(project)
           setModalOpen(true)
@@ -101,6 +97,7 @@ export function ProjectsSection() {
         <SectionHeader
           title={getTranslation(translations, "projects.title")}
           description={getTranslation(translations, "projects.description")}
+          eyebrow="Selected Work"
         />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -114,51 +111,66 @@ export function ProjectsSection() {
                 key={project.id}
                 id={`project-${project.id}`}
                 data-project-id={project.id}
-                className="group hover:shadow-lg transition-all duration-300 h-full flex flex-col"
+                className="group hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col overflow-hidden border-border hover:border-primary/30 scroll-reveal"
               >
-                <CardHeader className="space-y-4">
-                  <div className="flex items-start justify-between">
-                    <div className="flex items-center space-x-2">
-                      <IconComponent className="h-5 w-5 text-primary" />
+                {/* Project thumbnail — -mt-6 to break out of Card's py-6 top padding */}
+                {project.images?.[0] && (
+                  <div className="relative aspect-video overflow-hidden flex-shrink-0 bg-muted -mt-6">
+                    <Image
+                      src={project.images[0]}
+                      alt={projectContent.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                    {/* Hover overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
+                )}
+
+                <CardHeader className="space-y-3 pb-3">
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="flex items-center gap-2">
+                      <IconComponent className="h-4 w-4 text-primary flex-shrink-0" />
                       <Badge variant="outline" className={statusStyle.color}>
                         {statusStyle.label}
                       </Badge>
                     </div>
-                    <Badge variant="secondary" className="text-xs">
+                    <Badge variant="secondary" className="text-xs whitespace-nowrap">
                       {getTranslation(translations, `projects.categories.${project.category}`) || project.category}
                     </Badge>
                   </div>
 
-                  <CardTitle className="text-xl group-hover:text-primary transition-colors">
+                  <CardTitle className="text-lg leading-snug group-hover:text-primary transition-colors">
                     <button
                       onClick={() => handleProjectModalOpen(project)}
-                      className="hover:underline text-left w-full"
+                      className="hover:underline text-left w-full underline-offset-4"
                     >
                       {projectContent.title}
                     </button>
                   </CardTitle>
                 </CardHeader>
 
-                <CardContent className="flex-1 flex flex-col space-y-4">
-                  <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3 min-h-18">
+                <CardContent className="flex-1 flex flex-col space-y-4 pt-0">
+                  <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
                     {projectContent.short}
                   </p>
 
-                  <div className="flex flex-wrap gap-1">
+                  <div className="flex flex-wrap gap-1.5">
                     {project.techStack.slice(0, 3).map((tech) => (
                       <Badge key={tech} variant="outline" className="text-xs">
                         {tech}
                       </Badge>
                     ))}
                     {project.techStack.length > 3 && (
-                      <Badge variant="outline" className="text-xs">
+                      <Badge variant="outline" className="text-xs text-muted-foreground">
                         +{project.techStack.length - 3}
                       </Badge>
                     )}
                   </div>
 
-                  <div className="flex items-center justify-between pt-4 mt-auto">
-                    <div className="flex items-center space-x-2">
+                  <div className="flex items-center justify-between pt-2 mt-auto border-t border-border/60">
+                    <div className="flex items-center gap-3">
                       {project.githubUrl && (
                         <Link
                           href={project.githubUrl}
@@ -187,6 +199,7 @@ export function ProjectsSection() {
                       variant="ghost"
                       size="sm"
                       onClick={() => handleProjectModalOpen(project)}
+                      className="text-xs h-7 px-2.5 text-muted-foreground hover:text-primary"
                     >
                       {getTranslation(translations, "projects.cta.learnMore")}
                     </Button>
@@ -197,15 +210,17 @@ export function ProjectsSection() {
           })}
         </div>
 
-        <div className="text-center mt-16">
-          <div className="space-y-4">
-            <h3 className="text-3xl sm:text-4xl font-bold text-foreground">
+        {/* Collaboration CTA */}
+        <div className="text-center mt-20">
+          <div className="inline-flex flex-col items-center space-y-5">
+            <div className="h-px w-16 bg-border" />
+            <h3 className="text-2xl sm:text-3xl font-bold text-foreground">
               {getTranslation(translations, "projects.collaboration.title")}
             </h3>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground max-w-md">
               {getTranslation(translations, "projects.collaboration.description")}
             </p>
-            <Button asChild size="lg">
+            <Button asChild size="lg" className="shadow-lg shadow-primary/20">
               <Link href="#contact">{getTranslation(translations, "projects.cta.getInTouch")}</Link>
             </Button>
           </div>
@@ -225,19 +240,19 @@ function getStatusConfig(translations: any) {
   return {
     "in-progress": {
       label: getTranslation(translations, "projects.status.in-progress"),
-      color: "bg-yellow-500/10 text-yellow-500 border-yellow-500/20",
+      color: "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20",
     },
     production: {
       label: getTranslation(translations, "projects.status.production"),
-      color: "bg-green-500/10 text-green-500 border-green-500/20",
+      color: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20",
     },
     prototype: {
       label: getTranslation(translations, "projects.status.prototype"),
-      color: "bg-purple-500/10 text-purple-500 border-purple-500/20",
+      color: "bg-violet-500/10 text-violet-600 dark:text-violet-400 border-violet-500/20",
     },
     "regional-winner-global-nominee": {
       label: getTranslation(translations, "projects.status.regional-winner-global-nominee"),
-      color: "bg-blue-500/10 text-blue-500 border-blue-500/20",
+      color: "bg-primary/10 text-primary border-primary/20",
     },
   }
 }

@@ -21,6 +21,7 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import { useTranslations, getTranslation, getResumeUrl } from "@/lib/i18n-context"
+import { SectionHeader } from "@/components/layout/section-header"
 
 interface FormData {
   name: string
@@ -89,6 +90,10 @@ export function ContactSection() {
   return (
     <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
+        <SectionHeader
+          title={getTranslation(translations, "navigation.contact")}
+          eyebrow="Get In Touch"
+        />
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div className="space-y-8">

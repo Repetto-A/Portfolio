@@ -11,19 +11,22 @@ export function AboutSection() {
   return (
     <Section id="about" variant="default" spacing="default">
       <Container maxWidth="4xl">
-        <div className="space-y-12">
+        <div className="space-y-14">
           <SectionHeader
             title={getTranslation(translations, "about.title")}
             description={getTranslation(translations, "about.bio.short")}
           />
 
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+          <div className="grid md:grid-cols-2 gap-10 lg:gap-16">
             {/* Background */}
-            <div className="space-y-6">
-              <h3 className="text-xl font-semibold text-foreground">
-                {getTranslation(translations, "about.bio.background.title")}
-              </h3>
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
+            <div className="space-y-5">
+              <div className="flex items-center gap-3">
+                <div className="w-5 h-px bg-primary" />
+                <h3 className="text-base font-semibold text-foreground uppercase tracking-wide">
+                  {getTranslation(translations, "about.bio.background.title")}
+                </h3>
+              </div>
+              <div className="space-y-4 text-muted-foreground leading-relaxed pl-8">
                 {getTranslation(translations, "about.bio.background.text")
                   .split("\n\n")
                   .map((paragraph, index) => (
@@ -33,11 +36,14 @@ export function AboutSection() {
             </div>
 
             {/* Approach */}
-            <div className="space-y-6">
-              <h3 className="text-xl font-semibold text-foreground">
-                {getTranslation(translations, "about.bio.approach.title")}
-              </h3>
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
+            <div className="space-y-5">
+              <div className="flex items-center gap-3">
+                <div className="w-5 h-px bg-primary" />
+                <h3 className="text-base font-semibold text-foreground uppercase tracking-wide">
+                  {getTranslation(translations, "about.bio.approach.title")}
+                </h3>
+              </div>
+              <div className="space-y-4 text-muted-foreground leading-relaxed pl-8">
                 {getTranslation(translations, "about.bio.approach.text")
                   .split("\n\n")
                   .map((paragraph, index) => (

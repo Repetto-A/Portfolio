@@ -43,7 +43,7 @@ function AwardCard({
   const showSeeMore = hasMatchingProject(award.projectId)
 
   return (
-    <Card className="group hover:shadow-xl transition-all duration-300 border-2 overflow-hidden relative">
+    <Card className="group hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border-2 overflow-hidden relative scroll-reveal">
       <div
         className={`absolute inset-0 bg-gradient-to-br ${award.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
       />
@@ -157,6 +157,7 @@ export function AwardsSection() {
       <Container maxWidth="7xl">
         <SectionHeader
           title={locale === "es" ? "Algunos premios y reconocimientos" : "Some Awards & Recognition"}
+          eyebrow={locale === "es" ? "Reconocimientos" : "Recognition"}
         />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
