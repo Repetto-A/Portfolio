@@ -15,22 +15,25 @@ export interface SEOProps {
 
 const siteConfig = {
   name: "Alejandro Repetto",
-  title: "Alejandro Repetto: Systems Engineer & Full-Stack Developer | Portfolio",
+  title: "Alejandro Repetto | Software Engineer enfocado en IA",
   description:
-    "Award-winning systems engineer specializing in automation and full-stack development. NASA Space Apps winner, ETH Global finalist. View projects, case studies, and get in touch.",
+    "Software Engineer enfocado en IA. Fundador de Nexa (+50 comunidades, +300.000 builders en LATAM), host de Builders Off The Record, docente en UCEL y consultor en CRIA.",
   url: "https://www.repetto-a.com",
   ogImage: "https://www.repetto-a.com/og-image.png",
   keywords: [
-    "systems engineering",
-    "AI/ML",
-    "machine learning",
-    "automation",
-    "web development",
-    "full-stack developer",
+    "software engineer",
+    "inteligencia artificial",
+    "IA",
+    "Nexa",
+    "Builders Off The Record",
+    "UCEL",
+    "CRIA",
     "NASA Space Apps",
-    "ETH Global",
-    "blockchain",
-    "portfolio",
+    "Vercel Hackathon",
+    "Platanus Hack",
+    "ETHGlobal",
+    "adopción de IA",
+    "LATAM",
   ],
   author: {
     name: "Alejandro Repetto",
@@ -38,6 +41,8 @@ const siteConfig = {
     email: "contact@repetto-a.com",
     github: "https://github.com/Repetto-A",
     linkedin: "https://www.linkedin.com/in/alejandro-repetto",
+    nexa: "https://nexa.builders",
+    botr: "https://www.buildersofftherecord.com",
   },
 }
 
@@ -71,7 +76,8 @@ export function generateMetadata({
     robots: noindex ? { index: false, follow: false } : { index: true, follow: true },
     openGraph: {
       type: ogType,
-      locale: "en_US",
+      locale: "es_AR",
+      alternateLocale: ["en_US"],
       url: finalCanonical,
       title: finalTitle,
       description,
@@ -109,31 +115,62 @@ export function generatePersonSchema() {
     alternateName: "Repetto-A",
     url: "https://www.repetto-a.com",
     image: "https://www.repetto-a.com/og-image.png",
-    jobTitle: "Systems Engineer & AI/ML Developer",
+    jobTitle: "Software Engineer enfocado en IA",
+    description:
+      "Software Engineer enfocado en IA y estudiante avanzado de Ingeniería en Sistemas. Ayuda a empresas y builders a pasar de hablar de IA a ejecutarla, con capacitación y hackathons internas. Fundador de Nexa, host de Builders Off The Record, docente en UCEL y consultor/trainer en CRIA.",
     worksFor: {
-      "@type": "EducationalOrganization",
-      name: "UTN - Universidad Tecnológica Nacional",
-      url: "https://www.frro.utn.edu.ar/",
+      "@type": "Organization",
+      name: "Nexa",
+      url: "https://nexa.builders",
     },
-    alumniOf: {
-      "@type": "EducationalOrganization",
-      name: "Universidad Tecnológica Nacional",
-    },
-    knowsAbout: [
-      "Systems Engineering",
-      "Artificial Intelligence",
-      "Machine Learning",
-      "Web Development",
-      "Automation",
-      "Blockchain",
-      "Full-Stack Development",
+    affiliation: [
+      {
+        "@type": "EducationalOrganization",
+        name: "UCEL",
+      },
+      {
+        "@type": "Organization",
+        name: "CRIA",
+      },
+      {
+        "@type": "Organization",
+        name: "Builders Off The Record",
+        url: "https://www.buildersofftherecord.com",
+      },
+      {
+        "@type": "Organization",
+        name: "SpaceXAI",
+      },
+      {
+        "@type": "Organization",
+        name: "Supabase",
+      },
+      {
+        "@type": "Organization",
+        name: "Rosario Tech Week",
+      },
     ],
-    sameAs: ["https://github.com/Repetto-A", "https://www.linkedin.com/in/alejandro-repetto"],
+    knowsAbout: [
+      "Artificial Intelligence",
+      "AI adoption",
+      "Software Engineering",
+      "Systems Engineering",
+      "RAG",
+      "Hackathons",
+      "Builder communities",
+    ],
+    sameAs: [
+      "https://github.com/Repetto-A",
+      "https://www.linkedin.com/in/alejandro-repetto",
+      "https://nexa.builders",
+      "https://www.buildersofftherecord.com",
+    ],
     email: "contact@repetto-a.com",
     award: [
-      "ETH Argentina 2025 - Roxium DAO Ops, Best Powerhouse App (1st Prize)",
-      "NASA Space Apps Challenge 2025 - FarmHero, Local Winner & Global Nominee",
-      "ETH Global 2025 - Zorrito Finance, 2nd Best dApp using Filecoin",
+      "NASA Space Apps Challenge - Farm Hero, ganador local y Global Nominee",
+      "Vercel Hackathon 2026 - 2do puesto + Nvidia",
+      "Platanus Hack 2026 - favorito del jurado",
+      "Premios en ETHGlobal",
     ],
   }
 }

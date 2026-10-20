@@ -112,7 +112,7 @@ export function HeroSection() {
               <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl ring-1 ring-border">
                 <Image
                   src="/placeholder.jpg"
-                  alt="Alejandro Repetto - Systems Engineer specializing in AI/ML and automation"
+                  alt="Alejandro Repetto, Software Engineer enfocado en IA"
                   fill
                   className="object-cover"
                   priority

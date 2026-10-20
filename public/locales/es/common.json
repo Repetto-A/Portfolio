@@ -7,8 +7,8 @@
   },
   "hero": {
     "name": "Alejandro Repetto",
-    "title": "Software Engineer",
-    "description": "Estoy obsesionado con reducir la complejidad. Construyo rápido, itero más rápido, y no duermo hasta que pasen todos los tests.\nPremiado en NASA Space Apps, ETH Argentina y ETH Global.",
+    "title": "Software Engineer enfocado en IA",
+    "description": "Estudiante avanzado de Ingeniería en Sistemas. Ayudo a empresas y builders a pasar de hablar de IA a ejecutarla, con capacitación y hackathons internas.\nNASA Space Apps, Vercel Hackathon 2026, Platanus Hack 2026 y ETHGlobal.",
     "cta": {
       "projects": "Explorar Proyectos",
       "resume": "Descargar CV"
@@ -20,29 +20,29 @@
     },
     "status": {
       "currently": "Actualmente",
-      "building": "Desarrollando Soluciones IA",
+      "building": "Nexa y BOTR",
       "focus": "Enfoque",
-      "automation": "Automatización y ML"
+      "automation": "Adopción de IA"
     },
     "scroll": "Conoce más"
   },
   "about": {
-    "title": "Acerca de Mí",
+    "title": "Acerca de mí",
     "bio": {
-      "short": "Soy estudiante de Ingeniería en Sistemas y un nerd al que le fascina resolver problemas. Encontré en el software mi santo grial para lograrlo. Soy muy bueno automatizando tareas que solían llevar incontables horas y empleados, y lo hago de forma escalable, eficiente y segura, gracias a mi pasión por la programación competitiva y la ciberseguridad. Ante todo soy curioso y me encantan los desafíos.",
+      "short": "Soy Software Engineer enfocado en IA y estudiante avanzado de Ingeniería en Sistemas. Mi tesis es ayudar a empresas y builders a pasar de hablar de IA a ejecutarla, con capacitación y hackathons internas.",
       "background": {
         "title": "Trayectoria",
-        "text": "Programo seriamente desde el 2022, cuando obtuve el 6to puesto en mi primer torneo ICPC. Un training camp de invierno en 2024 fue un punto de inflexión que transformó mi forma de abordar desafíos técnicos.\n\nMis proyectos van desde algoritmos de predicción para NASA Space Apps hasta sistemas en producción con arquitecturas RAG."
+        "text": "Soy fundador de Nexa (https://nexa.builders), una red de +50 comunidades y +300.000 builders en LATAM. También soy host de Builders Off The Record (https://www.buildersofftherecord.com).\n\nDocente en la Diplomatura en IA Aplicada al Ejercicio Profesional de UCEL y consultor/trainer en CRIA, donde trabajo adopción de IA para equipos técnicos y ejecutivos. SpaceXAI Ambassador, miembro de SupaSquad (Supabase) y embajador de Rosario Tech Week. Organizo Shippear, NASA Space Apps Rosario y Argentina Space en Salta, del 11 al 13 de noviembre de 2026."
       },
       "approach": {
         "title": "Enfoque",
-        "text": "Soy muy pragmático, si bien la programación competitiva me entrenó para siempre analizar la complejidad temporal y espacial de mis proyectos, las múltiples hackathones en las que participé me enseñaron a desarrollar y validar MVP's rápido, sin olvidar la arquitectura y el correcto diseño de sistemas distribuidos que me dió la ingenieria."
+        "text": "Gané NASA Space Apps Rosario y fui Global Nominee con Farm Hero (nota Telefe: https://rosario.mitelefe.com/rosario-y-la-region/farm-hero-un-simulador-educativo-que-usa-datos-de-la-nasa-para-salvar-tierras-degradadas-gano-el-space-apps-rosario-pid2107290). En 2026 fui 2do puesto del Vercel Hackathon (+ Nvidia) y favorito del jurado en Platanus Hack. También tengo premios en ETHGlobal.\n\nFormé a +200 devs, trabajé con 18 ONGs (Amnistía, Techo, CELS) y armé 4 hackathons en 3 meses. Hoy hay agentes de IA/RAG míos en producción en empresas."
       }
     }
   },
   "skills": {
     "title": "Habilidades y Tecnologías",
-    "subtitle": "Un conjunto completo de herramientas para construir aplicaciones completas, desde sistemas web modernos hasta automatizaciones potenciadas por IA.",
+    "subtitle": "Un conjunto de herramientas para construir aplicaciones completas, desde sistemas web modernos hasta automatizaciones con IA.",
     "categories": {
       "languages": "Lenguajes y Frameworks",
       "frameworks": "IA/ML y Ciencia de Datos",
@@ -66,7 +66,7 @@
   },
   "projects": {
     "title": "Proyectos Destacados",
-    "description": "Una colección de proyectos de ingeniería que abarcan sistemas de gestión, automatizaciones e IA/ML aplicada para resolver desafíos del mundo real.",
+    "description": "Proyectos de ingeniería que abarcan sistemas de gestión, automatizaciones e IA aplicada a desafíos reales.",
     "categories": {
       "Web Application": "Aplicación Web",
       "Business Automation": "Automatización Empresarial",
@@ -102,14 +102,14 @@
       "today": "Hoy"
     },
     "collaboration": {
-      "title": "¿Interesado en colaborar?",
-      "description": "Siempre estoy abierto a discutir nuevos proyectos y oportunidades en ingeniería en sistemas e IA/ML."
+      "title": "Interesado en colaborar?",
+      "description": "Abierto a charlar proyectos de IA aplicada, comunidades de builders y ejecución en equipos."
     }
   },
   "contact": {
     "info": {
       "title": "Conectemos",
-      "description": "Siempre estoy interesado en discutir nuevas oportunidades, ya sea un desafío de ingeniería en sistemas, implementación de IA/ML o solución de automatización. No dudes en contactarme por cualquiera de estos canales."
+      "description": "Si querés charlar de adopción de IA, capacitación o una hackathon interna, escribime por cualquiera de estos canales."
     },
     "methods": {
       "email": "Email",
@@ -137,14 +137,14 @@
       "namePlaceholder": "Tu nombre",
       "emailPlaceholder": "tu.email@ejemplo.com",
       "subjectPlaceholder": "Consulta de proyecto, colaboración, etc.",
-      "messagePlaceholder": "Cuéntame sobre tu proyecto o cómo puedo ayudarte...",
+      "messagePlaceholder": "Contame sobre tu proyecto o cómo te puedo ayudar...",
       "characters": "caracteres"
     },
     "validation": {
       "nameRequired": "El nombre es requerido",
       "nameMin": "El nombre debe tener al menos 2 caracteres",
       "emailRequired": "El email es requerido",
-      "emailInvalid": "Por favor ingresa un email válido",
+      "emailInvalid": "Ingresá un email válido",
       "subjectRequired": "El asunto es requerido",
       "subjectMin": "El asunto debe tener al menos 5 caracteres",
       "messageRequired": "El mensaje es requerido",
@@ -157,8 +157,8 @@
       "consulting": "Consultoría",
       "other": "Otro"
     },
-    "successMessage": "¡Mensaje enviado exitosamente! Te responderé pronto.",
-    "errorMessage": "Error al enviar mensaje. Por favor intenta de nuevo."
+    "successMessage": "Mensaje enviado. Te respondo pronto.",
+    "errorMessage": "No se pudo enviar el mensaje. Probá de nuevo."
   },
   "footer": {
     "rights": "Todos los derechos reservados.",

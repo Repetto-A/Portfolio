@@ -5,6 +5,41 @@ import { Section } from "@/components/layout/section"
 import { SectionHeader } from "@/components/layout/section-header"
 import { useTranslations, getTranslation } from "@/lib/i18n-context"
 
+const URL_PATTERN = /(https?:\/\/[^\s)]+)/g
+
+function LinkifiedText({ text }: { text: string }) {
+  const parts = text.split(URL_PATTERN)
+
+  return (
+    <>
+      {parts.map((part, index) => {
+        if (!part.startsWith("http://") && !part.startsWith("https://")) {
+          return <span key={index}>{part}</span>
+        }
+
+        let hostname = part
+        try {
+          hostname = new URL(part).hostname.replace(/^www\./, "")
+        } catch {
+          hostname = part.replace(/^https?:\/\/(www\.)?/, "")
+        }
+
+        return (
+          <a
+            key={index}
+            href={part}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-4 decoration-primary/40 hover:text-foreground transition-colors break-words"
+          >
+            {hostname}
+          </a>
+        )
+      })}
+    </>
+  )
+}
+
 export function AboutSection() {
   const [translations] = useTranslations()
 
@@ -30,7 +65,9 @@ export function AboutSection() {
                 {getTranslation(translations, "about.bio.background.text")
                   .split("\n\n")
                   .map((paragraph, index) => (
-                    <p key={index}>{paragraph}</p>
+                    <p key={index}>
+                      <LinkifiedText text={paragraph} />
+                    </p>
                   ))}
               </div>
             </div>
@@ -47,7 +84,9 @@ export function AboutSection() {
                 {getTranslation(translations, "about.bio.approach.text")
                   .split("\n\n")
                   .map((paragraph, index) => (
-                    <p key={index}>{paragraph}</p>
+                    <p key={index}>
+                      <LinkifiedText text={paragraph} />
+                    </p>
                   ))}
               </div>
             </div>
