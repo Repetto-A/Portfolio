@@ -99,6 +99,21 @@ export function HeroSection() {
                   <ExternalLink className="ml-2 h-4 w-4 opacity-50 group-hover:opacity-100 transition-opacity duration-200" />
                 </Link>
               </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="group w-full sm:w-auto border-border/60"
+              >
+                <Link
+                  href="https://www.buildersofftherecord.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {getTranslation(translations, "hero.cta.botr")}
+                  <ExternalLink className="ml-2 h-4 w-4 opacity-50 group-hover:opacity-100 transition-opacity duration-200" />
+                </Link>
+              </Button>
             </div>
           </div>
 

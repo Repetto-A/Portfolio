@@ -7,6 +7,8 @@ import { useTranslations, getTranslation } from "@/lib/i18n-context"
 
 const URL_PATTERN = /(https?:\/\/[^\s)]+)/g
 
+const ROLE_KEYS = ["nexa", "botr", "ucel", "cria"] as const
+
 function LinkifiedText({ text }: { text: string }) {
   const parts = text.split(URL_PATTERN)
 
@@ -53,42 +55,40 @@ export function AboutSection() {
           />
 
           <div className="grid md:grid-cols-2 gap-10 lg:gap-16">
-            {/* Background */}
-            <div className="space-y-5">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-0.5 bg-primary rounded-full" />
-                <h3 className="text-base font-semibold text-foreground uppercase tracking-wide">
-                  {getTranslation(translations, "about.bio.background.title")}
-                </h3>
+            {ROLE_KEYS.map((roleKey) => (
+              <div key={roleKey} className="space-y-5">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-0.5 bg-primary rounded-full" />
+                  <h3 className="text-base font-semibold text-foreground uppercase tracking-wide">
+                    {getTranslation(translations, `about.bio.roles.${roleKey}.title`)}
+                  </h3>
+                </div>
+                <div className="text-muted-foreground leading-relaxed pl-8">
+                  <p>
+                    <LinkifiedText
+                      text={getTranslation(translations, `about.bio.roles.${roleKey}.text`)}
+                    />
+                  </p>
+                </div>
               </div>
-              <div className="space-y-4 text-muted-foreground leading-relaxed pl-8">
-                {getTranslation(translations, "about.bio.background.text")
-                  .split("\n\n")
-                  .map((paragraph, index) => (
-                    <p key={index}>
-                      <LinkifiedText text={paragraph} />
-                    </p>
-                  ))}
-              </div>
-            </div>
+            ))}
+          </div>
 
-            {/* Approach */}
-            <div className="space-y-5">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-0.5 bg-primary rounded-full" />
-                <h3 className="text-base font-semibold text-foreground uppercase tracking-wide">
-                  {getTranslation(translations, "about.bio.approach.title")}
-                </h3>
-              </div>
-              <div className="space-y-4 text-muted-foreground leading-relaxed pl-8">
-                {getTranslation(translations, "about.bio.approach.text")
-                  .split("\n\n")
-                  .map((paragraph, index) => (
-                    <p key={index}>
-                      <LinkifiedText text={paragraph} />
-                    </p>
-                  ))}
-              </div>
+          <div className="space-y-5">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-0.5 bg-primary rounded-full" />
+              <h3 className="text-base font-semibold text-foreground uppercase tracking-wide">
+                {getTranslation(translations, "about.bio.approach.title")}
+              </h3>
+            </div>
+            <div className="space-y-4 text-muted-foreground leading-relaxed pl-8">
+              {getTranslation(translations, "about.bio.approach.text")
+                .split("\n\n")
+                .map((paragraph, index) => (
+                  <p key={index}>
+                    <LinkifiedText text={paragraph} />
+                  </p>
+                ))}
             </div>
           </div>
         </div>

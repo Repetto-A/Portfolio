@@ -29,6 +29,7 @@ const categoryIcons = {
   "Management System": Calendar,
   "AI/ML Research": Eye,
   "Blockchain/DeFi": ExternalLink,
+  "Blockchain/AI": ExternalLink,
   "Healthcare System": Calendar,
   "Game / AgTech": Eye,
 }

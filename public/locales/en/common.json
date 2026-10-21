@@ -8,10 +8,11 @@
   "hero": {
     "name": "Alejandro Repetto",
     "title": "Software Engineer focused on AI",
-    "description": "Advanced Systems Engineering student. I help companies and builders go from talking about AI to executing it, through training and internal hackathons.\nNASA Space Apps, Vercel Hackathon 2026, Platanus Hack 2026, and ETHGlobal.",
+    "description": "I help companies and builders go from talking about AI to executing it",
     "cta": {
       "projects": "Explore Projects",
-      "resume": "Download Resume"
+      "resume": "Download Resume",
+      "botr": "Builders Off The Record"
     },
     "stats": {
       "projects": "Projects",
@@ -30,13 +31,27 @@
     "title": "About",
     "bio": {
       "short": "I'm a Software Engineer focused on AI and an advanced Systems Engineering student. My thesis is helping companies and builders go from talking about AI to executing it, through training and internal hackathons.",
-      "background": {
-        "title": "Background",
-        "text": "I'm the founder of Nexa (https://nexa.builders), a network of +50 communities and +300.000 builders in LATAM. I also host Builders Off The Record (https://www.buildersofftherecord.com).\n\nI teach in the Diplomatura en IA Aplicada al Ejercicio Profesional at UCEL and work as a consultant/trainer at CRIA on AI adoption for technical and executive teams. SpaceXAI Ambassador, SupaSquad member (Supabase), and ambassador of Rosario Tech Week. I organize Shippear, NASA Space Apps Rosario, and Argentina Space in Salta, November 11-13, 2026."
+      "roles": {
+        "nexa": {
+          "title": "Nexa",
+          "text": "I founded Nexa (https://nexa.builders), a network of +50 communities and +300.000 builders in LATAM."
+        },
+        "botr": {
+          "title": "Builders Off The Record",
+          "text": "Host of Builders Off The Record (https://www.buildersofftherecord.com)."
+        },
+        "ucel": {
+          "title": "UCEL",
+          "text": "Lecturer in the Diplomatura en IA Aplicada al Ejercicio Profesional at UCEL."
+        },
+        "cria": {
+          "title": "CRIA",
+          "text": "Consultant/trainer at CRIA: AI adoption for technical and executive teams."
+        }
       },
       "approach": {
         "title": "Approach",
-        "text": "I won NASA Space Apps Rosario and was a Global Nominee with Farm Hero (Telefe story: https://rosario.mitelefe.com/rosario-y-la-region/farm-hero-un-simulador-educativo-que-usa-datos-de-la-nasa-para-salvar-tierras-degradadas-gano-el-space-apps-rosario-pid2107290). In 2026 I took 2nd place at the Vercel Hackathon (+ Nvidia) and was the jury favorite at Platanus Hack. I also have awards at ETHGlobal.\n\nI have trained +200 developers, worked with 18 NGOs (Amnesty, Techo, CELS), and ran 4 hackathons in 3 months. I have AI/RAG agents in production at companies."
+        "text": "SpaceXAI Ambassador, SupaSquad member (Supabase), and ambassador of Rosario Tech Week. I organize Shippear, NASA Space Apps Rosario, and Argentina Space in Salta, November 11-13, 2026.\n\nI won NASA Space Apps Rosario and was a Global Nominee with Farm Hero (Telefe story: https://rosario.mitelefe.com/rosario-y-la-region/farm-hero-un-simulador-educativo-que-usa-datos-de-la-nasa-para-salvar-tierras-degradadas-gano-el-space-apps-rosario-pid2107290). In 2026 I took 2nd place at the Vercel Hackathon (+ Nvidia) and was the jury favorite at Platanus Hack. I also have awards at ETHGlobal. I have trained +200 developers, worked with 18 NGOs (Amnesty, Techo, CELS), and ran 4 hackathons in 3 months. I have AI/RAG agents in production at companies."
       }
     }
   },
@@ -146,6 +161,7 @@
     },
     "methods": {
       "email": "Email",
+      "botr": "Builders Off The Record",
       "location": "Location",
       "timezone": "Timezone"
     },
