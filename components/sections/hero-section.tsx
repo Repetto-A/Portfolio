@@ -99,6 +99,21 @@ export function HeroSection() {
                   <ExternalLink className="ml-2 h-4 w-4 opacity-50 group-hover:opacity-100 transition-opacity duration-200" />
                 </Link>
               </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="group w-full sm:w-auto border-border/60"
+              >
+                <Link
+                  href="https://www.buildersofftherecord.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {getTranslation(translations, "hero.cta.botr")}
+                  <ExternalLink className="ml-2 h-4 w-4 opacity-50 group-hover:opacity-100 transition-opacity duration-200" />
+                </Link>
+              </Button>
             </div>
           </div>
 
@@ -112,7 +127,7 @@ export function HeroSection() {
               <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl ring-1 ring-border">
                 <Image
                   src="/placeholder.jpg"
-                  alt="Alejandro Repetto - Systems Engineer specializing in AI/ML and automation"
+                  alt="Alejandro Repetto, Software Engineer enfocado en IA"
                   fill
                   className="object-cover"
                   priority

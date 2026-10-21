@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Github, Linkedin, Mail } from "lucide-react"
+import { Github, Linkedin, Mail, Podcast } from "lucide-react"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -36,6 +36,17 @@ export function Footer() {
             >
               <Linkedin className="h-5 w-5" />
               <span className="sr-only">LinkedIn</span>
+            </Link>
+
+            <Link
+              href="https://www.buildersofftherecord.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition-colors duration-150"
+              aria-label="Builders Off The Record"
+            >
+              <Podcast className="h-5 w-5" />
+              <span className="sr-only">Builders Off The Record</span>
             </Link>
 
             <Link

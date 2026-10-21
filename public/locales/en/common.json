@@ -7,11 +7,12 @@
   },
   "hero": {
     "name": "Alejandro Repetto",
-    "title": "Software Engineer",
-    "description": "I'm obsessed with reducing complexity. I build fast, ship faster, and I don't sleep until every test passes.\nAwarded at NASA Space Apps, ETH Argentina, and ETH Global.",
+    "title": "Software Engineer focused on AI",
+    "description": "I help companies and builders go from talking about AI to executing it",
     "cta": {
       "projects": "Explore Projects",
-      "resume": "Download Resume"
+      "resume": "Download Resume",
+      "botr": "Builders Off The Record"
     },
     "stats": {
       "projects": "Projects",
@@ -20,29 +21,43 @@
     },
     "status": {
       "currently": "Currently",
-      "building": "Building AI Solutions",
+      "building": "Nexa and BOTR",
       "focus": "Focus",
-      "automation": "Automation & ML"
+      "automation": "AI adoption"
     },
     "scroll": "Learn more"
   },
   "about": {
     "title": "About",
     "bio": {
-      "short": "I'm a Systems Engineering student and a nerd who loves solving problems. I found in software my holy grail for doing it. I'm very good at automating tasks that used to take countless hours and entire teams, doing it scalably, efficiently and securely, driven by my passion for competitive programming and cybersecurity. Above all, I'm curious and love a good challenge.",
-      "background": {
-        "title": "Background",
-        "text": "I've been programming seriously since 2022, when I placed 6th in my first ICPC tournament. A 2024 winter training camp was a turning point that transformed how I approach technical challenges.\n\nMy projects range from NASA Space Apps prediction algorithms to production systems with RAG architectures."
+      "short": "I'm a Software Engineer focused on AI and an advanced Systems Engineering student. My thesis is helping companies and builders go from talking about AI to executing it, through training and internal hackathons.",
+      "roles": {
+        "nexa": {
+          "title": "Nexa",
+          "text": "I founded Nexa (https://nexa.builders), a network of +50 communities and +300.000 builders in LATAM."
+        },
+        "botr": {
+          "title": "Builders Off The Record",
+          "text": "Host of Builders Off The Record (https://www.buildersofftherecord.com)."
+        },
+        "ucel": {
+          "title": "UCEL",
+          "text": "Lecturer in the Diplomatura en IA Aplicada al Ejercicio Profesional at UCEL."
+        },
+        "cria": {
+          "title": "CRIA",
+          "text": "Consultant/trainer at CRIA: AI adoption for technical and executive teams."
+        }
       },
       "approach": {
         "title": "Approach",
-        "text": "I'm very pragmatic. Competitive programming trained me to always analyze the time and space complexity of my projects, but the multiple hackathons I competed in taught me to build and validate MVPs fast, without losing sight of the architecture and distributed systems design that engineering gave me."
+        "text": "SpaceXAI Ambassador, SupaSquad member (Supabase), and ambassador of Rosario Tech Week. I organize Shippear, NASA Space Apps Rosario, and Argentina Space in Salta, November 11-13, 2026.\n\nI won NASA Space Apps Rosario and was a Global Nominee with Farm Hero (Telefe story: https://rosario.mitelefe.com/rosario-y-la-region/farm-hero-un-simulador-educativo-que-usa-datos-de-la-nasa-para-salvar-tierras-degradadas-gano-el-space-apps-rosario-pid2107290). In 2026 I took 2nd place at the Vercel Hackathon (+ Nvidia) and was the jury favorite at Platanus Hack. I also have awards at ETHGlobal. I have trained +200 developers, worked with 18 NGOs (Amnesty, Techo, CELS), and ran 4 hackathons in 3 months. I have AI/RAG agents in production at companies."
       }
     }
   },
   "skills": {
     "title": "Skills & Technologies",
-    "subtitle": "A complete toolkit for building full applications, from modern web systems to AI-powered automations.",
+    "subtitle": "A toolkit for building full applications, from modern web systems to AI-powered automations.",
     "categories": {
       "languages": "Languages & Frameworks",
       "frameworks": "AI/ML & Data Science",
@@ -66,7 +81,7 @@
   },
   "projects": {
     "title": "Featured Projects",
-    "description": "A collection of engineering projects spanning management systems, automation, and applied AI/ML built to solve real-world challenges.",
+    "description": "Engineering projects spanning management systems, automation, and applied AI built for real-world challenges.",
     "categories": {
       "Web Application": "Web Application",
       "Business Automation": "Business Automation",
@@ -103,7 +118,7 @@
     },
     "collaboration": {
       "title": "Interested in collaborating?",
-      "description": "I'm always open to discussing new projects and opportunities in systems engineering and AI/ML."
+      "description": "Open to talking about applied AI projects, builder communities, and execution inside teams."
     }
   },
   "contact": {
@@ -120,7 +135,7 @@
       "namePlaceholder": "Your name",
       "emailPlaceholder": "your.email@example.com",
       "subjectPlaceholder": "Project inquiry, collaboration, etc.",
-      "messagePlaceholder": "Tell me about your project or how I can help you...",
+      "messagePlaceholder": "Tell me about your project or how I can help...",
       "characters": "characters"
     },
     "validation": {
@@ -142,10 +157,11 @@
     },
     "info": {
       "title": "Let's Connect",
-      "description": "I'm always interested in discussing new opportunities, whether it's a challenging systems engineering project, AI/ML implementation, or automation solution. Feel free to reach out through any of the channels below."
+      "description": "If you want to talk about AI adoption, training, or an internal hackathon, reach out through any of these channels."
     },
     "methods": {
       "email": "Email",
+      "botr": "Builders Off The Record",
       "location": "Location",
       "timezone": "Timezone"
     },
@@ -157,8 +173,8 @@
       "available": "Available",
       "discuss": "Open to Discuss"
     },
-    "successMessage": "Message sent successfully! I'll get back to you soon.",
-    "errorMessage": "Error sending message. Please try again."
+    "successMessage": "Message sent. I'll get back to you soon.",
+    "errorMessage": "Could not send the message. Please try again."
   },
   "footer": {
     "rights": "All rights reserved.",

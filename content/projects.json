@@ -1,6 +1,231 @@
 {
   "projects": [
     {
+      "id": "consentinel",
+      "locales": {
+        "en": {
+          "title": "Consentinel",
+          "short": "Behavior-aware permission kernel for autonomous AI agents. It decides pass, step-up, or deny from a user behavior graph and vector memory.",
+          "description": "An agent-first middleware for dynamic permissions. Static scopes do not work well for autonomous agents: either the user grants a permanent master key, or the agent gets blocked every few minutes. The kernel sits between the agent and the action and decides whether a requested operation looks reasonable for this user, this context, and this track record. Agents call MCP tools. The kernel decides whether a requested action should pass autonomously, pass with audit, require biometric step-up, or be denied.",
+          "features": [
+            "MCP tools to record track events, assess an agent action, explain permission memory, and create a step-up challenge",
+            "Decisions: allow, allow with audit, biometric step-up, or deny",
+            "Behavior graph of users, agents, services, actions, resources, counterparties, and prior outcomes",
+            "Vector memory of past action narratives for fuzzy precedent matching",
+            "Risk policy engine for novelty, amount deviation, sensitivity, reversibility, and permission viability",
+            "Optional payment context such as x402 when the agent is moving value"
+          ]
+        },
+        "es": {
+          "title": "Consentinel",
+          "short": "Kernel de permisos para agentes autónomos. Decide pass, step-up o deny según un grafo de comportamiento del usuario y memoria vectorial.",
+          "description": "Middleware agent-first para permisos dinámicos. Los scopes estáticos no funcionan bien con agentes autónomos: o se da una master key permanente, o el agente se bloquea cada pocos minutos. El kernel se pone entre el agente y la acción y decide si la operación pedida parece razonable para este usuario, este contexto y este historial. Los agentes llaman tools MCP. El kernel decide si la acción pasa de forma autónoma, pasa con auditoría, pide step-up biométrico o se deniega.",
+          "features": [
+            "Tools MCP para registrar eventos, evaluar una acción del agente, explicar la memoria de permisos y crear un challenge de step-up",
+            "Decisiones: allow, allow with audit, step-up biométrico o deny",
+            "Grafo de comportamiento de usuarios, agentes, servicios, acciones, recursos, contrapartes y resultados previos",
+            "Memoria vectorial de narrativas de acciones para buscar precedentes",
+            "Motor de riesgo: novelty, desvío de monto, sensibilidad, reversibilidad y viabilidad del permiso",
+            "Contexto de pago opcional (x402) cuando el agente mueve valor"
+          ]
+        }
+      },
+      "status": "prototype",
+      "techStack": [
+        "TypeScript",
+        "Next.js",
+        "React",
+        "MCP",
+        "Zod",
+        "Solidity",
+        "Viem",
+        "Tailwind CSS"
+      ],
+      "githubUrl": "https://github.com/Repetto-A/Consentinel",
+      "demoUrl": "https://consentinel-gold.vercel.app",
+      "images": [],
+      "category": "Blockchain/AI"
+    },
+    {
+      "id": "harness-loop-academy",
+      "locales": {
+        "en": {
+          "title": "Harness & Loop Engineering Academy",
+          "short": "Training material on Context Engineering, Spec Driven Development (SDD), and modern AI architectures for teams working with agents on real repos.",
+          "description": "Training material on Context Engineering, Spec Driven Development (SDD), and modern AI architectures for teams working with agents on real repos. The student track is GitHub Copilot (VS Code / Visual Studio). The instructor can teach with Cursor; the repo harness is IDE-agnostic (.agents/, AGENTS.md, skills). The repo groups several programs that share the same slides app: Harness & Loop (Copilot), Claude Architect, Frisvy, and an async online course.",
+          "features": [
+            "Harness & Loop (Copilot): corporate Copilot-first training, classes 01-05, starters, labs, and scripts",
+            "Claude Architect: multi-session program on agents, MCP, and reliability",
+            "Frisvy: in-person AI training",
+            "Online course: async recording, about 50 min per module",
+            "Shared slides app with grid, presenter, and fullscreen shortcuts",
+            "Deployed as a static SPA on Vercel"
+          ]
+        },
+        "es": {
+          "title": "Harness & Loop Engineering Academy",
+          "short": "Material de capacitación sobre Context Engineering, Spec Driven Development (SDD) y arquitecturas modernas de IA para equipos que trabajan con agentes sobre repos reales.",
+          "description": "Material de capacitación sobre Context Engineering, Spec Driven Development (SDD) y arquitecturas modernas de IA para equipos que trabajan con agentes sobre repos reales. El track del alumno es GitHub Copilot (VS Code / Visual Studio). El instructor puede dictar con Cursor; el harness del repo es agnóstico al IDE (.agents/, AGENTS.md, skills). El repo agrupa varios programas que comparten la misma app de slides: Harness & Loop (Copilot), Claude Architect, Frisvy y un curso online async.",
+          "features": [
+            "Harness & Loop (Copilot): capacitación corporativa Copilot-first, clases 01-05, starters, labs y guiones",
+            "Claude Architect: programa multi-sesión de agentes, MCP y reliability",
+            "Frisvy: formación presencial en IA",
+            "Curso online: grabación async, alrededor de 50 min por módulo",
+            "App de slides compartida con atajos de grid, presenter y fullscreen",
+            "Deploy estático SPA en Vercel"
+          ]
+        }
+      },
+      "status": "production",
+      "techStack": ["TypeScript", "React", "Vite", "TanStack Router", "TanStack Start"],
+      "githubUrl": "https://github.com/Repetto-A/harness-loop-academy",
+      "demoUrl": "https://charla-ia-alejandrorepetto.vercel.app",
+      "images": [],
+      "category": "Web Application"
+    },
+    {
+      "id": "clippy",
+      "locales": {
+        "en": {
+          "title": "Clippy",
+          "short": "Local-first pipeline that takes raw training/stream videos, finds the interesting moments, cuts clips, reframes them, and auto-subtitles them.",
+          "description": "Local-first Python pipeline that takes raw streams and training recordings, detects the most interesting moments, cuts the clips, reframes them to vertical (9:16) and horizontal (16:9), and auto-subtitles them with karaoke style. Built for Google Meet-style recordings with a shared slide plus webcam, educational content in Spanish, with human review before the final render. Pipeline: ingest -> transcribe -> signals -> propose -> human review -> render.",
+          "features": [
+            "Stage pipeline with artifacts in work/<raw-name>/ so any stage can be re-run",
+            "Web UI to drag an mp4, review clips, edit in/out and subtitles word by word, then render",
+            "CLI to process, review, approve, set ranges, edit words, and render",
+            "Moment scoring with OpenCode Go, Ollama, Anthropic, or a heuristic baseline",
+            "Karaoke captions by default; social style for Shorts/Reels",
+            "Requires Python 3.11+ and ffmpeg"
+          ]
+        },
+        "es": {
+          "title": "Clippy",
+          "short": "Pipeline local-first que toma crudos de streams o capacitaciones, detecta los momentos, recorta clips, los reencuadra y los subtitula.",
+          "description": "Pipeline local-first en Python que toma crudos de streams y capacitaciones, detecta los momentos más interesantes, recorta los clips, los reencuadra a vertical (9:16) y horizontal (16:9), y los subtitula automáticamente con estilo karaoke. Pensado para grabaciones tipo Google Meet con slide compartida + webcam, contenido educativo en español, con revisión humana antes del render final. Pipeline: ingest -> transcribe -> signals -> propose -> review humano -> render.",
+          "features": [
+            "Pipeline por etapas con artefactos en work/<nombre-del-crudo>/ para re-correr cualquier etapa",
+            "UI web para arrastrar un mp4, revisar clips, editar in/out y subtítulos palabra por palabra, y renderizar",
+            "CLI para procesar, revisar, aprobar, ajustar rangos, editar palabras y renderizar",
+            "Scoring de momentos con OpenCode Go, Ollama, Anthropic o un baseline heurístico",
+            "Subtítulos karaoke por default; estilo social para Shorts/Reels",
+            "Requiere Python 3.11+ y ffmpeg"
+          ]
+        }
+      },
+      "status": "in-progress",
+      "techStack": ["Python", "FastAPI", "ffmpeg", "faster-whisper", "Typer"],
+      "githubUrl": "https://github.com/Repetto-A/Clippy",
+      "demoUrl": null,
+      "images": [],
+      "category": "Business Automation"
+    },
+    {
+      "id": "agents-orchestrator",
+      "locales": {
+        "en": {
+          "title": "Smart Sales AI",
+          "short": "LLM orchestrator that routes sales, inventory, and reporting queries to specialized AI agents.",
+          "description": "Smart Sales AI is a modular AI agent platform that automates core business operations such as sales assistance, reporting, and inventory analysis. It uses an LLM-powered orchestrator agent to understand user intent and dynamically route requests to specialized, domain-specific agents. Stack documented in the GitHub repo: FastAPI, Claude Sonnet, Supabase, and a React dashboard.",
+          "features": [
+            "LLM orchestrator that understands user intent",
+            "Dynamic routing to specialized domain agents",
+            "Coverage for sales assistance, reporting, and inventory analysis",
+            "FastAPI backend with Anthropic and Supabase",
+            "React dashboard"
+          ]
+        },
+        "es": {
+          "title": "Smart Sales AI",
+          "short": "Orquestador LLM que rutea consultas de ventas, inventario y reporting a agentes de IA especializados.",
+          "description": "Smart Sales AI es una plataforma modular de agentes de IA que automatiza operaciones de negocio como asistencia de ventas, reporting y análisis de inventario. Usa un agente orquestador con LLM para entender la intención del usuario y rutea los pedidos a agentes especializados por dominio. Stack documentado en el repo de GitHub: FastAPI, Claude Sonnet, Supabase y un dashboard en React.",
+          "features": [
+            "Orquestador LLM que entiende la intención del usuario",
+            "Ruteo dinámico a agentes especializados por dominio",
+            "Cobertura de asistencia de ventas, reporting y análisis de inventario",
+            "Backend FastAPI con Anthropic y Supabase",
+            "Dashboard en React"
+          ]
+        }
+      },
+      "status": "in-progress",
+      "techStack": ["Python", "FastAPI", "Anthropic", "Supabase", "React", "TypeScript"],
+      "githubUrl": "https://github.com/Repetto-A/agents_orchestrator",
+      "demoUrl": null,
+      "images": [],
+      "category": "Business Automation"
+    },
+    {
+      "id": "novabank",
+      "locales": {
+        "en": {
+          "title": "NovaBank",
+          "short": "Agentic SDD demo for IT Patagonia: a digital banking demo app (NovaBanco) in vanilla JS with Supabase.",
+          "description": "Agentic SDD demo for IT Patagonia. Digital banking demo app (NovaBanco) with no build step: index.html, js/app.js, css/styles.css. The runtime dependency is supabase-js via CDN. Visible copy lives in LOCALES in es and en. Money only moves through db.rpc('transferir', ...). The real schema, sample accounts, transferir() and realtime are documented in docs/SUPABASE.md.",
+          "features": [
+            "Vanilla JS modules: I18n, Router, Theme, Dashboard, Movements, Beneficios, Modal",
+            "i18n with es and en keys referenced from HTML via data-i18n",
+            "Supabase schema, sample accounts, transferir() RPC, and realtime documented in docs/SUPABASE.md",
+            "Agent workflow with specs in specs/REP-XX/ following IT Patagonia SDD",
+            "No frameworks and no build step"
+          ]
+        },
+        "es": {
+          "title": "NovaBank",
+          "short": "Demo agéntica SDD para IT Patagonia: app de banca digital de demo (NovaBanco) en vanilla JS con Supabase.",
+          "description": "Demo agéntica SDD para IT Patagonia. App de banca digital de demo (NovaBanco) sin build: index.html, js/app.js, css/styles.css. La dependencia de runtime es supabase-js por CDN. Los textos visibles van en LOCALES, en es y en en. La plata solo se mueve con db.rpc('transferir', ...). El esquema real, cuentas de ejemplo, transferir() y tiempo real están en docs/SUPABASE.md.",
+          "features": [
+            "Módulos vanilla JS: I18n, Router, Theme, Dashboard, Movements, Beneficios, Modal",
+            "i18n con claves en es y en, referenciadas desde el HTML con data-i18n",
+            "Esquema Supabase, cuentas de ejemplo, RPC transferir() y tiempo real documentados en docs/SUPABASE.md",
+            "Flujo de trabajo con agentes y specs en specs/REP-XX/ según SDD de IT Patagonia",
+            "Sin frameworks y sin build"
+          ]
+        }
+      },
+      "status": "in-progress",
+      "techStack": ["JavaScript", "HTML", "CSS", "Supabase"],
+      "githubUrl": "https://github.com/Repetto-A/NovaBank",
+      "demoUrl": null,
+      "images": [],
+      "category": "Web Application"
+    },
+    {
+      "id": "prognosia",
+      "locales": {
+        "en": {
+          "title": "Prognosia Health",
+          "short": "100% local clinical assistant on QVAC (Aleph Hackathon 2026). Captures a consult, extracts a SOAP note, applies a deterministic guardrail, and proposes an EHR write that stays pending_human.",
+          "description": "100% local clinical assistant on QVAC (Aleph Hackathon 2026, QVAC track). It captures a medical consult (voice or text), extracts a SOAP note with a local LLM, applies a deterministic guardrail (severe asthma + non-selective beta blocker -> blocked), and builds an EHR proposal (SOAP delta + write actions + gaps) always pending_human. No cloud inference. Models: WHISPER_BASE_Q8_0 + VAD_SILERO and QWEN3_4B_INST_Q4_K_M. Rules in prognosia/rules.py. EHR agent in prognosia/propose.py (no LLM).",
+          "features": [
+            "100% local inference: Whisper STT + Qwen3-4B via tetherto-qvac-sdk",
+            "Deterministic guardrail with a trace from record to consult",
+            "EHR proposal always pending_human; writes never auto-commit",
+            "Web shell on 127.0.0.1; records and runs do not leave localhost",
+            "Stack exposed at GET /api/config with cloud_inference: false"
+          ]
+        },
+        "es": {
+          "title": "Prognosia Health",
+          "short": "Asistente clínico 100% local sobre QVAC (Aleph Hackathon 2026). Captura una consulta, extrae una nota SOAP, aplica un guardrail determinista y arma una propuesta HCE siempre pending_human.",
+          "description": "Asistente clínico 100% local sobre QVAC (Aleph Hackathon 2026, track QVAC). Captura una consulta médica (voz o texto), extrae una nota SOAP con un LLM local, aplica un guardrail determinista (asma severa + betabloqueante no selectivo -> blocked) y arma una propuesta HCE (SOAP delta + write actions + gaps) siempre pending_human. Sin inference cloud. Modelos: WHISPER_BASE_Q8_0 + VAD_SILERO y QWEN3_4B_INST_Q4_K_M. Reglas en prognosia/rules.py. Agente HCE en prognosia/propose.py (sin LLM).",
+          "features": [
+            "Inferencia 100% local: STT Whisper + Qwen3-4B vía tetherto-qvac-sdk",
+            "Guardrail determinista con traza de HC a consulta",
+            "Propuesta HCE siempre pending_human; los writes nunca se auto-commitean",
+            "Shell web en 127.0.0.1; HC y corridas no salen de localhost",
+            "Stack expuesto en GET /api/config con cloud_inference: false"
+          ]
+        }
+      },
+      "status": "prototype",
+      "techStack": ["Python", "QVAC", "Whisper", "Qwen3", "Starlette", "Uvicorn"],
+      "githubUrl": "https://github.com/Repetto-A/Prognosia",
+      "demoUrl": null,
+      "images": [],
+      "category": "Healthcare System"
+    },
+    {
       "id": "farmhero",
       "locales": {
         "en": {

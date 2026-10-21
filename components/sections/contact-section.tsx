@@ -18,6 +18,7 @@ import {
   CheckCircle,
   AlertCircle,
   Download,
+  Podcast,
 } from "lucide-react"
 import Link from "next/link"
 import { useTranslations, getTranslation, getResumeUrl } from "@/lib/i18n-context"
@@ -167,6 +168,25 @@ export function ContactSection() {
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     github.com/Repetto-A
+                  </Link>
+                </div>
+              </div>
+
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                  <Podcast className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <div className="font-medium text-foreground">
+                    {getTranslation(translations, "contact.methods.botr")}
+                  </div>
+                  <Link
+                    href="https://www.buildersofftherecord.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    buildersofftherecord.com
                   </Link>
                 </div>
               </div>
