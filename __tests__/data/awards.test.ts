@@ -27,9 +27,9 @@ describe("awards data", () => {
       expect(zorrito!.projectName).toBe("Zorrito Finance")
     })
 
-    it("returns exactly 3 visible awards", () => {
+    it("returns exactly 5 visible awards", () => {
       const sorted = getVisibleAwards()
-      expect(sorted).toHaveLength(3)
+      expect(sorted).toHaveLength(5)
     })
 
     it("filters out awards with visible: false", () => {
@@ -78,11 +78,11 @@ describe("awards data", () => {
       }
     })
 
-    it("FarmHero award has press enabled with 15 real links", () => {
+    it("FarmHero award has press enabled with 16 real links", () => {
       const farmhero = awards.find((a) => a.id === "nasa-spaceapps-2025")
       expect(farmhero).toBeDefined()
       expect(farmhero!.press?.enabled).toBe(true)
-      expect(farmhero!.press?.links).toHaveLength(15)
+      expect(farmhero!.press?.links).toHaveLength(16)
     })
 
     it("every press link has an id, type, title, source, and url", () => {
@@ -117,12 +117,12 @@ describe("awards data", () => {
       }
     })
 
-    it("FarmHero press contains 11 articles and 4 videos", () => {
+    it("FarmHero press contains 11 articles and 5 videos", () => {
       const farmhero = awards.find((a) => a.id === "nasa-spaceapps-2025")
       const articles = farmhero!.press!.links.filter((l) => l.type === "article")
       const videos = farmhero!.press!.links.filter((l) => l.type === "video")
       expect(articles).toHaveLength(11)
-      expect(videos).toHaveLength(4)
+      expect(videos).toHaveLength(5)
     })
   })
 })

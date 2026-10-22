@@ -111,7 +111,7 @@ export function HeroSection() {
               {/* Image container — edge-to-edge, clean */}
               <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl ring-1 ring-border">
                 <Image
-                  src="/placeholder.jpg"
+                  src="/sprint/speaker.jpg"
                   alt="Alejandro Repetto - Systems Engineer specializing in AI/ML and automation"
                   fill
                   className="object-cover"

@@ -1,7 +1,11 @@
+"use client"
+
 import Link from "next/link"
 import { Github, Linkedin, Mail } from "lucide-react"
+import { useTranslations, getTranslation } from "@/lib/i18n-context"
 
 export function Footer() {
+  const [translations] = useTranslations()
   const currentYear = new Date().getFullYear()
 
   return (
@@ -12,7 +16,9 @@ export function Footer() {
             <p className="font-mono font-semibold text-foreground text-sm mb-1">
               Alejandro Repetto
             </p>
-            <p className="text-muted-foreground text-xs">© {currentYear} · All rights reserved.</p>
+            <p className="text-muted-foreground text-xs">
+              © {currentYear} · {getTranslation(translations, "footer.rights")}
+            </p>
           </div>
 
           <div className="flex items-center space-x-6">

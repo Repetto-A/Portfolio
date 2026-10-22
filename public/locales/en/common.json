@@ -75,13 +75,18 @@
       "Blockchain/DeFi": "Blockchain/DeFi",
       "Blockchain/AI": "Blockchain/AI",
       "Healthcare System": "Healthcare System",
-      "Game / AgTech": "Game / AgTech"
+      "Game / AgTech": "Game / AgTech",
+      "AI / Security Infrastructure": "AI / Security Infrastructure",
+      "AI / Industrial Vision": "AI / Industrial Vision",
+      "AI / Social Impact": "AI / Social Impact"
     },
+    "eyebrow": "Selected Work",
     "status": {
       "in-progress": "In Progress",
       "production": "Production",
       "prototype": "Prototype",
-      "winner-local / in-evaluation-global": "Winner - Under Global Evaluation"
+      "winner-local / in-evaluation-global": "Winner - Under Global Evaluation",
+      "regional-winner-global-nominee": "Regional Winner · Global Nominee"
     },
     "cta": {
       "learnMore": "Learn More",
@@ -104,7 +109,20 @@
     "collaboration": {
       "title": "Interested in collaborating?",
       "description": "I'm always open to discussing new projects and opportunities in systems engineering and AI/ML."
-    }
+    },
+    "notFound": {
+      "title": "Project Not Found",
+      "description": "The project you're looking for doesn't exist or has been moved."
+    },
+    "viewFullPage": "View Full Page"
+  },
+  "awards": {
+    "title": "Some Awards & Recognition",
+    "eyebrow": "Recognition",
+    "keyTechnologies": "Key Technologies",
+    "viewAwardDetails": "View Award Details",
+    "seeProject": "See Project",
+    "seeProjectAria": "See project {{title}}"
   },
   "contact": {
     "form": {
