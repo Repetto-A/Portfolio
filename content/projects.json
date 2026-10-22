@@ -1,6 +1,108 @@
 {
   "projects": [
     {
+      "id": "nexa",
+      "locales": {
+        "en": {
+          "title": "NEXA",
+          "short": "Network connecting tech communities across Argentina and the region to centralize events, surface talent, and generate cross-community synergy. Currently in 2 countries, with 28 communities and 300K+ members.",
+          "description": "NEXA was built because tech communities in Argentina grow in isolation. Each organizes events, builds membership, and creates its own space, but they rarely intersect. That limits everyone's reach.\n\nI built NEXA so they stop growing alone. So a community doesn't end where its own reach ends. So organizers get tools they actually use. And so anyone in the ecosystem has one place to discover what's happening, where, and with whom.\n\nI posted it in a tweet. It went viral within hours. The ecosystem was waiting for this. Today we connect 28 communities across Argentina and Costa Rica, with over 300K active members. The target is all of LATAM.",
+          "features": [
+            "Public community profiles with geographic discovery and a shared event agenda",
+            "Moderated application and onboarding flow for new communities",
+            "Organizer dashboard with editor access controls and role management",
+            "Luma sync for automatic event ingestion and publishing",
+            "Segmented event alerts by location and format with email delivery",
+            "Admin tooling for moderation, curation, and email campaigns",
+            "MCP server at /api/mcp exposing discovery and operational workflows as tools"
+          ]
+        },
+        "es": {
+          "title": "NEXA",
+          "short": "Red que conecta comunidades tech de Argentina y la región para centralizar eventos, visibilizar talento y generar sinergia entre ecosistemas. Actualmente en 2 países, conformada por 28 comunidades y 300K+ miembros.",
+          "description": "NEXA nació porque las comunidades tech en Argentina crecen aisladas. Cada una organiza eventos, suma miembros y construye su propio espacio, pero rara vez se cruzan. Eso limita el alcance de todas.\n\nConstruí NEXA para que dejen de crecer solas. Para que una comunidad no termine donde termina su propio alcance. Para que los organizadores tengan herramientas que realmente usen. Y para que cualquier persona del ecosistema tenga un solo lugar donde descubrir qué está pasando, dónde y con quién.\n\nLo publiqué en un tweet. En horas se viralizó. El ecosistema estaba esperando esto. Hoy conectamos 28 comunidades en Argentina y Costa Rica, con más de 300 mil miembros activos. La mira está puesta en toda LATAM.",
+          "features": [
+            "Perfiles públicos de comunidades con descubrimiento geográfico y agenda de eventos compartida",
+            "Flujo de postulación y onboarding moderado para nuevas comunidades",
+            "Dashboard de organizadores con control de acceso de editores y gestión de roles",
+            "Sincronización con Luma para ingesta y publicación automática de eventos",
+            "Alertas segmentadas de eventos por ubicación y formato con envío por email",
+            "Herramientas de administración para moderación, curaduría y campañas de email",
+            "Servidor MCP en /api/mcp que expone flujos de descubrimiento y operación como tools"
+          ]
+        }
+      },
+      "status": "production",
+      "techStack": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Supabase",
+        "PostgreSQL",
+        "Model Context Protocol",
+        "Playwright",
+        "Vitest"
+      ],
+      "githubUrl": null,
+      "demoUrl": "https://nexa.builders",
+      "images": [
+        "/projects/nexa-1.png",
+        "/projects/nexa-2.png",
+        "/projects/nexa-3.png",
+        "/projects/nexa-4.png"
+      ],
+      "category": "Web Application"
+    },
+    {
+      "id": "somos-huella",
+      "locales": {
+        "en": {
+          "title": "Somos Huella",
+          "short": "Facial recognition platform to help families in Venezuela reunite with missing loved ones. Families register, the system compares, a human verifies. In production at somoshuella.org.",
+          "description": "Somos Huella is a facial recognition system built to help families in Venezuela find people who disappeared after earthquakes. A family registers a missing person with a photo, last known location, and contact details. If someone finds a person — from children to injured individuals who cannot communicate — they upload a photo and the system compares that face against the registry to suggest possible matches using computer vision.\n\nEach face is converted into a 512-dimensional numeric fingerprint. New photos are matched against the full registry in about half a second, with candidates ranked by similarity. The system never makes an automatic identification: it returns probable matches for human verification. The final decision is always human.\n\nThe platform is in production with a public site, hardened REST API, and face search — deployed on a VPS with GPU-accelerated indexing locally and CPU-based search at the edge.",
+          "features": [
+            "Missing-person registry with photo, last known location, and family contact",
+            "Face search that returns ranked candidate matches in ~0.5 seconds",
+            "512-dimensional face embeddings via MTCNN detection and InceptionResnetV1",
+            "Human-in-the-loop workflow: the system suggests, a person confirms",
+            "Production deployment: Next.js frontend, FastAPI search API, and indexer pipeline",
+            "Hybrid architecture: GPU batch indexing locally, vector search on VPS (pgvector)"
+          ]
+        },
+        "es": {
+          "title": "Somos Huella",
+          "short": "Plataforma de reconocimiento facial para ayudar a familias en Venezuela a reencontrarse con seres queridos desaparecidos. La familia registra, el sistema compara, una persona verifica. En producción en somoshuella.org.",
+          "description": "Somos Huella es un sistema de reconocimiento facial diseñado para ayudar a familias en Venezuela a encontrar personas que desaparecieron tras terremotos. Una familia registra a un ser querido con foto, última ubicación conocida y datos de contacto. Si alguien encuentra a una persona — desde chicos hasta personas lesionadas que no pueden comunicarse — puede subir una foto y el sistema compara ese rostro contra el registro para sugerir posibles coincidencias usando visión artificial.\n\nCada rostro se convierte en una huella numérica de 512 dimensiones. Las fotos nuevas se contrastan contra todo el registro en alrededor de medio segundo, con candidatos ordenados por parecido. El sistema nunca identifica de forma automática: devuelve coincidencias probables para verificación humana. La decisión final siempre es humana.\n\nLa plataforma está en producción con sitio público, API REST endurecida y búsqueda por rostro — desplegada en un VPS con indexado acelerado por GPU en local y búsqueda vectorial en el servidor.",
+          "features": [
+            "Registro de personas buscadas con foto, última ubicación y contacto familiar",
+            "Búsqueda por rostro que devuelve candidatos ordenados en ~0,5 segundos",
+            "Huellas faciales de 512 dimensiones con detección MTCNN e InceptionResnetV1",
+            "Flujo con verificación humana: el sistema sugiere, una persona confirma",
+            "Despliegue en producción: frontend Next.js, API de búsqueda FastAPI y pipeline de indexado",
+            "Arquitectura híbrida: indexado batch en GPU local, búsqueda vectorial en VPS (pgvector)"
+          ]
+        }
+      },
+      "status": "production",
+      "techStack": [
+        "Python",
+        "PyTorch",
+        "FastAPI",
+        "Next.js",
+        "React",
+        "TypeScript",
+        "PostgreSQL",
+        "pgvector",
+        "Docker",
+        "Cloudflare"
+      ],
+      "githubUrl": "https://github.com/Repetto-A/ML-FaceRecognizer",
+      "demoUrl": "https://somoshuella.org",
+      "images": ["/projects/somoshuella-1.png"],
+      "category": "AI / Social Impact"
+    },
+    {
       "id": "farmhero",
       "locales": {
         "en": {
@@ -87,6 +189,157 @@
       "category": "AI/ML Research"
     },
     {
+      "id": "consentinel",
+      "locales": {
+        "en": {
+          "title": "ConSentinel",
+          "short": "Permission kernel that sits between autonomous AI agents and user funds, using behavior graphs, contextual risk scoring and biometric step-up verification to allow, audit, challenge or deny each action.",
+          "description": "ConSentinel is a security middleware for the age of autonomous financial agents. As AI agents start executing real-world actions — payments, transfers, wallet operations — the classic binary permission model breaks down: allow everything or block everything is too blunt.\n\nI built the permission kernel, the MCP server for external agent validation, and the risk engine. The kernel evaluates each agent action against a per-user behavior graph, vector memory of past precedents, and deterministic intent drift detection before the action reaches the wallet. Decisions are granular: allow, allow with audit, require biometric step-up, or deny. Step-up verification uses WebAuthn passkeys just-in-time, with WhatsApp deep links as a fallback channel.\n\nBuilt in ~36 hours during Platanus Hack 2026 (Argentina). Recognized as a judge's favorite for its approach to agentic financial safety.",
+          "features": [
+            "Permission kernel with four granular outcomes: allow, allow_with_audit, step_up, deny",
+            "Per-user behavior graph tracking counterparties, amounts, routes and frequency patterns",
+            "Deterministic intent drift detection comparing user's original request against agent's pending action",
+            "MCP server exposing permission tools for external agents to validate actions before execution",
+            "Just-in-time biometric step-up via WebAuthn passkeys with WhatsApp deep link fallback",
+            "Vector memory for fuzzy precedent matching across prior permission events",
+            "Explainable risk decisions with graph and vector evidence surfaced to the user"
+          ]
+        },
+        "es": {
+          "title": "ConSentinel",
+          "short": "Kernel de permisos que se interpone entre agentes de IA autónomos y los fondos del usuario, usando grafos de comportamiento, scoring de riesgo contextual y validación biométrica para permitir, auditar, desafiar o denegar cada acción.",
+          "description": "ConSentinel es un middleware de seguridad para la era de los agentes financieros autónomos. A medida que los agentes de IA empiezan a ejecutar acciones reales — pagos, transferencias, operaciones de wallet — el modelo clásico de permisos binarios queda corto: permitir todo o bloquear todo es demasiado tosco.\n\nConstruí el kernel de permisos, el servidor MCP para validación de agentes externos y el motor de riesgo. El kernel evalúa cada acción del agente contra un grafo de comportamiento por usuario, memoria vectorial de precedentes y detección determinista de drift de intención antes de que la acción llegue a la wallet. Las decisiones son granulares: permitir, permitir con auditoría, requerir validación biométrica o denegar. La verificación step-up usa passkeys WebAuthn just-in-time, con deep links de WhatsApp como canal de fallback.\n\nConstruido en ~36 horas durante Platanus Hack 2026 (Argentina). Reconocido como favorito del jurado por su enfoque de seguridad financiera agéntica.",
+          "features": [
+            "Kernel de permisos con cuatro resultados granulares: permitir, permitir con auditoría, step-up, denegar",
+            "Grafo de comportamiento por usuario que trackea contrapartes, montos, rutas y patrones de frecuencia",
+            "Detección determinista de drift de intención comparando el pedido original del usuario contra la acción pendiente del agente",
+            "Servidor MCP que expone tools de permisos para que agentes externos validen acciones antes de ejecutarlas",
+            "Validación biométrica just-in-time vía passkeys WebAuthn con fallback por deep link de WhatsApp",
+            "Memoria vectorial para matching difuso de precedentes en eventos de permisos previos",
+            "Decisiones de riesgo explicables con evidencia de grafo y vectores expuesta al usuario"
+          ]
+        }
+      },
+      "status": "prototype",
+      "techStack": [
+        "TypeScript",
+        "Next.js",
+        "MCP",
+        "Zod",
+        "viem",
+        "WebAuthn",
+        "ElevenLabs",
+        "Kapso",
+        "Vercel"
+      ],
+      "githubUrl": "https://github.com/Repetto-A/Consentinel",
+      "demoUrl": "https://consentinel.vercel.app",
+      "images": ["/projects/consentinel-1.png"],
+      "category": "AI / Security Infrastructure"
+    },
+    {
+      "id": "lavirginia-qc",
+      "locales": {
+        "en": {
+          "title": "Capsule Quality Control",
+          "short": "Computer vision system for industrial quality control, built with a custom PyTorch CNN and a Node.js validation backend to detect damaged or disordered coffee capsule packages on a real production line.",
+          "description": "La Virginia, one of Argentina's leading coffee brands, challenged us to automate quality control on their capsule production line. Human inspectors can't keep up with the speed of the line, and defective packages — broken capsules, spilled coffee, disordered layouts — were slipping through.\n\nI designed and trained a convolutional neural network in PyTorch using a custom dataset of capsule and package photos I captured myself. The model classifies packages as OK or defective. I also built the FastAPI inference service and the main Node.js + Express backend that orchestrates a two-stage validation: the local CNN runs first, then an AI Gateway multimodal model evaluates three axes (capsule damage, capsule disorder, packaging damage) as a fallback. The rule is conservative: if any axis fails, the package is rejected.\n\nBuilt in 6 hours. Awarded 2nd place and selected for Nvidia for Startups based on the quality of the solution and execution speed.",
+          "features": [
+            "Custom CNN trained in PyTorch on a self-built dataset of capsule and package photos",
+            "Two-stage validation pipeline: local CNN inference + AI Gateway multimodal fallback",
+            "Three-axis evaluation: capsule damage, capsule disorder, packaging integrity",
+            "Conservative decision rule: any single axis failure triggers rejection",
+            "FastAPI service serving the PyTorch model with graceful degradation if weights are missing",
+            "Node.js + Express backend with Prisma + PostgreSQL, Docker Compose orchestration",
+            "Image capture and upload flow with support for camera and manual photo input"
+          ]
+        },
+        "es": {
+          "title": "Control de Calidad de Cápsulas",
+          "short": "Sistema de visión artificial para control de calidad industrial, construido con una CNN propia en PyTorch y un backend de validación en Node.js para detectar cápsulas y empaques dañados o desordenados en una línea de producción real.",
+          "description": "La Virginia, una de las marcas de café líderes en Argentina, nos desafió a automatizar el control de calidad en su línea de producción de cápsulas. Los inspectores humanos no pueden seguir el ritmo de la línea, y los paquetes defectuosos — cápsulas rotas, café derramado, desorden — se escapaban.\n\nDiseñé y entrené una red convolucional en PyTorch usando un dataset propio de fotos de cápsulas y empaques que saqué yo mismo. El modelo clasifica paquetes como OK o defectuoso. También construí el servicio de inferencia en FastAPI y el backend principal en Node.js + Express que orquesta una validación en dos etapas: la CNN local corre primero, luego un modelo multimodal vía AI Gateway evalúa tres ejes (daño de cápsula, desorden de cápsulas, rotura de empaquetado) como fallback. La regla es conservadora: si falla un eje, se rechaza.\n\nConstruido en 6 horas. Premio al 2do lugar y seleccionados para Nvidia for Startups por la calidad de la solución y la velocidad de ejecución.",
+          "features": [
+            "CNN propia entrenada en PyTorch sobre un dataset construido con fotos de cápsulas y empaques",
+            "Pipeline de validación en dos etapas: inferencia CNN local + fallback multimodal vía AI Gateway",
+            "Evaluación en tres ejes: daño de cápsula, desorden de cápsulas, integridad del empaquetado",
+            "Regla de decisión conservadora: cualquier eje que falle dispara rechazo",
+            "Servicio FastAPI sirviendo el modelo PyTorch con degradación graceful si faltan los pesos",
+            "Backend Node.js + Express con Prisma + PostgreSQL, orquestación con Docker Compose",
+            "Flujo de captura y subida de imagen con soporte para cámara y foto manual"
+          ]
+        }
+      },
+      "status": "prototype",
+      "techStack": [
+        "Python",
+        "PyTorch",
+        "FastAPI",
+        "Node.js",
+        "Express",
+        "TypeScript",
+        "Prisma",
+        "PostgreSQL",
+        "Docker",
+        "Next.js"
+      ],
+      "githubUrl": "https://github.com/Repetto-A/VirgIA",
+      "demoUrl": null,
+      "images": ["/projects/virgia-1.png", "/projects/virgia-2.png"],
+      "category": "AI / Industrial Vision"
+    },
+    {
+      "id": "zorrito-finance",
+      "locales": {
+        "en": {
+          "title": "Zorrito Finance",
+          "short": "No-loss lottery where you save, win, and raise your own virtual Zorrito. 2nd Best dApp Using Filecoin at ETH Global 2025.",
+          "description": "A decentralized finance platform that enables users to earn yield on their savings without risking their principal. Built during ETH Global 2025, awarded 2nd Best dApp Using Filecoin. Users deposit funds into smart contracts that automatically allocate capital to yield-generating protocols, while maintaining full liquidity and zero loss of principal.",
+          "features": [
+            "No-loss savings mechanism with yield generation",
+            "Smart contract-based fund allocation",
+            "Integration with Filecoin for decentralized storage",
+            "Real-time yield tracking dashboard",
+            "Instant withdrawals with no penalties",
+            "Multi-protocol yield optimization"
+          ]
+        },
+        "es": {
+          "title": "Zorrito Finance",
+          "short": "Lotería sin pérdidas en la que ahorrás y ganás mientras cuidás a tu propio Zorrito virtual. 2da Mejor dApp Usando Filecoin en ETH Global 2025.",
+          "description": "Una plataforma de finanzas descentralizadas que permite a los usuarios ganar rendimientos sobre sus ahorros sin arriesgar su capital principal. Construida durante ETH Global 2025, premiada como 2do Mejor dApp Usando Filecoin. Los usuarios depositan fondos en contratos inteligentes que asignan automáticamente capital a protocolos generadores de rendimiento, manteniendo liquidez total y cero pérdida de principal.",
+          "features": [
+            "Mecanismo de ahorro sin pérdidas con generación de rendimientos",
+            "Asignación de fondos basada en contratos inteligentes",
+            "Integración con Filecoin para almacenamiento descentralizado",
+            "Panel de seguimiento de rendimientos en tiempo real",
+            "Retiros instantáneos sin penalizaciones",
+            "Optimización de rendimientos multi-protocolo"
+          ]
+        }
+      },
+      "status": "in-progress",
+      "techStack": [
+        "Solidity",
+        "Filecoin",
+        "IPFS",
+        "Self Protocol",
+        "Next.js",
+        "React",
+        "TypeScript",
+        "AI SDK",
+        "Tailwind CSS"
+      ],
+      "githubUrl": null,
+      "demoUrl": "https://zorrito.vercel.app/",
+      "images": [
+        "/projects/zorrito-1.jpg",
+        "/projects/zorrito-2.jpg",
+        "/projects/zorrito-3.jpg",
+        "/projects/zorrito-4.jpeg"
+      ],
+      "category": "Blockchain/DeFi"
+    },
+    {
       "id": "braintumorai-web",
       "locales": {
         "en": {
@@ -139,58 +392,6 @@
       "category": "AI/ML Research"
     },
     {
-      "id": "zorrito-finance",
-      "locales": {
-        "en": {
-          "title": "Zorrito Finance",
-          "short": "No-loss lottery where you save, win, and raise your own virtual Zorrito. 2nd Best dApp Using Filecoin at ETH Global 2025.",
-          "description": "A decentralized finance platform that enables users to earn yield on their savings without risking their principal. Built during ETH Global 2025, awarded 2nd Best dApp Using Filecoin. Users deposit funds into smart contracts that automatically allocate capital to yield-generating protocols, while maintaining full liquidity and zero loss of principal.",
-          "features": [
-            "No-loss savings mechanism with yield generation",
-            "Smart contract-based fund allocation",
-            "Integration with Filecoin for decentralized storage",
-            "Real-time yield tracking dashboard",
-            "Instant withdrawals with no penalties",
-            "Multi-protocol yield optimization"
-          ]
-        },
-        "es": {
-          "title": "Zorrito Finance",
-          "short": "Lotería sin pérdidas en la que ahorrás y ganás mientras cuidás a tu propio Zorrito virtual. 2da Mejor dApp Usando Filecoin en ETH Global 2025.",
-          "description": "Una plataforma de finanzas descentralizadas que permite a los usuarios ganar rendimientos sobre sus ahorros sin arriesgar su capital principal. Construida durante ETH Global 2025, premiada como 2do Mejor dApp Usando Filecoin. Los usuarios depositan fondos en contratos inteligentes que asignan automáticamente capital a protocolos generadores de rendimiento, manteniendo liquidez total y cero pérdida de principal.",
-          "features": [
-            "Mecanismo de ahorro sin pérdidas con generación de rendimientos",
-            "Asignación de fondos basada en contratos inteligentes",
-            "Integración con Filecoin para almacenamiento descentralizado",
-            "Panel de seguimiento de rendimientos en tiempo real",
-            "Retiros instantáneos sin penalizaciones",
-            "Optimización de rendimientos multi-protocolo"
-          ]
-        }
-      },
-      "status": "in-progress",
-      "techStack": [
-        "Solidity",
-        "Filecoin",
-        "IPFS",
-        "Self Protocol",
-        "Next.js",
-        "React",
-        "TypeScript",
-        "AI SDK",
-        "Tailwind CSS"
-      ],
-      "githubUrl": "https://github.com/Repetto-A/zorrito-finance",
-      "demoUrl": "https://zorrito.vercel.app/",
-      "images": [
-        "/projects/zorrito-1.jpg",
-        "/projects/zorrito-2.jpg",
-        "/projects/zorrito-3.jpg",
-        "/projects/zorrito-4.jpeg"
-      ],
-      "category": "Blockchain/DeFi"
-    },
-    {
       "id": "roxium-dao-ops",
       "locales": {
         "en": {
@@ -229,110 +430,8 @@
         "GraphQL",
         "Tailwind CSS"
       ],
-      "githubUrl": "https://github.com/Repetto-A/roxium-dao-ops",
-      "demoUrl": "https://roxium-dao-ops.up.railway.app/",
-      "images": ["/projects/roxium-1.jpg", "/projects/roxium-2.jpg", "/projects/roxium-3.jpg"],
+      "githubUrl": "https://github.com/Repetto-A/Roxium-DAO-Ops",
       "category": "Blockchain/AI"
-    },
-    {
-      "id": "real-estate-system",
-      "locales": {
-        "en": {
-          "title": "Real Estate Management System",
-          "short": "Property management system with visit calendars, booking notifications for agents, SEO blog, and more.",
-          "description": "A comprehensive property management platform featuring calendar-based booking system, automated agent email confirmations, internal blog for SEO optimization and content generation, newsletter system.",
-          "features": [
-            "Calendar booking system for property viewings",
-            "Automated email confirmations for agents",
-            "Internal blog for property updates",
-            "Newsletter subscription system",
-            "Property listing management"
-          ]
-        },
-        "es": {
-          "title": "Sistema de Gestión Inmobiliaria",
-          "short": "Sistema de gestión de propiedades que incluye calendarios de visita, reservas con notificaciones a los agentes, newsletter, blog para mejorar el SEO, etc.",
-          "description": "Una plataforma integral de gestión de propiedades que incluye sistema de reservas basado en calendario, confirmaciones automáticas por email para agentes, blog interno para actualizaciones de propiedades y sistema de newsletter.",
-          "features": [
-            "Sistema de reservas por calendario para visitas a propiedades",
-            "Confirmaciones automáticas por email para agentes",
-            "Blog interno para actualizaciones de propiedades",
-            "Sistema de suscripción a newsletter",
-            "Gestión de listados de propiedades"
-          ]
-        }
-      },
-      "status": "production",
-      "techStack": [
-        "Python",
-        "Django",
-        "LangChain",
-        "MySQL",
-        "Bootstrap 5",
-        "Tailwind CSS",
-        "Pillow"
-      ],
-      "githubUrl": "https://github.com/Repetto-A/Real_Estate_System",
-      "demoUrl": "https://realestatesystem-production.up.railway.app/",
-      "images": [
-        "/projects/realestate-1.png",
-        "/projects/realestate-2.png",
-        "/projects/realestate-3.png",
-        "/projects/realestate-4.png",
-        "/projects/realestate-5.png",
-        "/projects/realestate-6.png",
-        "/projects/realestate-7.png",
-        "/projects/realestate-8.png"
-      ],
-      "category": "Management System"
-    },
-    {
-      "id": "cotibot",
-      "locales": {
-        "en": {
-          "title": "Cotibot",
-          "short": "Custom-built system for an agricultural machinery manufacturer: PDF quotes, AFIP CUIT lookup, WhatsApp bot, and more.",
-          "description": "An intelligent factory quoting system that streamlines the quotation process for manufacturing businesses. Features automated PDF generation, AFIP CUIT lookup integration for Argentine tax validation, and a comprehensive admin pricing panel.",
-          "features": [
-            "Automated PDF quote generation",
-            "AFIP CUIT lookup integration",
-            "Admin pricing management panel",
-            "Client quote history tracking",
-            "Real-time pricing calculations"
-          ]
-        },
-        "es": {
-          "title": "Cotibot",
-          "short": "Sistema a medida para un fabricante de maquinaria agrícola: cotizaciones PDF, búsqueda de información en AFIP a partir del CUIT, bot de WhatsApp, etc.",
-          "description": "Un sistema inteligente de cotización para fábricas que agiliza el proceso de cotización para empresas manufactureras. Incluye generación automática de PDF, integración de búsqueda CUIT AFIP para validación fiscal argentina, y un panel integral de precios para administradores.",
-          "features": [
-            "Generación automática de cotizaciones en PDF",
-            "Integración con búsqueda de CUIT en AFIP",
-            "Panel de gestión de precios para administradores",
-            "Seguimiento del historial de cotizaciones de clientes",
-            "Cálculos de precios en tiempo real"
-          ]
-        }
-      },
-      "status": "production",
-      "techStack": [
-        "TypeScript",
-        "Python",
-        "React",
-        "FastAPI",
-        "PostgreSQL",
-        "Tailwind CSS",
-        "Pillow"
-      ],
-      "githubUrl": "https://github.com/Repetto-A/cotibot",
-      "demoUrl": "https://cotibot-demo.vercel.app",
-      "images": [
-        "/projects/cotibot-1.png",
-        "/projects/cotibot-2.png",
-        "/projects/cotibot-3.png",
-        "/projects/cotibot-4.png"
-      ],
-      "category": "Business Automation"
     }
   ]
 }

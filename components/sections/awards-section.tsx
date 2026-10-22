@@ -11,7 +11,7 @@ import { Trophy, Award, ExternalLink, Users, ArrowRight, Lightbulb, Globe, Eye }
 import Link from "next/link"
 import { getVisibleAwards, localize } from "@/data/awards"
 import type { Award as AwardType } from "@/data/awards"
-import { useTranslations } from "@/lib/i18n-context"
+import { useTranslations, getTranslation } from "@/lib/i18n-context"
 import { hasMatchingProject } from "@/lib/project-utils"
 
 const ICON_MAP = {
@@ -26,11 +26,13 @@ function AwardCard({
   locale,
   onSeeMore,
   index,
+  translations,
 }: {
   award: AwardType
   locale: string
   onSeeMore: (projectId: string) => void
   index: number
+  translations: ReturnType<typeof useTranslations>[0]
 }) {
   const IconComponent = ICON_MAP[award.icon] ?? Trophy
   const showSeeMore = hasMatchingProject(award.projectId)
@@ -74,7 +76,7 @@ function AwardCard({
         <div>
           <h4 className="text-sm font-semibold text-foreground mb-3 flex items-center">
             <Users className="h-4 w-4 mr-2" />
-            {locale === "es" ? "Tecnologias Clave" : "Key Technologies"}
+            {getTranslation(translations, "awards.keyTechnologies")}
           </h4>
           <div className="flex flex-wrap gap-2">
             {award.tags.map((tech) => (
@@ -98,7 +100,7 @@ function AwardCard({
               <Button asChild variant="ghost" size="sm" className="group/btn w-full justify-start">
                 <Link href={award.proofUrl} target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="mr-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                  {locale === "es" ? "Ver Detalles del Premio" : "View Award Details"}
+                  {getTranslation(translations, "awards.viewAwardDetails")}
                 </Link>
               </Button>
             </div>
@@ -112,14 +114,10 @@ function AwardCard({
                 size="sm"
                 className="group/btn w-full justify-start"
                 onClick={() => onSeeMore(award.projectId)}
-                aria-label={
-                  locale === "es"
-                    ? `Ver proyecto ${localize(award.title, locale)}`
-                    : `See project ${localize(award.title, locale)}`
-                }
+                aria-label={`${getTranslation(translations, "awards.seeProject")} ${localize(award.title, locale)}`}
               >
                 <Eye className="mr-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                {locale === "es" ? "Ver Proyecto" : "See Project"}
+                {getTranslation(translations, "awards.seeProject")}
                 <ArrowRight className="ml-auto h-4 w-4 opacity-0 group-hover/btn:opacity-100 transition-opacity" />
               </Button>
             </div>
@@ -131,7 +129,7 @@ function AwardCard({
 }
 
 export function AwardsSection() {
-  const [, locale] = useTranslations()
+  const [translations, locale] = useTranslations()
   const visibleAwards = getVisibleAwards()
 
   const handleSeeMore = (projectId: string) => {
@@ -142,10 +140,8 @@ export function AwardsSection() {
     <Section id="awards" variant="gradient" spacing="relaxed">
       <Container maxWidth="7xl">
         <SectionHeader
-          title={
-            locale === "es" ? "Algunos premios y reconocimientos" : "Some Awards & Recognition"
-          }
-          eyebrow={locale === "es" ? "Reconocimientos" : "Recognition"}
+          title={getTranslation(translations, "awards.title")}
+          eyebrow={getTranslation(translations, "awards.eyebrow")}
         />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
@@ -156,6 +152,7 @@ export function AwardsSection() {
               locale={locale}
               onSeeMore={handleSeeMore}
               index={index}
+              translations={translations}
             />
           ))}
         </div>

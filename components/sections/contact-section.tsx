@@ -2,7 +2,10 @@
 
 import React from "react"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { z } from "zod"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -25,69 +28,91 @@ import { SectionHeader } from "@/components/layout/section-header"
 import { Section } from "@/components/layout/section"
 import { Container } from "@/components/layout/container"
 
-interface FormData {
-  name: string
-  email: string
-  subject: string
-  message: string
-}
+const contactSchema = z.object({
+  name: z.string().min(1).max(100),
+  email: z.string().email().max(254),
+  subject: z.string().min(1).max(200),
+  message: z.string().min(1).max(5000),
+  honeypot: z.string().max(0),
+})
+
+type ContactFormValues = z.infer<typeof contactSchema>
 
 export function ContactSection() {
   const [translations, locale] = useTranslations()
   const resumeUrl = getResumeUrl(locale)
 
-  const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
+  const [serverError, setServerError] = useState<string | null>(null)
+  const [csrfToken, setCsrfToken] = useState<string | null>(null)
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+  const {
+    register,
+    handleSubmit,
+    reset,
+    watch,
+    formState: { isValid, errors },
+  } = useForm<ContactFormValues>({
+    resolver: zodResolver(contactSchema),
+    mode: "onChange",
+    defaultValues: {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+      honeypot: "",
+    },
+  })
+
+  const messageValue = watch("message") || ""
+
+  useEffect(() => {
+    fetch("/api/csrf", { credentials: "same-origin" })
+      .then((res) => res.json())
+      .then((data) => setCsrfToken(data.token))
+      .catch(() => setCsrfToken("fallback"))
+  }, [])
+
+  const onSubmit = async (data: ContactFormValues) => {
     setIsSubmitting(true)
     setSubmitStatus("idle")
+    setServerError(null)
 
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "X-CSRF-Token": csrfToken || "",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          subject: data.subject,
+          message: data.message,
+        }),
+        credentials: "same-origin",
+        signal: AbortSignal.timeout(15000),
       })
 
-      await response.json()
+      const result = await response.json()
 
       if (response.ok) {
         setSubmitStatus("success")
-        setFormData({
-          name: "",
-          email: "",
-          subject: "",
-          message: "",
-        })
+        reset()
       } else {
         setSubmitStatus("error")
+        setServerError(result.error || null)
       }
-    } catch (error) {
+    } catch {
       setSubmitStatus("error")
     } finally {
       setIsSubmitting(false)
     }
   }
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }))
-  }
-
-  const isFormValid = formData.name && formData.email && formData.subject && formData.message
+  const isFormValid = isValid
 
   return (
     <Section id="contact" variant="muted" spacing="relaxed">
@@ -240,7 +265,18 @@ export function ContactSection() {
               <CardTitle>{getTranslation(translations, "contact.form.title")}</CardTitle>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" noValidate>
+                {/* Honeypot - hidden from humans */}
+                <div style={{ position: "absolute", left: "-9999px" }} aria-hidden="true">
+                  <Label htmlFor="honeypot">Leave empty</Label>
+                  <Input
+                    id="honeypot"
+                    {...register("honeypot")}
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
+
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="name">
@@ -248,13 +284,12 @@ export function ContactSection() {
                     </Label>
                     <Input
                       id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      maxLength={100}
+                      {...register("name")}
                       placeholder={getTranslation(translations, "contact.form.namePlaceholder")}
                     />
+                    {errors.name && (
+                      <p className="text-xs text-destructive">{errors.name.message}</p>
+                    )}
                   </div>
 
                   <div className="space-y-2">
@@ -263,13 +298,13 @@ export function ContactSection() {
                     </Label>
                     <Input
                       id="email"
-                      name="email"
                       type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
+                      {...register("email")}
                       placeholder={getTranslation(translations, "contact.form.emailPlaceholder")}
                     />
+                    {errors.email && (
+                      <p className="text-xs text-destructive">{errors.email.message}</p>
+                    )}
                   </div>
                 </div>
 
@@ -279,13 +314,12 @@ export function ContactSection() {
                   </Label>
                   <Input
                     id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                    maxLength={200}
+                    {...register("subject")}
                     placeholder={getTranslation(translations, "contact.form.subjectPlaceholder")}
                   />
+                  {errors.subject && (
+                    <p className="text-xs text-destructive">{errors.subject.message}</p>
+                  )}
                 </div>
 
                 <div className="space-y-2">
@@ -294,18 +328,17 @@ export function ContactSection() {
                   </Label>
                   <Textarea
                     id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    maxLength={5000}
+                    {...register("message")}
                     rows={5}
                     placeholder={getTranslation(translations, "contact.form.messagePlaceholder")}
                   />
                   <p className="text-xs text-muted-foreground">
-                    {formData.message.length}/5000{" "}
+                    {messageValue.length}/5000{" "}
                     {getTranslation(translations, "contact.form.characters")}
                   </p>
+                  {errors.message && (
+                    <p className="text-xs text-destructive">{errors.message.message}</p>
+                  )}
                 </div>
 
                 {submitStatus === "success" && (
@@ -324,7 +357,9 @@ export function ContactSection() {
                     aria-live="polite"
                   >
                     <AlertCircle className="h-4 w-4" />
-                    <span>{getTranslation(translations, "contact.errorMessage")}</span>
+                    <span>
+                      {serverError || getTranslation(translations, "contact.errorMessage")}
+                    </span>
                   </div>
                 )}
 

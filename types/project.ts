@@ -10,7 +10,7 @@ export interface Project {
   locales: Record<string, ProjectLocale>
   status: string
   techStack: string[]
-  githubUrl: string
+  githubUrl: string | null
   demoUrl: string | null
   images: string[]
   category: string
