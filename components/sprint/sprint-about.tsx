@@ -1,14 +1,14 @@
 import { SprintSection, SprintHeading, SprintProse } from "./sprint-section"
 import { SprintCriaLink, SprintNexaLink } from "./sprint-ext-link"
 import { ProfilePhoto } from "@/components/profile-photo"
-import { SPRINT_ANCHORS } from "@/lib/sprint/constants"
+import { SPRINT_ANCHORS, SPRINT_SECTION_LABELS } from "@/lib/sprint/constants"
 import { SPRINT_AWARDS } from "@/lib/sprint/proof"
 
 const HIGHLIGHTS = [
   {
     stat: "+500",
     label:
-      "Personas capacitadas en IA entre CRIA y la Diplomatura en IA Aplicada al Ejercicio Profesional de UCEL",
+      "Personas capacitadas en IA entre CRIA y la Diplomatura de IA aplicada al ejercicio profesional (UCEL)",
   },
   {
     stat: "+3M",
@@ -23,7 +23,7 @@ const HIGHLIGHTS = [
 const FACTS = [
   <>
     Capacito equipos técnicos y ejecutivos en adopción de IA junto a <SprintCriaLink />, y doy
-    clases en la Diplomatura en IA Aplicada al Ejercicio Profesional de UCEL. También trabajo de
+    clases en la Diplomatura de IA aplicada al ejercicio profesional (UCEL). También trabajo de
     forma directa con las empresas.
   </>,
   <>
@@ -44,7 +44,7 @@ const FACTS = [
 
 export function SprintAbout() {
   return (
-    <SprintSection id={SPRINT_ANCHORS.about} label="10 / Quién está detrás">
+    <SprintSection id={SPRINT_ANCHORS.about} label={SPRINT_SECTION_LABELS.about}>
       <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-10">
         <div className="relative mx-auto aspect-[4/5] w-36 shrink-0 overflow-hidden rounded-2xl ring-1 ring-border sm:mx-0 sm:w-44">
           <ProfilePhoto alt="Alejandro Repetto, Software Engineer" sizes="176px" />

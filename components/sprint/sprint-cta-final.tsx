@@ -1,10 +1,10 @@
 import { SprintSection } from "./sprint-section"
 import { SprintDirectContact } from "./sprint-direct-contact"
-import { SPRINT_ANCHORS } from "@/lib/sprint/constants"
+import { SPRINT_ANCHORS, SPRINT_SECTION_LABELS } from "@/lib/sprint/constants"
 
 export function SprintCtaFinal() {
   return (
-    <SprintSection id={SPRINT_ANCHORS.cta} label="13 / Siguiente paso">
+    <SprintSection id={SPRINT_ANCHORS.cta} label={SPRINT_SECTION_LABELS.cta}>
       <h2 className="text-3xl font-bold tracking-tight text-balance sm:text-4xl lg:text-[2.75rem] lg:leading-[1.08]">
         En 20 minutos sabés si esto tiene sentido para tu empresa.
       </h2>

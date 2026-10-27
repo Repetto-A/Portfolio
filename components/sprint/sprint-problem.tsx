@@ -1,5 +1,5 @@
 import { SprintSection, SprintHeading, SprintProse } from "./sprint-section"
-import { SPRINT_ANCHORS } from "@/lib/sprint/constants"
+import { SPRINT_ANCHORS, SPRINT_SECTION_LABELS } from "@/lib/sprint/constants"
 
 const FAILED_ATTEMPTS = [
   "El proyecto de IA que sistemas nunca prioriza.",
@@ -10,16 +10,13 @@ const FAILED_ATTEMPTS = [
 
 export function SprintProblem() {
   return (
-    <SprintSection id={SPRINT_ANCHORS.problem} label="01 / El problema">
-      <SprintHeading>
-        Tu empresa ya probó algo de IA, pero tu operación sigue igual.
-      </SprintHeading>
+    <SprintSection id={SPRINT_ANCHORS.problem} label={SPRINT_SECTION_LABELS.problem}>
+      <SprintHeading>Tu empresa ya probó algo de IA, pero tu operación sigue igual.</SprintHeading>
       <SprintProse>
         <p>
-          A veces fue una charla, un curso o una consultoría que no escaló. Otras veces
-          es tu equipo usando ChatGPT por su cuenta, sin coordinación ni impacto en los
-          procesos. En ambos casos, el trabajo diario no cambió. ¿Cuántos de estos ya
-          viviste?
+          A veces fue una charla, un curso o una consultoría que no escaló. Otras veces es tu equipo
+          usando ChatGPT por su cuenta, sin coordinación ni impacto en los procesos. En ambos casos,
+          el trabajo diario no cambió. ¿Cuántos de estos ya viviste?
         </p>
       </SprintProse>
 
@@ -38,8 +35,8 @@ export function SprintProblem() {
       </ul>
 
       <blockquote className="scroll-reveal mt-10 border-l-2 border-[var(--sprint-accent)] pl-6 text-xl leading-snug font-medium tracking-tight text-balance text-foreground sm:text-2xl">
-        El problema no es la tecnología. Es que nadie cierra el ciclo entre aprender
-        algo y construir algo con eso.
+        El problema no es la tecnología. Es que nadie cierra el ciclo entre aprender algo y
+        construir algo con eso.
       </blockquote>
 
       <SprintProse>

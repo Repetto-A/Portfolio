@@ -1,7 +1,7 @@
 import type { ReactNode } from "react"
 import { SprintSection, SprintHeading } from "./sprint-section"
 import { SprintCriaLink } from "./sprint-ext-link"
-import { SPRINT_ANCHORS } from "@/lib/sprint/constants"
+import { SPRINT_ANCHORS, SPRINT_SECTION_LABELS } from "@/lib/sprint/constants"
 import {
   Accordion,
   AccordionContent,
@@ -54,8 +54,8 @@ const FAQS: { q: string; a: ReactNode }[] = [
     q: "¿Cómo se relaciona esto con CRIA?",
     a: (
       <>
-        Trabajo junto a <SprintCriaLink /> como respaldo institucional, y también de forma
-        directa. En el diagnóstico definimos el mejor esquema para tu empresa.
+        Trabajo junto a <SprintCriaLink /> como respaldo institucional, y también de forma directa.
+        En el diagnóstico definimos el mejor esquema para tu empresa.
       </>
     ),
   },
@@ -67,15 +67,13 @@ const FAQS: { q: string; a: ReactNode }[] = [
 
 export function SprintFaq() {
   return (
-    <SprintSection id={SPRINT_ANCHORS.faq} label="12 / Preguntas frecuentes" spacing="compact" tint>
+    <SprintSection id={SPRINT_ANCHORS.faq} label={SPRINT_SECTION_LABELS.faq} spacing="compact" tint>
       <SprintHeading>Lo que suelen preguntar antes de agendar</SprintHeading>
 
       <Accordion type="single" collapsible className="mt-8">
         {FAQS.map((faq) => (
           <AccordionItem key={faq.q} value={faq.q}>
-            <AccordionTrigger className="text-left text-base font-medium">
-              {faq.q}
-            </AccordionTrigger>
+            <AccordionTrigger className="text-left text-base font-medium">{faq.q}</AccordionTrigger>
             <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
               {faq.a}
             </AccordionContent>

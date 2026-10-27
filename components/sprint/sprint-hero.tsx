@@ -57,9 +57,9 @@ export function SprintHero() {
         </div>
 
         <p className="sprint-enter sprint-enter-4 mt-12 border-l-2 border-[var(--sprint-accent)] pl-4 text-sm leading-relaxed text-muted-foreground">
-          Soy Software Engineer enfocado en IA. Doy clases en la Diplomatura en IA Aplicada al
-          Ejercicio Profesional de UCEL, capacito y asesoro equipos en <SprintCriaLink />, fundé
-          NEXA (+3M de personas en +50 comunidades) y soy SpaceXAI Ambassador.
+          Soy Software Engineer enfocado en IA. Doy clases en la Diplomatura de IA aplicada al
+          ejercicio profesional (UCEL), capacito y asesoro equipos en <SprintCriaLink />, fundé NEXA
+          (+3M de personas en +50 comunidades) y soy SpaceXAI Ambassador.
           <br />
           Ya capacité en IA a más de 500 personas entre CRIA y la Diplomatura de UCEL. Vengo del
           deporte competitivo: ahí aprendí que bajo presión se ve quién ejecuta.

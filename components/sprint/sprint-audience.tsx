@@ -1,6 +1,6 @@
 import { SprintSection, SprintHeading, SprintProse } from "./sprint-section"
 import { SprintCalendlyButton } from "./sprint-calendly-button"
-import { SPRINT_ANCHORS } from "@/lib/sprint/constants"
+import { SPRINT_ANCHORS, SPRINT_SECTION_LABELS } from "@/lib/sprint/constants"
 
 const CRITERIA = [
   {
@@ -34,7 +34,7 @@ const EXIT_SIGNALS = [
 
 export function SprintAudience() {
   return (
-    <SprintSection id={SPRINT_ANCHORS.audience} label="06 / Para quién">
+    <SprintSection id={SPRINT_ANCHORS.audience} label={SPRINT_SECTION_LABELS.audience}>
       <SprintHeading>Hecho para equipos que quieren construir, no solo mirar.</SprintHeading>
       <SprintProse lead>
         <p>

@@ -29,6 +29,29 @@ export const SPRINT_ANCHORS = {
   cta: "agendar",
 } as const
 
+function sectionNum(n: number) {
+  return String(n).padStart(2, "0")
+}
+
+/** Si los precios están ocultos, 08+ se recorre para no dejar un hueco. */
+const afterFormats = SHOW_SPRINT_PRICING ? 8 : 7
+
+export const SPRINT_SECTION_LABELS = {
+  problem: "01 / El problema",
+  promise: "02 / La propuesta",
+  howItWorks: "03 / Cómo funciona",
+  deliverables: "04 / Entregables",
+  governance: "05 / Gobernanza",
+  audience: "06 / Para quién",
+  formats: "07 / Formatos",
+  pricing: "08 / Inversión",
+  guarantee: `${sectionNum(afterFormats + 1)} / Garantía`,
+  about: `${sectionNum(afterFormats + 2)} / Quién está detrás`,
+  press: `${sectionNum(afterFormats + 3)} / Prensa y apariciones`,
+  faq: `${sectionNum(afterFormats + 4)} / Preguntas frecuentes`,
+  cta: `${sectionNum(afterFormats + 5)} / Siguiente paso`,
+} as const
+
 export type SprintAnchor = (typeof SPRINT_ANCHORS)[keyof typeof SPRINT_ANCHORS]
 
 export type CTALocation = "hero" | "audience" | "pricing" | "guarantee" | "footer"

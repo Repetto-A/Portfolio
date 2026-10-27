@@ -11,7 +11,7 @@ interface ProfilePhotoProps {
 
 /**
  * Foto de perfil recortada para no cortar la cabeza.
- * `object-[center_18%]` prioriza el tercio superior del retrato vertical.
+ * `object-[center_8%]` deja aire arriba del pelo en recortes cuadrados.
  */
 export function ProfilePhoto({
   alt = "Alejandro Repetto",
@@ -24,7 +24,7 @@ export function ProfilePhoto({
       src={PROFILE_PHOTO_SRC}
       alt={alt}
       fill
-      className={cn("object-cover object-[center_18%]", className)}
+      className={cn("object-cover object-[center_8%]", className)}
       sizes={sizes}
       priority={priority}
       quality={88}

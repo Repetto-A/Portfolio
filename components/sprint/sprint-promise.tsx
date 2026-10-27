@@ -1,5 +1,5 @@
 import { SprintSection, SprintHeading, SprintProse } from "./sprint-section"
-import { SPRINT_ANCHORS } from "@/lib/sprint/constants"
+import { SPRINT_ANCHORS, SPRINT_SECTION_LABELS } from "@/lib/sprint/constants"
 
 const BLOCKS = [
   {
@@ -18,13 +18,13 @@ const BLOCKS = [
 
 export function SprintPromise() {
   return (
-    <SprintSection id={SPRINT_ANCHORS.promise} label="02 / La propuesta" tint>
+    <SprintSection id={SPRINT_ANCHORS.promise} label={SPRINT_SECTION_LABELS.promise} tint>
       <SprintHeading>Menos charlas de innovación. Más equipos construyendo cosas.</SprintHeading>
       <SprintProse>
         <p>
-          El AI Execution Sprint junta en una sola secuencia de 30 días tres cosas que
-          normalmente contratás por separado: el curso, la consultora y el comité de IA.
-          La diferencia es que acá tu equipo termina construyendo.
+          El AI Execution Sprint junta en una sola secuencia de 30 días tres cosas que normalmente
+          contratás por separado: el curso, la consultora y el comité de IA. La diferencia es que
+          acá tu equipo termina construyendo.
         </p>
       </SprintProse>
 
@@ -39,16 +39,15 @@ export function SprintPromise() {
             </span>
             <div>
               <p className="text-sm font-medium text-foreground">{block.title}</p>
-              <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                {block.body}
-              </p>
+              <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{block.body}</p>
             </div>
           </li>
         ))}
       </ul>
 
       <p className="mt-10 font-mono text-sm tracking-wide text-[var(--sprint-accent)]">
-        &gt; Resultado: prototipos funcionando, un equipo que sabe usarlos y reglas claras para escalar.
+        &gt; Resultado: prototipos funcionando, un equipo que sabe usarlos y reglas claras para
+        escalar.
       </p>
     </SprintSection>
   )

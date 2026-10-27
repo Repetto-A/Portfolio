@@ -1,14 +1,6 @@
 import { SprintSection, SprintHeading, SprintProse } from "./sprint-section"
-import { SPRINT_ANCHORS } from "@/lib/sprint/constants"
-import {
-  Shield,
-  Lock,
-  KeyRound,
-  ClipboardCheck,
-  BarChart3,
-  Eye,
-  FileText,
-} from "lucide-react"
+import { SPRINT_ANCHORS, SPRINT_SECTION_LABELS } from "@/lib/sprint/constants"
+import { Shield, Lock, KeyRound, ClipboardCheck, BarChart3, Eye, FileText } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 
 const PILLARS: { icon: LucideIcon; title: string; body: string }[] = [
@@ -44,7 +36,6 @@ const PILLARS: { icon: LucideIcon; title: string; body: string }[] = [
   },
 ]
 
-
 const GOVERNANCE_DELIVERABLES = [
   "Política de uso de IA escrita para tu contexto",
   "Matriz de permisos por rol y por caso de uso",
@@ -55,20 +46,17 @@ const GOVERNANCE_DELIVERABLES = [
 
 export function SprintGovernance() {
   return (
-    <SprintSection id={SPRINT_ANCHORS.governance} label="05 / Gobernanza">
-      <SprintHeading>
-        Tu equipo ya usa IA. La pregunta es si lo hace de forma segura.
-      </SprintHeading>
+    <SprintSection id={SPRINT_ANCHORS.governance} label={SPRINT_SECTION_LABELS.governance}>
+      <SprintHeading>Tu equipo ya usa IA. La pregunta es si lo hace de forma segura.</SprintHeading>
       <SprintProse lead>
         <p>
-          El objetivo no es que cada persona use cualquier herramienta de IA como pueda. El
-          objetivo es que la empresa tenga criterios claros sobre qué se puede usar, con qué datos,
-          en qué casos, bajo qué permisos y con qué trazabilidad.
+          El objetivo no es que cada persona use cualquier herramienta de IA como pueda. El objetivo
+          es que la empresa tenga criterios claros sobre qué se puede usar, con qué datos, en qué
+          casos, bajo qué permisos y con qué trazabilidad.
         </p>
         <p>
-          El uso informal ya pasa en casi todas las empresas, aunque no siempre se vea. La
-          solución no es frenar la adopción: es dejar de improvisar y poner reglas que todos
-          entienden.
+          El uso informal ya pasa en casi todas las empresas, aunque no siempre se vea. La solución
+          no es frenar la adopción: es dejar de improvisar y poner reglas que todos entienden.
         </p>
       </SprintProse>
 
@@ -79,10 +67,7 @@ export function SprintGovernance() {
         <div className="grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
           {PILLARS.map(({ icon: Icon, title, body }) => (
             <div key={title} className="flex gap-4 bg-card p-5">
-              <Icon
-                className="mt-0.5 size-5 shrink-0 text-[var(--sprint-accent)]"
-                aria-hidden
-              />
+              <Icon className="mt-0.5 size-5 shrink-0 text-[var(--sprint-accent)]" aria-hidden />
               <div>
                 <h3 className="text-sm font-semibold leading-snug">{title}</h3>
                 <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{body}</p>
@@ -100,18 +85,18 @@ export function SprintGovernance() {
             </span>
             <ul className="mt-5 space-y-4">
               {[
-              {
-                role: "Atención al cliente",
-                text: "arma un asistente sobre la documentación interna y valida cada respuesta antes de usarla con clientes.",
-              },
-              {
-                role: "RR.HH.",
-                text: "trabaja datos de empleados solo en herramientas aprobadas, nunca en ChatGPT.",
-              },
-              {
-                role: "Dirección",
-                text: "ve qué usa cada área y cuánto cuesta, sin sorpresas en la factura a fin de mes.",
-              },
+                {
+                  role: "Atención al cliente",
+                  text: "arma un asistente sobre la documentación interna y valida cada respuesta antes de usarla con clientes.",
+                },
+                {
+                  role: "RR.HH.",
+                  text: "trabaja datos de empleados solo en herramientas aprobadas, nunca en ChatGPT.",
+                },
+                {
+                  role: "Dirección",
+                  text: "ve qué usa cada área y cuánto cuesta, sin sorpresas en la factura a fin de mes.",
+                },
               ].map(({ role, text }) => (
                 <li key={role} className="border-l-2 border-[var(--sprint-accent)]/40 pl-4">
                   <span className="text-sm font-semibold">{role}</span>{" "}
@@ -144,8 +129,8 @@ export function SprintGovernance() {
             Para equipos técnicos
           </p>
           <p className="text-sm leading-relaxed text-muted-foreground">
-            Cuando hay perfiles de ingeniería, el sprint puede derivar en arquitectura interna:
-            IA local cuando tiene sentido, conectores MCP para exponer funciones entre áreas y un
+            Cuando hay perfiles de ingeniería, el sprint puede derivar en arquitectura interna: IA
+            local cuando tiene sentido, conectores MCP para exponer funciones entre áreas y un
             roadmap que define qué prototipo va a producción, cuál necesita más pruebas y cuál se
             frena. Sobre esa base configuro permisos granulares, registros de actividad, gateways,
             feature flags y medidores de uso y costo. Cuando aplica, la memoria de los asistentes

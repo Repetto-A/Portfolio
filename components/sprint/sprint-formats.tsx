@@ -1,5 +1,5 @@
 import { SprintSection, SprintHeading, SprintProse } from "./sprint-section"
-import { SPRINT_ANCHORS } from "@/lib/sprint/constants"
+import { SPRINT_ANCHORS, SPRINT_SECTION_LABELS } from "@/lib/sprint/constants"
 import { cn } from "@/lib/utils"
 import { Check } from "lucide-react"
 
@@ -127,7 +127,12 @@ function FormatRow({ format: f }: { format: Format }) {
 
 export function SprintFormats() {
   return (
-    <SprintSection id={SPRINT_ANCHORS.formats} label="07 / Formatos" spacing="compact" tint>
+    <SprintSection
+      id={SPRINT_ANCHORS.formats}
+      label={SPRINT_SECTION_LABELS.formats}
+      spacing="compact"
+      tint
+    >
       <SprintHeading>Cómo se compara cada formato</SprintHeading>
       <SprintProse lead>
         <p>

@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { SprintSection, SprintHeading, SprintProse } from "./sprint-section"
 import { SprintPressModal } from "./sprint-press-modal"
-import { SPRINT_ANCHORS } from "@/lib/sprint/constants"
+import { SPRINT_ANCHORS, SPRINT_SECTION_LABELS } from "@/lib/sprint/constants"
 import { SPRINT_PRESS_LOGOS, type SprintPressLogo } from "@/lib/sprint/proof"
 
 function PressLogo({ logo }: { logo: SprintPressLogo }) {
@@ -38,12 +38,15 @@ function PressLogo({ logo }: { logo: SprintPressLogo }) {
 
 export function SprintPress() {
   return (
-    <SprintSection id={SPRINT_ANCHORS.press} label="11 / Prensa y apariciones" spacing="compact" tint>
+    <SprintSection
+      id={SPRINT_ANCHORS.press}
+      label={SPRINT_SECTION_LABELS.press}
+      spacing="compact"
+      tint
+    >
       <SprintHeading>Prensa y apariciones</SprintHeading>
       <SprintProse lead>
-        <p>
-          Notas, entrevistas y videos sobre proyectos, hackathons y trayectoria pública.
-        </p>
+        <p>Notas, entrevistas y videos sobre proyectos, hackatones y trayectoria pública.</p>
       </SprintProse>
 
       <div

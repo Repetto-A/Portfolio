@@ -95,11 +95,7 @@ function SprintPressArticleRow({ item }: { item: SprintPressLink }) {
     )
   }
 
-  return (
-    <div className="flex gap-4 rounded-lg border border-border/70 bg-card/20 p-4">
-      {inner}
-    </div>
-  )
+  return <div className="flex gap-4 rounded-lg border border-border/70 bg-card/20 p-4">{inner}</div>
 }
 
 function SprintPressVideoRow({ item }: { item: SprintPressLink }) {
@@ -159,11 +155,7 @@ function SprintPressVideoRow({ item }: { item: SprintPressLink }) {
     )
   }
 
-  return (
-    <div className="flex gap-4 rounded-lg border border-border/70 bg-card/20 p-4">
-      {inner}
-    </div>
-  )
+  return <div className="flex gap-4 rounded-lg border border-border/70 bg-card/20 p-4">{inner}</div>
 }
 
 function SprintPressList({ items }: { items: SprintPressLink[] }) {
@@ -193,15 +185,9 @@ export function SprintPressModal() {
     () => SPRINT_PRESS.filter((item) => item.type === "article").length,
     []
   )
-  const videoCount = useMemo(
-    () => SPRINT_PRESS.filter((item) => item.type === "video").length,
-    []
-  )
+  const videoCount = useMemo(() => SPRINT_PRESS.filter((item) => item.type === "video").length, [])
 
-  const articles = useMemo(
-    () => SPRINT_PRESS.filter((item) => item.type === "article"),
-    []
-  )
+  const articles = useMemo(() => SPRINT_PRESS.filter((item) => item.type === "article"), [])
   const videos = useMemo(() => SPRINT_PRESS.filter((item) => item.type === "video"), [])
 
   return (
@@ -221,48 +207,48 @@ export function SprintPressModal() {
 
       <DialogContent
         className={cn(
-          "flex max-h-[min(88vh,920px)] flex-col gap-0 overflow-hidden p-0",
+          "flex max-h-[min(88vh,920px)] w-[calc(100%-1.5rem)] flex-col gap-0 overflow-hidden p-0",
           "sm:max-w-2xl lg:max-w-3xl"
         )}
       >
-        <div className="border-b border-border px-6 py-5 pr-14 sm:px-8 sm:pr-16">
+        <div className="border-b border-border px-4 py-5 pr-12 sm:px-8 sm:pr-16">
           <DialogHeader className="gap-2 text-left">
             <DialogTitle className="text-2xl font-bold tracking-tight sm:text-[1.65rem]">
               Prensa y apariciones
             </DialogTitle>
             <DialogDescription className="max-w-prose text-sm leading-relaxed">
-              Notas, entrevistas y videos sobre proyectos, hackathons y trayectoria pública.
+              Notas, entrevistas y videos sobre proyectos, hackatones y trayectoria pública.
             </DialogDescription>
           </DialogHeader>
         </div>
 
         <Tabs defaultValue="all" className="flex min-h-0 flex-1 flex-col">
-          <div className="border-b border-border px-6 sm:px-8">
-            <TabsList className="h-auto w-full justify-start gap-1 rounded-none border-0 bg-transparent p-0">
+          <div className="overflow-x-auto border-b border-border px-4 sm:px-8">
+            <TabsList className="h-auto w-max min-w-full justify-start gap-4 rounded-none border-0 bg-transparent p-0 sm:gap-6">
               <TabsTrigger
                 value="all"
-                className="mr-6 flex-none rounded-none border-0 border-b-2 border-transparent bg-transparent px-0 py-3 text-sm font-medium shadow-none data-[state=active]:border-[var(--sprint-accent)] data-[state=active]:bg-transparent data-[state=active]:text-foreground"
+                className="flex-none rounded-none border-0 border-b-2 border-transparent bg-transparent px-0 py-3 text-sm font-medium shadow-none data-[state=active]:border-[var(--sprint-accent)] data-[state=active]:bg-transparent data-[state=active]:text-foreground"
               >
                 Todos ({SPRINT_PRESS_TOTAL})
               </TabsTrigger>
               <TabsTrigger
                 value="article"
-                className="mr-6 flex-none rounded-none border-0 border-b-2 border-transparent bg-transparent px-0 py-3 text-sm font-medium shadow-none data-[state=active]:border-[var(--sprint-accent)] data-[state=active]:bg-transparent data-[state=active]:text-foreground"
+                className="flex-none rounded-none border-0 border-b-2 border-transparent bg-transparent px-0 py-3 text-sm font-medium shadow-none data-[state=active]:border-[var(--sprint-accent)] data-[state=active]:bg-transparent data-[state=active]:text-foreground"
               >
-                <FileText className="mr-1.5 size-3.5" aria-hidden />
-                Artículos ({articleCount})
+                <FileText className="mr-1.5 hidden size-3.5 sm:inline" aria-hidden />
+                Notas ({articleCount})
               </TabsTrigger>
               <TabsTrigger
                 value="video"
                 className="flex-none rounded-none border-0 border-b-2 border-transparent bg-transparent px-0 py-3 text-sm font-medium shadow-none data-[state=active]:border-[var(--sprint-accent)] data-[state=active]:bg-transparent data-[state=active]:text-foreground"
               >
-                <Play className="mr-1.5 size-3.5" aria-hidden />
+                <Play className="mr-1.5 hidden size-3.5 sm:inline" aria-hidden />
                 Videos ({videoCount})
               </TabsTrigger>
             </TabsList>
           </div>
 
-          <div className="min-h-0 flex-1 overflow-y-auto px-6 py-5 sm:px-8">
+          <div className="min-h-0 flex-1 overflow-y-auto px-4 py-5 sm:px-8">
             <TabsContent value="all" className="mt-0">
               <SprintPressList items={SPRINT_PRESS} />
             </TabsContent>

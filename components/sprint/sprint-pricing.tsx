@@ -1,6 +1,6 @@
 import { SprintSection, SprintHeading, SprintProse } from "./sprint-section"
 import { SprintCalendlyButton } from "./sprint-calendly-button"
-import { SPRINT_ANCHORS, CALENDLY_URL } from "@/lib/sprint/constants"
+import { SPRINT_ANCHORS, SPRINT_SECTION_LABELS, CALENDLY_URL } from "@/lib/sprint/constants"
 import { cn } from "@/lib/utils"
 import { Check, ShieldCheck } from "lucide-react"
 
@@ -54,7 +54,11 @@ const TIERS: Tier[] = [
  */
 export function SprintPricing() {
   return (
-    <SprintSection id={SPRINT_ANCHORS.pricing} label="08 / Inversión" spacing="compact">
+    <SprintSection
+      id={SPRINT_ANCHORS.pricing}
+      label={SPRINT_SECTION_LABELS.pricing}
+      spacing="compact"
+    >
       <SprintHeading>La inversión, según cómo quieras empezar</SprintHeading>
       <SprintProse lead>
         <p>

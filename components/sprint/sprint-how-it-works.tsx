@@ -1,7 +1,7 @@
 import { SprintSection, SprintHeading, SprintProse } from "./sprint-section"
 import { SprintTimeline } from "./sprint-timeline"
 import { SprintCurriculum, type CurriculumTopic } from "./sprint-curriculum"
-import { SPRINT_ANCHORS } from "@/lib/sprint/constants"
+import { SPRINT_ANCHORS, SPRINT_SECTION_LABELS } from "@/lib/sprint/constants"
 
 const STEPS = [
   {
@@ -85,12 +85,12 @@ const CURRICULUM: { title: string; topics: CurriculumTopic[] }[] = [
 
 export function SprintHowItWorks() {
   return (
-    <SprintSection id={SPRINT_ANCHORS.howItWorks} label="03 / Cómo funciona">
+    <SprintSection id={SPRINT_ANCHORS.howItWorks} label={SPRINT_SECTION_LABELS.howItWorks}>
       <SprintHeading>Cinco etapas. Un objetivo: que quede algo construido.</SprintHeading>
       <SprintProse lead>
         <p>
-          El sprint sigue una secuencia fija de 30 días. En cada etapa tu equipo incorpora
-          nuevas herramientas y conocimientos.
+          El sprint sigue una secuencia fija de 30 días. En cada etapa tu equipo incorpora nuevas
+          herramientas y conocimientos.
         </p>
       </SprintProse>
 

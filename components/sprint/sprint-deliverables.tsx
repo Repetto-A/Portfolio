@@ -1,7 +1,15 @@
 import { SprintSection, SprintHeading, SprintProse } from "./sprint-section"
 import { SprintPortalPreview } from "./sprint-portal-preview"
-import { SPRINT_ANCHORS } from "@/lib/sprint/constants"
-import { GraduationCap, Target, Boxes, Route, ShieldCheck, Sparkles, MonitorPlay } from "lucide-react"
+import { SPRINT_ANCHORS, SPRINT_SECTION_LABELS } from "@/lib/sprint/constants"
+import {
+  GraduationCap,
+  Target,
+  Boxes,
+  Route,
+  ShieldCheck,
+  Sparkles,
+  MonitorPlay,
+} from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 
 const OUTCOMES: { icon: LucideIcon; title: string; body: string }[] = [
@@ -39,12 +47,12 @@ const OUTCOMES: { icon: LucideIcon; title: string; body: string }[] = [
 
 export function SprintDeliverables() {
   return (
-    <SprintSection id={SPRINT_ANCHORS.deliverables} label="04 / Entregables" tint>
+    <SprintSection id={SPRINT_ANCHORS.deliverables} label={SPRINT_SECTION_LABELS.deliverables} tint>
       <SprintHeading>Qué queda en tu empresa cuando termina el sprint</SprintHeading>
       <SprintProse lead>
         <p>
-          Todo lo construido queda en tu infraestructura y con tu equipo. Yo me voy, el
-          conocimiento no.
+          Todo lo construido queda en tu infraestructura y con tu equipo. Yo me voy, el conocimiento
+          no.
         </p>
       </SprintProse>
 
@@ -69,10 +77,7 @@ export function SprintDeliverables() {
 
       <div className="scroll-reveal mt-12 rounded-xl border border-[oklch(0.88_0.014_75)] bg-[oklch(0.985_0.006_75)] p-6 sm:p-8 dark:border-[oklch(0.32_0.012_75)] dark:bg-[oklch(0.2_0.008_75)]">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6">
-          <MonitorPlay
-            className="size-8 shrink-0 text-[var(--sprint-accent)]"
-            aria-hidden
-          />
+          <MonitorPlay className="size-8 shrink-0 text-[var(--sprint-accent)]" aria-hidden />
           <div>
             <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--sprint-accent)]">
               Portal del sprint
@@ -81,9 +86,9 @@ export function SprintDeliverables() {
               El material de tu sprint, en un solo lugar
             </h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Grabaciones, prompts y ejercicios con acceso provisionado por tu empresa.
-              El sponsor consulta adopción y exporta métricas desde el panel — sin link
-              público ni material perdido en un drive.
+              Grabaciones, prompts y ejercicios con acceso provisionado por tu empresa. El sponsor
+              consulta adopción y exporta métricas desde el panel — sin link público ni material
+              perdido en un drive.
             </p>
             <SprintPortalPreview />
           </div>
