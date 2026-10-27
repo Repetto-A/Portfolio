@@ -223,7 +223,7 @@ export function SprintPressModal() {
         </div>
 
         <Tabs defaultValue="all" className="flex min-h-0 flex-1 flex-col">
-          <div className="overflow-x-auto border-b border-border px-4 sm:px-8">
+          <div className="shrink-0 overflow-x-auto border-b border-border px-4 sm:px-8">
             <TabsList className="h-auto w-max min-w-full justify-start gap-4 rounded-none border-0 bg-transparent p-0 sm:gap-6">
               <TabsTrigger
                 value="all"

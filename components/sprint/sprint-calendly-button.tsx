@@ -23,7 +23,7 @@ export function SprintCalendlyButton({
       rel="noopener noreferrer"
       onClick={() => captureCTA("cta_calendly_click", { location })}
       className={cn(
-        "group inline-flex min-h-[44px] items-center gap-2 rounded-md px-6 py-3",
+        "group inline-flex min-h-[44px] flex-wrap items-center justify-center gap-2 rounded-md px-4 py-3 text-center sm:px-6",
         "bg-foreground text-background font-medium",
         "transition-[background-color,color,transform] duration-200 ease-out",
         "hover:bg-[var(--sprint-accent)] hover:text-white active:scale-[0.98]",
