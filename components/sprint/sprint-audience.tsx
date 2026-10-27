@@ -38,10 +38,10 @@ export function SprintAudience() {
       <SprintHeading>Hecho para equipos que quieren construir, no solo mirar.</SprintHeading>
       <SprintProse lead>
         <p>
-          Funciona mejor en empresas con procesos que se repiten y un equipo con ganas de
-          meter mano. Eso sí: no es algo que delegás y seguís con lo de siempre. El sprint pide
-          tiempo del equipo; si eso no está, no vas a sacar el provecho que deberías. Mejor
-          hablarlo antes de que inviertas.
+          Funciona mejor en empresas con procesos que se repiten y un equipo con ganas de meter
+          mano. Eso sí: no es algo que delegás y seguís con lo de siempre. El sprint pide tiempo del
+          equipo; si eso no está, no vas a sacar el provecho que deberías. Mejor hablarlo antes de
+          arrancar.
         </p>
       </SprintProse>
 
@@ -86,10 +86,7 @@ export function SprintAudience() {
               key={item}
               className="flex gap-4 border-b border-dashed border-border/60 px-4 py-4 text-sm leading-relaxed text-muted-foreground last:border-b-0 sm:px-5"
             >
-              <span
-                className="font-mono text-sm text-muted-foreground/70 select-none"
-                aria-hidden
-              >
+              <span className="font-mono text-sm text-muted-foreground/70 select-none" aria-hidden>
                 ×
               </span>
               <span>{item}</span>
@@ -100,10 +97,13 @@ export function SprintAudience() {
 
       <div className="mt-12 flex flex-col gap-6 border-t border-border pt-10 sm:flex-row sm:items-center sm:justify-between">
         <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
-          Si estás en el límite entre los dos bloques, el diagnóstico de 20 minutos sirve
-          para ubicarnos sin compromiso.
+          Si estás en el límite entre los dos bloques, el diagnóstico de 20 minutos sirve para
+          ubicarnos sin compromiso.
         </p>
-        <SprintCalendlyButton location="audience" className="shrink-0 justify-center sm:justify-start">
+        <SprintCalendlyButton
+          location="audience"
+          className="shrink-0 justify-center sm:justify-start"
+        >
           Agendar diagnóstico gratuito
         </SprintCalendlyButton>
       </div>

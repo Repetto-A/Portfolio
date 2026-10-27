@@ -1,5 +1,6 @@
 import { SprintSection, SprintHeading, SprintProse } from "./sprint-section"
 import { SprintCriaLink, SprintNexaLink } from "./sprint-ext-link"
+import { ProfilePhoto } from "@/components/profile-photo"
 import { SPRINT_ANCHORS } from "@/lib/sprint/constants"
 import { SPRINT_AWARDS } from "@/lib/sprint/proof"
 
@@ -10,8 +11,8 @@ const HIGHLIGHTS = [
       "Personas capacitadas en IA entre CRIA y la Diplomatura en IA Aplicada al Ejercicio Profesional de UCEL",
   },
   {
-    stat: "+300.000",
-    label: "Builders conectados a través de NEXA, la red que fundé con +50 comunidades tech de LATAM",
+    stat: "+3M",
+    label: "Personas conectadas a través de NEXA, la red que fundé con +50 comunidades tech",
   },
   {
     stat: "En prod",
@@ -21,34 +22,44 @@ const HIGHLIGHTS = [
 
 const FACTS = [
   <>
-    Capacito equipos técnicos y ejecutivos en adopción de IA junto a <SprintCriaLink />, y
-    doy clases en la Diplomatura en IA Aplicada al Ejercicio Profesional de UCEL. También
-    trabajo de forma directa con las empresas.
+    Capacito equipos técnicos y ejecutivos en adopción de IA junto a <SprintCriaLink />, y doy
+    clases en la Diplomatura en IA Aplicada al Ejercicio Profesional de UCEL. También trabajo de
+    forma directa con las empresas.
   </>,
   <>
-    Fundé <SprintNexaLink />: +50 comunidades y +300.000 builders. Soy host de Builders Off
-    The Record, SpaceXAI Ambassador y miembro de SupaSquad (Supabase).
+    Fundé <SprintNexaLink />: +50 comunidades y +3M de personas. Soy host de Builders Off The
+    Record, SpaceXAI Ambassador y miembro de SupaSquad (Supabase).
   </>,
   <>
-    Soy embajador de Rosario Tech Week y organizo Shippear y NASA Space Apps Rosario. Organicé
-    4 hackathons en 3 meses, con +50 personas por evento. En una hackathon reciente, los
-    equipos entregaron software a medida a 18 ONGs internacionales como Amnistía, Techo,
-    CELS y el banco de alimentos.
+    Soy embajador de Rosario Tech Week y organizo Shippear y NASA Space Apps Rosario. Organicé 4
+    hackathons en 3 meses, con +50 personas por evento. En una hackathon reciente, los equipos
+    entregaron software a medida a 18 ONGs internacionales como Amnistía, Techo, CELS y el banco de
+    alimentos.
   </>,
   <>
-    Premios en NASA Space Apps (Local Award Winner y Global Nominee), ETHGlobal, Vercel
-    Hackathon 2026 y Platanus Hack 2026. Las hackathons no las miro de afuera: las armo y
-    las compito.
+    Premios en NASA Space Apps (Local Award Winner y Global Nominee), ETH Global, Vercel Hackathon
+    2026 y Platanus Hack 2026. Las hackathons no las miro de afuera: las armo y las compito.
   </>,
 ] as const
 
 export function SprintAbout() {
   return (
     <SprintSection id={SPRINT_ANCHORS.about} label="10 / Quién está detrás">
-      <SprintHeading>Alejandro Repetto</SprintHeading>
-      <SprintProse lead>
-        <p>Software Engineer enfocado en IA. Enseño IA, la bajo a tierra en empresas y la pongo a prueba con builders en hackathons. Vengo del deporte competitivo y trabajo igual: con deadline y bajo presión.</p>
-      </SprintProse>
+      <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-10">
+        <div className="relative mx-auto aspect-[4/5] w-36 shrink-0 overflow-hidden rounded-2xl ring-1 ring-border sm:mx-0 sm:w-44">
+          <ProfilePhoto alt="Alejandro Repetto, Software Engineer" sizes="176px" />
+        </div>
+        <div className="min-w-0 flex-1">
+          <SprintHeading>Alejandro Repetto</SprintHeading>
+          <SprintProse lead>
+            <p>
+              Software Engineer enfocado en IA. Enseño IA, la bajo a tierra en empresas y la pongo a
+              prueba con builders en hackathons. Vengo del deporte competitivo y trabajo igual: con
+              deadline y bajo presión.
+            </p>
+          </SprintProse>
+        </div>
+      </div>
 
       <div className="mt-8 grid gap-4 sm:grid-cols-3">
         {HIGHLIGHTS.map((h, i) => (

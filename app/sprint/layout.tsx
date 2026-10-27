@@ -18,10 +18,10 @@ export const metadata: Metadata = {
     siteName: "Alejandro Repetto",
     images: [
       {
-        url: "https://www.repetto-a.com/sprint/speaker.jpg",
+        url: "https://www.repetto-a.com/sprint/og.jpg",
         width: 1200,
         height: 630,
-        alt: "AI Execution Sprint - Alejandro Repetto",
+        alt: "Alejandro Repetto — AI Execution Sprint",
       },
     ],
   },
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title: "AI Execution Sprint: prototipos de IA construidos por tu equipo en 30 días",
     description:
       "Diagnóstico, capacitación aplicada y hackathon interna. Tu equipo termina con prototipos funcionando sobre sus propios procesos.",
-    images: ["https://www.repetto-a.com/sprint/speaker.jpg"],
+    images: ["https://www.repetto-a.com/sprint/og.jpg"],
   },
   robots: { index: true, follow: true },
 }

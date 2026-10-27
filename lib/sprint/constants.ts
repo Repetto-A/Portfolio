@@ -1,7 +1,17 @@
 export const CALENDLY_URL = "https://calendly.com/alejandrorepetto/diagnostico-ia"
-export const CRIA_URL = "https://www.cria.website/"
+export const CRIA_URL = "https://somoscria.ar/"
 export const ARGENTINA_SPACE_URL = "https://argentinaspace.com/"
 export const NEXA_URL = "https://nexa.builders"
+export const CONTACT_EMAIL = "contact@repetto-a.com"
+
+/**
+ * Precios públicos en /sprint.
+ *
+ * `false` para la charla del 28/10: el QR no debe mostrar montos.
+ * Volver a `true` para reactivar la sección 08 / Inversión (el componente
+ * `SprintPricing` no se borra).
+ */
+export const SHOW_SPRINT_PRICING = false
 
 export const SPRINT_ANCHORS = {
   problem: "problema",

@@ -3,6 +3,7 @@
 import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { SectionHeader } from "@/components/layout/section-header"
+import { ProfilePhoto } from "@/components/profile-photo"
 import { useTranslations, getTranslation } from "@/lib/i18n-context"
 
 export function AboutSection() {
@@ -12,9 +13,15 @@ export function AboutSection() {
     <Section id="about" variant="default" spacing="compact">
       <Container maxWidth="4xl">
         <div className="space-y-14">
+          <div className="flex justify-center">
+            <div className="relative h-28 w-28 overflow-hidden rounded-2xl ring-1 ring-border shadow-lg sm:h-32 sm:w-32">
+              <ProfilePhoto alt="Alejandro Repetto" sizes="128px" />
+            </div>
+          </div>
           <SectionHeader
             title={getTranslation(translations, "about.title")}
             description={getTranslation(translations, "about.bio.short")}
+            className="!mb-0"
           />
 
           <div className="grid md:grid-cols-2 gap-10 lg:gap-16">

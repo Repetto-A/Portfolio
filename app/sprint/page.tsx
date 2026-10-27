@@ -15,7 +15,7 @@ import { SprintFaq } from "@/components/sprint/sprint-faq"
 import { SprintCtaFinal } from "@/components/sprint/sprint-cta-final"
 import { SprintCriaLink } from "@/components/sprint/sprint-ext-link"
 import { SprintProofBand } from "@/components/sprint/sprint-proof-band"
-import { SPRINT_ANCHORS } from "@/lib/sprint/constants"
+import { CONTACT_EMAIL, SHOW_SPRINT_PRICING, SPRINT_ANCHORS } from "@/lib/sprint/constants"
 
 export default function SprintPage() {
   return (
@@ -49,7 +49,8 @@ export default function SprintPage() {
         <SprintGovernance />
         <SprintAudience />
         <SprintFormats />
-        <SprintPricing />
+        {/* Precios ocultos para la charla del 28/10. Reactivar con SHOW_SPRINT_PRICING. */}
+        {SHOW_SPRINT_PRICING ? <SprintPricing /> : null}
         <SprintGuarantee />
         <SprintAbout />
         <SprintPress />
@@ -60,15 +61,22 @@ export default function SprintPage() {
       <footer className="border-t border-border py-10">
         <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
           <p className="font-mono text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Alejandro Repetto · En colaboración con{" "}
-            <SprintCriaLink />
+            © {new Date().getFullYear()} Alejandro Repetto · En colaboración con <SprintCriaLink />
           </p>
-          <Link
-            href="/"
-            className="text-xs text-muted-foreground underline-offset-4 hover:underline"
-          >
-            Ver portfolio
-          </Link>
+          <div className="flex flex-wrap items-center gap-4">
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="text-xs text-muted-foreground underline-offset-4 hover:underline"
+            >
+              {CONTACT_EMAIL}
+            </a>
+            <Link
+              href="/"
+              className="text-xs text-muted-foreground underline-offset-4 hover:underline"
+            >
+              Ver portfolio
+            </Link>
+          </div>
         </div>
       </footer>
     </main>

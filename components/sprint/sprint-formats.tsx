@@ -24,7 +24,8 @@ const FORMATS: Format[] = [
     tier: "Core",
     name: "AI Training para equipos",
     stage: "Un área técnica o ejecutiva quiere capacitarse en serio",
-    includes: "Track técnico (automatización, agentes, RAG) o ejecutivo (criterio, casos y costos) + workflows por rol",
+    includes:
+      "Track técnico (automatización, agentes, RAG) o ejecutivo (criterio, casos y costos) + workflows por rol",
     duration: "3-6 sesiones",
   },
   {
@@ -32,7 +33,7 @@ const FORMATS: Format[] = [
     name: "Hackathon interna",
     stage: "Querés que tu equipo construya sobre problemas reales, con deadline",
     includes: "Desafíos definidos con tu empresa + mentoría + demo day con prototipos",
-    duration: "1-2 días [PENDIENTE]",
+    duration: "1-2 días",
   },
   {
     tier: "Pro",
@@ -57,16 +58,19 @@ const FORMATS: Format[] = [
   },
 ]
 
-function FormatIncludes({ includes, core }: { includes: string | readonly string[]; core?: boolean }) {
+function FormatIncludes({
+  includes,
+  core,
+}: {
+  includes: string | readonly string[]
+  core?: boolean
+}) {
   if (Array.isArray(includes)) {
     return (
       <ul className={cn("mt-3 space-y-2", core && "sm:columns-2 sm:gap-x-8")}>
         {includes.map((item) => (
           <li key={item} className="flex gap-2.5 text-sm leading-relaxed break-inside-avoid">
-            <Check
-              className="mt-0.5 size-4 shrink-0 text-[var(--sprint-accent)]"
-              aria-hidden
-            />
+            <Check className="mt-0.5 size-4 shrink-0 text-[var(--sprint-accent)]" aria-hidden />
             <span>{item}</span>
           </li>
         ))}
@@ -127,8 +131,8 @@ export function SprintFormats() {
       <SprintHeading>Cómo se compara cada formato</SprintHeading>
       <SprintProse lead>
         <p>
-          El corazón de la propuesta es el sprint completo. Los otros formatos son puntos de
-          entrada o de continuidad.
+          El corazón de la propuesta es el sprint completo. Los otros formatos son puntos de entrada
+          o de continuidad.
         </p>
       </SprintProse>
 

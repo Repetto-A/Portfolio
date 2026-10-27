@@ -5,8 +5,8 @@
       "locales": {
         "en": {
           "title": "NEXA",
-          "short": "Network connecting tech communities across Argentina and the region to centralize events, surface talent, and generate cross-community synergy. Currently in 2 countries, with 28 communities and 300K+ members.",
-          "description": "NEXA was built because tech communities in Argentina grow in isolation. Each organizes events, builds membership, and creates its own space, but they rarely intersect. That limits everyone's reach.\n\nI built NEXA so they stop growing alone. So a community doesn't end where its own reach ends. So organizers get tools they actually use. And so anyone in the ecosystem has one place to discover what's happening, where, and with whom.\n\nI posted it in a tweet. It went viral within hours. The ecosystem was waiting for this. Today we connect 28 communities across Argentina and Costa Rica, with over 300K active members. The target is all of LATAM.",
+          "short": "Network connecting tech communities across Argentina and the region to centralize events, surface talent, and generate cross-community synergy. +50 communities and +3M people.",
+          "description": "NEXA was built because tech communities in Argentina grow in isolation. Each organizes events, builds membership, and creates its own space, but they rarely intersect. That limits everyone's reach.\n\nI built NEXA so they stop growing alone. So a community doesn't end where its own reach ends. So organizers get tools they actually use. And so anyone in the ecosystem has one place to discover what's happening, where, and with whom.\n\nI posted it in a tweet. It went viral within hours. The ecosystem was waiting for this. Today we connect +50 communities with +3M people. The target is all of LATAM.",
           "features": [
             "Public community profiles with geographic discovery and a shared event agenda",
             "Moderated application and onboarding flow for new communities",
@@ -19,8 +19,8 @@
         },
         "es": {
           "title": "NEXA",
-          "short": "Red que conecta comunidades tech de Argentina y la región para centralizar eventos, visibilizar talento y generar sinergia entre ecosistemas. Actualmente en 2 países, conformada por 28 comunidades y 300K+ miembros.",
-          "description": "NEXA nació porque las comunidades tech en Argentina crecen aisladas. Cada una organiza eventos, suma miembros y construye su propio espacio, pero rara vez se cruzan. Eso limita el alcance de todas.\n\nConstruí NEXA para que dejen de crecer solas. Para que una comunidad no termine donde termina su propio alcance. Para que los organizadores tengan herramientas que realmente usen. Y para que cualquier persona del ecosistema tenga un solo lugar donde descubrir qué está pasando, dónde y con quién.\n\nLo publiqué en un tweet. En horas se viralizó. El ecosistema estaba esperando esto. Hoy conectamos 28 comunidades en Argentina y Costa Rica, con más de 300 mil miembros activos. La mira está puesta en toda LATAM.",
+          "short": "Red que conecta comunidades tech de Argentina y la región para centralizar eventos, visibilizar talento y generar sinergia entre ecosistemas. +50 comunidades y +3M de personas.",
+          "description": "NEXA nació porque las comunidades tech en Argentina crecen aisladas. Cada una organiza eventos, suma miembros y construye su propio espacio, pero rara vez se cruzan. Eso limita el alcance de todas.\n\nConstruí NEXA para que dejen de crecer solas. Para que una comunidad no termine donde termina su propio alcance. Para que los organizadores tengan herramientas que realmente usen. Y para que cualquier persona del ecosistema tenga un solo lugar donde descubrir qué está pasando, dónde y con quién.\n\nLo publiqué en un tweet. En horas se viralizó. El ecosistema estaba esperando esto. Hoy conectamos +50 comunidades con +3M de personas. La mira está puesta en toda LATAM.",
           "features": [
             "Perfiles públicos de comunidades con descubrimiento geográfico y agenda de eventos compartida",
             "Flujo de postulación y onboarding moderado para nuevas comunidades",

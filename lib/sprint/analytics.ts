@@ -1,6 +1,6 @@
 import type { CTALocation } from "./constants"
 
-type SprintEvent = "cta_calendly_click" | "cta_checklist_click"
+type SprintEvent = "cta_calendly_click" | "cta_checklist_click" | "cta_email_click"
 
 declare global {
   interface Window {

@@ -19,6 +19,12 @@ export function Footer() {
             <p className="text-muted-foreground text-xs">
               © {currentYear} · {getTranslation(translations, "footer.rights")}
             </p>
+            <Link
+              href="/sprint"
+              className="mt-2 inline-block text-xs text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+            >
+              {getTranslation(translations, "footer.sprint")}
+            </Link>
           </div>
 
           <div className="flex items-center space-x-6">

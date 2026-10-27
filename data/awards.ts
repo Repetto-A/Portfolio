@@ -64,7 +64,7 @@ export const awards: Award[] = [
     category: "DAOs / Web3",
     shortSummary: {
       en: "Recognized for best PowerHouse implementation showcasing exceptional technical execution and rapid prototyping in blockchain technology.",
-      es: "Reconocido por la mejor implementacion de PowerHouse, demostrando ejecucion tecnica excepcional y prototipado rapido en tecnologia blockchain.",
+      es: "Reconocido por la mejor implementación de PowerHouse, demostrando ejecución técnica excepcional y prototipado rápido en tecnología blockchain.",
     },
     proofUrl: null,
     tags: [
@@ -112,7 +112,7 @@ export const awards: Award[] = [
     category: "Game / AgTech",
     shortSummary: {
       en: "Educational agricultural simulator using real NASA and CONAE satellite data to teach sustainable farming and resource management.",
-      es: "Simulador agricola educativo que usa datos satelitales reales de NASA y CONAE para ensenar agricultura sostenible y gestion de recursos.",
+      es: "Simulador agrícola educativo que usa datos satelitales reales de NASA y CONAE para enseñar agricultura sostenible y gestión de recursos.",
     },
     proofUrl: null,
     tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "NASA & CONAE Data"],
@@ -272,7 +272,7 @@ export const awards: Award[] = [
     category: "DeFi / Web3",
     shortSummary: {
       en: "DeFi savings escrow with gamified no-loss lottery model and Self Protocol age verification.",
-      es: "Escrow DeFi de ahorro con modelo gamificado de loteria sin perdida y verificacion de edad con Self Protocol.",
+      es: "Escrow DeFi de ahorro con modelo gamificado de lotería sin pérdida y verificación de edad con Self Protocol.",
     },
     proofUrl: null,
     tags: [

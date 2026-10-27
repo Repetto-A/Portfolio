@@ -41,20 +41,26 @@ const TIERS: Tier[] = [
     name: "Implementation",
     price: "Mensual · a medida",
     stage: "Para implementar lo que salió del sprint.",
-    includes: ["Acompañamiento mensual", "Prototipos llevados a producción", "Métricas de adopción"],
+    includes: [
+      "Acompañamiento mensual",
+      "Prototipos llevados a producción",
+      "Métricas de adopción",
+    ],
   },
 ]
 
+/**
+ * Sección de inversión. No borrar: se oculta con SHOW_SPRINT_PRICING=false.
+ */
 export function SprintPricing() {
   return (
     <SprintSection id={SPRINT_ANCHORS.pricing} label="08 / Inversión" spacing="compact">
       <SprintHeading>La inversión, según cómo quieras empezar</SprintHeading>
       <SprintProse lead>
         <p>
-          El corazón de la propuesta es el sprint completo. Los otros formatos son puntos
-          de entrada. Para dimensionarlo: cuesta menos que una consultoría tradicional que
-          termina en un informe, y acá te vas con tu equipo capacitado y prototipos
-          funcionando.
+          El corazón de la propuesta es el sprint completo. Los otros formatos son puntos de
+          entrada. Para dimensionarlo: cuesta menos que una consultoría tradicional que termina en
+          un informe, y acá te vas con tu equipo capacitado y prototipos funcionando.
         </p>
       </SprintProse>
 
@@ -78,9 +84,7 @@ export function SprintPricing() {
             <span className="font-mono text-xs tracking-[0.15em] text-muted-foreground uppercase">
               {t.tier}
             </span>
-            <h3 className={cn("mt-2 font-semibold", t.core ? "text-xl" : "text-lg")}>
-              {t.name}
-            </h3>
+            <h3 className={cn("mt-2 font-semibold", t.core ? "text-xl" : "text-lg")}>{t.name}</h3>
             <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{t.stage}</p>
 
             <p
@@ -143,12 +147,11 @@ export function SprintPricing() {
       </div>
 
       <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
-        El precio final depende de tres cosas: cuántas personas participan, si es
-        presencial o remoto y cuántos procesos atacamos. Lo cerramos en el diagnóstico,
-        por escrito y antes de que te comprometas a nada. Si todavía están evaluando,
-        podés arrancar con un Executive Briefing de 2 a 4 horas (USD 500 a 1.500) para
-        que la dirección decida con criterio. La hackathon interna también se puede
-        contratar suelta: se cotiza a medida [PENDIENTE].
+        El precio final depende de tres cosas: cuántas personas participan, si es presencial o
+        remoto y cuántos procesos atacamos. Lo cerramos en el diagnóstico, por escrito y antes de
+        que te comprometas a nada. Si todavía están evaluando, podés arrancar con un Executive
+        Briefing de 2 a 4 horas (USD 500 a 1.500) para que la dirección decida con criterio. La
+        hackathon interna también se puede contratar suelta: se cotiza a medida.
       </p>
     </SprintSection>
   )

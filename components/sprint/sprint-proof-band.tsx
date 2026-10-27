@@ -2,6 +2,7 @@ import Image from "next/image"
 
 /**
  * Banda visual full-bleed: Alejandro presentando en vivo ante una sala.
+ * Esta no es la foto de perfil: se deja speaker.jpg a propósito.
  */
 export function SprintProofBand() {
   return (
