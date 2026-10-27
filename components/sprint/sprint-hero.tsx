@@ -35,7 +35,11 @@ export function SprintHero() {
             <div className="sprint-enter sprint-enter-3 mt-9 flex flex-col gap-3">
               <SprintDirectContact
                 location="hero"
-                calendlyLabel="Agendar diagnóstico gratuito de 20 min"
+                calendlyLabel={
+                  <>
+                    Agendar diagnóstico de <span className="whitespace-nowrap">20 min</span>
+                  </>
+                }
               />
               <a
                 href={`#${SPRINT_ANCHORS.howItWorks}`}
