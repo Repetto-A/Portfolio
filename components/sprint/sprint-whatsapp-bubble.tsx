@@ -33,11 +33,11 @@ export function SprintWhatsAppBubble() {
         rel="noopener noreferrer"
         aria-label="Hablemos por WhatsApp"
         onClick={() => captureCTA("cta_whatsapp_click", { location: "fab" })}
-        className="pointer-events-auto group flex flex-col items-end gap-2 rounded-2xl focus-visible:outline-none sm:flex-row sm:items-center sm:gap-2.5"
+        className="pointer-events-auto group flex items-center gap-2.5 rounded-2xl focus-visible:outline-none"
       >
         <span
           aria-hidden
-          className="max-w-[min(12.5rem,calc(100vw-5.5rem))] rounded-2xl border border-border bg-card px-3 py-2 text-left text-xs font-medium leading-snug text-foreground shadow-md sm:max-w-none sm:whitespace-nowrap"
+          className="hidden whitespace-nowrap rounded-2xl border border-border bg-card px-3 py-2 text-xs font-medium leading-snug text-foreground shadow-md sm:inline"
         >
           Hablemos por WhatsApp
         </span>

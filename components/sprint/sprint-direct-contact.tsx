@@ -34,7 +34,7 @@ export function SprintDirectContact({
       <a
         href={`mailto:${CONTACT_EMAIL}`}
         onClick={() => captureCTA("cta_email_click", { location })}
-        className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-md border border-border px-5 py-3 text-sm font-medium transition-[border-color,background-color,color,transform] duration-200 ease-out hover:border-foreground/40 hover:bg-muted/50 active:scale-[0.98] sm:w-auto"
+        className="inline-flex min-h-[44px] w-fit items-center justify-center gap-2 rounded-md border border-border px-5 py-3 text-sm font-medium transition-[border-color,background-color,color,transform] duration-200 ease-out hover:border-foreground/40 hover:bg-muted/50 active:scale-[0.98]"
       >
         <Mail className="size-4 shrink-0" aria-hidden />
         {CONTACT_EMAIL}
