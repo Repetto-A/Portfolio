@@ -13,6 +13,15 @@ export const CONTACT_EMAIL = "contact@repetto-a.com"
  */
 export const SHOW_SPRINT_PRICING = false
 
+/**
+ * Bloque "Portal del sprint" (portal.repetto-a.com / panel de métricas).
+ *
+ * `false`: la plataforma no está lista. El componente `SprintPortalPreview`
+ * y el markup en `SprintDeliverables` no se borran; volver a `true` para
+ * reactivar la sección.
+ */
+export const SHOW_SPRINT_PORTAL = false
+
 export const SPRINT_ANCHORS = {
   problem: "problema",
   promise: "promesa",

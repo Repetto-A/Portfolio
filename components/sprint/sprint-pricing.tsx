@@ -44,7 +44,7 @@ const TIERS: Tier[] = [
     includes: [
       "Acompañamiento mensual",
       "Prototipos llevados a producción",
-      "Métricas de adopción",
+      "Seguimiento de implementación",
     ],
   },
 ]
