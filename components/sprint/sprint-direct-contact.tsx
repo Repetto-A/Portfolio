@@ -15,7 +15,7 @@ interface SprintDirectContactProps {
 
 /**
  * Contacto directo visible: Calendly + email.
- * No hay número de WhatsApp en el repo.
+ * WhatsApp vive en la burbuja flotante (SprintWhatsAppBubble).
  */
 export function SprintDirectContact({
   location,

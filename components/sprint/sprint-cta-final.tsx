@@ -14,7 +14,7 @@ export function SprintCtaFinal() {
         par de ideas accionables.
       </p>
 
-      <div className="mt-10">
+      <div className="mt-10 max-sm:pr-16">
         <SprintDirectContact location="footer" />
       </div>
     </SprintSection>

@@ -15,6 +15,7 @@ import { SprintFaq } from "@/components/sprint/sprint-faq"
 import { SprintCtaFinal } from "@/components/sprint/sprint-cta-final"
 import { SprintCriaLink } from "@/components/sprint/sprint-ext-link"
 import { SprintProofBand } from "@/components/sprint/sprint-proof-band"
+import { SprintWhatsAppBubble } from "@/components/sprint/sprint-whatsapp-bubble"
 import { CONTACT_EMAIL, SHOW_SPRINT_PRICING, SPRINT_ANCHORS } from "@/lib/sprint/constants"
 
 export default function SprintPage() {
@@ -58,8 +59,8 @@ export default function SprintPage() {
         <SprintCtaFinal />
       </div>
 
-      <footer className="border-t border-border py-10">
-        <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+      <footer className="border-t border-border pt-10 pb-28 sm:pb-10">
+        <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 pl-4 pr-20 sm:px-6 lg:px-8">
           <p className="font-mono text-xs text-muted-foreground">
             © {new Date().getFullYear()} Alejandro Repetto · En colaboración con <SprintCriaLink />
           </p>
@@ -79,6 +80,8 @@ export default function SprintPage() {
           </div>
         </div>
       </footer>
+
+      <SprintWhatsAppBubble />
     </main>
   )
 }

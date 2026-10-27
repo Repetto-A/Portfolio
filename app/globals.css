@@ -432,3 +432,31 @@ body {
     display: none;
   }
 }
+
+/* Burbuja WhatsApp: pulso sutil en anillos, no en el botón */
+@keyframes sprint-wa-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.42;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+.sprint-wa-pulse {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sprint-wa-pulse {
+    animation: sprint-wa-pulse 2.6s var(--sprint-ease-out) infinite;
+  }
+  .sprint-wa-pulse-delay {
+    animation-delay: 0.85s;
+  }
+}

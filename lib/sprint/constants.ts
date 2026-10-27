@@ -3,6 +3,9 @@ export const CRIA_URL = "https://somoscria.ar/"
 export const ARGENTINA_SPACE_URL = "https://argentinaspace.com/"
 export const NEXA_URL = "https://nexa.builders"
 export const CONTACT_EMAIL = "contact@repetto-a.com"
+export const WHATSAPP_NUMBER = "5493471337412"
+export const WHATSAPP_PREFILL = "Hola Ale, vengo de la charla y quiero saber más del sprint de IA"
+export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_PREFILL)}`
 
 /**
  * Precios públicos en /sprint.
@@ -63,4 +66,4 @@ export const SPRINT_SECTION_LABELS = {
 
 export type SprintAnchor = (typeof SPRINT_ANCHORS)[keyof typeof SPRINT_ANCHORS]
 
-export type CTALocation = "hero" | "audience" | "pricing" | "guarantee" | "footer"
+export type CTALocation = "hero" | "audience" | "pricing" | "guarantee" | "footer" | "fab"
