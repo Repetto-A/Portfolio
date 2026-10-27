@@ -1,6 +1,5 @@
 import { SprintSection, SprintHeading, SprintProse } from "./sprint-section"
 import { SprintCriaLink, SprintNexaLink } from "./sprint-ext-link"
-import { ProfilePhoto } from "@/components/profile-photo"
 import { SPRINT_ANCHORS, SPRINT_SECTION_LABELS } from "@/lib/sprint/constants"
 import { SPRINT_AWARDS } from "@/lib/sprint/proof"
 
@@ -45,21 +44,14 @@ const FACTS = [
 export function SprintAbout() {
   return (
     <SprintSection id={SPRINT_ANCHORS.about} label={SPRINT_SECTION_LABELS.about}>
-      <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-10">
-        <div className="relative mx-auto aspect-[4/5] w-36 shrink-0 overflow-hidden rounded-2xl ring-1 ring-border sm:mx-0 sm:w-44">
-          <ProfilePhoto alt="Alejandro Repetto, Software Engineer" sizes="176px" />
-        </div>
-        <div className="min-w-0 flex-1">
-          <SprintHeading>Alejandro Repetto</SprintHeading>
-          <SprintProse lead>
-            <p>
-              Software Engineer enfocado en IA. Enseño IA, la bajo a tierra en empresas y la pongo a
-              prueba con builders en hackathons. Vengo del deporte competitivo y trabajo igual: con
-              deadline y bajo presión.
-            </p>
-          </SprintProse>
-        </div>
-      </div>
+      <SprintHeading>Alejandro Repetto</SprintHeading>
+      <SprintProse lead>
+        <p>
+          Software Engineer enfocado en IA. Enseño IA, la bajo a tierra en empresas y la pongo a
+          prueba con builders en hackathons. Vengo del deporte competitivo y trabajo igual: con
+          deadline y bajo presión.
+        </p>
+      </SprintProse>
 
       <div className="mt-8 grid gap-4 sm:grid-cols-3">
         {HIGHLIGHTS.map((h, i) => (

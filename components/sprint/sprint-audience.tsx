@@ -13,7 +13,7 @@ const CRITERIA = [
   },
   {
     label: "Equipo",
-    text: "Al menos 5 personas pueden dedicar 3–4 horas semanales al laboratorio y usar las clases para sacarse dudas",
+    text: "Al menos 5 personas pueden dedicar 3-4 horas semanales al laboratorio y usar las clases para sacarse dudas",
   },
   {
     label: "Compromiso",

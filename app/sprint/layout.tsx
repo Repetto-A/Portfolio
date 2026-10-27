@@ -21,7 +21,7 @@ export const metadata: Metadata = {
         url: "https://www.repetto-a.com/sprint/og.jpg",
         width: 1200,
         height: 630,
-        alt: "Alejandro Repetto — AI Execution Sprint",
+        alt: "Alejandro Repetto, AI Execution Sprint",
       },
     ],
   },

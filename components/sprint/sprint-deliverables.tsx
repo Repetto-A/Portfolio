@@ -75,19 +75,19 @@ export function SprintDeliverables() {
         ))}
       </ul>
 
-      <div className="scroll-reveal mt-12 rounded-xl border border-[oklch(0.88_0.014_75)] bg-[oklch(0.985_0.006_75)] p-6 sm:p-8 dark:border-[oklch(0.32_0.012_75)] dark:bg-[oklch(0.2_0.008_75)]">
+      <div className="scroll-reveal mt-12 rounded-xl border border-border bg-card p-6 sm:p-8">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6">
           <MonitorPlay className="size-8 shrink-0 text-[var(--sprint-accent)]" aria-hidden />
-          <div>
+          <div className="min-w-0 flex-1">
             <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--sprint-accent)]">
               Portal del sprint
             </p>
-            <h3 className="mt-2 font-serif text-lg font-semibold tracking-tight">
+            <h3 className="mt-2 font-serif text-lg font-semibold tracking-tight text-foreground">
               El material de tu sprint, en un solo lugar
             </h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
               Grabaciones, prompts y ejercicios con acceso provisionado por tu empresa. El sponsor
-              consulta adopción y exporta métricas desde el panel — sin link público ni material
+              consulta adopción y exporta métricas desde el panel, sin link público ni material
               perdido en un drive.
             </p>
             <SprintPortalPreview />
