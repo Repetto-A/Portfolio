@@ -1,0 +1,25 @@
+services:
+  portfolio-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: portfolio-web
+    restart: unless-stopped
+    networks:
+      - caddy-network
+    env_file:
+      - .env
+    # No port mapping to host — only accessible through caddy-network
+    # ports:
+    #   - "3000:3000"
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://127.0.0.1:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  caddy-network:
+    external: true
+    name: ${CADDY_NETWORK:-caddy-network}

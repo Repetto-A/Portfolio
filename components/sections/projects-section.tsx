@@ -8,7 +8,7 @@ import { ProjectDetailModal } from "@/components/project-detail-modal"
 import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { SectionHeader } from "@/components/layout/section-header"
-import { ExternalLink, Github, Code, Zap, Calendar, Eye } from "lucide-react"
+import { ExternalLink, Github, Code, Zap, Calendar, Eye, Shield, ScanLine } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import projectsData from "@/content/projects.json"
@@ -23,6 +23,9 @@ const categoryIcons = {
   "Blockchain/AI": ExternalLink,
   "Healthcare System": Calendar,
   "Game / AgTech": Eye,
+  "AI / Security Infrastructure": Shield,
+  "AI / Industrial Vision": ScanLine,
+  "AI / Social Impact": Eye,
 }
 
 interface Project {
@@ -37,7 +40,7 @@ interface Project {
   }
   status: string
   techStack: string[]
-  githubUrl: string
+  githubUrl: string | null
   demoUrl: string | null
   images: string[]
   category: keyof typeof categoryIcons
@@ -54,6 +57,9 @@ export function ProjectsSection() {
   const projects = projectsData.projects.map(
     (projectData): Project => ({
       ...projectData,
+      githubUrl: projectData.githubUrl ?? null,
+      demoUrl: projectData.demoUrl ?? null,
+      images: projectData.images ?? [],
       status: projectData.status in statusConfig ? projectData.status : "in-progress",
       category: (projectData.category in categoryIcons
         ? projectData.category
@@ -99,7 +105,7 @@ export function ProjectsSection() {
         <SectionHeader
           title={getTranslation(translations, "projects.title")}
           description={getTranslation(translations, "projects.description")}
-          eyebrow="Selected Work"
+          eyebrow={getTranslation(translations, "projects.eyebrow")}
         />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -115,7 +121,8 @@ export function ProjectsSection() {
                 key={project.id}
                 id={`project-${project.id}`}
                 data-project-id={project.id}
-                className={`group hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 h-full flex flex-col overflow-hidden border-border hover:border-primary/30 scroll-reveal-stagger-${(index % 3) + 1}`}
+                onClick={() => handleProjectModalOpen(project)}
+                className={`group hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 h-full flex flex-col overflow-hidden border-border hover:border-primary/30 cursor-pointer scroll-reveal-stagger-${(index % 3) + 1}`}
               >
                 {/* Project thumbnail — -mt-6 to break out of Card's py-6 top padding */}
                 {project.images?.[0] && (
@@ -146,13 +153,10 @@ export function ProjectsSection() {
                     </Badge>
                   </div>
 
-                  <CardTitle className="text-lg leading-snug group-hover:text-primary transition-colors">
-                    <button
-                      onClick={() => handleProjectModalOpen(project)}
-                      className="hover:underline text-left w-full underline-offset-4"
-                    >
+                  <CardTitle className="text-lg leading-snug group-hover:text-primary transition-colors pointer-events-none">
+                    <span className="hover:underline text-left w-full underline-offset-4">
                       {projectContent.title}
-                    </button>
+                    </span>
                   </CardTitle>
                 </CardHeader>
 
@@ -181,6 +185,7 @@ export function ProjectsSection() {
                           href={project.githubUrl}
                           target="_blank"
                           rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
                           className="text-muted-foreground hover:text-foreground transition-colors"
                         >
                           <Github className="h-4 w-4" />
@@ -192,22 +197,29 @@ export function ProjectsSection() {
                           href={project.demoUrl}
                           target="_blank"
                           rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
                           className="text-muted-foreground hover:text-foreground transition-colors"
                         >
                           <ExternalLink className="h-4 w-4" />
                           <span className="sr-only">Demo</span>
                         </Link>
                       )}
+                      <Link
+                        href={`/projects/${project.id}`}
+                        onClick={(e) => e.stopPropagation()}
+                        className="text-muted-foreground hover:text-foreground transition-colors"
+                        aria-label={getTranslation(translations, "projects.viewFullPage")}
+                      >
+                        <Eye className="h-4 w-4" />
+                        <span className="sr-only">
+                          {getTranslation(translations, "projects.viewFullPage")}
+                        </span>
+                      </Link>
                     </div>
 
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={() => handleProjectModalOpen(project)}
-                      className="text-xs h-7 px-2.5 text-muted-foreground hover:text-primary"
-                    >
-                      {getTranslation(translations, "projects.cta.learnMore")}
-                    </Button>
+                    <span className="text-xs h-7 px-2.5 text-muted-foreground group-hover:text-primary inline-flex items-center">
+                      {getTranslation(translations, "projects.cta.learnMore")} →
+                    </span>
                   </div>
                 </CardContent>
               </Card>

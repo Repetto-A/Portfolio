@@ -3,8 +3,8 @@
 import { Button } from "@/components/ui/button"
 import { ArrowDown, ExternalLink } from "lucide-react"
 import Link from "next/link"
-import Image from "next/image"
 import { useTranslations, getTranslation, getResumeUrl } from "@/lib/i18n-context"
+import { ProfilePhoto } from "@/components/profile-photo"
 import { useScrollContext } from "@/lib/scroll-context"
 import { cn } from "@/lib/utils"
 
@@ -110,14 +110,10 @@ export function HeroSection() {
 
               {/* Image container — edge-to-edge, clean */}
               <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl ring-1 ring-border">
-                <Image
-                  src="/placeholder.jpg"
-                  alt="Alejandro Repetto - Systems Engineer specializing in AI/ML and automation"
-                  fill
-                  className="object-cover"
-                  priority
+                <ProfilePhoto
+                  alt="Alejandro Repetto, Software Engineer"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
-                  quality={90}
+                  priority
                 />
                 {/* Subtle gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-background/25 via-transparent to-transparent pointer-events-none" />

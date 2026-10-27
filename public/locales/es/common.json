@@ -27,16 +27,16 @@
     "scroll": "Conoce más"
   },
   "about": {
-    "title": "Acerca de Mí",
+    "title": "Acerca de mí",
     "bio": {
       "short": "Soy estudiante de Ingeniería en Sistemas y un nerd al que le fascina resolver problemas. Encontré en el software mi santo grial para lograrlo. Soy muy bueno automatizando tareas que solían llevar incontables horas y empleados, y lo hago de forma escalable, eficiente y segura, gracias a mi pasión por la programación competitiva y la ciberseguridad. Ante todo soy curioso y me encantan los desafíos.",
       "background": {
         "title": "Trayectoria",
-        "text": "Programo seriamente desde el 2022, cuando obtuve el 6to puesto en mi primer torneo ICPC. Un training camp de invierno en 2024 fue un punto de inflexión que transformó mi forma de abordar desafíos técnicos.\n\nMis proyectos van desde algoritmos de predicción para NASA Space Apps hasta sistemas en producción con arquitecturas RAG."
+        "text": "Programo seriamente desde el 2022, cuando obtuve el 6to puesto en mi primer torneo ICPC. Un training camp de invierno en 2024 fue un punto de inflexión que transformó mi forma de abordar desafíos técnicos.\n\nHoy soy docente en la Diplomatura de IA aplicada al ejercicio profesional (UCEL), capacitador y consultor en IA para empresas en CRIA, founder de NEXA (+3M de personas en +50 comunidades) y SpaceXAI Ambassador.\n\nMis proyectos van desde algoritmos de predicción para NASA Space Apps hasta sistemas en producción con arquitecturas RAG."
       },
       "approach": {
         "title": "Enfoque",
-        "text": "Soy muy pragmático, si bien la programación competitiva me entrenó para siempre analizar la complejidad temporal y espacial de mis proyectos, las múltiples hackathones en las que participé me enseñaron a desarrollar y validar MVP's rápido, sin olvidar la arquitectura y el correcto diseño de sistemas distribuidos que me dió la ingenieria."
+        "text": "Soy muy pragmático. Si bien la programación competitiva me entrenó para siempre analizar la complejidad temporal y espacial de mis proyectos, las múltiples hackathons en las que participé me enseñaron a desarrollar y validar MVPs rápido, sin olvidar la arquitectura y el correcto diseño de sistemas distribuidos que me dio la ingeniería."
       }
     }
   },
@@ -75,13 +75,18 @@
       "Blockchain/DeFi": "Blockchain/DeFi",
       "Blockchain/AI": "Blockchain/IA",
       "Healthcare System": "Sistema de Salud",
-      "Game / AgTech": "Juego / AgTech"
+      "Game / AgTech": "Juego / AgTech",
+      "AI / Security Infrastructure": "IA / Infraestructura de Seguridad",
+      "AI / Industrial Vision": "IA / Visión Industrial",
+      "AI / Social Impact": "IA / Impacto Social"
     },
+    "eyebrow": "Trabajo Destacado",
     "status": {
       "in-progress": "En Progreso",
       "production": "Producción",
       "prototype": "Prototipo",
-      "winner-local / in-evaluation-global": "Ganador - En Evaluación Global"
+      "winner-local / in-evaluation-global": "Ganador - En Evaluación Global",
+      "regional-winner-global-nominee": "Ganador Regional · Nominado Global"
     },
     "cta": {
       "learnMore": "Conoce Más",
@@ -104,7 +109,20 @@
     "collaboration": {
       "title": "¿Interesado en colaborar?",
       "description": "Siempre estoy abierto a discutir nuevos proyectos y oportunidades en ingeniería en sistemas e IA/ML."
-    }
+    },
+    "notFound": {
+      "title": "Proyecto No Encontrado",
+      "description": "El proyecto que buscas no existe o fue movido."
+    },
+    "viewFullPage": "Ver Página Completa"
+  },
+  "awards": {
+    "title": "Algunos premios y reconocimientos",
+    "eyebrow": "Reconocimientos",
+    "keyTechnologies": "Tecnologías Clave",
+    "viewAwardDetails": "Ver Detalles del Premio",
+    "seeProject": "Ver Proyecto",
+    "seeProjectAria": "Ver proyecto {{title}}"
   },
   "contact": {
     "info": {
@@ -162,7 +180,8 @@
   },
   "footer": {
     "rights": "Todos los derechos reservados.",
-    "built": "Construido con Next.js y Tailwind CSS"
+    "built": "Construido con Next.js y Tailwind CSS",
+    "sprint": "Capacitaciones de IA"
   },
   "language": {
     "switch": "Cambiar a Inglés",

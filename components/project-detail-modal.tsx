@@ -19,6 +19,7 @@ import {
   ChevronLeft,
   ChevronRight,
   Expand,
+  Eye,
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
@@ -236,6 +237,12 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
 
               {/* Links */}
               <div className="flex flex-wrap gap-3 pt-2">
+                <Button asChild variant="secondary" size="sm">
+                  <Link href={`/projects/${project.id}`} onClick={onClose}>
+                    <Eye className="mr-2 h-4 w-4" />
+                    {getTranslation(translations, "projects.viewFullPage")}
+                  </Link>
+                </Button>
                 {project.githubUrl && (
                   <Button asChild variant="outline" size="sm">
                     <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">

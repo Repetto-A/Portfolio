@@ -108,7 +108,7 @@ export function generatePersonSchema() {
     name: "Alejandro Repetto",
     alternateName: "Repetto-A",
     url: "https://www.repetto-a.com",
-    image: "https://www.repetto-a.com/og-image.png",
+    image: "https://www.repetto-a.com/alejandro.webp",
     jobTitle: "Systems Engineer & AI/ML Developer",
     worksFor: {
       "@type": "EducationalOrganization",
@@ -228,14 +228,6 @@ export function generateWebSiteSchema() {
     author: {
       "@type": "Person",
       name: siteConfig.author.name,
-    },
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: `${siteConfig.url}/projects?q={search_term_string}`,
-      },
-      "query-input": "required name=search_term_string",
     },
   }
 }

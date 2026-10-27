@@ -15,7 +15,7 @@
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
+  --muted-foreground: oklch(0.44 0 0);
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
@@ -51,7 +51,7 @@
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
+  --muted-foreground: oklch(0.75 0 0);
   --accent: oklch(0.269 0 0);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.396 0.141 25.723);
@@ -153,6 +153,13 @@ body {
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    /* Evita el overlay negro al tocar elementos en dispositivos táctiles */
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--sprint-accent, oklch(0.646 0.222 41.116)) 30%, transparent);
+    color: var(--foreground);
   }
 
   body {
@@ -319,5 +326,137 @@ body {
 
   a[href]:after {
     content: " (" attr(href) ")";
+  }
+}
+
+/* ── Sprint: motion ────────────────────────────────── */
+/* Easing fuerte para UI (cubic-bezier de easing.dev, estilo iOS) */
+:root {
+  --sprint-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Entrada del hero al montar: cascada corta, solo transform + opacity */
+@keyframes sprint-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sprint-enter {
+  animation: sprint-rise 0.6s var(--sprint-ease-out) both;
+}
+.sprint-enter-2 {
+  animation-delay: 70ms;
+}
+.sprint-enter-3 {
+  animation-delay: 140ms;
+}
+.sprint-enter-4 {
+  animation-delay: 220ms;
+}
+
+/* Marca de acento de cada sección: la línea se dibuja al entrar en viewport */
+@keyframes sprint-grow-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .sprint-label-line {
+      transform-origin: left;
+      animation: sprint-grow-x 0.6s var(--sprint-ease-out) both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 30%;
+    }
+  }
+}
+
+/* Foto full-bleed: zoom-out sutil ligado al scroll (profundidad sin JS) */
+@keyframes sprint-kenburns {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .sprint-kenburns {
+      animation: sprint-kenburns linear both;
+      animation-timeline: view();
+      animation-range: entry 0% exit 100%;
+    }
+  }
+}
+
+/* ── Marquee (press logos) ─────────────────────────── */
+@keyframes sprint-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.sprint-marquee {
+  display: flex;
+  width: max-content;
+  animation: sprint-marquee 45s linear infinite;
+}
+
+/* Pausa al hover sobre la fila completa */
+.sprint-marquee-viewport:hover .sprint-marquee {
+  animation-play-state: paused;
+}
+
+/* Respeta prefers-reduced-motion: fila estática que envuelve, sin duplicados */
+@media (prefers-reduced-motion: reduce) {
+  .sprint-marquee {
+    animation: none;
+    width: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 1.5rem;
+    padding-right: 0;
+  }
+  .sprint-marquee-dup {
+    display: none;
+  }
+}
+
+/* Burbuja WhatsApp: pulso sutil en anillos, no en el botón */
+@keyframes sprint-wa-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.42;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+.sprint-wa-pulse {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sprint-wa-pulse {
+    animation: sprint-wa-pulse 2.6s var(--sprint-ease-out) infinite;
+  }
+  .sprint-wa-pulse-delay {
+    animation-delay: 0.85s;
   }
 }

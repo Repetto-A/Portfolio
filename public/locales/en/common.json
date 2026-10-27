@@ -32,7 +32,7 @@
       "short": "I'm a Systems Engineering student and a nerd who loves solving problems. I found in software my holy grail for doing it. I'm very good at automating tasks that used to take countless hours and entire teams, doing it scalably, efficiently and securely, driven by my passion for competitive programming and cybersecurity. Above all, I'm curious and love a good challenge.",
       "background": {
         "title": "Background",
-        "text": "I've been programming seriously since 2022, when I placed 6th in my first ICPC tournament. A 2024 winter training camp was a turning point that transformed how I approach technical challenges.\n\nMy projects range from NASA Space Apps prediction algorithms to production systems with RAG architectures."
+        "text": "I've been programming seriously since 2022, when I placed 6th in my first ICPC tournament. A 2024 winter training camp was a turning point that transformed how I approach technical challenges.\n\nToday I'm a lecturer in the Diploma in AI applied to professional practice (UCEL), an AI trainer and consultant for companies at CRIA, founder of NEXA (+3M people across +50 communities), and a SpaceXAI Ambassador.\n\nMy projects range from NASA Space Apps prediction algorithms to production systems with RAG architectures."
       },
       "approach": {
         "title": "Approach",
@@ -75,13 +75,18 @@
       "Blockchain/DeFi": "Blockchain/DeFi",
       "Blockchain/AI": "Blockchain/AI",
       "Healthcare System": "Healthcare System",
-      "Game / AgTech": "Game / AgTech"
+      "Game / AgTech": "Game / AgTech",
+      "AI / Security Infrastructure": "AI / Security Infrastructure",
+      "AI / Industrial Vision": "AI / Industrial Vision",
+      "AI / Social Impact": "AI / Social Impact"
     },
+    "eyebrow": "Selected Work",
     "status": {
       "in-progress": "In Progress",
       "production": "Production",
       "prototype": "Prototype",
-      "winner-local / in-evaluation-global": "Winner - Under Global Evaluation"
+      "winner-local / in-evaluation-global": "Winner - Under Global Evaluation",
+      "regional-winner-global-nominee": "Regional Winner · Global Nominee"
     },
     "cta": {
       "learnMore": "Learn More",
@@ -104,7 +109,20 @@
     "collaboration": {
       "title": "Interested in collaborating?",
       "description": "I'm always open to discussing new projects and opportunities in systems engineering and AI/ML."
-    }
+    },
+    "notFound": {
+      "title": "Project Not Found",
+      "description": "The project you're looking for doesn't exist or has been moved."
+    },
+    "viewFullPage": "View Full Page"
+  },
+  "awards": {
+    "title": "Some Awards & Recognition",
+    "eyebrow": "Recognition",
+    "keyTechnologies": "Key Technologies",
+    "viewAwardDetails": "View Award Details",
+    "seeProject": "See Project",
+    "seeProjectAria": "See project {{title}}"
   },
   "contact": {
     "form": {
@@ -162,7 +180,8 @@
   },
   "footer": {
     "rights": "All rights reserved.",
-    "built": "Built with Next.js and Tailwind CSS"
+    "built": "Built with Next.js and Tailwind CSS",
+    "sprint": "AI trainings"
   },
   "language": {
     "switch": "Switch to Spanish",
