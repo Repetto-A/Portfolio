@@ -22,16 +22,16 @@ export default function SprintPage() {
   return (
     <main>
       <nav className="absolute top-0 left-0 right-0 z-10">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-5 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-6 sm:px-6 sm:py-7 lg:px-8">
           <Link
             href="/"
-            className="text-sm font-semibold tracking-tight text-foreground transition-colors hover:text-[var(--sprint-accent)]"
+            className="text-[13px] font-medium tracking-[0.01em] text-foreground transition-colors hover:text-[var(--sprint-accent)]"
           >
             Alejandro Repetto
           </Link>
           <a
             href={`#${SPRINT_ANCHORS.cta}`}
-            className="inline-flex items-center rounded-md border border-border px-3.5 py-1.5 text-xs font-medium text-muted-foreground transition-[border-color,color,transform] duration-200 ease-out hover:border-foreground/40 hover:text-foreground active:scale-[0.98]"
+            className="sprint-kicker inline-flex min-h-[44px] items-center rounded-md border border-border px-3.5 py-2 text-muted-foreground transition-[border-color,color,transform] duration-200 ease-out hover:border-foreground/40 hover:text-foreground active:scale-[0.98]"
           >
             Agendar diagnóstico
           </a>
@@ -59,9 +59,9 @@ export default function SprintPage() {
         <SprintCtaFinal />
       </div>
 
-      <footer className="border-t border-border pt-10 pb-28 sm:pb-12">
+      <footer className="border-t border-border pt-12 pb-28 sm:pt-14 sm:pb-12">
         <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 pl-4 pr-20 sm:pl-6 sm:pr-64 lg:pl-8 lg:pr-64">
-          <p className="font-mono text-xs text-muted-foreground">
+          <p className="sprint-index text-xs text-muted-foreground">
             © {new Date().getFullYear()} Alejandro Repetto · En colaboración con <SprintCriaLink />
           </p>
           <div className="flex flex-wrap items-center gap-4">

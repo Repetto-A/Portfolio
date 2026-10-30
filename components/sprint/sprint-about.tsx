@@ -59,10 +59,10 @@ export function SprintAbout() {
             key={h.label}
             className={`scroll-reveal-stagger-${i + 1} rounded-xl border border-border bg-card p-6 transition-colors hover:border-[var(--sprint-accent)]/50`}
           >
-            <p className="font-mono text-3xl font-bold tracking-tight text-[var(--sprint-accent)]">
+            <p className="sprint-index text-[2rem] font-semibold tracking-tight text-[var(--sprint-accent)] sm:text-4xl">
               {h.stat}
             </p>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{h.label}</p>
+            <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">{h.label}</p>
           </div>
         ))}
       </div>
@@ -70,7 +70,7 @@ export function SprintAbout() {
       <ul className="mt-8 space-y-4">
         {FACTS.map((fact, i) => (
           <li key={i} className="flex gap-4 text-sm leading-relaxed">
-            <span className="font-mono text-[var(--sprint-accent)] select-none" aria-hidden>
+            <span className="sprint-index text-[var(--sprint-accent)] select-none" aria-hidden>
               +
             </span>
             <span>{fact}</span>
@@ -80,10 +80,8 @@ export function SprintAbout() {
 
       <div className="mt-12">
         <div className="flex items-baseline justify-between gap-4">
-          <h3 className="font-mono text-xs tracking-[0.15em] text-muted-foreground uppercase">
-            Reconocimientos
-          </h3>
-          <p className="font-mono text-xs text-muted-foreground">
+          <h3 className="sprint-kicker text-muted-foreground">Reconocimientos</h3>
+          <p className="sprint-index text-xs text-muted-foreground">
             Lo que enseño, lo demuestro en competencias
           </p>
         </div>
@@ -98,7 +96,7 @@ export function SprintAbout() {
                 <span className="text-sm font-medium">{award.event}</span>
                 <span className="ml-2 text-xs text-muted-foreground">{award.project}</span>
               </div>
-              <span className="font-mono text-xs text-[var(--sprint-accent)] sm:text-right">
+              <span className="sprint-index text-xs text-[var(--sprint-accent)] sm:text-right">
                 {award.result}
               </span>
             </li>

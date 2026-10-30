@@ -47,12 +47,8 @@ export function SprintAudience() {
 
       <div className="mt-10 border-t border-border">
         <div className="hidden grid-cols-[5.5rem_1fr] gap-6 py-3 sm:grid">
-          <span className="font-mono text-[10px] tracking-[0.15em] text-muted-foreground uppercase">
-            Requisito
-          </span>
-          <span className="font-mono text-[10px] tracking-[0.15em] text-muted-foreground uppercase">
-            Qué tiene que pasar
-          </span>
+          <span className="sprint-kicker text-muted-foreground">Requisito</span>
+          <span className="sprint-kicker text-muted-foreground">Qué tiene que pasar</span>
         </div>
 
         <ul>
@@ -62,10 +58,10 @@ export function SprintAudience() {
               className="grid gap-3 border-b border-border py-5 sm:grid-cols-[5.5rem_1fr] sm:gap-6 sm:items-start"
             >
               <div className="flex flex-col gap-1">
-                <span className="font-mono text-[11px] leading-none text-muted-foreground select-none">
+                <span className="sprint-index text-[11px] leading-none text-muted-foreground select-none">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className="font-mono text-[11px] leading-tight tracking-[0.1em] text-[var(--sprint-accent)] uppercase">
+                <span className="sprint-kicker leading-tight text-[var(--sprint-accent)]">
                   {item.label}
                 </span>
               </div>
@@ -76,9 +72,7 @@ export function SprintAudience() {
       </div>
 
       <div className="mt-12">
-        <p className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
-          Señales de que no es el momento
-        </p>
+        <p className="sprint-kicker text-muted-foreground">Señales de que no es el momento</p>
 
         <ul className="mt-5 space-y-0 rounded-lg border border-dashed border-border/80 bg-muted/20">
           {EXIT_SIGNALS.map((item) => (
@@ -86,7 +80,10 @@ export function SprintAudience() {
               key={item}
               className="flex gap-4 border-b border-dashed border-border/60 px-4 py-4 text-sm leading-relaxed text-muted-foreground last:border-b-0 sm:px-5"
             >
-              <span className="font-mono text-sm text-muted-foreground/70 select-none" aria-hidden>
+              <span
+                className="sprint-index text-sm text-muted-foreground/70 select-none"
+                aria-hidden
+              >
                 ×
               </span>
               <span>{item}</span>

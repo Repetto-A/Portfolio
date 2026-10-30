@@ -25,7 +25,7 @@ export function SprintTimeline({ steps }: { steps: readonly SprintStep[] }) {
             <div className="relative flex justify-center">
               <span
                 className={cn(
-                  "z-10 flex size-9 items-center justify-center rounded-full border border-[var(--sprint-accent)]/40 bg-card font-mono text-sm font-medium text-[var(--sprint-accent)]",
+                  "sprint-index z-10 flex size-9 items-center justify-center rounded-full border border-[var(--sprint-accent)]/40 bg-card text-sm font-medium text-[var(--sprint-accent)]",
                   "transition-[transform,opacity] duration-500 ease-[var(--sprint-ease-out)] motion-reduce:transition-none",
                   inView ? "scale-100 opacity-100" : "scale-75 opacity-0"
                 )}
@@ -55,17 +55,13 @@ export function SprintTimeline({ steps }: { steps: readonly SprintStep[] }) {
             >
               <div>
                 <div className="flex items-baseline justify-between gap-4">
-                  <h3 className="text-lg font-semibold sm:text-xl">{step.title}</h3>
-                  <span className="shrink-0 font-mono text-[11px] tracking-[0.15em] text-muted-foreground uppercase">
-                    {step.tag}
-                  </span>
+                  <h3 className="text-lg font-semibold tracking-tight sm:text-xl">{step.title}</h3>
+                  <span className="sprint-kicker shrink-0 text-muted-foreground">{step.tag}</span>
                 </div>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.body}</p>
               </div>
               <div className="mt-4 flex flex-col justify-center gap-1.5 border-t border-border pt-3 sm:mt-0 sm:border-t-0 sm:border-l sm:pt-0 sm:pl-6">
-                <span className="font-mono text-[10px] tracking-[0.15em] text-[var(--sprint-accent)] uppercase">
-                  Entregable
-                </span>
+                <span className="sprint-kicker text-[var(--sprint-accent)]">Entregable</span>
                 <span className="text-sm font-medium leading-snug">{step.deliverable}</span>
               </div>
             </div>

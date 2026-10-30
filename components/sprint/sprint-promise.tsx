@@ -28,24 +28,26 @@ export function SprintPromise() {
         </p>
       </SprintProse>
 
-      <ul className="mt-8 space-y-0 border-t border-border">
+      <ul className="mt-10 space-y-0 border-t border-border">
         {BLOCKS.map((block, i) => (
           <li
             key={i}
-            className={`scroll-reveal-stagger-${i + 1} flex gap-4 border-b border-border py-5`}
+            className={`scroll-reveal-stagger-${i + 1} flex gap-4 border-b border-border py-5 sm:py-6`}
           >
-            <span className="font-mono text-xs text-muted-foreground pt-0.5 select-none">
+            <span className="sprint-index pt-0.5 text-xs text-muted-foreground select-none">
               {String(i + 1).padStart(2, "0")}
             </span>
             <div>
-              <p className="text-sm font-medium text-foreground">{block.title}</p>
-              <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{block.body}</p>
+              <p className="text-[0.9375rem] font-medium tracking-tight text-foreground">
+                {block.title}
+              </p>
+              <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{block.body}</p>
             </div>
           </li>
         ))}
       </ul>
 
-      <p className="mt-10 font-mono text-sm tracking-wide text-[var(--sprint-accent)]">
+      <p className="sprint-index mt-12 text-sm tracking-wide text-[var(--sprint-accent)]">
         &gt; Resultado: prototipos funcionando, un equipo que sabe usarlos y reglas claras para
         escalar.
       </p>

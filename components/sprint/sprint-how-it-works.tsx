@@ -97,11 +97,9 @@ export function SprintHowItWorks() {
       <SprintTimeline steps={STEPS} />
 
       <div className="mt-16">
-        <h3 className="font-mono text-xs tracking-[0.15em] text-muted-foreground uppercase">
-          Temas que me suelen pedir
-        </h3>
+        <h3 className="sprint-kicker text-muted-foreground">Temas que me suelen pedir</h3>
 
-        <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
+        <p className="sprint-measure mt-5 text-sm leading-relaxed text-muted-foreground">
           No los vemos todos en cada sprint. Es lo que las empresas suelen pedirme; en tu caso
           elegimos lo que le sirve a tu equipo según lo que salga del diagnóstico.
         </p>

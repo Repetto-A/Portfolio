@@ -60,16 +60,14 @@ export function SprintGovernance() {
         </p>
       </SprintProse>
 
-      <p className="mt-12 font-mono text-xs tracking-[0.15em] text-muted-foreground uppercase">
-        Qué cubre el marco
-      </p>
+      <p className="sprint-kicker mt-12 text-muted-foreground">Qué cubre el marco</p>
       <div className="mt-4 overflow-hidden rounded-xl border border-border">
         <div className="grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
           {PILLARS.map(({ icon: Icon, title, body }) => (
             <div key={title} className="flex gap-4 bg-card p-5">
               <Icon className="mt-0.5 size-5 shrink-0 text-[var(--sprint-accent)]" aria-hidden />
               <div>
-                <h3 className="text-sm font-semibold leading-snug">{title}</h3>
+                <h3 className="text-sm font-semibold leading-snug tracking-tight">{title}</h3>
                 <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{body}</p>
               </div>
             </div>
@@ -80,7 +78,7 @@ export function SprintGovernance() {
       <div className="mt-12 overflow-hidden rounded-xl border border-border">
         <div className="grid lg:grid-cols-2">
           <div className="bg-muted/25 p-6 sm:p-8 lg:order-first">
-            <span className="font-mono text-[10px] tracking-[0.2em] text-[var(--sprint-accent)] uppercase">
+            <span className="sprint-kicker text-[var(--sprint-accent)]">
               Ejemplo en la práctica
             </span>
             <ul className="mt-5 space-y-4">
@@ -107,9 +105,7 @@ export function SprintGovernance() {
           </div>
 
           <div className="border-t border-border p-6 sm:p-8 lg:border-t-0 lg:border-l">
-            <h3 className="font-mono text-[10px] tracking-[0.2em] uppercase text-[var(--sprint-accent)]">
-              Qué queda documentado
-            </h3>
+            <h3 className="sprint-kicker text-[var(--sprint-accent)]">Qué queda documentado</h3>
             <ul className="mt-5 space-y-3.5">
               {GOVERNANCE_DELIVERABLES.map((item) => (
                 <li key={item} className="flex items-start gap-3 text-sm leading-relaxed">
@@ -125,9 +121,7 @@ export function SprintGovernance() {
         </div>
 
         <div className="flex flex-col gap-3 border-t border-border bg-card px-6 py-5 sm:px-8">
-          <p className="font-mono text-[10px] tracking-[0.2em] text-[var(--sprint-accent)] uppercase">
-            Para equipos técnicos
-          </p>
+          <p className="sprint-kicker text-[var(--sprint-accent)]">Para equipos técnicos</p>
           <p className="text-sm leading-relaxed text-muted-foreground">
             Cuando hay perfiles de ingeniería, el sprint puede derivar en arquitectura interna: IA
             local cuando tiene sentido, conectores MCP para exponer funciones entre áreas y un

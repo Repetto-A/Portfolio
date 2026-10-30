@@ -70,11 +70,13 @@ export function SprintFaq() {
     <SprintSection id={SPRINT_ANCHORS.faq} label={SPRINT_SECTION_LABELS.faq} spacing="compact" tint>
       <SprintHeading>Lo que suelen preguntar antes de agendar</SprintHeading>
 
-      <Accordion type="single" collapsible className="mt-8">
+      <Accordion type="single" collapsible className="mt-10">
         {FAQS.map((faq) => (
           <AccordionItem key={faq.q} value={faq.q}>
-            <AccordionTrigger className="text-left text-base font-medium">{faq.q}</AccordionTrigger>
-            <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
+            <AccordionTrigger className="text-left text-base font-medium tracking-tight">
+              {faq.q}
+            </AccordionTrigger>
+            <AccordionContent className="text-sm leading-[1.7] text-muted-foreground">
               {faq.a}
             </AccordionContent>
           </AccordionItem>

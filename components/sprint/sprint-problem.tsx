@@ -20,13 +20,13 @@ export function SprintProblem() {
         </p>
       </SprintProse>
 
-      <ul className="mt-8 space-y-0 border-t border-border">
+      <ul className="mt-10 space-y-0 border-t border-border">
         {FAILED_ATTEMPTS.map((item, i) => (
           <li
             key={i}
-            className={`scroll-reveal-stagger-${i + 1} flex gap-4 border-b border-border py-4 text-sm leading-relaxed`}
+            className={`scroll-reveal-stagger-${i + 1} flex gap-4 border-b border-border py-4 text-[0.9375rem] leading-relaxed sm:py-5`}
           >
-            <span className="font-mono text-xs text-muted-foreground pt-0.5 select-none">
+            <span className="sprint-index pt-0.5 text-xs text-muted-foreground select-none">
               {String(i + 1).padStart(2, "0")}
             </span>
             <span className="text-foreground">{item}</span>
@@ -34,7 +34,7 @@ export function SprintProblem() {
         ))}
       </ul>
 
-      <blockquote className="scroll-reveal mt-10 border-l-2 border-[var(--sprint-accent)] pl-6 text-xl leading-snug font-medium tracking-tight text-balance text-foreground sm:text-2xl">
+      <blockquote className="sprint-display scroll-reveal mt-12 max-w-[28rem] border-l-2 border-[var(--sprint-accent)] pl-6 text-[1.35rem] leading-[1.25] text-balance text-foreground sm:mt-14 sm:text-[1.6rem]">
         El problema no es la tecnología. Es que nadie cierra el ciclo entre aprender algo y
         construir algo con eso.
       </blockquote>

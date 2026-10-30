@@ -85,20 +85,18 @@ function FormatRow({ format: f }: { format: Format }) {
   if (f.core) {
     return (
       <div className="relative my-6 rounded-xl border border-[var(--sprint-accent)]/50 bg-card p-6 shadow-md ring-1 ring-[var(--sprint-accent)]/20 sm:p-8">
-        <span className="absolute -top-2.5 left-6 rounded-full bg-[var(--sprint-accent)] px-2.5 py-0.5 font-mono text-[10px] font-medium tracking-[0.15em] text-white uppercase">
+        <span className="sprint-kicker absolute -top-2.5 left-6 rounded-full bg-[var(--sprint-accent)] px-2.5 py-0.5 text-white">
           Recomendado
         </span>
 
         <div className="grid gap-4 sm:grid-cols-[110px_1fr_110px] sm:gap-6">
-          <span className="font-mono text-xs tracking-[0.15em] text-[var(--sprint-accent)] uppercase pt-1">
-            {f.tier}
-          </span>
+          <span className="sprint-kicker pt-1 text-[var(--sprint-accent)]">{f.tier}</span>
           <div>
-            <h3 className="text-xl font-semibold">{f.name}</h3>
+            <h3 className="text-xl font-semibold tracking-tight">{f.name}</h3>
             <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{f.stage}</p>
             <FormatIncludes includes={f.includes} core />
           </div>
-          <span className="font-mono text-xs text-muted-foreground sm:pt-1 sm:text-right">
+          <span className="sprint-index text-xs text-muted-foreground sm:pt-1 sm:text-right">
             <span className="sm:hidden">Duración · </span>
             {f.duration}
           </span>
@@ -109,15 +107,13 @@ function FormatRow({ format: f }: { format: Format }) {
 
   return (
     <div className="grid gap-2 border-t border-border py-5 sm:grid-cols-[110px_1fr_110px] sm:gap-6">
-      <span className="font-mono text-xs tracking-[0.15em] text-muted-foreground uppercase pt-1">
-        {f.tier}
-      </span>
+      <span className="sprint-kicker pt-1 text-muted-foreground">{f.tier}</span>
       <div>
-        <h3 className="font-semibold">{f.name}</h3>
+        <h3 className="font-semibold tracking-tight">{f.name}</h3>
         <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{f.stage}</p>
         <FormatIncludes includes={f.includes} />
       </div>
-      <span className="font-mono text-xs text-muted-foreground sm:pt-1 sm:text-right">
+      <span className="sprint-index text-xs text-muted-foreground sm:pt-1 sm:text-right">
         <span className="sm:hidden">Duración · </span>
         {f.duration}
       </span>
@@ -143,15 +139,9 @@ export function SprintFormats() {
 
       <div className="mt-10">
         <div className="hidden grid-cols-[110px_1fr_110px] gap-6 pb-3 sm:grid">
-          <span className="font-mono text-[10px] tracking-[0.15em] text-muted-foreground uppercase">
-            Formato
-          </span>
-          <span className="font-mono text-[10px] tracking-[0.15em] text-muted-foreground uppercase">
-            Para quién / qué incluye
-          </span>
-          <span className="font-mono text-[10px] tracking-[0.15em] text-muted-foreground uppercase sm:text-right">
-            Duración
-          </span>
+          <span className="sprint-kicker text-muted-foreground">Formato</span>
+          <span className="sprint-kicker text-muted-foreground">Para quién / qué incluye</span>
+          <span className="sprint-kicker text-muted-foreground sm:text-right">Duración</span>
         </div>
 
         {FORMATS.map((f) => (

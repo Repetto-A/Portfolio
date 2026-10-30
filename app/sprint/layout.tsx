@@ -1,5 +1,14 @@
 import type { Metadata } from "next"
 import type { ReactNode } from "react"
+import { Newsreader } from "next/font/google"
+
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  variable: "--font-sprint-display",
+  display: "swap",
+  axes: ["opsz"],
+  adjustFontFallback: false,
+})
 
 export const metadata: Metadata = {
   title: "AI Execution Sprint: tu equipo construye prototipos de IA en 30 días | Alejandro Repetto",
@@ -40,7 +49,7 @@ export default function SprintLayout({ children }: { children: ReactNode }) {
     <div
       lang="es"
       style={{ ["--sprint-accent" as string]: "oklch(0.62 0.19 38)" }}
-      className="min-h-screen bg-background text-foreground"
+      className={`${newsreader.variable} sprint-page min-h-screen bg-background text-foreground`}
     >
       {children}
     </div>

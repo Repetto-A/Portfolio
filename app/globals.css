@@ -122,7 +122,9 @@ html {
 }
 
 body {
-  font-feature-settings: "rlig" 1, "calt" 1;
+  font-feature-settings:
+    "rlig" 1,
+    "calt" 1;
   /* Prevent horizontal overflow */
   overflow-x: hidden;
   /* Optimize font rendering */
@@ -158,7 +160,11 @@ body {
   }
 
   ::selection {
-    background: color-mix(in oklab, var(--sprint-accent, oklch(0.646 0.222 41.116)) 30%, transparent);
+    background: color-mix(
+      in oklab,
+      var(--sprint-accent, oklch(0.646 0.222 41.116)) 30%,
+      transparent
+    );
     color: var(--foreground);
   }
 
@@ -246,8 +252,12 @@ body {
 }
 
 @keyframes fade-in {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Card entrance on scroll — progressive enhancement */
@@ -289,22 +299,14 @@ body {
 
 /* Utility: gradient text (primary → violet) */
 .gradient-text {
-  background: linear-gradient(
-    135deg,
-    oklch(0.52 0.22 263) 0%,
-    oklch(0.55 0.25 295) 100%
-  );
+  background: linear-gradient(135deg, oklch(0.52 0.22 263) 0%, oklch(0.55 0.25 295) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .dark .gradient-text {
-  background: linear-gradient(
-    135deg,
-    oklch(0.68 0.18 263) 0%,
-    oklch(0.72 0.22 295) 100%
-  );
+  background: linear-gradient(135deg, oklch(0.68 0.18 263) 0%, oklch(0.72 0.22 295) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -327,6 +329,55 @@ body {
   a[href]:after {
     content: " (" attr(href) ")";
   }
+}
+
+/* ── Sprint: type system (solo /sprint) ────────────── */
+.sprint-page {
+  --sprint-display: var(--font-sprint-display), "Iowan Old Style", Palatino, serif;
+  --sprint-measure: 40rem;
+  --sprint-heading-measure: 44rem;
+}
+
+.sprint-display {
+  font-family: var(--sprint-display);
+  font-optical-sizing: auto;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+blockquote.sprint-display {
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.sprint-kicker {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (min-width: 640px) {
+  .sprint-kicker {
+    letter-spacing: 0.18em;
+  }
+}
+
+.sprint-measure {
+  max-width: var(--sprint-measure);
+}
+
+.sprint-heading-measure {
+  max-width: var(--sprint-heading-measure);
+}
+
+.sprint-index {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
 }
 
 /* ── Sprint: motion ────────────────────────────────── */
@@ -403,8 +454,12 @@ body {
 
 /* ── Marquee (press logos) ─────────────────────────── */
 @keyframes sprint-marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .sprint-marquee {

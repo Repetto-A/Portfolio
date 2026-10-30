@@ -14,8 +14,8 @@ interface SprintSectionProps {
 
 /**
  * Wrapper de sección para /sprint.
- * Estética "spec sheet": etiqueta mono con marca de acento arriba, contenido a la
- * izquierda. La prosa se lee en columna angosta; la estructura respira más ancho.
+ * Estética spec sheet + editorial: kicker mono con marca de acento, título
+ * en serif de display, prosa en columna de lectura.
  */
 export function SprintSection({
   children,
@@ -29,19 +29,17 @@ export function SprintSection({
     <section
       id={id}
       className={cn(
-        spacing === "default" ? "py-20 sm:py-28" : "py-14 sm:py-20",
-        "scroll-mt-16",
+        spacing === "default" ? "py-24 sm:py-32" : "py-16 sm:py-24",
+        "scroll-mt-20",
         tint && "bg-muted/[0.4] dark:bg-muted/[0.15]",
         className
       )}
     >
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         {label ? (
-          <div className="mb-6 flex items-center gap-3">
-            <span aria-hidden className="sprint-label-line h-px w-8 bg-[var(--sprint-accent)]" />
-            <span className="font-mono text-xs font-medium tracking-[0.2em] text-[var(--sprint-accent)] uppercase">
-              {label}
-            </span>
+          <div className="mb-8 flex items-center gap-3 sm:mb-10">
+            <span aria-hidden className="sprint-label-line h-px w-10 bg-[var(--sprint-accent)]" />
+            <span className="sprint-kicker text-[var(--sprint-accent)]">{label}</span>
           </div>
         ) : null}
         {children}
@@ -51,8 +49,8 @@ export function SprintSection({
 }
 
 /**
- * Título de sección dominante. Escala por debajo del h1 del hero, pero muy por
- * encima del body: el ojo sabe que arranca un bloque nuevo.
+ * Título de sección dominante. Serif de display, por debajo del h1 del hero
+ * y muy por encima del body: el ojo sabe que arranca un bloque nuevo.
  */
 export function SprintHeading({
   children,
@@ -64,7 +62,7 @@ export function SprintHeading({
   return (
     <h2
       className={cn(
-        "text-3xl font-bold tracking-tight text-balance sm:text-4xl lg:text-[2.75rem] lg:leading-[1.08]",
+        "sprint-display sprint-heading-measure text-[1.875rem] sm:text-[2.375rem] lg:text-[2.625rem]",
         className
       )}
     >
@@ -74,7 +72,7 @@ export function SprintHeading({
 }
 
 /**
- * Prosa de apoyo. Se mantiene en columna de lectura aunque la sección sea "wide".
+ * Prosa de apoyo. Se mantiene en columna de lectura aunque la sección sea wide.
  * `lead` la usa como bajada del título (más grande y con más aire).
  */
 export function SprintProse({
@@ -89,10 +87,10 @@ export function SprintProse({
   return (
     <div
       className={cn(
-        "space-y-4 text-muted-foreground",
+        "sprint-measure space-y-4 text-muted-foreground",
         lead
-          ? "mt-5 text-lg leading-relaxed text-pretty"
-          : "mt-6 text-base leading-relaxed",
+          ? "mt-6 text-lg leading-[1.7] text-pretty"
+          : "mt-7 text-[0.9375rem] leading-[1.7] sm:text-base",
         className
       )}
     >

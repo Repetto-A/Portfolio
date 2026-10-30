@@ -21,10 +21,8 @@ export function SprintCurriculum({ modules }: { modules: readonly CurriculumModu
         className="flex w-full cursor-pointer items-center justify-between gap-6 p-6 text-left transition-colors hover:bg-[var(--sprint-accent)]/[0.06] sm:p-8"
       >
         <div>
-          <span className="font-mono text-[10px] tracking-[0.2em] text-[var(--sprint-accent)] uppercase">
-            Temario completo
-          </span>
-          <p className="mt-1.5 text-lg font-semibold sm:text-xl">
+          <span className="sprint-kicker text-[var(--sprint-accent)]">Temario completo</span>
+          <p className="mt-1.5 text-lg font-semibold tracking-tight sm:text-xl">
             {modules.length} módulos · +{totalTopics} temas
           </p>
           <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
@@ -54,7 +52,7 @@ export function SprintCurriculum({ modules }: { modules: readonly CurriculumModu
             {modules.map((module, i) => (
               <div key={module.title} className="p-5 sm:p-6">
                 <div className="flex items-baseline gap-3">
-                  <span className="font-mono text-xs text-[var(--sprint-accent)] select-none">
+                  <span className="sprint-index text-xs text-[var(--sprint-accent)] select-none">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <h4 className="text-sm font-semibold sm:text-base">{module.title}</h4>

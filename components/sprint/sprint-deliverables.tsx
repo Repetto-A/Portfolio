@@ -62,14 +62,14 @@ export function SprintDeliverables() {
             key={title}
             className={`scroll-reveal-stagger-${(i % 3) + 1} group relative flex flex-col rounded-xl border border-border bg-card p-6 transition-colors hover:border-[var(--sprint-accent)]/50`}
           >
-            <span className="absolute right-5 top-5 font-mono text-xs text-muted-foreground/50 select-none">
+            <span className="sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 select-none">
               {String(i + 1).padStart(2, "0")}
             </span>
             <Icon
               className="size-7 text-[var(--sprint-accent)] transition-transform group-hover:-translate-y-0.5"
               aria-hidden
             />
-            <h3 className="mt-4 text-base font-semibold">{title}</h3>
+            <h3 className="mt-4 text-base font-semibold tracking-tight">{title}</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
           </li>
         ))}
