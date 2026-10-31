@@ -9,7 +9,7 @@ function applySprintHtmlTheme(theme: SprintTheme) {
   root.classList.add(theme)
   if (theme === "light") root.classList.add("sprint-light")
   root.style.colorScheme = theme
-  root.lang = "es"
+  root.lang = "es-AR"
 }
 
 function restoreUserHtmlTheme() {
@@ -32,7 +32,7 @@ function restoreUserHtmlTheme() {
   } catch {
     locale = "en"
   }
-  root.lang = locale === "es" ? "es" : "en"
+  root.lang = locale === "es" ? "es-AR" : "en"
 }
 
 /**

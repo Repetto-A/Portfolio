@@ -2,7 +2,9 @@ import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 import projectsData from "@/content/projects.json"
 import { ProjectPageContent, type ProjectPageData } from "@/components/project-page-content"
-import { generateMetadata as genMetadata, generateProjectSchema, siteConfig } from "@/lib/seo"
+import { JsonLd } from "@/components/json-ld"
+import { generateMetadata as genMetadata, generateProjectPageGraph, siteConfig } from "@/lib/seo"
+import es from "@/public/locales/es/common.json"
 
 type ProjectContent = {
   title?: string
@@ -16,29 +18,33 @@ type ProjectWithLocales = {
   timeline?: unknown
 }
 
+function projectCopy(project: ProjectWithLocales): ProjectContent {
+  return project.locales?.es ?? project.locales?.en ?? {}
+}
+
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
   const projectData = projectsData.projects.find((p) => p.id === params.id)
 
   if (!projectData) {
     return genMetadata({
-      title: "Project Not Found",
-      description: "The requested project could not be found.",
+      title: es.projects.notFound.title,
+      description: es.projects.notFound.description,
       noindex: true,
     })
   }
 
-  const projectContent: ProjectContent = (projectData as ProjectWithLocales).locales?.en ?? {}
-  const keywords = [...projectData.techStack, projectData.category, "project", "portfolio"]
+  const content = projectCopy(projectData as ProjectWithLocales)
   const firstImage = projectData.images?.[0]
-  const ogImage = firstImage ? `${siteConfig.url}${firstImage}` : undefined
+  const ogImage = firstImage || siteConfig.ogImage
 
   return genMetadata({
-    title: projectContent.title || projectData.id,
-    description: projectContent.short || projectContent.description || "",
+    title: content.title || projectData.id,
+    description: content.short || content.description || "",
     canonical: `${siteConfig.url}/projects/${params.id}`,
     ogImage,
-    ogType: "article",
-    keywords,
+    ogImageAlt: content.title || projectData.id,
+    ogType: "website",
+    keywords: [...projectData.techStack, projectData.category],
   })
 }
 
@@ -55,18 +61,7 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
     notFound()
   }
 
-  const projectContent: ProjectContent = (projectData as ProjectWithLocales).locales?.en ?? {}
-
-  const projectSchema = generateProjectSchema({
-    id: projectData.id,
-    title: projectContent.title ?? "",
-    description: projectContent.description ?? "",
-    status: projectData.status,
-    techStack: projectData.techStack,
-    githubUrl: projectData.githubUrl,
-    demoUrl: projectData.demoUrl,
-    category: projectData.category,
-  })
+  const content = projectCopy(projectData as ProjectWithLocales)
 
   const project: ProjectPageData = {
     id: projectData.id,
@@ -84,11 +79,15 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(projectSchema),
-        }}
+      <JsonLd
+        data={generateProjectPageGraph({
+          id: projectData.id,
+          title: content.title ?? "",
+          description: content.description ?? content.short ?? "",
+          techStack: projectData.techStack,
+          githubUrl: projectData.githubUrl,
+          demoUrl: projectData.demoUrl,
+        })}
       />
       <ProjectPageContent project={project} />
     </>
