@@ -15,7 +15,7 @@ export function HeroSection() {
   const resumeUrl = getResumeUrl(locale)
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-4 pt-16 sm:px-6 lg:px-8">
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-4 pt-[calc(4rem+env(safe-area-inset-top))] sm:px-6 lg:px-8">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.04] dark:opacity-[0.07]"
         style={{
@@ -31,7 +31,7 @@ export function HeroSection() {
 
       <div className="mx-auto w-full max-w-7xl">
         <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
-          <div className="space-y-8">
+          <div className="space-y-6 lg:space-y-8">
             <div className="space-y-5">
               <p className="sprint-kicker text-[var(--sprint-accent)]">
                 {getTranslation(translations, "hero.kicker")}
@@ -97,47 +97,51 @@ export function HeroSection() {
               href={resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+              className="inline-flex min-h-11 items-center gap-1.5 text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
             >
               {getTranslation(translations, "hero.cta.resume")}
               <ExternalLink className="h-3.5 w-3.5 opacity-60" />
             </Link>
           </div>
 
-          <div className="order-first flex justify-center pt-6 lg:order-last lg:justify-end">
-            <div className="relative aspect-square w-full max-h-[40vh] max-w-md sm:max-h-[50vh] lg:max-h-none lg:max-w-none">
-              <div
-                className="pointer-events-none absolute -inset-6 rounded-3xl blur-3xl"
-                style={{
-                  background: "color-mix(in oklab, var(--sprint-accent) 18%, transparent)",
-                }}
-              />
-
-              <div className="relative h-full w-full overflow-hidden rounded-2xl shadow-2xl ring-1 ring-border">
-                <ProfilePhoto
-                  alt="Alejandro Repetto, Software Engineer"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
-                  priority
+          <div className="flex justify-center lg:order-last lg:justify-end">
+            <div className="relative w-full max-w-md lg:max-w-none">
+              <div className="relative aspect-square w-full max-h-[30vh] sm:max-h-[50vh] lg:max-h-none">
+                <div
+                  className="pointer-events-none absolute -inset-6 rounded-3xl blur-3xl"
+                  style={{
+                    background: "color-mix(in oklab, var(--sprint-accent) 18%, transparent)",
+                  }}
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/25 via-transparent to-transparent" />
+
+                <div className="relative h-full w-full overflow-hidden rounded-2xl shadow-2xl ring-1 ring-border">
+                  <ProfilePhoto
+                    alt="Alejandro Repetto, Software Engineer"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
+                    priority
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/25 via-transparent to-transparent" />
+                </div>
               </div>
 
-              <div className="absolute -top-3 -right-3 rounded-xl border border-border bg-card/95 p-2.5 shadow-lg backdrop-blur-md sm:-top-4 sm:-right-4 sm:p-3">
-                <p className="sprint-index text-lg font-semibold tracking-tight text-[var(--sprint-accent)] sm:text-xl">
-                  {getTranslation(translations, "hero.status.currently")}
-                </p>
-                <p className="text-xs text-muted-foreground sm:text-sm">
-                  {getTranslation(translations, "hero.status.building")}
-                </p>
-              </div>
+              <div className="mt-3 grid grid-cols-2 gap-2 lg:mt-0 lg:contents">
+                <div className="rounded-xl border border-border bg-card/95 p-2.5 shadow-lg backdrop-blur-md lg:absolute lg:-top-4 lg:-right-4 lg:p-3">
+                  <p className="sprint-index text-lg font-semibold tracking-tight text-[var(--sprint-accent)] sm:text-xl">
+                    {getTranslation(translations, "hero.status.currently")}
+                  </p>
+                  <p className="text-xs text-muted-foreground sm:text-sm">
+                    {getTranslation(translations, "hero.status.building")}
+                  </p>
+                </div>
 
-              <div className="absolute -bottom-3 -left-3 rounded-xl border border-border bg-card/95 p-2.5 shadow-lg backdrop-blur-md sm:-bottom-4 sm:-left-4 sm:p-3">
-                <p className="sprint-kicker text-muted-foreground">
-                  {getTranslation(translations, "hero.status.focus")}
-                </p>
-                <p className="mt-1 text-xs font-semibold text-foreground sm:text-sm">
-                  {getTranslation(translations, "hero.status.automation")}
-                </p>
+                <div className="rounded-xl border border-border bg-card/95 p-2.5 shadow-lg backdrop-blur-md lg:absolute lg:-bottom-4 lg:-left-4 lg:p-3">
+                  <p className="sprint-kicker text-muted-foreground">
+                    {getTranslation(translations, "hero.status.focus")}
+                  </p>
+                  <p className="mt-1 text-xs font-semibold text-foreground sm:text-sm">
+                    {getTranslation(translations, "hero.status.automation")}
+                  </p>
+                </div>
               </div>
             </div>
           </div>

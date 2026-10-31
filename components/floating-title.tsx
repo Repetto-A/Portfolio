@@ -85,7 +85,7 @@ export function FloatingTitle() {
 
   return (
     <div
-      className="fixed z-[60] pointer-events-none"
+      className="pointer-events-none fixed z-[60] hidden md:block"
       style={{
         top: heroViewportTop,
         left: heroViewportLeft,

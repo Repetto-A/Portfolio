@@ -50,7 +50,7 @@ export function SprintDirectContact({
         <a
           href={CONTACT_MAILTO}
           onClick={() => captureCTA("cta_email_click", { location })}
-          className="inline-flex min-h-[44px] w-fit items-center justify-center gap-2 rounded-md border border-border px-5 py-3 text-sm font-medium transition-[border-color,background-color,color,transform] duration-200 ease-out hover:border-foreground/40 hover:bg-muted/50 active:scale-[0.98]"
+          className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-md border border-border px-5 py-3 text-sm font-medium transition-[border-color,background-color,color,transform] duration-200 ease-out hover:border-foreground/40 hover:bg-muted/50 active:scale-[0.98] sm:w-auto"
         >
           <Mail className="size-4 shrink-0" aria-hidden />
           {CTA_COPY.secondary}
@@ -62,7 +62,7 @@ export function SprintDirectContact({
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => captureCTA("cta_whatsapp_click", { location })}
-            className="inline-flex min-h-[44px] w-fit items-center justify-center gap-2 rounded-md border border-border px-5 py-3 text-sm font-medium transition-[border-color,background-color,color,transform] duration-200 ease-out hover:border-foreground/40 hover:bg-muted/50 active:scale-[0.98]"
+            className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-md border border-border px-5 py-3 text-sm font-medium transition-[border-color,background-color,color,transform] duration-200 ease-out hover:border-foreground/40 hover:bg-muted/50 active:scale-[0.98] sm:w-auto"
           >
             <WhatsAppIcon className="size-4 text-[#25D366]" />
             {CTA_COPY.whatsapp}

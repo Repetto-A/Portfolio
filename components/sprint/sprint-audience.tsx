@@ -100,7 +100,7 @@ export function SprintAudience() {
         </p>
         <SprintCalendlyButton
           location="audience"
-          className="shrink-0 justify-center sm:justify-start"
+          className="w-full shrink-0 justify-center sm:w-auto sm:justify-start"
         >
           Agendar una charla
         </SprintCalendlyButton>

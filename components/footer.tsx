@@ -21,7 +21,7 @@ export function Footer() {
             <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2">
               <Link
                 href="/sprint"
-                className="inline-flex items-center gap-2 text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+                className="inline-flex min-h-11 items-center gap-2 text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
               >
                 <span aria-hidden className="h-px w-6 bg-[var(--sprint-accent)]" />
                 {getTranslation(translations, "footer.sprint")}
@@ -30,19 +30,19 @@ export function Footer() {
                 href={CALENDLY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+                className="inline-flex min-h-11 items-center text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
               >
                 {getTranslation(translations, "navigation.talk")}
               </a>
             </div>
           </div>
 
-          <div className="flex items-center space-x-6">
+          <div className="flex items-center gap-2">
             <Link
               href={GITHUB_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground transition-colors duration-150 hover:text-foreground"
+              className="inline-flex size-11 items-center justify-center text-muted-foreground transition-colors duration-150 hover:text-foreground"
               aria-label="Visit GitHub profile"
             >
               <Github className="h-5 w-5" />
@@ -53,7 +53,7 @@ export function Footer() {
               href={LINKEDIN_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground transition-colors duration-150 hover:text-foreground"
+              className="inline-flex size-11 items-center justify-center text-muted-foreground transition-colors duration-150 hover:text-foreground"
               aria-label="Visit LinkedIn profile"
             >
               <Linkedin className="h-5 w-5" />
@@ -62,7 +62,7 @@ export function Footer() {
 
             <Link
               href={CONTACT_MAILTO}
-              className="text-muted-foreground transition-colors duration-150 hover:text-foreground"
+              className="inline-flex size-11 items-center justify-center text-muted-foreground transition-colors duration-150 hover:text-foreground"
               aria-label="Send email"
             >
               <Mail className="h-5 w-5" />

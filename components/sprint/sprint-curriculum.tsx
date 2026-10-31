@@ -43,7 +43,7 @@ export function SprintCurriculum({ modules }: { modules: readonly CurriculumModu
                         href={topic.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 rounded-full border border-[var(--sprint-accent)]/40 bg-background px-3 py-1 text-xs leading-relaxed text-muted-foreground underline decoration-[var(--sprint-accent)]/50 underline-offset-2 transition-colors hover:text-foreground"
+                        className="inline-flex min-h-11 items-center gap-1 rounded-full border border-[var(--sprint-accent)]/40 bg-background px-3 py-1.5 text-xs leading-relaxed text-muted-foreground underline decoration-[var(--sprint-accent)]/50 underline-offset-2 transition-colors hover:text-foreground"
                       >
                         {label}
                       </a>

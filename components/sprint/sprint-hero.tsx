@@ -28,7 +28,9 @@ export function SprintHero() {
 
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <p className="sprint-enter sprint-kicker text-muted-foreground">
-          AI Execution Sprint · Capacitación y hackathons internas
+          <span className="block sm:inline">AI Execution Sprint</span>
+          <span className="hidden sm:inline"> · </span>
+          <span className="mt-1 block sm:mt-0 sm:inline">Capacitación y hackathons internas</span>
         </p>
 
         <h1 className="sprint-enter sprint-display mt-7 max-w-[18ch] text-[2.35rem] sm:mt-8 sm:max-w-[20ch] sm:text-[3.15rem] lg:text-[3.65rem]">
@@ -46,7 +48,7 @@ export function SprintHero() {
           <SprintDirectContact location="hero" />
           <a
             href={`#${SPRINT_ANCHORS.audience}`}
-            className="inline-flex min-h-[44px] w-fit items-center gap-2 rounded-md border border-border px-5 py-3 text-sm font-medium transition-[border-color,background-color,color,transform] duration-200 ease-out hover:border-foreground/40 hover:bg-muted/50 active:scale-[0.98]"
+            className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-md border border-border px-5 py-3 text-sm font-medium transition-[border-color,background-color,color,transform] duration-200 ease-out hover:border-foreground/40 hover:bg-muted/50 active:scale-[0.98] sm:w-fit sm:self-start"
           >
             ¿Es para tu empresa?
             <span aria-hidden>→</span>

@@ -180,14 +180,14 @@ export function ProjectsSection() {
                   </div>
 
                   <div className="flex items-center justify-between pt-2 mt-auto border-t border-border/60">
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center">
                       {project.githubUrl && (
                         <Link
                           href={project.githubUrl}
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={(e) => e.stopPropagation()}
-                          className="text-muted-foreground hover:text-foreground transition-colors"
+                          className="inline-flex size-11 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
                         >
                           <Github className="h-4 w-4" />
                           <span className="sr-only">GitHub</span>
@@ -199,7 +199,7 @@ export function ProjectsSection() {
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={(e) => e.stopPropagation()}
-                          className="text-muted-foreground hover:text-foreground transition-colors"
+                          className="inline-flex size-11 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
                         >
                           <ExternalLink className="h-4 w-4" />
                           <span className="sr-only">Demo</span>
@@ -208,7 +208,7 @@ export function ProjectsSection() {
                       <Link
                         href={`/projects/${project.id}`}
                         onClick={(e) => e.stopPropagation()}
-                        className="text-muted-foreground hover:text-foreground transition-colors"
+                        className="inline-flex size-11 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
                         aria-label={getTranslation(translations, "projects.viewFullPage")}
                       >
                         <Eye className="h-4 w-4" />
@@ -236,11 +236,16 @@ export function ProjectsSection() {
             <p className="text-muted-foreground">
               {getTranslation(translations, "projects.collaboration.description")}
             </p>
-            <div className="flex flex-wrap gap-3">
-              <SprintCalendlyButton location="home-projects">
+            <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
+              <SprintCalendlyButton location="home-projects" className="w-full sm:w-auto">
                 {getTranslation(translations, "hero.cta.talk")}
               </SprintCalendlyButton>
-              <Button asChild size="lg" variant="outline" className="h-auto min-h-[44px]">
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="h-auto min-h-[44px] w-full sm:w-auto"
+              >
                 <Link href="/sprint">{getTranslation(translations, "hero.cta.sprint")}</Link>
               </Button>
             </div>

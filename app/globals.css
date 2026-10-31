@@ -181,13 +181,14 @@ body {
     line-height: 1.6;
   }
 
-  /* Ensure tap targets are at least 44x44px on touch devices */
+  /* Tap targets de 44px en controles, no en links de prosa */
   @media (pointer: coarse) {
     button,
-    a,
     [role="button"],
     [type="button"],
-    [type="submit"] {
+    [type="submit"],
+    a.inline-flex,
+    nav a {
       min-height: 44px;
       min-width: 44px;
     }
@@ -342,6 +343,13 @@ body {
 .sprint-page {
   --sprint-tint: color-mix(in oklab, var(--muted) 40%, transparent);
   --sprint-photo-matte: #0a0908;
+  scroll-padding-bottom: 5.5rem;
+}
+
+@media (min-width: 640px) {
+  .sprint-page {
+    scroll-padding-bottom: 0;
+  }
 }
 
 /*

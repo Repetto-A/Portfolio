@@ -108,9 +108,13 @@ export function ProjectPageContent({ project }: { project: ProjectPageData }) {
                 </div>
               </div>
 
-              <div className="flex items-center space-x-2">
+              <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row sm:items-center">
                 {project.githubUrl ? (
-                  <Button asChild variant="default">
+                  <Button
+                    asChild
+                    variant="default"
+                    className="h-auto min-h-[44px] w-full sm:w-auto"
+                  >
                     <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                       <Github className="mr-2 h-4 w-4" />
                       {getTranslation(translations, "projects.cta.viewCode")}
@@ -119,7 +123,11 @@ export function ProjectPageContent({ project }: { project: ProjectPageData }) {
                 ) : null}
 
                 {project.demoUrl ? (
-                  <Button asChild variant="outline">
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="h-auto min-h-[44px] w-full sm:w-auto"
+                  >
                     <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="mr-2 h-4 w-4" />
                       {getTranslation(translations, "projects.cta.liveDemo")}
@@ -224,11 +232,16 @@ export function ProjectPageContent({ project }: { project: ProjectPageData }) {
               <p className="text-muted-foreground">
                 {getTranslation(translations, "projects.collaboration.description")}
               </p>
-              <div className="flex flex-wrap gap-3">
-                <SprintCalendlyButton location="project">
+              <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
+                <SprintCalendlyButton location="project" className="w-full sm:w-auto">
                   {getTranslation(translations, "hero.cta.talk")}
                 </SprintCalendlyButton>
-                <Button asChild size="lg" variant="outline" className="h-auto min-h-[44px]">
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="h-auto min-h-[44px] w-full sm:w-auto"
+                >
                   <Link href="/sprint">{getTranslation(translations, "hero.cta.sprint")}</Link>
                 </Button>
               </div>

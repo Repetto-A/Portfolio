@@ -26,14 +26,14 @@ export function Navigation() {
   const hideBrandForDock = heroTitleRect != null && !(fontsReady && scrollProgress >= 1)
 
   return (
-    <nav className="fixed top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md">
+    <nav className="fixed top-0 z-50 w-full border-b border-border bg-background/80 pt-[env(safe-area-inset-top)] backdrop-blur-md">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <Link
             href="/"
             className={cn(
               "sprint-display text-lg text-foreground transition-[color,opacity] duration-100 hover:text-[var(--sprint-accent)]",
-              hideBrandForDock && "opacity-0"
+              hideBrandForDock && "md:opacity-0"
             )}
           >
             <span ref={registerNavTitleRef}>Alejandro Repetto</span>
@@ -60,7 +60,7 @@ export function Navigation() {
             </div>
           </div>
 
-          <div className="flex items-center space-x-2 md:hidden">
+          <div className="flex items-center gap-1 md:hidden">
             <ThemeToggle />
             <LanguageSwitcher />
 
@@ -68,7 +68,7 @@ export function Navigation() {
               variant="ghost"
               size="sm"
               onClick={() => setIsOpen(!isOpen)}
-              className="h-9 w-9 p-0"
+              className="size-11 p-0"
             >
               {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
               <span className="sr-only">Toggle menu</span>
@@ -83,7 +83,7 @@ export function Navigation() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="block px-3 py-2 text-sm font-medium text-muted-foreground transition-colors duration-150 hover:text-foreground"
+                  className="block min-h-11 px-3 py-3 text-sm font-medium text-muted-foreground transition-colors duration-150 hover:text-foreground"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}

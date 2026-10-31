@@ -81,12 +81,12 @@ export function TrainingsSection() {
         </div>
 
         <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-          <SprintCalendlyButton location="home-trainings">
+          <SprintCalendlyButton location="home-trainings" className="w-full sm:w-auto">
             {getTranslation(translations, "trainings.talk")}
           </SprintCalendlyButton>
           <Link
             href="/sprint"
-            className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-md border border-border px-5 py-3 text-sm font-medium transition-[border-color,background-color,transform] duration-200 ease-out hover:border-foreground/40 hover:bg-muted/50 active:scale-[0.98]"
+            className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-md border border-border px-5 py-3 text-sm font-medium transition-[border-color,background-color,transform] duration-200 ease-out hover:border-foreground/40 hover:bg-muted/50 active:scale-[0.98] sm:w-auto"
           >
             {getTranslation(translations, "trainings.cta")}
             <ArrowRight className="h-4 w-4" />

@@ -53,10 +53,10 @@ export default function SprintPage({ searchParams }: SprintPageProps) {
       <SprintThemeSync theme={theme} />
       <main>
         <nav className="absolute top-0 left-0 right-0 z-10">
-          <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-6 sm:px-6 sm:py-7 lg:px-8">
+          <div className="mx-auto flex max-w-5xl items-center justify-between px-4 pb-6 pt-[max(1.5rem,env(safe-area-inset-top))] sm:px-6 sm:py-7 lg:px-8">
             <Link
               href="/"
-              className="text-[13px] font-medium tracking-[0.01em] text-foreground transition-colors hover:text-[var(--sprint-accent)]"
+              className="inline-flex min-h-[44px] items-center text-[13px] font-medium tracking-[0.01em] text-foreground transition-colors hover:text-[var(--sprint-accent)]"
             >
               Alejandro Repetto
             </Link>
@@ -91,7 +91,7 @@ export default function SprintPage({ searchParams }: SprintPageProps) {
         </div>
 
         <footer className="border-t border-border pt-12 pb-28 sm:pt-14 sm:pb-12">
-          <div className="mx-auto flex max-w-5xl flex-col gap-6 pl-4 pr-20 sm:pl-6 sm:pr-64 lg:pl-8 lg:pr-64">
+          <div className="mx-auto flex max-w-5xl flex-col gap-6 px-4 sm:pl-6 sm:pr-64 lg:pl-8 lg:pr-64">
             {theme === "light" ? (
               <p className="sprint-kicker text-muted-foreground">
                 Vista previa del tema claro. El default de /sprint sigue en oscuro.{" "}

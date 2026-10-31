@@ -20,7 +20,11 @@ export function LanguageSwitcher() {
 
   if (!mounted) {
     return (
-      <Button variant="ghost" size="sm" className="flex items-center space-x-1 text-sm font-medium">
+      <Button
+        variant="ghost"
+        size="sm"
+        className="flex min-h-11 items-center space-x-1 px-2 text-sm font-medium md:min-h-9"
+      >
         <Globe className="h-4 w-4" />
         <span className="sr-only">Switch language</span>
       </Button>
@@ -32,7 +36,7 @@ export function LanguageSwitcher() {
       variant="ghost"
       size="sm"
       onClick={handleLocaleSwitch}
-      className="flex items-center space-x-1 text-sm font-medium"
+      className="flex min-h-11 items-center space-x-1 px-2 text-sm font-medium md:min-h-9"
       aria-label={`Switch to ${locale === "en" ? "Spanish" : "English"}`}
     >
       <Globe className="h-4 w-4" />

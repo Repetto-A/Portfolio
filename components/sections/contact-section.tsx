@@ -143,13 +143,13 @@ export function ContactSection() {
               </p>
               <div className="mb-6 rounded-xl border border-border bg-card p-5 sm:p-6">
                 <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-                  <SprintCalendlyButton location="home-contact">
+                  <SprintCalendlyButton location="home-contact" className="w-full sm:w-auto">
                     {getTranslation(translations, "contact.talk")}
                   </SprintCalendlyButton>
                   <a
                     href={CONTACT_MAILTO}
                     onClick={() => captureCTA("cta_email_click", { location: "home-contact" })}
-                    className="inline-flex min-h-[44px] w-fit items-center justify-center gap-2 rounded-md border border-border px-5 py-3 text-sm font-medium transition-[border-color,background-color,color,transform] duration-200 ease-out hover:border-foreground/40 hover:bg-muted/50 active:scale-[0.98]"
+                    className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-md border border-border px-5 py-3 text-sm font-medium transition-[border-color,background-color,color,transform] duration-200 ease-out hover:border-foreground/40 hover:bg-muted/50 active:scale-[0.98] sm:w-auto"
                   >
                     <Mail className="size-4 shrink-0" aria-hidden />
                     {getTranslation(translations, "contact.write")}
@@ -159,7 +159,7 @@ export function ContactSection() {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => captureCTA("cta_whatsapp_click", { location: "home-contact" })}
-                    className="inline-flex min-h-[44px] w-fit items-center justify-center gap-2 rounded-md border border-border px-5 py-3 text-sm font-medium transition-[border-color,background-color,color,transform] duration-200 ease-out hover:border-foreground/40 hover:bg-muted/50 active:scale-[0.98]"
+                    className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-md border border-border px-5 py-3 text-sm font-medium transition-[border-color,background-color,color,transform] duration-200 ease-out hover:border-foreground/40 hover:bg-muted/50 active:scale-[0.98] sm:w-auto"
                   >
                     <WhatsAppIcon className="size-4 text-[#25D366]" />
                     {getTranslation(translations, "contact.whatsapp")}
@@ -177,7 +177,7 @@ export function ContactSection() {
                 href={resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-lg border border-border bg-card hover:bg-accent transition-colors text-sm font-medium"
+                className="mb-8 inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-border bg-card px-4 py-2 text-sm font-medium transition-colors hover:bg-accent"
               >
                 <Download className="h-4 w-4" />
                 {getTranslation(translations, "hero.cta.resume")}

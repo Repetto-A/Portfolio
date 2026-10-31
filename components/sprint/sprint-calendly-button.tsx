@@ -2,7 +2,7 @@
 
 import type { ReactNode } from "react"
 import { cn } from "@/lib/utils"
-import { CALENDLY_URL, type CTALocation } from "@/lib/sprint/constants"
+import { CALENDLY_URL, CTA_COPY, type CTALocation } from "@/lib/sprint/constants"
 import { captureCTA } from "@/lib/sprint/analytics"
 import { ArrowUpRight } from "lucide-react"
 
@@ -12,11 +12,7 @@ interface SprintCalendlyButtonProps {
   children?: ReactNode
 }
 
-const DEFAULT_LABEL = (
-  <>
-    Agendar una charla de <span className="whitespace-nowrap">20 min</span>
-  </>
-)
+const DEFAULT_LABEL = CTA_COPY.primary
 
 export function SprintCalendlyButton({
   location,
