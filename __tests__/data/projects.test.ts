@@ -1,5 +1,24 @@
-import projectsData from "@/content/projects.json"
 import sitemap from "@/app/sitemap"
+import projectsData from "@/content/projects.json"
+import type { ProjectCaseStudy } from "@/types/project"
+
+const EMDASH = "\u2014"
+const EN_DASH = "\u2013"
+
+function collectStrings(value: unknown, acc: string[] = []): string[] {
+  if (typeof value === "string") {
+    acc.push(value)
+    return acc
+  }
+  if (Array.isArray(value)) {
+    for (const item of value) collectStrings(item, acc)
+    return acc
+  }
+  if (value && typeof value === "object") {
+    for (const nested of Object.values(value)) collectStrings(nested, acc)
+  }
+  return acc
+}
 
 describe("projects data", () => {
   const projects = projectsData.projects
@@ -58,5 +77,53 @@ describe("projects data", () => {
       "/projects/agromaq-3.png",
     ])
     expect(agromaq.githubUrl).toBeNull()
+  })
+})
+
+describe("project case studies", () => {
+  const projects = projectsData.projects
+
+  it("covers every existing project with bilingual case study copy", () => {
+    expect(projects.length).toBeGreaterThanOrEqual(10)
+    for (const project of projects) {
+      const caseStudy = (project as { caseStudy?: ProjectCaseStudy }).caseStudy
+      expect(caseStudy).toBeDefined()
+      expect(caseStudy!.problem.es).toBeTruthy()
+      expect(caseStudy!.problem.en).toBeTruthy()
+      expect(caseStudy!.approach.es).toBeTruthy()
+      expect(caseStudy!.approach.en).toBeTruthy()
+      expect(caseStudy!.result.es).toBeTruthy()
+      expect(caseStudy!.result.en).toBeTruthy()
+      expect(caseStudy!.facts?.length).toBeGreaterThan(0)
+    }
+  })
+
+  it("keeps user-facing project copy free of em dashes", () => {
+    const strings = collectStrings(projects)
+    for (const value of strings) {
+      expect(value).not.toContain(EMDASH)
+      expect(value).not.toContain(EN_DASH)
+    }
+  })
+
+  it("does not invent testimonials or change the training figure", () => {
+    const blob = collectStrings(projects).join("\n")
+    expect(blob.toLowerCase()).not.toContain("testimonio")
+    expect(blob.toLowerCase()).not.toContain("testimonial")
+    expect(blob).not.toContain("+300")
+    expect(blob).not.toMatch(/SpaceXSI/i)
+  })
+
+  it("keeps published facts for flagship projects", () => {
+    const byId = Object.fromEntries(projects.map((project) => [project.id, project]))
+
+    expect(byId.nexa.locales.es.short).toContain("+50")
+    expect(byId.nexa.locales.es.short).toContain("+3M")
+    expect(byId["somos-huella"].demoUrl).toBe("https://somoshuella.org")
+    expect(byId.farmhero.locales.es.short).toMatch(/Ganador Regional/i)
+    expect(byId["nasa-spaceapps"].locales.es.short).toMatch(/2do puesto/i)
+    expect(byId["lavirginia-qc"].locales.es.description).toContain("La Virginia")
+    expect(byId["braintumorai-web"].locales.en.description).toContain("95.4%")
+    expect(byId.agromaq.demoUrl).toBe("https://cotizador.nexa.builders")
   })
 })
