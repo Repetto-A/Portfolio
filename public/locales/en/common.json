@@ -113,13 +113,21 @@
       "regional-winner-global-nominee": "Regional Winner · Global Nominee"
     },
     "cta": {
-      "learnMore": "Learn More",
+      "learnMore": "View the case",
       "viewCode": "View Code",
       "code": "Code",
       "liveDemo": "Live Demo",
       "getInTouch": "Get In Touch",
       "backToProjects": "Back to Projects"
     },
+    "empty": {
+      "title": "There are no projects to show",
+      "description": "When cases are published, they will show up here."
+    },
+    "gridLabel": "Project list",
+    "openProject": "Open project",
+    "viewCodeAria": "View GitHub source for",
+    "liveDemoAria": "Open live demo of",
     "details": {
       "about": "About This Project",
       "techStack": "Technology Stack",
