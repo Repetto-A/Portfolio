@@ -49,29 +49,6 @@
       "category": "Management System"
     },
     {
-      "id": "kraken-pos",
-      "locales": {
-        "en": {
-          "title": "Kraken POS",
-          "short": "Point of sale and stock control system.",
-          "description": "Point of sale system with stock control. The screenshot is a DEMO placeholder with sample data.",
-          "features": ["Point of sale", "Stock control"]
-        },
-        "es": {
-          "title": "Kraken POS",
-          "short": "Sistema de punto de venta y control de stock.",
-          "description": "Sistema de punto de venta con control de stock. La captura es un placeholder DEMO con datos de ejemplo.",
-          "features": ["Punto de venta", "Control de stock"]
-        }
-      },
-      "status": "in-progress",
-      "techStack": [],
-      "githubUrl": null,
-      "demoUrl": null,
-      "images": ["/projects/kraken-1.png"],
-      "category": "Management System"
-    },
-    {
       "id": "nexa",
       "locales": {
         "en": {

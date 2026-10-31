@@ -4,8 +4,6 @@
     "/:mobile": { "photos": 1, "violations": [] },
     "/projects/agromaq:desktop": { "photos": 0, "violations": [] },
     "/projects/agromaq:mobile": { "photos": 0, "violations": [] },
-    "/projects/kraken-pos:desktop": { "photos": 0, "violations": [] },
-    "/projects/kraken-pos:mobile": { "photos": 0, "violations": [] },
     "/sprint:desktop": { "photos": 0, "violations": [] },
     "/sprint:mobile": { "photos": 0, "violations": [] }
   },
@@ -31,15 +29,6 @@
       "bestPractices": 100,
       "seo": 100,
       "lcpMs": 250
-    },
-    "kraken:desktop": {
-      "url": "http://127.0.0.1:3001/projects/kraken-pos",
-      "formFactor": "desktop",
-      "performance": 100,
-      "accessibility": 100,
-      "bestPractices": 100,
-      "seo": 100,
-      "lcpMs": 730
     },
     "sprint:desktop": {
       "url": "http://127.0.0.1:3001/sprint",
