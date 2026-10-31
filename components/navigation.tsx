@@ -27,8 +27,8 @@ export function Navigation() {
 
   return (
     <nav
-      aria-label="Main"
-      className="fixed top-0 z-50 w-full border-b border-border bg-background/80 pt-[env(safe-area-inset-top)] backdrop-blur-md"
+      aria-label={getTranslation(translations, "a11y.mainNav")}
+      className="fixed top-0 z-50 w-full border-b border-border bg-background/95 pt-[env(safe-area-inset-top)] lg:bg-background/80 lg:backdrop-blur-md"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
@@ -47,6 +47,7 @@ export function Navigation() {
               <Link
                 key={item.href}
                 href={item.href}
+                prefetch={item.href === "/sprint" ? false : undefined}
                 className="text-sm font-medium text-muted-foreground transition-colors duration-150 hover:text-foreground"
               >
                 {item.label}
@@ -72,7 +73,7 @@ export function Navigation() {
               size="sm"
               onClick={() => setIsOpen(!isOpen)}
               className="size-11 p-0"
-              aria-label="Toggle menu"
+              aria-label={getTranslation(translations, "a11y.toggleMenu")}
               aria-expanded={isOpen}
               aria-controls="mobile-nav"
             >
@@ -81,7 +82,7 @@ export function Navigation() {
               ) : (
                 <Menu className="h-4 w-4" aria-hidden />
               )}
-              <span className="sr-only">Toggle menu</span>
+              <span className="sr-only">{getTranslation(translations, "a11y.toggleMenu")}</span>
             </Button>
           </div>
         </div>
@@ -93,6 +94,7 @@ export function Navigation() {
                 <Link
                   key={item.href}
                   href={item.href}
+                  prefetch={item.href === "/sprint" ? false : undefined}
                   className="block min-h-11 px-3 py-3 text-sm font-medium text-muted-foreground transition-colors duration-150 hover:text-foreground"
                   onClick={() => setIsOpen(false)}
                 >

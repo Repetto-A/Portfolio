@@ -113,12 +113,21 @@
       "regional-winner-global-nominee": "Regional Winner · Global Nominee"
     },
     "cta": {
-      "learnMore": "Learn More",
+      "learnMore": "View the case",
       "viewCode": "View Code",
+      "code": "Code",
       "liveDemo": "Live Demo",
       "getInTouch": "Get In Touch",
       "backToProjects": "Back to Projects"
     },
+    "empty": {
+      "title": "There are no projects to show",
+      "description": "When cases are published, they will show up here."
+    },
+    "gridLabel": "Project list",
+    "openProject": "Open project",
+    "viewCodeAria": "View GitHub source for",
+    "liveDemoAria": "Open live demo of",
     "details": {
       "about": "About This Project",
       "techStack": "Technology Stack",
@@ -126,6 +135,20 @@
       "links": "Links",
       "viewSourceCode": "View Source Code"
     },
+    "caseStudy": {
+      "kicker": "Case study",
+      "problem": "The problem",
+      "approach": "What was built",
+      "result": "Outcome",
+      "features": "What the system does",
+      "recognition": "Recognition",
+      "press": "Press",
+      "pressOpen": "Open article",
+      "gallery": "Screenshots"
+    },
+    "features": "What the system does",
+    "techStack": "Tech stack",
+    "image": "Screenshot",
     "timeline": {
       "title": "Project Timeline",
       "today": "Today"
@@ -220,5 +243,19 @@
   "language": {
     "switch": "Switch to Spanish",
     "current": "English"
+  },
+  "a11y": {
+    "skipToMain": "Skip to main content",
+    "mainNav": "Main",
+    "toggleMenu": "Open or close the menu",
+    "switchToLight": "Switch to light mode",
+    "switchToDark": "Switch to dark mode",
+    "toggleTheme": "Toggle theme",
+    "switchLanguage": "Switch language",
+    "switchToEs": "Switch to Spanish",
+    "switchToEn": "Switch to English",
+    "scrollToAbout": "Scroll to about section",
+    "profilePhotoAlt": "Alejandro Repetto, software engineer",
+    "screenshot": "{{title}}: screenshot {{n}}/{{total}}"
   }
 }

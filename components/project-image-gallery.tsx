@@ -5,14 +5,22 @@ import Image from "next/image"
 import { ImageLightbox } from "@/components/ui/image-lightbox"
 import { ZoomIn } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { useTranslations, getTranslation } from "@/lib/i18n-context"
 
 interface ProjectImageGalleryProps {
   images: string[]
   projectTitle: string
+  captionLabel?: string
   className?: string
 }
 
-export function ProjectImageGallery({ images, projectTitle, className }: ProjectImageGalleryProps) {
+export function ProjectImageGallery({
+  images,
+  projectTitle,
+  captionLabel = "Screenshot",
+  className,
+}: ProjectImageGalleryProps) {
+  const [translations] = useTranslations()
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [lightboxInitialIndex, setLightboxInitialIndex] = useState(0)
 
@@ -29,6 +37,12 @@ export function ProjectImageGallery({ images, projectTitle, className }: Project
     return null
   }
 
+  const screenshotLabel = (index: number) =>
+    getTranslation(translations, "a11y.screenshot")
+      .replace("{{title}}", projectTitle)
+      .replace("{{n}}", String(index + 1))
+      .replace("{{total}}", String(images.length))
+
   return (
     <div className={className}>
       <div
@@ -38,75 +52,52 @@ export function ProjectImageGallery({ images, projectTitle, className }: Project
       >
         {images.map((image, index) => {
           const fullPath = image.startsWith("/") ? image : `/${image}`
+          const caption =
+            images.length > 1
+              ? `${projectTitle}, ${captionLabel} ${index + 1}/${images.length}`
+              : `${projectTitle}, ${captionLabel}`
 
           return (
-            <div
-              key={index}
-              className="group relative aspect-video cursor-pointer overflow-hidden rounded-lg border bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            <button
+              key={fullPath}
+              type="button"
+              className="group relative aspect-video cursor-pointer overflow-hidden rounded-lg border bg-muted text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               onClick={() => openLightbox(index)}
-              tabIndex={0}
-              role="button"
-              aria-label={
-                images.length > 1
-                  ? `${projectTitle} screenshot ${index + 1}/${images.length}`
-                  : `${projectTitle} screenshot ${index + 1}`
-              }
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault()
-                  openLightbox(index)
-                }
-              }}
+              aria-label={screenshotLabel(index)}
             >
               <Image
                 src={fullPath || "/placeholder.svg"}
                 alt=""
                 fill
-                className={cn("object-cover transition-all duration-300", "group-hover:scale-105")}
-                priority={index < 2}
-                onError={(e) => {
-                  console.error(`Error loading image: ${fullPath}`)
-                  const target = e.target as HTMLImageElement
-                  target.src = `/placeholder.png?height=400&width=600&text=${encodeURIComponent(projectTitle)}`
-                  target.onerror = null
-                }}
+                className={cn(
+                  "object-cover transition-transform duration-300",
+                  "group-hover:scale-105"
+                )}
+                priority={index === 0}
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
 
-              <div
+              <span
                 aria-hidden
                 className={cn(
-                  "absolute inset-0 flex items-center justify-center bg-black/0 transition-all duration-300",
-                  "group-hover:bg-black/20 group-focus:bg-black/20"
+                  "absolute inset-0 flex items-center justify-center bg-black/0 transition-colors duration-300",
+                  "group-hover:bg-black/20 group-focus-visible:bg-black/20"
                 )}
               >
-                <div
+                <span
                   className={cn(
-                    "scale-0 transform rounded-full bg-white/90 p-4 shadow-lg backdrop-blur-sm transition-all duration-300",
-                    "group-hover:scale-100 group-focus:scale-100 group-hover:shadow-xl"
+                    "scale-0 transform rounded-full bg-white/90 p-4 shadow-lg backdrop-blur-sm transition-transform duration-300",
+                    "group-hover:scale-100 group-focus-visible:scale-100"
                   )}
                 >
                   <ZoomIn className="h-6 w-6 text-gray-800" />
-                </div>
-              </div>
+                </span>
+              </span>
 
-              {images.length > 1 ? (
-                <div
-                  aria-hidden
-                  className="absolute top-3 right-3 rounded-full bg-black/70 px-3 py-1 text-sm font-medium text-white"
-                >
-                  {index + 1}/{images.length}
-                </div>
-              ) : null}
-
-              <div
-                aria-hidden
-                className="absolute right-0 bottom-0 left-0 bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-              >
-                <p className="text-sm font-medium text-white">
-                  {projectTitle} · Screenshot {index + 1}
-                </p>
-              </div>
-            </div>
+              <span className="absolute right-0 bottom-0 left-0 bg-gradient-to-t from-black/70 to-transparent px-4 py-3 text-sm font-medium text-white">
+                {caption}
+              </span>
+            </button>
           )
         })}
       </div>

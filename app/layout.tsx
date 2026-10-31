@@ -1,15 +1,11 @@
 import { type ReactNode } from "react"
-import { Inter, JetBrains_Mono, Newsreader } from "next/font/google"
+import localFont from "next/font/local"
 import "./globals.css"
 import type { Metadata, Viewport } from "next"
 import { ThemeProvider } from "@/components/theme-provider"
 import { I18nProvider } from "@/lib/i18n-context"
-import {
-  generateMetadata as genMetadata,
-  generatePersonSchema,
-  generateWebSiteSchema,
-  siteConfig,
-} from "@/lib/seo"
+import { generateMetadata as genMetadata, generateSiteGraph, siteConfig } from "@/lib/seo"
+import { JsonLd } from "@/components/json-ld"
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { ScrollProvider } from "@/lib/scroll-context"
@@ -18,36 +14,23 @@ import { SkipLink } from "@/components/skip-link"
 
 const showVercelTelemetry = process.env.VERCEL === "1"
 
-const inter = Inter({
-  subsets: ["latin"],
+const inter = localFont({
+  src: "../public/fonts/inter-latin.woff2",
   variable: "--font-inter",
   display: "swap",
-  preload: true,
-  fallback: ["system-ui", "arial"],
-})
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
-  display: "swap",
   preload: false,
-  fallback: ["Courier New", "monospace"],
-})
-
-const newsreader = Newsreader({
-  subsets: ["latin"],
-  variable: "--font-sprint-display",
-  display: "swap",
-  axes: ["opsz"],
-  adjustFontFallback: false,
+  fallback: ["system-ui", "arial"],
+  adjustFontFallback: "Arial",
+  weight: "100 900",
 })
 
 export const metadata: Metadata = genMetadata({
-  title: siteConfig.name,
+  title: siteConfig.title,
   description: siteConfig.description,
   canonical: siteConfig.url,
   ogType: "profile",
-  keywords: siteConfig.keywords,
+  ogImage: siteConfig.ogImage,
+  ogImageAlt: siteConfig.ogImageAlt,
 })
 
 export const viewport: Viewport = {
@@ -64,33 +47,28 @@ export const viewport: Viewport = {
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  const personSchema = generatePersonSchema()
-  const webSiteSchema = generateWebSiteSchema()
-
   return (
     <html
-      lang="en"
-      className={`${inter.variable} ${jetbrainsMono.variable} ${newsreader.variable} dark`}
+      lang={siteConfig.language}
+      className={`${inter.variable} dark`}
       suppressHydrationWarning
     >
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }}
-        />
+        <JsonLd data={generateSiteGraph()} />
         {/* /sprint fuerza dark (default) o light (?theme=light) antes del paint. No toca otras rutas. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var p=location.pathname.replace(/\\/+$/,"")||"/";if(p!=="/sprint")return;var t=new URLSearchParams(location.search).get("theme")==="light"?"light":"dark";var r=document.documentElement;r.classList.remove("light","dark","sprint-light");r.classList.add(t);if(t==="light")r.classList.add("sprint-light");r.style.colorScheme=t;r.lang="es";}catch(e){}})();`,
+            __html: `(function(){try{var p=location.pathname.replace(/\\/+$/,"")||"/";if(p!=="/sprint")return;var t=new URLSearchParams(location.search).get("theme")==="light"?"light":"dark";var r=document.documentElement;r.classList.remove("light","dark","sprint-light");r.classList.add(t);if(t==="light")r.classList.add("sprint-light");r.style.colorScheme=t;r.lang=${JSON.stringify(siteConfig.language)};}catch(e){}})();`,
+          }}
+        />
+        <style
+          dangerouslySetInnerHTML={{
+            __html:
+              "[data-hero-photo]{position:relative;width:100%;aspect-ratio:4/5}[data-hero-photo] img[data-lcp-photo]{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 8%}@media (min-width:1024px){[data-hero-photo]{aspect-ratio:1}}",
           }}
         />
       </head>
       <body>
-        <SkipLink />
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -98,6 +76,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           disableTransitionOnChange
         >
           <I18nProvider>
+            <SkipLink />
             <ScrollProvider>
               <FloatingTitle />
               {children}

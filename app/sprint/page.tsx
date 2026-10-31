@@ -26,6 +26,8 @@ import {
 } from "@/lib/sprint/constants"
 import { SprintCalendlyButton } from "@/components/sprint/sprint-calendly-button"
 import { getSprintTheme } from "@/lib/sprint/theme"
+import { generateSprintPageGraph, sprintSeo } from "@/lib/seo"
+import { JsonLd } from "@/components/json-ld"
 
 type SprintPageProps = {
   searchParams: { [key: string]: string | string[] | undefined }
@@ -36,7 +38,7 @@ export function generateMetadata({ searchParams }: SprintPageProps): Metadata {
   return {
     robots: { index: false, follow: true },
     alternates: {
-      canonical: "https://www.repetto-a.com/sprint",
+      canonical: sprintSeo.canonical,
     },
   }
 }
@@ -49,6 +51,7 @@ export default function SprintPage({ searchParams }: SprintPageProps) {
       data-sprint-theme={theme}
       className="sprint-page min-h-screen bg-background text-foreground"
     >
+      <JsonLd data={generateSprintPageGraph()} />
       <SprintThemeSync theme={theme} />
       <nav aria-label="Principal" className="absolute top-0 left-0 right-0 z-10">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4 pb-6 pt-[max(1.5rem,env(safe-area-inset-top))] sm:px-6 sm:py-7 lg:px-8">

@@ -6,6 +6,7 @@
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
+  --font-sprint-display: "Newsreader";
   --sprint-display: var(--font-sprint-display), "Iowan Old Style", Palatino, serif;
   --sprint-measure: 40rem;
   --sprint-heading-measure: 44rem;
@@ -503,7 +504,6 @@ html.sprint-light {
 
 .sprint-display {
   font-family: var(--sprint-display);
-  font-optical-sizing: auto;
   font-weight: 600;
   letter-spacing: -0.03em;
   line-height: 1.08;
@@ -516,7 +516,7 @@ blockquote.sprint-display {
 }
 
 .sprint-kicker {
-  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, "Courier New", monospace;
   font-size: 0.6875rem;
   font-weight: 500;
   letter-spacing: 0.14em;
@@ -539,7 +539,7 @@ blockquote.sprint-display {
 }
 
 .sprint-index {
-  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, "Courier New", monospace;
   font-variant-numeric: tabular-nums;
 }
 
@@ -549,14 +549,13 @@ blockquote.sprint-display {
   --sprint-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-/* Entrada del hero al montar: cascada corta, solo transform + opacity */
+/* Entrada del hero: solo transform. Opacity 0 en el primer frame
+   mezcla muted-foreground con el fondo y axe marca contraste. */
 @keyframes sprint-rise {
   from {
-    opacity: 0;
     transform: translateY(14px);
   }
   to {
-    opacity: 1;
     transform: translateY(0);
   }
 }
@@ -572,6 +571,12 @@ blockquote.sprint-display {
 }
 .sprint-enter-4 {
   animation-delay: 220ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sprint-enter {
+    animation: none;
+  }
 }
 
 /* Marca de acento de cada sección: la línea se dibuja al entrar en viewport */
@@ -677,4 +682,16 @@ blockquote.sprint-display {
   .sprint-wa-pulse-delay {
     animation-delay: 0.85s;
   }
+}
+
+/* Defer style/layout of below-the-fold home sections so LCP paints sooner. */
+#about,
+#trainings,
+#skills,
+#awards,
+#projects,
+#contact,
+footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 36rem;
 }

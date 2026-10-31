@@ -2,7 +2,10 @@ import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 import projectsData from "@/content/projects.json"
 import { ProjectPageContent, type ProjectPageData } from "@/components/project-page-content"
-import { generateMetadata as genMetadata, generateProjectSchema, siteConfig } from "@/lib/seo"
+import { JsonLd } from "@/components/json-ld"
+import { generateMetadata as genMetadata, generateProjectPageGraph, siteConfig } from "@/lib/seo"
+import es from "@/public/locales/es/common.json"
+import type { ProjectCaseStudy } from "@/types/project"
 
 type ProjectContent = {
   title?: string
@@ -14,6 +17,11 @@ type ProjectContent = {
 type ProjectWithLocales = {
   locales?: { en?: ProjectContent; es?: ProjectContent }
   timeline?: unknown
+  caseStudy?: ProjectCaseStudy
+}
+
+function projectCopy(project: ProjectWithLocales): ProjectContent {
+  return project.locales?.es ?? project.locales?.en ?? {}
 }
 
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
@@ -21,24 +29,27 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
 
   if (!projectData) {
     return genMetadata({
-      title: "Project Not Found",
-      description: "The requested project could not be found.",
+      title: es.projects.notFound.title,
+      description: es.projects.notFound.description,
       noindex: true,
     })
   }
 
-  const projectContent: ProjectContent = (projectData as ProjectWithLocales).locales?.en ?? {}
-  const keywords = [...projectData.techStack, projectData.category, "project", "portfolio"]
+  const projectWithLocales = projectData as ProjectWithLocales
+  const content = projectCopy(projectWithLocales)
+  const caseStudy = projectWithLocales.caseStudy
   const firstImage = projectData.images?.[0]
-  const ogImage = firstImage ? `${siteConfig.url}${firstImage}` : undefined
+  const ogImage = firstImage || siteConfig.ogImage
+  const description = caseStudy?.problem.es || content.description || ""
 
   return genMetadata({
-    title: projectContent.title || projectData.id,
-    description: projectContent.short || projectContent.description || "",
+    title: content.title || projectData.id,
+    description,
     canonical: `${siteConfig.url}/projects/${params.id}`,
     ogImage,
-    ogType: "article",
-    keywords,
+    ogImageAlt: content.title || projectData.id,
+    ogType: "website",
+    keywords: [...projectData.techStack, projectData.category],
   })
 }
 
@@ -55,18 +66,9 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
     notFound()
   }
 
-  const projectContent: ProjectContent = (projectData as ProjectWithLocales).locales?.en ?? {}
-
-  const projectSchema = generateProjectSchema({
-    id: projectData.id,
-    title: projectContent.title ?? "",
-    description: projectContent.description ?? "",
-    status: projectData.status,
-    techStack: projectData.techStack,
-    githubUrl: projectData.githubUrl,
-    demoUrl: projectData.demoUrl,
-    category: projectData.category,
-  })
+  const projectWithLocales = projectData as ProjectWithLocales
+  const content = projectCopy(projectWithLocales)
+  const caseStudy = projectWithLocales.caseStudy
 
   const project: ProjectPageData = {
     id: projectData.id,
@@ -76,19 +78,24 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
     demoUrl: projectData.demoUrl ?? null,
     images: projectData.images ?? [],
     category: projectData.category,
-    locales: (projectData as ProjectWithLocales).locales ?? {},
-    timeline: Array.isArray((projectData as ProjectWithLocales).timeline)
-      ? ((projectData as ProjectWithLocales).timeline as ProjectPageData["timeline"])
+    locales: projectWithLocales.locales ?? {},
+    caseStudy: projectWithLocales.caseStudy,
+    timeline: Array.isArray(projectWithLocales.timeline)
+      ? (projectWithLocales.timeline as ProjectPageData["timeline"])
       : undefined,
   }
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(projectSchema),
-        }}
+      <JsonLd
+        data={generateProjectPageGraph({
+          id: projectData.id,
+          title: content.title ?? "",
+          description: caseStudy?.problem.es || content.description || "",
+          techStack: projectData.techStack,
+          githubUrl: projectData.githubUrl,
+          demoUrl: projectData.demoUrl,
+        })}
       />
       <ProjectPageContent project={project} />
     </>

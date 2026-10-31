@@ -1,22 +1,22 @@
 "use client"
 
+import { type ReactNode } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, ExternalLink } from "lucide-react"
 import Link from "next/link"
 import { useTranslations, getTranslation, getResumeUrl } from "@/lib/i18n-context"
-import { ProfilePhoto } from "@/components/profile-photo"
 import { useScrollContext } from "@/lib/scroll-context"
 import { cn } from "@/lib/utils"
 import { SprintCalendlyButton } from "@/components/sprint/sprint-calendly-button"
 import { SprintClientsBand } from "@/components/sprint/sprint-clients-band"
 
-export function HeroSection() {
+export function HeroSection({ photo }: { photo: ReactNode }) {
   const [translations, locale] = useTranslations()
   const { registerHeroTitleRef, isFloatingTitleActive, fontsReady } = useScrollContext()
   const resumeUrl = getResumeUrl(locale)
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-4 pt-[calc(4rem+env(safe-area-inset-top))] sm:px-6 lg:px-8">
+    <section className="relative flex min-h-[100svh] items-start justify-center overflow-hidden px-4 pt-[calc(4rem+env(safe-area-inset-top))] sm:px-6 lg:items-center lg:px-8">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.04] dark:opacity-[0.07]"
         style={{
@@ -26,13 +26,13 @@ export function HeroSection() {
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-40 left-1/2 -z-10 h-[420px] w-[820px] -translate-x-1/2 rounded-full opacity-[0.12] blur-3xl"
+        className="pointer-events-none absolute -top-40 left-1/2 -z-10 hidden h-[420px] w-[820px] -translate-x-1/2 rounded-full opacity-[0.12] blur-3xl lg:block"
         style={{ background: "radial-gradient(closest-side, var(--sprint-accent), transparent)" }}
       />
 
       <div className="mx-auto w-full max-w-7xl">
-        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
-          <div className="space-y-6 lg:space-y-8">
+        <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-16">
+          <div className="order-2 space-y-6 lg:order-1 lg:space-y-8">
             <div className="space-y-5">
               <p className="sprint-kicker text-[var(--sprint-accent)]">
                 {getTranslation(translations, "hero.kicker")}
@@ -87,7 +87,7 @@ export function HeroSection() {
                 variant="outline"
                 className="group h-auto min-h-[44px] w-full border-border/60 sm:w-auto"
               >
-                <Link href="/sprint">
+                <Link href="/sprint" prefetch={false}>
                   {getTranslation(translations, "hero.cta.sprint")}
                   <ArrowRight
                     className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5"
@@ -97,7 +97,7 @@ export function HeroSection() {
               </Button>
             </div>
 
-            <Link
+            <a
               href={resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
@@ -105,25 +105,21 @@ export function HeroSection() {
             >
               {getTranslation(translations, "hero.cta.resume")}
               <ExternalLink className="h-3.5 w-3.5 opacity-60" aria-hidden />
-            </Link>
+            </a>
           </div>
 
-          <div className="flex justify-center lg:order-last lg:justify-end">
-            <div className="relative w-full max-w-md lg:max-w-none">
-              <div className="relative aspect-square w-full max-h-[30vh] sm:max-h-[50vh] lg:max-h-none">
+          <div className="order-1 flex justify-center lg:order-2 lg:justify-end">
+            <div className="relative w-full max-w-[13.5rem] sm:max-w-xs lg:max-w-md">
+              <div data-hero-photo="" className="relative aspect-[4/5] w-full lg:aspect-square">
                 <div
-                  className="pointer-events-none absolute -inset-6 rounded-3xl blur-3xl"
+                  className="pointer-events-none absolute -inset-6 hidden rounded-3xl blur-3xl sm:block"
                   style={{
                     background: "color-mix(in oklab, var(--sprint-accent) 18%, transparent)",
                   }}
                 />
 
                 <div className="relative h-full w-full overflow-hidden rounded-2xl shadow-2xl ring-1 ring-border">
-                  <ProfilePhoto
-                    alt="Alejandro Repetto, Software Engineer"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
-                    priority
-                  />
+                  {photo}
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/25 via-transparent to-transparent" />
                 </div>
               </div>
@@ -156,7 +152,11 @@ export function HeroSection() {
         </div>
 
         <div className="mt-10 flex justify-center sm:mt-12">
-          <Link href="#about" className="group" aria-label="Scroll to about section">
+          <Link
+            href="#about"
+            className="group"
+            aria-label={getTranslation(translations, "a11y.scrollToAbout")}
+          >
             <div className="flex flex-col items-center gap-0">
               <div className="h-8 w-px bg-border transition-colors duration-300 group-hover:bg-[var(--sprint-accent)]" />
               <div className="mt-1 h-1.5 w-1.5 rounded-full bg-muted-foreground transition-colors duration-300 group-hover:bg-[var(--sprint-accent)]" />

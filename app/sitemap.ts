@@ -1,27 +1,22 @@
 import type { MetadataRoute } from "next"
 import projectsData from "@/content/projects.json"
+import { siteConfig, sprintSeo } from "@/lib/seo"
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://www.repetto-a.com"
-  const lastModified = new Date()
-
   const projectRoutes: MetadataRoute.Sitemap = projectsData.projects.map((project) => ({
-    url: `${baseUrl}/projects/${project.id}`,
-    lastModified,
+    url: `${siteConfig.url}/projects/${project.id}`,
     changeFrequency: "monthly",
     priority: 0.8,
   }))
 
   return [
     {
-      url: baseUrl,
-      lastModified,
+      url: siteConfig.url,
       changeFrequency: "monthly",
       priority: 1,
     },
     {
-      url: `${baseUrl}/sprint`,
-      lastModified,
+      url: sprintSeo.canonical,
       changeFrequency: "weekly",
       priority: 0.9,
     },
