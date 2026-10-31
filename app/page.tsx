@@ -7,9 +7,9 @@ import { AwardsSection } from "@/components/sections/awards-section"
 import { ProjectsSection } from "@/components/sections/projects-section"
 import { ContactSection } from "@/components/sections/contact-section"
 import { Footer } from "@/components/footer"
+import { ProfilePhoto } from "@/components/profile-photo"
 import type { Metadata } from "next"
 import { generateMetadata, siteConfig } from "@/lib/seo"
-import { PROFILE_PHOTO_SRC } from "@/lib/media"
 
 export const metadata: Metadata = generateMetadata({
   title: siteConfig.title,
@@ -21,16 +21,11 @@ export const metadata: Metadata = generateMetadata({
 export default function Home() {
   return (
     <>
-      <link
-        rel="preload"
-        href={PROFILE_PHOTO_SRC}
-        as="image"
-        type="image/webp"
-        fetchPriority="high"
-      />
       <Navigation />
       <main id="main-content" className="min-h-screen bg-background">
-        <HeroSection />
+        <HeroSection
+          photo={<ProfilePhoto alt="Alejandro Repetto, ingeniero de software" />}
+        />
         <AboutSection />
         <TrainingsSection />
         <SkillsSection />

@@ -287,6 +287,9 @@ async function main() {
     args: ["--no-sandbox", "--disable-dev-shm-usage"],
   })
   const context = await browser.newContext({ viewport: { width: 390, height: 844 } })
+  await context.addInitScript(() => {
+    localStorage.setItem("preferred-locale", "es")
+  })
   const page = await context.newPage()
 
   const axeTargets = [
@@ -294,6 +297,7 @@ async function main() {
     { id: "home-375", url: `${BASE}/`, viewport: { width: 375, height: 667 } },
     { id: "sprint", url: `${BASE}/sprint` },
     { id: "nexa", url: `${BASE}/projects/nexa` },
+    { id: "agromaq", url: `${BASE}/projects/agromaq` },
   ]
   for (const t of axeTargets) {
     if (t.viewport) await page.setViewportSize(t.viewport)
@@ -305,11 +309,24 @@ async function main() {
   report.nav["375"] = await exerciseNav(page, 375, 667)
   report.nav["390"] = await exerciseNav(page, 390, 844)
 
-  await page.setViewportSize({ width: 390, height: 844 })
-  await page.goto(`${BASE}/`, { waitUntil: "load" })
+  async function gotoHomeEs(width, height) {
+    await page.setViewportSize({ width, height })
+    await page.goto(`${BASE}/`, { waitUntil: "load", timeout: 60000 })
+    await page.waitForTimeout(250)
+  }
+
+  await gotoHomeEs(390, 844)
+  const product = {
+    photos: await page.locator("img[data-lcp-photo]").count(),
+    spacexsi: await page.locator("text=SpaceXSI Ambassador").count(),
+    trained: await page.locator("text=+300").count(),
+    trainedLabel: await page.locator("text=personas capacitadas").count(),
+    kraken: await page.locator("text=Kraken").count(),
+    agromaq: await page.locator("text=Agromaq").count(),
+  }
+  report.product = product
   await page.screenshot({ path: join(MEDIA, "home-mobile.png"), fullPage: false })
-  await page.setViewportSize({ width: 1440, height: 900 })
-  await page.goto(`${BASE}/`, { waitUntil: "load" })
+  await gotoHomeEs(1440, 900)
   await page.screenshot({ path: join(MEDIA, "home-desktop.png"), fullPage: false })
 
   const scorePath = join(INTERNAL, "scorecard.html")

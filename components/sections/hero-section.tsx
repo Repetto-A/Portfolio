@@ -1,16 +1,16 @@
 "use client"
 
+import { type ReactNode } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, ExternalLink } from "lucide-react"
 import Link from "next/link"
 import { useTranslations, getTranslation, getResumeUrl } from "@/lib/i18n-context"
-import { ProfilePhoto } from "@/components/profile-photo"
 import { useScrollContext } from "@/lib/scroll-context"
 import { cn } from "@/lib/utils"
 import { SprintCalendlyButton } from "@/components/sprint/sprint-calendly-button"
 import { SprintClientsBand } from "@/components/sprint/sprint-clients-band"
 
-export function HeroSection() {
+export function HeroSection({ photo }: { photo: ReactNode }) {
   const [translations, locale] = useTranslations()
   const { registerHeroTitleRef, isFloatingTitleActive, fontsReady } = useScrollContext()
   const resumeUrl = getResumeUrl(locale)
@@ -119,10 +119,7 @@ export function HeroSection() {
                 />
 
                 <div className="relative h-full w-full overflow-hidden rounded-2xl shadow-2xl ring-1 ring-border">
-                  <ProfilePhoto
-                    alt={getTranslation(translations, "a11y.profilePhotoAlt")}
-                    priority
-                  />
+                  {photo}
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/25 via-transparent to-transparent" />
                 </div>
               </div>
