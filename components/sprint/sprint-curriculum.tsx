@@ -14,8 +14,7 @@ export function SprintCurriculum({ modules }: { modules: readonly CurriculumModu
           {modules.length} módulos. La empresa elige.
         </p>
         <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-          El eje es SpaceXAI: Cursor y Grok Bot. Claude Code también, y Claude Code dedicado a
-          pedido.
+          El eje es Cursor y Grok Bot. Claude Code también, y Claude Code dedicado a pedido.
         </p>
       </div>
 

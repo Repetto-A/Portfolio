@@ -33,7 +33,6 @@ const skillCategories = [
   {
     titleKey: "skills.categories.frameworks",
     skills: [
-      "SpaceXAI",
       "Cursor",
       "Grok Bot",
       "Claude Code",

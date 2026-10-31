@@ -4,17 +4,19 @@
     "about": "About",
     "projects": "Projects",
     "sprint": "Sprint",
-    "contact": "Contact"
+    "contact": "Contact",
+    "talk": "Book a chat"
   },
   "hero": {
     "name": "Alejandro Repetto",
-    "kicker": "SpaceXAI Ambassador",
+    "kicker": "For companies",
     "title": "Software Engineer",
     "description": "I train teams to stop talking about AI and start executing with it. A 30-day sprint: diagnosis, applied training, and an internal hackathon.\nAwarded at NASA Space Apps, ETH Argentina, and ETH Global.",
     "cta": {
       "projects": "Projects",
       "resume": "Download resume",
-      "sprint": "See the sprint"
+      "sprint": "See the sprint",
+      "talk": "Book a chat"
     },
     "stats": {
       "projects": "Projects",
@@ -33,10 +35,10 @@
     "title": "About",
     "eyebrow": "Who",
     "bio": {
-      "short": "I train technical and executive teams to execute with AI, not just talk about it. Lecturer in the UCEL Diploma in applied AI, trainer at CRIA, and SpaceXAI Ambassador. Founder of NEXA. Background in competitive programming and cybersecurity.",
+      "short": "I train technical and executive teams to execute with AI, not just talk about it. Lecturer in the UCEL Diploma in applied AI, trainer at CRIA, and SpaceXSI Ambassador. Founder of NEXA. Background in competitive programming and cybersecurity.",
       "background": {
         "title": "Background",
-        "text": "I've been programming seriously since 2022, when I placed 6th in my first ICPC tournament. A 2024 winter training camp was a turning point that transformed how I approach technical challenges.\n\nToday I'm a lecturer in the Diploma in AI applied to professional practice (UCEL), an AI trainer and consultant for companies at CRIA, founder of NEXA (+3M people across +50 communities), and a SpaceXAI Ambassador. I train teams mainly on Cursor and Grok Bot. I've also trained with Copilot and other tools.\n\nMy projects range from NASA Space Apps prediction algorithms to production systems with RAG architectures."
+        "text": "I've been programming seriously since 2022, when I placed 6th in my first ICPC tournament. A 2024 winter training camp was a turning point that transformed how I approach technical challenges.\n\nToday I'm a lecturer in the Diploma in AI applied to professional practice (UCEL), an AI trainer and consultant for companies at CRIA, founder of NEXA (+3M people across +50 communities), and a SpaceXSI Ambassador. I train teams mainly on Cursor and Grok Bot. I've also trained with Copilot and other tools.\n\nMy projects range from NASA Space Apps prediction algorithms to production systems with RAG architectures."
       },
       "approach": {
         "title": "Approach",
@@ -48,7 +50,7 @@
     "eyebrow": "For companies",
     "title": "From talking about AI to executing with AI",
     "lead": "A 30-day sprint: diagnosis, applied training, and an internal hackathon. Your team leaves with prototypes, usage rules, and a 90-day roadmap.",
-    "proof": "I have already trained +300 people in AI between CRIA and the UCEL Diploma in AI applied to professional practice. The stack is led by SpaceXAI: Cursor and Grok Bot.",
+    "proof": "I have already trained +300 people in AI between CRIA and the UCEL Diploma in AI applied to professional practice. I train teams mainly on Cursor and Grok Bot.",
     "pacesHeadline": "We set it to your pace: intensive or sustained",
     "paceIntensivo": "Intensive",
     "paceIntensivoDetail": "3 classes of 1 h 30 per week (Monday, Wednesday and Friday).",
@@ -57,12 +59,13 @@
     "programKicker": "Modular program",
     "programLead": "Five modules. The company chooses.",
     "cta": "See the sprint",
-    "ctaHint": "Paces, program and how it works, on one page."
+    "talk": "Book a chat",
+    "ctaHint": "Twenty minutes. We see if the sprint fits."
   },
   "skills": {
     "eyebrow": "Stack",
     "title": "Skills and technologies",
-    "subtitle": "The stack is led by SpaceXAI (Cursor and Grok Bot). Also Claude Code, Copilot, and the rest of the tools for systems and automations.",
+    "subtitle": "Cursor, Grok Bot, Claude Code, Copilot, and the rest of the tools for systems and automations.",
     "categories": {
       "languages": "Languages & Frameworks",
       "frameworks": "AI/ML & Data Science",
@@ -146,7 +149,7 @@
   },
   "contact": {
     "form": {
-      "title": "Send a Message",
+      "title": "Or write here",
       "name": "Name",
       "email": "Email",
       "subject": "Subject",
@@ -157,8 +160,8 @@
       "sending": "Sending...",
       "namePlaceholder": "Your name",
       "emailPlaceholder": "your.email@example.com",
-      "subjectPlaceholder": "Project inquiry, collaboration, etc.",
-      "messagePlaceholder": "Tell me about your project or how I can help you...",
+      "subjectPlaceholder": "AI sprint for my team",
+      "messagePlaceholder": "Tell me about your team and what you want to execute with AI.",
       "characters": "characters"
     },
     "validation": {
@@ -178,12 +181,16 @@
       "consulting": "Consulting",
       "other": "Other"
     },
-    "eyebrow": "Contact",
+    "eyebrow": "Next step",
     "companies": "If your company wants to go from talking about AI to executing, the sprint is here.",
     "companiesCta": "See the sprint",
+    "talk": "Book a chat",
+    "write": "Write to me",
+    "whatsapp": "WhatsApp",
+    "talkHint": "Twenty minutes. We see if the sprint fits. No commitment.",
     "info": {
-      "title": "Write to me",
-      "description": "Consulting, projects, or the sprint for your team. Any of these channels works."
+      "title": "Let's talk",
+      "description": "A 20-minute chat to see if the sprint fits. Or write to me, or send a WhatsApp."
     },
     "methods": {
       "email": "Email",

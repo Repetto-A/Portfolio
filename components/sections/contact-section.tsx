@@ -27,6 +27,16 @@ import { useTranslations, getTranslation, getResumeUrl } from "@/lib/i18n-contex
 import { SectionHeader } from "@/components/layout/section-header"
 import { Section } from "@/components/layout/section"
 import { Container } from "@/components/layout/container"
+import { SprintCalendlyButton } from "@/components/sprint/sprint-calendly-button"
+import { WhatsAppIcon } from "@/components/sprint/whatsapp-icon"
+import {
+  CONTACT_EMAIL,
+  CONTACT_MAILTO,
+  GITHUB_URL,
+  LINKEDIN_URL,
+  WHATSAPP_URL,
+} from "@/lib/sprint/constants"
+import { captureCTA } from "@/lib/sprint/analytics"
 
 const contactSchema = z.object({
   name: z.string().min(1).max(100),
@@ -131,6 +141,31 @@ export function ContactSection() {
               <p className="mb-4 leading-relaxed text-muted-foreground">
                 {getTranslation(translations, "contact.info.description")}
               </p>
+              <div className="mb-6 rounded-xl border border-border bg-card p-5 sm:p-6">
+                <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+                  <SprintCalendlyButton location="home-contact">
+                    {getTranslation(translations, "contact.talk")}
+                  </SprintCalendlyButton>
+                  <a
+                    href={CONTACT_MAILTO}
+                    onClick={() => captureCTA("cta_email_click", { location: "home-contact" })}
+                    className="inline-flex min-h-[44px] w-fit items-center justify-center gap-2 rounded-md border border-border px-5 py-3 text-sm font-medium transition-[border-color,background-color,color,transform] duration-200 ease-out hover:border-foreground/40 hover:bg-muted/50 active:scale-[0.98]"
+                  >
+                    <Mail className="size-4 shrink-0" aria-hidden />
+                    {getTranslation(translations, "contact.write")}
+                  </a>
+                  <a
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => captureCTA("cta_whatsapp_click", { location: "home-contact" })}
+                    className="inline-flex min-h-[44px] w-fit items-center justify-center gap-2 rounded-md border border-border px-5 py-3 text-sm font-medium transition-[border-color,background-color,color,transform] duration-200 ease-out hover:border-foreground/40 hover:bg-muted/50 active:scale-[0.98]"
+                  >
+                    <WhatsAppIcon className="size-4 text-[#25D366]" />
+                    {getTranslation(translations, "contact.whatsapp")}
+                  </a>
+                </div>
+              </div>
               <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
                 {getTranslation(translations, "contact.companies")}{" "}
                 <Link href="/sprint" className="text-foreground underline-offset-4 hover:underline">
@@ -160,10 +195,10 @@ export function ContactSection() {
                     {getTranslation(translations, "contact.methods.email")}
                   </div>
                   <Link
-                    href="mailto:contact@repetto-a.com"
+                    href={CONTACT_MAILTO}
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    contact@repetto-a.com
+                    {CONTACT_EMAIL}
                   </Link>
                 </div>
               </div>
@@ -175,7 +210,7 @@ export function ContactSection() {
                 <div>
                   <div className="font-medium text-foreground">LinkedIn</div>
                   <Link
-                    href="https://www.linkedin.com/in/alejandro-repetto"
+                    href={LINKEDIN_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-muted-foreground hover:text-primary transition-colors"
@@ -192,7 +227,7 @@ export function ContactSection() {
                 <div>
                   <div className="font-medium text-foreground">GitHub</div>
                   <Link
-                    href="https://github.com/Repetto-A"
+                    href={GITHUB_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-muted-foreground hover:text-primary transition-colors"

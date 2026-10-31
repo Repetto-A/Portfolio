@@ -7,6 +7,7 @@ import { Section } from "@/components/layout/section"
 import { SectionHeader } from "@/components/layout/section-header"
 import { useTranslations, getTranslation } from "@/lib/i18n-context"
 import { SPRINT_CURRICULUM } from "@/lib/sprint/curriculum"
+import { SprintCalendlyButton } from "@/components/sprint/sprint-calendly-button"
 
 export function TrainingsSection() {
   const [translations, locale] = useTranslations()
@@ -79,18 +80,21 @@ export function TrainingsSection() {
           </ol>
         </div>
 
-        <div className="mt-10">
+        <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+          <SprintCalendlyButton location="home-trainings">
+            {getTranslation(translations, "trainings.talk")}
+          </SprintCalendlyButton>
           <Link
             href="/sprint"
-            className="inline-flex min-h-[44px] items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-[background-color,transform] duration-200 ease-out hover:bg-primary/90 active:scale-[0.98]"
+            className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-md border border-border px-5 py-3 text-sm font-medium transition-[border-color,background-color,transform] duration-200 ease-out hover:border-foreground/40 hover:bg-muted/50 active:scale-[0.98]"
           >
             {getTranslation(translations, "trainings.cta")}
             <ArrowRight className="h-4 w-4" />
           </Link>
-          <p className="mt-3 text-sm text-muted-foreground">
-            {getTranslation(translations, "trainings.ctaHint")}
-          </p>
         </div>
+        <p className="mt-3 text-sm text-muted-foreground">
+          {getTranslation(translations, "trainings.ctaHint")}
+        </p>
       </Container>
     </Section>
   )

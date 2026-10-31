@@ -17,8 +17,15 @@ import { SprintCtaFinal } from "@/components/sprint/sprint-cta-final"
 import { SprintCriaLink } from "@/components/sprint/sprint-ext-link"
 import { SprintProofBand } from "@/components/sprint/sprint-proof-band"
 import { SprintWhatsAppBubble } from "@/components/sprint/sprint-whatsapp-bubble"
+import { SprintContactDock } from "@/components/sprint/sprint-contact-dock"
 import { SprintThemeSync } from "@/components/sprint/sprint-theme-sync"
-import { CONTACT_EMAIL, SHOW_SPRINT_PRICING, SPRINT_ANCHORS } from "@/lib/sprint/constants"
+import {
+  CONTACT_EMAIL,
+  CONTACT_MAILTO,
+  CTA_COPY,
+  SHOW_SPRINT_PRICING,
+} from "@/lib/sprint/constants"
+import { SprintCalendlyButton } from "@/components/sprint/sprint-calendly-button"
 import { getSprintTheme } from "@/lib/sprint/theme"
 
 type SprintPageProps = {
@@ -53,12 +60,12 @@ export default function SprintPage({ searchParams }: SprintPageProps) {
             >
               Alejandro Repetto
             </Link>
-            <a
-              href={`#${SPRINT_ANCHORS.cta}`}
-              className="sprint-kicker inline-flex min-h-[44px] items-center rounded-md border border-border px-3.5 py-2 text-muted-foreground transition-[border-color,color,transform] duration-200 ease-out hover:border-foreground/40 hover:text-foreground active:scale-[0.98]"
+            <SprintCalendlyButton
+              location="nav"
+              className="min-h-[44px] px-3.5 py-2 text-sm sm:px-4"
             >
-              Agendar diagnóstico
-            </a>
+              {CTA_COPY.primary}
+            </SprintCalendlyButton>
           </div>
         </nav>
 
@@ -100,7 +107,7 @@ export default function SprintPage({ searchParams }: SprintPageProps) {
               </p>
               <div className="flex flex-wrap items-center gap-4">
                 <a
-                  href={`mailto:${CONTACT_EMAIL}`}
+                  href={CONTACT_MAILTO}
                   className="text-xs text-muted-foreground underline-offset-4 hover:underline"
                 >
                   {CONTACT_EMAIL}
@@ -117,6 +124,7 @@ export default function SprintPage({ searchParams }: SprintPageProps) {
         </footer>
 
         <SprintWhatsAppBubble />
+        <SprintContactDock />
       </main>
     </div>
   )

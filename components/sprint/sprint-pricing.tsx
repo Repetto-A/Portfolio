@@ -133,7 +133,7 @@ export function SprintPricing() {
             <div className="mt-6">
               {t.core ? (
                 <SprintCalendlyButton location="pricing" className="w-full justify-center">
-                  Agendar diagnóstico gratuito
+                  Agendar una charla
                 </SprintCalendlyButton>
               ) : (
                 <a

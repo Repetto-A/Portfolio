@@ -4,17 +4,19 @@
     "about": "Acerca",
     "projects": "Proyectos",
     "sprint": "Sprint",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "talk": "Agendar una charla"
   },
   "hero": {
     "name": "Alejandro Repetto",
-    "kicker": "SpaceXAI Ambassador",
+    "kicker": "Para empresas",
     "title": "Software Engineer",
     "description": "Capacito equipos para que dejen de hablar de IA y empiecen a ejecutar. Sprint de 30 días: diagnóstico, capacitación aplicada y hackathon interna.\nPremiado en NASA Space Apps, ETH Argentina y ETH Global.",
     "cta": {
       "projects": "Proyectos",
       "resume": "Descargar CV",
-      "sprint": "Ver el sprint"
+      "sprint": "Ver el sprint",
+      "talk": "Agendar una charla"
     },
     "stats": {
       "projects": "Proyectos",
@@ -33,10 +35,10 @@
     "title": "Acerca de mí",
     "eyebrow": "Quién",
     "bio": {
-      "short": "Capacito equipos técnicos y ejecutivos para ejecutar con IA, no para hablar de ella. Docente en la Diplomatura de IA de UCEL, capacitador en CRIA y SpaceXAI Ambassador. Founder de NEXA. Base en programación competitiva y ciberseguridad.",
+      "short": "Capacito equipos técnicos y ejecutivos para ejecutar con IA, no para hablar de ella. Docente en la Diplomatura de IA de UCEL, capacitador en CRIA y SpaceXSI Ambassador. Founder de NEXA. Base en programación competitiva y ciberseguridad.",
       "background": {
         "title": "Trayectoria",
-        "text": "Programo seriamente desde el 2022, cuando obtuve el 6to puesto en mi primer torneo ICPC. Un training camp de invierno en 2024 fue un punto de inflexión que transformó mi forma de abordar desafíos técnicos.\n\nHoy soy docente en la Diplomatura de IA aplicada al ejercicio profesional (UCEL), capacitador y consultor en IA para empresas en CRIA, founder de NEXA (+3M de personas en +50 comunidades) y SpaceXAI Ambassador. Capacito sobre todo con Cursor y Grok Bot. También di capacitaciones con Copilot y otras herramientas.\n\nMis proyectos van desde algoritmos de predicción para NASA Space Apps hasta sistemas en producción con arquitecturas RAG."
+        "text": "Programo seriamente desde el 2022, cuando obtuve el 6to puesto en mi primer torneo ICPC. Un training camp de invierno en 2024 fue un punto de inflexión que transformó mi forma de abordar desafíos técnicos.\n\nHoy soy docente en la Diplomatura de IA aplicada al ejercicio profesional (UCEL), capacitador y consultor en IA para empresas en CRIA, founder de NEXA (+3M de personas en +50 comunidades) y SpaceXSI Ambassador. Capacito sobre todo con Cursor y Grok Bot. También di capacitaciones con Copilot y otras herramientas.\n\nMis proyectos van desde algoritmos de predicción para NASA Space Apps hasta sistemas en producción con arquitecturas RAG."
       },
       "approach": {
         "title": "Enfoque",
@@ -48,7 +50,7 @@
     "eyebrow": "Para empresas",
     "title": "De hablar de IA a ejecutar con IA",
     "lead": "Sprint de 30 días: diagnóstico, capacitación aplicada y hackathon interna. Tu equipo termina con prototipos, reglas de uso y un roadmap de 90 días.",
-    "proof": "Ya capacité en IA a +300 personas entre CRIA y la Diplomatura de IA aplicada al ejercicio profesional (UCEL). El stack lo lidera SpaceXAI: Cursor y Grok Bot.",
+    "proof": "Ya capacité en IA a +300 personas entre CRIA y la Diplomatura de IA aplicada al ejercicio profesional (UCEL). Capacito sobre todo con Cursor y Grok Bot.",
     "pacesHeadline": "Lo armamos a tu ritmo: intensivo o sostenido",
     "paceIntensivo": "Intensivo",
     "paceIntensivoDetail": "3 clases de 1 h 30 por semana (lunes, miércoles y viernes).",
@@ -57,12 +59,13 @@
     "programKicker": "Programa modular",
     "programLead": "Cinco módulos. La empresa elige.",
     "cta": "Ver el sprint",
-    "ctaHint": "Ritmos, programa y cómo funciona, en una sola página."
+    "talk": "Agendar una charla",
+    "ctaHint": "Veinte minutos. Vemos si el sprint aplica."
   },
   "skills": {
     "eyebrow": "Stack",
     "title": "Habilidades y tecnologías",
-    "subtitle": "El stack lo lidera SpaceXAI (Cursor y Grok Bot). También Claude Code, Copilot y el resto de herramientas para construir sistemas y automatizaciones.",
+    "subtitle": "Cursor, Grok Bot, Claude Code, Copilot y el resto de herramientas para construir sistemas y automatizaciones.",
     "categories": {
       "languages": "Lenguajes y Frameworks",
       "frameworks": "IA/ML y Ciencia de Datos",
@@ -145,12 +148,16 @@
     "seeProjectAria": "Ver proyecto {{title}}"
   },
   "contact": {
-    "eyebrow": "Contacto",
+    "eyebrow": "Siguiente paso",
     "companies": "Si tu empresa quiere pasar de hablar de IA a ejecutar, el sprint está acá.",
     "companiesCta": "Ver el sprint",
+    "talk": "Agendar una charla",
+    "write": "Escribime",
+    "whatsapp": "WhatsApp",
+    "talkHint": "Veinte minutos. Vemos si el sprint aplica. Sin compromiso.",
     "info": {
-      "title": "Escribime",
-      "description": "Consultoría, proyectos o el sprint para tu equipo. Cualquiera de estos canales llega."
+      "title": "Hablemos",
+      "description": "Una charla de 20 minutos para ver si el sprint aplica. Si preferís, escribime o mandame un WhatsApp."
     },
     "methods": {
       "email": "Email",
@@ -166,7 +173,7 @@
       "discuss": "Abierto a Conversar"
     },
     "form": {
-      "title": "Enviar Mensaje",
+      "title": "O escribime acá",
       "name": "Nombre",
       "email": "Email",
       "subject": "Asunto",
@@ -177,8 +184,8 @@
       "sending": "Enviando...",
       "namePlaceholder": "Tu nombre",
       "emailPlaceholder": "tu.email@ejemplo.com",
-      "subjectPlaceholder": "Consulta de proyecto, colaboración, etc.",
-      "messagePlaceholder": "Cuéntame sobre tu proyecto o cómo puedo ayudarte...",
+      "subjectPlaceholder": "Sprint de IA para mi equipo",
+      "messagePlaceholder": "Contame de tu equipo y qué quieren ejecutar con IA.",
       "characters": "caracteres"
     },
     "validation": {

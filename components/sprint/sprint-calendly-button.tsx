@@ -1,5 +1,6 @@
 "use client"
 
+import type { ReactNode } from "react"
 import { cn } from "@/lib/utils"
 import { CALENDLY_URL, type CTALocation } from "@/lib/sprint/constants"
 import { captureCTA } from "@/lib/sprint/analytics"
@@ -8,13 +9,19 @@ import { ArrowUpRight } from "lucide-react"
 interface SprintCalendlyButtonProps {
   location: CTALocation
   className?: string
-  children?: React.ReactNode
+  children?: ReactNode
 }
+
+const DEFAULT_LABEL = (
+  <>
+    Agendar una charla de <span className="whitespace-nowrap">20 min</span>
+  </>
+)
 
 export function SprintCalendlyButton({
   location,
   className,
-  children = "Agendar diagnóstico gratuito",
+  children = DEFAULT_LABEL,
 }: SprintCalendlyButtonProps) {
   return (
     <a
@@ -33,7 +40,7 @@ export function SprintCalendlyButton({
     >
       {children}
       <ArrowUpRight
-        className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+        className="size-4 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
         aria-hidden
       />
     </a>

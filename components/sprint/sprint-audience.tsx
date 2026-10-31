@@ -102,7 +102,7 @@ export function SprintAudience() {
           location="audience"
           className="shrink-0 justify-center sm:justify-start"
         >
-          Agendar diagnóstico gratuito
+          Agendar una charla
         </SprintCalendlyButton>
       </div>
     </SprintSection>

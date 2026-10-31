@@ -20,9 +20,7 @@ export function SprintGuarantee() {
           </p>
         </SprintProse>
         <div className="mt-8">
-          <SprintCalendlyButton location="guarantee">
-            Empecemos por el diagnóstico
-          </SprintCalendlyButton>
+          <SprintCalendlyButton location="guarantee">Agendar una charla</SprintCalendlyButton>
         </div>
       </div>
     </SprintSection>

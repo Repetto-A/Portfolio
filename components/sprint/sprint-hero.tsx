@@ -19,7 +19,7 @@ const SNAPSHOT = [
 
 export function SprintHero() {
   return (
-    <header className="relative overflow-hidden pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <header data-sprint-hero className="relative overflow-hidden pt-28 pb-20 sm:pt-36 sm:pb-28">
       <div
         aria-hidden
         className="sprint-hero-glow pointer-events-none absolute -top-40 left-1/2 -z-10 h-[420px] w-[820px] -translate-x-1/2 rounded-full opacity-[0.12] blur-3xl"
@@ -43,14 +43,7 @@ export function SprintHero() {
         </p>
 
         <div className="sprint-enter sprint-enter-3 mt-8 flex flex-col gap-3 sm:mt-10">
-          <SprintDirectContact
-            location="hero"
-            calendlyLabel={
-              <>
-                Agendar diagnóstico de <span className="whitespace-nowrap">20 min</span>
-              </>
-            }
-          />
+          <SprintDirectContact location="hero" />
           <a
             href={`#${SPRINT_ANCHORS.audience}`}
             className="inline-flex min-h-[44px] w-fit items-center gap-2 rounded-md border border-border px-5 py-3 text-sm font-medium transition-[border-color,background-color,color,transform] duration-200 ease-out hover:border-foreground/40 hover:bg-muted/50 active:scale-[0.98]"
@@ -60,7 +53,7 @@ export function SprintHero() {
           </a>
         </div>
 
-        <dl className="sprint-enter sprint-enter-4 mt-8 grid gap-5 border-t border-border pt-6 pr-16 sm:mt-10 sm:grid-cols-3 sm:gap-8 sm:pr-0">
+        <dl className="sprint-enter sprint-enter-4 mt-8 grid gap-5 border-t border-border pt-6 sm:mt-10 sm:grid-cols-3 sm:gap-8">
           {SNAPSHOT.map((row) => (
             <div key={row.label}>
               <dt className="sprint-kicker text-[var(--sprint-accent)]">{row.label}</dt>
@@ -70,8 +63,8 @@ export function SprintHero() {
         </dl>
 
         <p className="sprint-enter sprint-enter-4 sprint-measure mt-8 text-sm leading-relaxed text-muted-foreground">
-          Ya capacité en IA a +300 personas entre <SprintCriaLink /> y la Diplomatura de UCEL. Soy
-          SpaceXAI Ambassador: el stack arranca en Cursor y Grok Bot.
+          Ya capacité en IA a +300 personas entre <SprintCriaLink /> y la Diplomatura de UCEL.
+          Capacito sobre todo con Cursor y Grok Bot.
         </p>
       </div>
     </header>

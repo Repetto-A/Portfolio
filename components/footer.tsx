@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { Github, Linkedin, Mail } from "lucide-react"
 import { useTranslations, getTranslation } from "@/lib/i18n-context"
+import { CALENDLY_URL, CONTACT_MAILTO, GITHUB_URL, LINKEDIN_URL } from "@/lib/sprint/constants"
 
 export function Footer() {
   const [translations] = useTranslations()
@@ -17,18 +18,28 @@ export function Footer() {
             <p className="mt-1 text-xs text-muted-foreground">
               © {currentYear} · {getTranslation(translations, "footer.rights")}
             </p>
-            <Link
-              href="/sprint"
-              className="mt-3 inline-flex items-center gap-2 text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
-            >
-              <span aria-hidden className="h-px w-6 bg-[var(--sprint-accent)]" />
-              {getTranslation(translations, "footer.sprint")}
-            </Link>
+            <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2">
+              <Link
+                href="/sprint"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+              >
+                <span aria-hidden className="h-px w-6 bg-[var(--sprint-accent)]" />
+                {getTranslation(translations, "footer.sprint")}
+              </Link>
+              <a
+                href={CALENDLY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+              >
+                {getTranslation(translations, "navigation.talk")}
+              </a>
+            </div>
           </div>
 
           <div className="flex items-center space-x-6">
             <Link
-              href="https://github.com/Repetto-A"
+              href={GITHUB_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground transition-colors duration-150 hover:text-foreground"
@@ -39,7 +50,7 @@ export function Footer() {
             </Link>
 
             <Link
-              href="https://www.linkedin.com/in/alejandro-repetto"
+              href={LINKEDIN_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground transition-colors duration-150 hover:text-foreground"
@@ -50,7 +61,7 @@ export function Footer() {
             </Link>
 
             <Link
-              href="mailto:contact@repetto-a.com"
+              href={CONTACT_MAILTO}
               className="text-muted-foreground transition-colors duration-150 hover:text-foreground"
               aria-label="Send email"
             >

@@ -1,12 +1,13 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowDown, ArrowRight, ExternalLink } from "lucide-react"
+import { ArrowRight, ExternalLink } from "lucide-react"
 import Link from "next/link"
 import { useTranslations, getTranslation, getResumeUrl } from "@/lib/i18n-context"
 import { ProfilePhoto } from "@/components/profile-photo"
 import { useScrollContext } from "@/lib/scroll-context"
 import { cn } from "@/lib/utils"
+import { SprintCalendlyButton } from "@/components/sprint/sprint-calendly-button"
 
 export function HeroSection() {
   const [translations, locale] = useTranslations()
@@ -76,21 +77,18 @@ export function HeroSection() {
             </div>
 
             <div className="flex flex-wrap gap-3">
-              <Button asChild size="lg" className="group w-full font-semibold sm:w-auto">
-                <Link href="/sprint">
-                  {getTranslation(translations, "hero.cta.sprint")}
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
-                </Link>
-              </Button>
+              <SprintCalendlyButton location="home-hero" className="w-full sm:w-auto">
+                {getTranslation(translations, "hero.cta.talk")}
+              </SprintCalendlyButton>
               <Button
                 asChild
                 size="lg"
                 variant="outline"
-                className="group w-full border-border/60 sm:w-auto"
+                className="group h-auto min-h-[44px] w-full border-border/60 sm:w-auto"
               >
-                <Link href="#projects">
-                  {getTranslation(translations, "hero.cta.projects")}
-                  <ArrowDown className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-y-0.5" />
+                <Link href="/sprint">
+                  {getTranslation(translations, "hero.cta.sprint")}
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
                 </Link>
               </Button>
             </div>

@@ -10,6 +10,7 @@ import { ProjectTimeline } from "@/components/project-timeline"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { useTranslations, getTranslation } from "@/lib/i18n-context"
+import { SprintCalendlyButton } from "@/components/sprint/sprint-calendly-button"
 
 type TimelineEvent = {
   date: string
@@ -223,9 +224,14 @@ export function ProjectPageContent({ project }: { project: ProjectPageData }) {
               <p className="text-muted-foreground">
                 {getTranslation(translations, "projects.collaboration.description")}
               </p>
-              <Button asChild size="lg">
-                <Link href="/sprint">{getTranslation(translations, "hero.cta.sprint")}</Link>
-              </Button>
+              <div className="flex flex-wrap gap-3">
+                <SprintCalendlyButton location="project">
+                  {getTranslation(translations, "hero.cta.talk")}
+                </SprintCalendlyButton>
+                <Button asChild size="lg" variant="outline" className="h-auto min-h-[44px]">
+                  <Link href="/sprint">{getTranslation(translations, "hero.cta.sprint")}</Link>
+                </Button>
+              </div>
             </div>
           </div>
         </div>

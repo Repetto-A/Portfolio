@@ -2,6 +2,7 @@ import { SprintSection, SprintHeading, SprintProse } from "./sprint-section"
 import { SprintTimeline } from "./sprint-timeline"
 import { SprintCurriculum } from "./sprint-curriculum"
 import { SprintPaces } from "./sprint-paces"
+import { SprintDirectContact } from "./sprint-direct-contact"
 import { SPRINT_CURRICULUM } from "@/lib/sprint/curriculum"
 import { SPRINT_ANCHORS, SPRINT_SECTION_LABELS } from "@/lib/sprint/constants"
 
@@ -63,11 +64,24 @@ export function SprintHowItWorks() {
 
         <p className="sprint-measure mt-5 text-sm leading-relaxed text-muted-foreground">
           La empresa elige los módulos. No los vemos todos: arrancamos por lo que le sirve al
-          equipo, según el diagnóstico. El stack lo lidera SpaceXAI (Cursor y Grok Bot). También
-          Claude Code, Copilot y otras herramientas.
+          equipo, según el diagnóstico. El stack arranca en Cursor y Grok Bot. También Claude Code,
+          Copilot y otras herramientas.
         </p>
 
         <SprintCurriculum modules={CURRICULUM} />
+      </div>
+
+      <div
+        id="talk-after-program"
+        className="mt-12 scroll-mt-24 border-t border-border pt-10 sm:mt-14 sm:pt-12"
+      >
+        <p className="sprint-display text-[1.5rem] sm:text-[1.875rem]">
+          ¿El programa te cierra? El siguiente paso es una charla.
+        </p>
+        <p className="sprint-measure mt-3 text-sm leading-relaxed text-muted-foreground">
+          Veinte minutos. Vemos si el sprint aplica. Sin compromiso.
+        </p>
+        <SprintDirectContact location="program" className="mt-6" />
       </div>
     </SprintSection>
   )

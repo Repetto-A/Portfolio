@@ -9,6 +9,7 @@ import { ThemeToggle } from "@/components/theme-toggle"
 import { useTranslations, getTranslation } from "@/lib/i18n-context"
 import { useScrollContext } from "@/lib/scroll-context"
 import { cn } from "@/lib/utils"
+import { SprintCalendlyButton } from "@/components/sprint/sprint-calendly-button"
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -49,6 +50,10 @@ export function Navigation() {
               </Link>
             ))}
 
+            <SprintCalendlyButton location="home-nav" className="min-h-9 px-3.5 py-2 text-sm">
+              {getTranslation(translations, "navigation.talk")}
+            </SprintCalendlyButton>
+
             <div className="flex items-center space-x-2">
               <ThemeToggle />
               <LanguageSwitcher />
@@ -84,6 +89,14 @@ export function Navigation() {
                   {item.label}
                 </Link>
               ))}
+              <div className="px-3 pt-2 pb-1">
+                <SprintCalendlyButton
+                  location="home-nav"
+                  className="w-full justify-center px-3.5 py-2 text-sm"
+                >
+                  {getTranslation(translations, "navigation.talk")}
+                </SprintCalendlyButton>
+              </div>
             </div>
           </div>
         ) : null}

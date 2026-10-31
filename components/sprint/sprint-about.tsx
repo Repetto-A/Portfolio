@@ -26,7 +26,7 @@ const FACTS = [
     forma directa con las empresas.
   </>,
   <>
-    Soy SpaceXAI Ambassador. El stack con el que trabajo arranca en Cursor y Grok Bot. También di
+    Soy SpaceXSI Ambassador. El stack con el que trabajo arranca en Cursor y Grok Bot. También di
     capacitaciones con Copilot y otras herramientas.
   </>,
   <>

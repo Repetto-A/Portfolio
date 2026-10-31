@@ -13,6 +13,7 @@ import Link from "next/link"
 import Image from "next/image"
 import projectsData from "@/content/projects.json"
 import { useTranslations, getTranslation, type Translations } from "@/lib/i18n-context"
+import { SprintCalendlyButton } from "@/components/sprint/sprint-calendly-button"
 
 const categoryIcons = {
   "Web Application": Code,
@@ -236,13 +237,11 @@ export function ProjectsSection() {
               {getTranslation(translations, "projects.collaboration.description")}
             </p>
             <div className="flex flex-wrap gap-3">
-              <Button asChild size="lg">
+              <SprintCalendlyButton location="home-projects">
+                {getTranslation(translations, "hero.cta.talk")}
+              </SprintCalendlyButton>
+              <Button asChild size="lg" variant="outline" className="h-auto min-h-[44px]">
                 <Link href="/sprint">{getTranslation(translations, "hero.cta.sprint")}</Link>
-              </Button>
-              <Button asChild size="lg" variant="outline">
-                <Link href="#contact">
-                  {getTranslation(translations, "projects.cta.getInTouch")}
-                </Link>
               </Button>
             </div>
           </div>

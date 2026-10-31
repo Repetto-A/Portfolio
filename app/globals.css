@@ -471,6 +471,10 @@ html.sprint-light {
     0 10px 24px oklch(0.35 0.04 50 / 0.08);
 }
 
+.sprint-page[data-sprint-theme="light"] .sprint-contact-dock > div {
+  box-shadow: 0 -10px 28px oklch(0.35 0.04 50 / 0.08);
+}
+
 .sprint-page[data-sprint-theme="light"] .sprint-recommended {
   box-shadow:
     0 1px 0 oklch(0.35 0.04 50 / 0.05),
