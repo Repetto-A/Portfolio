@@ -4,6 +4,7 @@ import Link from "next/link"
 import { Github, Linkedin, Mail } from "lucide-react"
 import { useTranslations, getTranslation } from "@/lib/i18n-context"
 import { CALENDLY_URL, CONTACT_MAILTO, GITHUB_URL, LINKEDIN_URL } from "@/lib/sprint/constants"
+import { captureCTA } from "@/lib/sprint/analytics"
 
 export function Footer() {
   const [translations] = useTranslations()
@@ -30,9 +31,10 @@ export function Footer() {
                 href={CALENDLY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => captureCTA("cta_calendly_click", { location: "home-footer" })}
                 className="inline-flex min-h-11 items-center text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
               >
-                {getTranslation(translations, "navigation.talk")}
+                {getTranslation(translations, "hero.cta.talk")}
               </a>
             </div>
           </div>

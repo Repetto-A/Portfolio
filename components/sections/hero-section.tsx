@@ -96,6 +96,9 @@ export function HeroSection() {
                 </Link>
               </Button>
             </div>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              {getTranslation(translations, "hero.cta.hint")}
+            </p>
 
             <Link
               href={resumeUrl}

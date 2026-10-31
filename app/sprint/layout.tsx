@@ -4,7 +4,7 @@ import type { ReactNode } from "react"
 export const metadata: Metadata = {
   title: "AI Execution Sprint: de hablar de IA a ejecutar con IA, en 30 días | Alejandro Repetto",
   description:
-    "Sprint de 30 días para dirección y equipos: diagnóstico, capacitación aplicada y hackathon interna. Tu equipo termina con prototipos, reglas de uso y un roadmap de 90 días.",
+    "Arrancás con una charla diagnóstico de 30 minutos, sin cargo. Después, sprint de 30 días: capacitación aplicada y hackathon interna. Tu equipo termina con prototipos, reglas de uso y un roadmap de 90 días.",
   alternates: {
     canonical: "https://www.repetto-a.com/sprint",
   },
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     url: "https://www.repetto-a.com/sprint",
     title: "AI Execution Sprint: de hablar de IA a ejecutar con IA, en 30 días",
     description:
-      "Diagnóstico, capacitación aplicada y hackathon interna. Tu equipo termina con prototipos, gobernanza y un roadmap de 90 días.",
+      "Charla diagnóstico de 30 minutos, sin cargo. Después, capacitación aplicada y hackathon interna. Tu equipo termina con prototipos, gobernanza y un roadmap de 90 días.",
     siteName: "Alejandro Repetto",
     images: [
       {
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "AI Execution Sprint: de hablar de IA a ejecutar con IA, en 30 días",
     description:
-      "Diagnóstico, capacitación aplicada y hackathon interna. Tu equipo termina con prototipos, gobernanza y un roadmap de 90 días.",
+      "Charla diagnóstico de 30 minutos, sin cargo. Después, capacitación aplicada y hackathon interna. Tu equipo termina con prototipos, gobernanza y un roadmap de 90 días.",
     images: ["https://www.repetto-a.com/sprint/og.jpg"],
   },
   robots: { index: true, follow: true },

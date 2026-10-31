@@ -35,6 +35,7 @@ export function SprintCalendlyButton({
       )}
     >
       {children}
+      <span className="sr-only">, gratis. Se abre en una pestaña nueva.</span>
       <ArrowUpRight
         className="size-4 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
         aria-hidden

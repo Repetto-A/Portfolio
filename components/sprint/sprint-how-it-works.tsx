@@ -53,10 +53,10 @@ export function SprintHowItWorks() {
         className="mt-12 scroll-mt-24 border-t border-border pt-10 sm:mt-14 sm:pt-12"
       >
         <p className="sprint-display text-[1.5rem] sm:text-[1.875rem]">
-          El programa te cierra? El siguiente paso es una charla.
+          El programa te cierra? El siguiente paso es una charla diagnóstico de 30 minutos.
         </p>
         <p className="sprint-measure mt-3 text-sm leading-relaxed text-muted-foreground">
-          Treinta minutos, sin cargo. Vemos si aplica.
+          Gratis y sin compromiso. Vemos si aplica.
         </p>
         <SprintDirectContact location="program" className="mt-6" />
       </div>

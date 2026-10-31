@@ -3,9 +3,9 @@ export const CRIA_URL = "https://somoscria.ar/"
 export const ARGENTINA_SPACE_URL = "https://argentinaspace.com/"
 export const NEXA_URL = "https://nexa.builders"
 export const CONTACT_EMAIL = "contact@repetto-a.com"
-export const CONTACT_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Sprint de IA")}`
+export const CONTACT_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Charla diagnóstico de 30 min")}`
 export const WHATSAPP_NUMBER = "5493471337412"
-export const WHATSAPP_PREFILL = "Hola Ale, quiero hablar del sprint de IA para mi empresa"
+export const WHATSAPP_PREFILL = "Hola Ale, quiero agendar la charla diagnóstico de 30 minutos"
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_PREFILL)}`
 export const LINKEDIN_URL = "https://www.linkedin.com/in/alejandro-repetto"
 export const GITHUB_URL = "https://github.com/Repetto-A"
@@ -18,12 +18,11 @@ export const SPACEXSI_AMBASSADOR_LABEL = "SpaceXSI Ambassador"
 
 /** Copy único del siguiente paso. La charla diagnóstico es el peldaño de entrada (30 min, gratis). */
 export const CTA_COPY = {
-  primary: "Agendar una charla",
-  primaryWithTime: "Agendar una charla de 30 min",
+  primary: "Agendar charla de 30 min",
   secondary: "Escribime",
   whatsapp: "WhatsApp",
   whatsappAria: "Hablemos por WhatsApp",
-  hint: "Treinta minutos, sin cargo. Vemos si aplica.",
+  hint: "Gratis y sin compromiso. Vemos si aplica.",
 } as const
 
 /**
@@ -111,6 +110,7 @@ export type SprintAnchor = (typeof SPRINT_ANCHORS)[keyof typeof SPRINT_ANCHORS]
 export type CTALocation =
   | "hero"
   | "nav"
+  | "offer"
   | "audience"
   | "program"
   | "pricing"
@@ -123,4 +123,5 @@ export type CTALocation =
   | "home-trainings"
   | "home-contact"
   | "home-projects"
+  | "home-footer"
   | "project"

@@ -33,6 +33,9 @@ export async function postContactMessage(
 }
 
 export function interestSubject(interest: ContactInterest, locale: "es" | "en"): string {
+  if (interest === "charla") {
+    return locale === "es" ? "Charla diagnóstico de 30 min" : "30-min diagnostic chat"
+  }
   const label = CONTACT_INTEREST_LABELS[interest][locale]
-  return locale === "es" ? `Sprint de IA · ${label}` : `AI sprint · ${label}`
+  return locale === "es" ? `Charla diagnóstico · ${label}` : `Diagnostic chat · ${label}`
 }

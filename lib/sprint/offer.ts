@@ -21,7 +21,7 @@ export const CONTACT_INTEREST_ENUM = CONTACT_INTEREST_VALUES as unknown as [
 ]
 
 export const CONTACT_INTEREST_LABELS: Record<ContactInterest, { es: string; en: string }> = {
-  charla: { es: "Charla diagnóstico", en: "Diagnostic chat" },
+  charla: { es: "Charla diagnóstico (30 min, gratis)", en: "Diagnostic chat (30 min, free)" },
   intensivo: { es: "Intensivo", en: "Intensive" },
   sostenido: { es: "Sostenido", en: "Sustained" },
   directivos: { es: "Sesión para directivos", en: "Session for executives" },
@@ -45,7 +45,7 @@ export type SprintOfferCopy = {
 
 export const SPRINT_OFFER: { es: SprintOfferCopy; en: SprintOfferCopy } = {
   es: {
-    headline: "Arrancás con una charla. Después Intensivo o Sostenido.",
+    headline: "Arrancás con una charla diagnóstico de 30 minutos. Después Intensivo o Sostenido.",
     lead: "La entrada es una charla diagnóstico de 30 minutos, sin cargo. Si aplica, el equipo entra a Intensivo o a Sostenido. Dirección puede pedir una sesión aparte.",
     facts: "1.5 h por equipo por semana · Días flexibles · 5 módulos",
     rungs: [
@@ -77,7 +77,7 @@ export const SPRINT_OFFER: { es: SprintOfferCopy; en: SprintOfferCopy } = {
     },
   },
   en: {
-    headline: "You start with a chat. Then Intensive or Sustained.",
+    headline: "You start with a 30-minute diagnostic chat. Then Intensive or Sustained.",
     lead: "The entry step is a 30-minute diagnostic chat, free of charge. If it fits, the team goes into Intensive or Sustained. Leadership can book a separate session.",
     facts: "1.5 h per team per week · Flexible days · 5 modules",
     rungs: [
@@ -125,6 +125,10 @@ export const SPRINT_HOW_STEPS = [
 ] as const
 
 export const SPRINT_FAQS: { q: string; a: string }[] = [
+  {
+    q: "La charla diagnóstico tiene costo?",
+    a: "No. Son 30 minutos, sin cargo y sin compromiso. Si Intensivo o Sostenido no aplican, lo decimos en esa charla.",
+  },
   {
     q: "Qué pasa en la 1.5 h por equipo?",
     a: "Es el bloque de trabajo con tu gente. Sacamos dudas, bajamos el laboratorio y aplicamos IA sobre procesos reales del equipo, no sobre ejemplos genéricos. Días flexibles.",

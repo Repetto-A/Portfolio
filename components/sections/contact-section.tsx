@@ -35,7 +35,7 @@ import {
   WHATSAPP_URL,
 } from "@/lib/sprint/constants"
 import { captureCTA } from "@/lib/sprint/analytics"
-import { postContactMessage } from "@/lib/contact-client"
+import { interestSubject, postContactMessage } from "@/lib/contact-client"
 import {
   CONTACT_INTEREST_ENUM,
   CONTACT_INTEREST_LABELS,
@@ -46,7 +46,6 @@ import {
 const contactSchema = z.object({
   name: z.string().min(1).max(100),
   email: z.string().email().max(254),
-  subject: z.string().min(1).max(200),
   interest: z.enum(CONTACT_INTEREST_ENUM),
   message: z.string().min(1).max(5000),
   honeypot: z.string().max(0),
@@ -75,8 +74,7 @@ export function ContactSection() {
     defaultValues: {
       name: "",
       email: "",
-      subject: "",
-      interest: undefined,
+      interest: "charla",
       message: "",
       honeypot: "",
     },
@@ -101,7 +99,7 @@ export function ContactSection() {
         {
           name: data.name,
           email: data.email,
-          subject: data.subject,
+          subject: interestSubject(data.interest, locale === "es" ? "es" : "en"),
           message: data.message,
           interest: data.interest,
         },
@@ -163,6 +161,9 @@ export function ContactSection() {
                     {getTranslation(translations, "contact.whatsapp")}
                   </a>
                 </div>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  {getTranslation(translations, "contact.talkHint")}
+                </p>
               </div>
               <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
                 {getTranslation(translations, "contact.companies")}{" "}
@@ -271,6 +272,14 @@ export function ContactSection() {
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <span className="text-muted-foreground">
+                      {getTranslation(translations, "contact.availability.talk")}
+                    </span>
+                    <span className="font-medium text-emerald-800 dark:text-emerald-300">
+                      {getTranslation(translations, "contact.availability.talkStatus")}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-muted-foreground">
                       {getTranslation(translations, "contact.availability.consulting")}
                     </span>
                     <span className="font-medium text-emerald-800 dark:text-emerald-300">
@@ -355,25 +364,6 @@ export function ContactSection() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="subject">
-                    {getTranslation(translations, "contact.form.subject")} *
-                  </Label>
-                  <Input
-                    id="subject"
-                    autoComplete="off"
-                    aria-invalid={errors.subject ? true : undefined}
-                    aria-describedby={errors.subject ? "contact-subject-error" : undefined}
-                    {...register("subject")}
-                    placeholder={getTranslation(translations, "contact.form.subjectPlaceholder")}
-                  />
-                  {errors.subject ? (
-                    <p id="contact-subject-error" className="text-xs text-destructive" role="alert">
-                      {errors.subject.message}
-                    </p>
-                  ) : null}
-                </div>
-
-                <div className="space-y-2">
                   <Label htmlFor="interest">
                     {getTranslation(translations, "contact.form.interest")} *
                   </Label>
@@ -382,7 +372,6 @@ export function ContactSection() {
                     className="border-input bg-background text-foreground dark:bg-input/30 flex min-h-11 w-full rounded-md border px-3 py-2 text-sm shadow-xs outline-none transition-[color,box-shadow] focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:border-destructive"
                     aria-invalid={errors.interest ? true : undefined}
                     aria-describedby={errors.interest ? "contact-interest-error" : undefined}
-                    defaultValue=""
                     {...register("interest")}
                   >
                     <option value="" disabled>
@@ -459,7 +448,7 @@ export function ContactSection() {
                   </div>
                 )}
 
-                <Button type="submit" className="w-full" disabled={isSubmitting}>
+                <Button type="submit" className="min-h-11 w-full" disabled={isSubmitting}>
                   {isSubmitting ? (
                     <span className="animate-pulse">
                       {getTranslation(translations, "contact.form.sending")}

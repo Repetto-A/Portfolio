@@ -5,7 +5,7 @@
     "projects": "Proyectos",
     "sprint": "Sprint",
     "contact": "Contacto",
-    "talk": "Agendar una charla"
+    "talk": "Agendar charla"
   },
   "hero": {
     "name": "Alejandro Repetto",
@@ -16,7 +16,8 @@
       "projects": "Proyectos",
       "resume": "Descargar CV",
       "sprint": "Ver el sprint",
-      "talk": "Agendar una charla"
+      "talk": "Agendar charla de 30 min",
+      "hint": "Gratis y sin compromiso. Vemos si aplica."
     },
     "stats": {
       "projects": "Proyectos",
@@ -60,8 +61,8 @@
     "programKicker": "Programa modular",
     "programLead": "Cinco módulos. La empresa elige.",
     "cta": "Ver el sprint",
-    "talk": "Agendar una charla",
-    "ctaHint": "Treinta minutos, sin cargo. Vemos si aplica."
+    "talk": "Agendar charla de 30 min",
+    "ctaHint": "Gratis y sin compromiso. Vemos si aplica."
   },
   "skills": {
     "eyebrow": "Stack",
@@ -131,8 +132,8 @@
       "today": "Hoy"
     },
     "collaboration": {
-      "title": "¿Tu empresa necesita ejecución, no más charlas?",
-      "description": "El AI Execution Sprint es el formato: capacitación aplicada y hackathon interna en 30 días."
+      "title": "El siguiente paso es una charla diagnóstico de 30 minutos",
+      "description": "Gratis y sin compromiso. Vemos si hay casos concretos de IA en tu operación."
     },
     "notFound": {
       "title": "Proyecto No Encontrado",
@@ -152,13 +153,13 @@
     "eyebrow": "Siguiente paso",
     "companies": "Si tu empresa quiere pasar de hablar de IA a ejecutar, el sprint está acá.",
     "companiesCta": "Ver el sprint",
-    "talk": "Agendar una charla",
+    "talk": "Agendar charla de 30 min",
     "write": "Escribime",
     "whatsapp": "WhatsApp",
-    "talkHint": "Treinta minutos, sin cargo. Vemos si aplica.",
+    "talkHint": "Gratis y sin compromiso. Vemos si aplica.",
     "info": {
-      "title": "Hablemos",
-      "description": "Una charla diagnóstico de 30 minutos, sin cargo. Si preferís, escribime o mandame un WhatsApp."
+      "title": "Charla diagnóstico de 30 minutos",
+      "description": "Sin cargo y sin compromiso. Vemos si hay casos concretos de IA en tu operación. Si preferís, escribime o mandame un WhatsApp."
     },
     "methods": {
       "email": "Email",
@@ -167,6 +168,8 @@
     },
     "availability": {
       "title": "Disponibilidad Actual",
+      "talk": "Charla diagnóstico",
+      "talkStatus": "Gratis, 30 min",
       "consulting": "Consultoría",
       "freelance": "Proyectos Freelance",
       "fulltime": "Oportunidades Full-time",
@@ -184,12 +187,12 @@
       "projectType": "Tipo de Proyecto",
       "projectTypePlaceholder": "Selecciona el tipo de proyecto",
       "message": "Mensaje",
-      "send": "Enviar Mensaje",
+      "send": "Pedir la charla",
       "sending": "Enviando...",
       "namePlaceholder": "Tu nombre",
       "emailPlaceholder": "tu.email@ejemplo.com",
-      "subjectPlaceholder": "Sprint de IA para mi equipo",
-      "messagePlaceholder": "Contame de tu equipo y qué quieren ejecutar con IA.",
+      "subjectPlaceholder": "Charla diagnóstico de 30 min",
+      "messagePlaceholder": "En qué empresa estás y qué proceso querés mirar en la charla?",
       "characters": "caracteres"
     },
     "validation": {
@@ -209,7 +212,7 @@
       "consulting": "Consultoría",
       "other": "Otro"
     },
-    "successMessage": "Mensaje enviado. Gracias por escribir.",
+    "successMessage": "Listo. Te respondo para coordinar la charla de 30 minutos.",
     "errorMessage": "Error al enviar mensaje. Por favor intenta de nuevo."
   },
   "footer": {
