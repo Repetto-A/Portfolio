@@ -41,8 +41,8 @@ export function SprintAudience() {
       <SprintProse lead>
         <p>
           El sprint pide un sponsor interno con poder de decisión y un equipo que pueda sumarse a
-          las clases. {SPRINT_PACES.headline}. Si eso no está, no vas a sacar el provecho que
-          deberías. Mejor hablarlo en el diagnóstico, antes de arrancar.
+          las clases. {SPRINT_PACES.headline}, días flexibles. Si eso no está, no vas a sacar el
+          provecho que deberías. Mejor hablarlo en la charla diagnóstico, antes de arrancar.
         </p>
       </SprintProse>
 
@@ -95,8 +95,8 @@ export function SprintAudience() {
 
       <div className="mt-12 flex flex-col gap-6 border-t border-border pt-10 sm:flex-row sm:items-center sm:justify-between">
         <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
-          Si estás en el límite entre los dos bloques, el diagnóstico de 20 minutos sirve para
-          ubicarnos sin compromiso.
+          Si estás en el límite entre los dos bloques, la charla diagnóstico de 30 minutos sirve
+          para ubicarnos sin compromiso.
         </p>
         <SprintCalendlyButton
           location="audience"

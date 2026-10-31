@@ -4,9 +4,7 @@ import { checkRateLimit, generateCsrfToken } from "@/lib/email"
 
 const CORS_HEADERS = {
   "Access-Control-Allow-Origin":
-    process.env.NODE_ENV === "production"
-      ? "https://repetto-a.com"
-      : "http://localhost:3000",
+    process.env.NODE_ENV === "production" ? "https://repetto-a.com" : "http://localhost:3000",
   "Access-Control-Allow-Methods": "GET, OPTIONS",
   "Access-Control-Allow-Headers": "Content-Type, X-CSRF-Token",
   "Access-Control-Allow-Credentials": "true",

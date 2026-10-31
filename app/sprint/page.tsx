@@ -2,12 +2,10 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { SprintHero } from "@/components/sprint/sprint-hero"
 import { SprintProblem } from "@/components/sprint/sprint-problem"
-import { SprintPromise } from "@/components/sprint/sprint-promise"
 import { SprintHowItWorks } from "@/components/sprint/sprint-how-it-works"
 import { SprintDeliverables } from "@/components/sprint/sprint-deliverables"
 import { SprintGovernance } from "@/components/sprint/sprint-governance"
 import { SprintAudience } from "@/components/sprint/sprint-audience"
-import { SprintFormats } from "@/components/sprint/sprint-formats"
 import { SprintPricing } from "@/components/sprint/sprint-pricing"
 import { SprintGuarantee } from "@/components/sprint/sprint-guarantee"
 import { SprintAbout } from "@/components/sprint/sprint-about"
@@ -15,10 +13,11 @@ import { SprintPress } from "@/components/sprint/sprint-press"
 import { SprintFaq } from "@/components/sprint/sprint-faq"
 import { SprintCtaFinal } from "@/components/sprint/sprint-cta-final"
 import { SprintCriaLink } from "@/components/sprint/sprint-ext-link"
-import { SprintProofBand } from "@/components/sprint/sprint-proof-band"
 import { SprintWhatsAppBubble } from "@/components/sprint/sprint-whatsapp-bubble"
 import { SprintContactDock } from "@/components/sprint/sprint-contact-dock"
 import { SprintThemeSync } from "@/components/sprint/sprint-theme-sync"
+import { SprintClientsBand } from "@/components/sprint/sprint-clients-band"
+import { SprintOfferLadder } from "@/components/sprint/sprint-offer-ladder"
 import {
   CONTACT_EMAIL,
   CONTACT_MAILTO,
@@ -67,15 +66,14 @@ export default function SprintPage({ searchParams }: SprintPageProps) {
       <main id="main-content">
         <SprintHero />
 
-        <SprintProofBand />
+        <SprintClientsBand />
 
         <div className="border-t border-border">
           <SprintProblem />
-          <SprintPromise />
+          <SprintOfferLadder />
           <SprintAudience />
           <SprintHowItWorks />
           <SprintDeliverables />
-          <SprintFormats />
           {/* Precios ocultos para la charla del 28/10. Reactivar con SHOW_SPRINT_PRICING. */}
           {SHOW_SPRINT_PRICING ? <SprintPricing /> : null}
           <SprintGovernance />

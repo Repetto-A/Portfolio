@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { SprintSection, SprintHeading, SprintProse } from "./sprint-section"
 import { SprintCriaLink, SprintNexaLink } from "./sprint-ext-link"
 import { SPRINT_ANCHORS, SPRINT_SECTION_LABELS, TRAINED_PEOPLE_STAT } from "@/lib/sprint/constants"
@@ -48,14 +49,32 @@ const FACTS = [
 export function SprintAbout() {
   return (
     <SprintSection id={SPRINT_ANCHORS.about} label={SPRINT_SECTION_LABELS.about}>
-      <SprintHeading>Lo facilito yo. Lo construye tu equipo.</SprintHeading>
-      <SprintProse lead>
-        <p>
-          Alejandro Repetto. Software Engineer enfocado en IA: la enseño, la bajo a tierra en
-          empresas y la pongo a prueba en hackathons. Vengo del deporte competitivo y trabajo igual:
-          con deadline y bajo presión.
-        </p>
-      </SprintProse>
+      <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(16rem,22rem)] lg:items-start lg:gap-12">
+        <div>
+          <SprintHeading>Lo facilito yo. Lo construye tu equipo.</SprintHeading>
+          <SprintProse lead>
+            <p>
+              Alejandro Repetto. Software Engineer enfocado en IA: la enseño, la bajo a tierra en
+              empresas y la pongo a prueba en hackathons. Vengo del deporte competitivo y trabajo
+              igual: con deadline y bajo presión.
+            </p>
+          </SprintProse>
+        </div>
+
+        <figure>
+          <div className="relative aspect-[4/5] overflow-hidden rounded-xl bg-[var(--sprint-photo-matte)] ring-1 ring-border">
+            <Image
+              src="/sprint/speaker.jpg"
+              alt="Alejandro Repetto presentando en Platanus Hack 2026"
+              fill
+              sizes="(max-width: 1024px) 100vw, 352px"
+              quality={72}
+              className="object-cover object-center"
+            />
+          </div>
+          <figcaption className="mt-2 text-xs text-muted-foreground">Platanus Hack 2026</figcaption>
+        </figure>
+      </div>
 
       <div className="mt-8 grid gap-4 sm:grid-cols-3">
         {HIGHLIGHTS.map((h, i) => (

@@ -11,9 +11,7 @@ import {
 
 const CORS_HEADERS = {
   "Access-Control-Allow-Origin":
-    process.env.NODE_ENV === "production"
-      ? "https://repetto-a.com"
-      : "http://localhost:3000",
+    process.env.NODE_ENV === "production" ? "https://repetto-a.com" : "http://localhost:3000",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
   "Access-Control-Allow-Headers": "Content-Type, X-CSRF-Token",
 }
@@ -59,13 +57,14 @@ export async function POST(request: Request) {
       )
     }
 
-    const { name, email, subject, message } = parsed.data
+    const { name, email, subject, message, interest } = parsed.data
 
     const payload = {
       name: sanitizeInput(name),
       email: sanitizeInput(email),
       subject: sanitizeInput(subject),
       message: sanitizeInput(message),
+      interest,
       timestamp: new Date().toISOString(),
     }
 
@@ -115,7 +114,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         success: true,
-        message: "¡Mensaje enviado con éxito! Me pondré en contacto contigo pronto.",
+        message: "Mensaje enviado. Gracias por escribir.",
       },
       { status: 200, headers: CORS_HEADERS }
     )

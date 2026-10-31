@@ -52,16 +52,16 @@
     "title": "De hablar de IA a ejecutar con IA",
     "lead": "Sprint de 30 días: diagnóstico, capacitación aplicada y hackathon interna. Tu equipo termina con prototipos, reglas de uso y un roadmap de 90 días.",
     "proof": "Ya capacité en IA a +300 personas entre CRIA y la Diplomatura de IA aplicada al ejercicio profesional (UCEL). Capacito sobre todo con Cursor y Grok Bot.",
-    "pacesHeadline": "Lo armamos a tu ritmo: intensivo o sostenido",
+    "pacesHeadline": "Arrancás con una charla. Después Intensivo o Sostenido.",
     "paceIntensivo": "Intensivo",
-    "paceIntensivoDetail": "3 clases de 1 h 30 por semana (lunes, miércoles y viernes).",
+    "paceIntensivoDetail": "1.5 h por equipo por semana, días flexibles, 5 módulos que elige la empresa.",
     "paceSostenido": "Sostenido",
-    "paceSostenidoDetail": "1 clase de 2 h 30 por semana.",
+    "paceSostenidoDetail": "El mismo bloque de 1.5 h por equipo por semana, para mantener el trabajo en el tiempo.",
     "programKicker": "Programa modular",
     "programLead": "Cinco módulos. La empresa elige.",
     "cta": "Ver el sprint",
     "talk": "Agendar una charla",
-    "ctaHint": "Veinte minutos. Vemos si el sprint aplica."
+    "ctaHint": "Treinta minutos, sin cargo. Vemos si aplica."
   },
   "skills": {
     "eyebrow": "Stack",
@@ -155,10 +155,10 @@
     "talk": "Agendar una charla",
     "write": "Escribime",
     "whatsapp": "WhatsApp",
-    "talkHint": "Veinte minutos. Vemos si el sprint aplica. Sin compromiso.",
+    "talkHint": "Treinta minutos, sin cargo. Vemos si aplica.",
     "info": {
       "title": "Hablemos",
-      "description": "Una charla de 20 minutos para ver si el sprint aplica. Si preferís, escribime o mandame un WhatsApp."
+      "description": "Una charla diagnóstico de 30 minutos, sin cargo. Si preferís, escribime o mandame un WhatsApp."
     },
     "methods": {
       "email": "Email",
@@ -178,6 +178,9 @@
       "name": "Nombre",
       "email": "Email",
       "subject": "Asunto",
+      "interest": "Qué te interesa?",
+      "interestPlaceholder": "Elegí una opción",
+      "interestRequired": "Elegí qué te interesa",
       "projectType": "Tipo de Proyecto",
       "projectTypePlaceholder": "Selecciona el tipo de proyecto",
       "message": "Mensaje",
@@ -206,7 +209,7 @@
       "consulting": "Consultoría",
       "other": "Otro"
     },
-    "successMessage": "¡Mensaje enviado exitosamente! Te responderé pronto.",
+    "successMessage": "Mensaje enviado. Gracias por escribir.",
     "errorMessage": "Error al enviar mensaje. Por favor intenta de nuevo."
   },
   "footer": {

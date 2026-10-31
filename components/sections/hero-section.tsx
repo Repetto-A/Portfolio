@@ -8,6 +8,7 @@ import { ProfilePhoto } from "@/components/profile-photo"
 import { useScrollContext } from "@/lib/scroll-context"
 import { cn } from "@/lib/utils"
 import { SprintCalendlyButton } from "@/components/sprint/sprint-calendly-button"
+import { SprintClientsBand } from "@/components/sprint/sprint-clients-band"
 
 export function HeroSection() {
   const [translations, locale] = useTranslations()
@@ -150,7 +151,11 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div className="mt-14 flex justify-center sm:mt-18">
+        <div className="mt-14 sm:mt-16">
+          <SprintClientsBand locale={locale === "es" ? "es" : "en"} embedded />
+        </div>
+
+        <div className="mt-10 flex justify-center sm:mt-12">
           <Link href="#about" className="group" aria-label="Scroll to about section">
             <div className="flex flex-col items-center gap-0">
               <div className="h-8 w-px bg-border transition-colors duration-300 group-hover:bg-[var(--sprint-accent)]" />

@@ -52,16 +52,16 @@
     "title": "From talking about AI to executing with AI",
     "lead": "A 30-day sprint: diagnosis, applied training, and an internal hackathon. Your team leaves with prototypes, usage rules, and a 90-day roadmap.",
     "proof": "I have already trained +300 people in AI between CRIA and the UCEL Diploma in AI applied to professional practice. I train teams mainly on Cursor and Grok Bot.",
-    "pacesHeadline": "We set it to your pace: intensive or sustained",
+    "pacesHeadline": "You start with a chat. Then Intensive or Sustained.",
     "paceIntensivo": "Intensive",
-    "paceIntensivoDetail": "3 classes of 1 h 30 per week (Monday, Wednesday and Friday).",
+    "paceIntensivoDetail": "1.5 h per team per week, flexible days, 5 modules the company chooses.",
     "paceSostenido": "Sustained",
-    "paceSostenidoDetail": "1 class of 2 h 30 per week.",
+    "paceSostenidoDetail": "The same 1.5 h per team per week block, to keep the work going over time.",
     "programKicker": "Modular program",
     "programLead": "Five modules. The company chooses.",
     "cta": "See the sprint",
     "talk": "Book a chat",
-    "ctaHint": "Twenty minutes. We see if the sprint fits."
+    "ctaHint": "Thirty minutes, free of charge. We see if it fits."
   },
   "skills": {
     "eyebrow": "Stack",
@@ -154,6 +154,9 @@
       "name": "Name",
       "email": "Email",
       "subject": "Subject",
+      "interest": "What are you interested in?",
+      "interestPlaceholder": "Choose an option",
+      "interestRequired": "Choose what you are interested in",
       "projectType": "Project Type",
       "projectTypePlaceholder": "Select project type",
       "message": "Message",
@@ -188,10 +191,10 @@
     "talk": "Book a chat",
     "write": "Write to me",
     "whatsapp": "WhatsApp",
-    "talkHint": "Twenty minutes. We see if the sprint fits. No commitment.",
+    "talkHint": "Thirty minutes, free of charge. We see if it fits.",
     "info": {
       "title": "Let's talk",
-      "description": "A 20-minute chat to see if the sprint fits. Or write to me, or send a WhatsApp."
+      "description": "A 30-minute diagnostic chat, free of charge. Or write to me, or send a WhatsApp."
     },
     "methods": {
       "email": "Email",
@@ -206,7 +209,7 @@
       "available": "Available",
       "discuss": "Open to Discuss"
     },
-    "successMessage": "Message sent successfully! I'll get back to you soon.",
+    "successMessage": "Message sent. Thanks for writing.",
     "errorMessage": "Error sending message. Please try again."
   },
   "footer": {

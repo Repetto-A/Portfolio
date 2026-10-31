@@ -8,21 +8,11 @@ import { SectionHeader } from "@/components/layout/section-header"
 import { useTranslations, getTranslation } from "@/lib/i18n-context"
 import { SPRINT_CURRICULUM } from "@/lib/sprint/curriculum"
 import { SprintCalendlyButton } from "@/components/sprint/sprint-calendly-button"
+import { OfferLadder } from "@/components/sprint/offer-ladder-body"
 
 export function TrainingsSection() {
   const [translations, locale] = useTranslations()
   const lang = locale === "es" ? "es" : "en"
-
-  const paces = [
-    {
-      name: getTranslation(translations, "trainings.paceIntensivo"),
-      detail: getTranslation(translations, "trainings.paceIntensivoDetail"),
-    },
-    {
-      name: getTranslation(translations, "trainings.paceSostenido"),
-      detail: getTranslation(translations, "trainings.paceSostenidoDetail"),
-    },
-  ]
 
   return (
     <Section id="trainings" variant="muted" spacing="default">
@@ -37,22 +27,8 @@ export function TrainingsSection() {
           {getTranslation(translations, "trainings.proof")}
         </p>
 
-        <h3 className="sprint-display mt-12 text-[1.5rem] sm:text-[1.875rem]">
-          {getTranslation(translations, "trainings.pacesHeadline")}
-        </h3>
-
-        <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          {paces.map((pace, i) => (
-            <div key={pace.name} className="rounded-xl border border-border bg-card p-6 sm:p-7">
-              <div className="flex items-baseline gap-3">
-                <span className="sprint-index select-none text-xs text-[var(--sprint-accent)]">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h4 className="text-base font-semibold tracking-tight">{pace.name}</h4>
-              </div>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{pace.detail}</p>
-            </div>
-          ))}
+        <div className="mt-12">
+          <OfferLadder locale={lang} />
         </div>
 
         <div id="trainings-program" className="mt-12 scroll-mt-20">

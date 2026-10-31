@@ -35,11 +35,19 @@ import {
   WHATSAPP_URL,
 } from "@/lib/sprint/constants"
 import { captureCTA } from "@/lib/sprint/analytics"
+import { postContactMessage } from "@/lib/contact-client"
+import {
+  CONTACT_INTEREST_ENUM,
+  CONTACT_INTEREST_LABELS,
+  CONTACT_INTEREST_VALUES,
+  type ContactInterest,
+} from "@/lib/sprint/offer"
 
 const contactSchema = z.object({
   name: z.string().min(1).max(100),
   email: z.string().email().max(254),
   subject: z.string().min(1).max(200),
+  interest: z.enum(CONTACT_INTEREST_ENUM),
   message: z.string().min(1).max(5000),
   honeypot: z.string().max(0),
 })
@@ -68,6 +76,7 @@ export function ContactSection() {
       name: "",
       email: "",
       subject: "",
+      interest: undefined,
       message: "",
       honeypot: "",
     },
@@ -88,30 +97,23 @@ export function ContactSection() {
     setServerError(null)
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-CSRF-Token": csrfToken || "",
-        },
-        body: JSON.stringify({
+      const result = await postContactMessage(
+        {
           name: data.name,
           email: data.email,
           subject: data.subject,
           message: data.message,
-        }),
-        credentials: "same-origin",
-        signal: AbortSignal.timeout(15000),
-      })
+          interest: data.interest,
+        },
+        csrfToken
+      )
 
-      const result = await response.json()
-
-      if (response.ok) {
+      if (result.ok) {
         setSubmitStatus("success")
         reset()
       } else {
         setSubmitStatus("error")
-        setServerError(result.error || null)
+        setServerError(result.error)
       }
     } catch {
       setSubmitStatus("error")
@@ -367,6 +369,42 @@ export function ContactSection() {
                   {errors.subject ? (
                     <p id="contact-subject-error" className="text-xs text-destructive" role="alert">
                       {errors.subject.message}
+                    </p>
+                  ) : null}
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="interest">
+                    {getTranslation(translations, "contact.form.interest")} *
+                  </Label>
+                  <select
+                    id="interest"
+                    className="border-input bg-background text-foreground dark:bg-input/30 flex min-h-11 w-full rounded-md border px-3 py-2 text-sm shadow-xs outline-none transition-[color,box-shadow] focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:border-destructive"
+                    aria-invalid={errors.interest ? true : undefined}
+                    aria-describedby={errors.interest ? "contact-interest-error" : undefined}
+                    defaultValue=""
+                    {...register("interest")}
+                  >
+                    <option value="" disabled>
+                      {getTranslation(translations, "contact.form.interestPlaceholder")}
+                    </option>
+                    {CONTACT_INTEREST_VALUES.map((value) => (
+                      <option key={value} value={value}>
+                        {
+                          CONTACT_INTEREST_LABELS[value as ContactInterest][
+                            locale === "es" ? "es" : "en"
+                          ]
+                        }
+                      </option>
+                    ))}
+                  </select>
+                  {errors.interest ? (
+                    <p
+                      id="contact-interest-error"
+                      className="text-xs text-destructive"
+                      role="alert"
+                    >
+                      {getTranslation(translations, "contact.form.interestRequired")}
                     </p>
                   ) : null}
                 </div>

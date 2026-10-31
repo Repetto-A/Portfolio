@@ -50,7 +50,7 @@ export function SprintHero() {
             href={`#${SPRINT_ANCHORS.audience}`}
             className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-md border border-border px-5 py-3 text-sm font-medium transition-[border-color,background-color,color,transform] duration-200 ease-out hover:border-foreground/40 hover:bg-muted/50 active:scale-[0.98] sm:w-fit sm:self-start"
           >
-            ¿Es para tu empresa?
+            Es para tu empresa?
             <span aria-hidden>→</span>
           </a>
         </div>
@@ -65,8 +65,8 @@ export function SprintHero() {
         </dl>
 
         <p className="sprint-enter sprint-enter-4 sprint-measure mt-8 text-sm leading-relaxed text-muted-foreground">
-          Ya capacité en IA a +300 personas entre <SprintCriaLink /> y la Diplomatura de UCEL.
-          Capacito sobre todo con Cursor y Grok Bot.
+          Capacito sobre todo con Cursor y Grok Bot, entre <SprintCriaLink /> y la Diplomatura de
+          UCEL.
         </p>
       </div>
     </header>

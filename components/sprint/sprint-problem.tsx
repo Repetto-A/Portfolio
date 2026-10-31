@@ -15,7 +15,7 @@ export function SprintProblem() {
       <SprintProse>
         <p>
           Charlas, cursos, una consultoría que no escaló, o el equipo usando ChatGPT por su cuenta.
-          En todos los casos el trabajo diario no cambió. ¿Cuántos de estos ya viviste?
+          En todos los casos el trabajo diario no cambió. Cuántos de estos ya viviste?
         </p>
       </SprintProse>
 

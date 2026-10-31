@@ -1,5 +1,10 @@
 import { z } from "zod"
 import crypto from "crypto"
+import {
+  CONTACT_INTEREST_ENUM,
+  CONTACT_INTEREST_LABELS,
+  type ContactInterest,
+} from "@/lib/sprint/offer"
 
 export const contactFormSchema = z.object({
   name: z.string().min(1, "El nombre es obligatorio").max(100, "El nombre es demasiado largo"),
@@ -9,6 +14,9 @@ export const contactFormSchema = z.object({
     .string()
     .min(1, "El mensaje es obligatorio")
     .max(5000, "El mensaje es demasiado largo"),
+  interest: z.enum(CONTACT_INTEREST_ENUM, {
+    errorMap: () => ({ message: "Elegí qué te interesa" }),
+  }),
 })
 
 export type ContactFormData = z.infer<typeof contactFormSchema>
@@ -18,6 +26,7 @@ export interface EmailData {
   email: string
   subject: string
   message: string
+  interest: ContactInterest
   timestamp: string
   ip?: string
 }
@@ -79,11 +88,14 @@ export function validateEmail(email: string): boolean {
 }
 
 export function generateEmailContent(data: EmailData): { text: string; html: string } {
+  const interestLabel = CONTACT_INTEREST_LABELS[data.interest].es
+
   const text = `
 New portfolio inquiry
 
 From: ${data.name}
 Email: ${data.email}
+Interest: ${interestLabel}
 Subject: ${data.subject}
 Timestamp: ${data.timestamp}
 ${data.ip ? `IP: ${data.ip}` : ""}
@@ -104,6 +116,7 @@ repetto-a.com
         data.email
       )}</a>`,
     ],
+    ["Interest", escapeHtml(interestLabel)],
     ["Subject", escapeHtml(data.subject)],
     ["Timestamp", escapeHtml(data.timestamp)],
     ...(data.ip ? ([["IP", escapeHtml(data.ip)]] as Array<[string, string]>) : []),
