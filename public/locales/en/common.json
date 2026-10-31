@@ -115,6 +115,7 @@
     "cta": {
       "learnMore": "Learn More",
       "viewCode": "View Code",
+      "code": "Code",
       "liveDemo": "Live Demo",
       "getInTouch": "Get In Touch",
       "backToProjects": "Back to Projects"
@@ -126,6 +127,20 @@
       "links": "Links",
       "viewSourceCode": "View Source Code"
     },
+    "caseStudy": {
+      "kicker": "Case study",
+      "problem": "The problem",
+      "approach": "What was built",
+      "result": "Outcome",
+      "features": "What the system does",
+      "recognition": "Recognition",
+      "press": "Press",
+      "pressOpen": "Open article",
+      "gallery": "Screenshots"
+    },
+    "features": "What the system does",
+    "techStack": "Tech stack",
+    "image": "Screenshot",
     "timeline": {
       "title": "Project Timeline",
       "today": "Today"

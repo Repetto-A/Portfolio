@@ -46,7 +46,44 @@
       "githubUrl": null,
       "demoUrl": "https://cotizador.nexa.builders",
       "images": ["/projects/agromaq-1.png", "/projects/agromaq-2.png", "/projects/agromaq-3.png"],
-      "category": "Management System"
+      "category": "Management System",
+      "caseStudy": {
+        "problem": {
+          "en": "A family agricultural machinery factory needed to quote and run the business from one panel: catalog, clients, purchasing, and stock, without building each quote by hand.",
+          "es": "Una fábrica familiar de maquinaria agrícola necesitaba cotizar y gestionar el negocio desde un solo panel: catálogo, clientes, compras y stock, sin armar cada presupuesto a mano."
+        },
+        "approach": {
+          "en": "I built the quotation flow and the management system. From the panel you can issue quotes and order notes from the catalog, with optionals, discounts, payment terms, FX (BNA or manual), and a client record by tax ID with an AFIP lookup. It also covers CRM, suppliers, purchasing, stock, price list import from PDF, and an admin panel with a timed session.",
+          "es": "Construí el cotizador y el sistema de gestión. Desde el panel se arman cotizaciones y notas de pedido con catálogo, opcionales, descuentos, condiciones de pago, tipo de cambio (BNA o manual) y cliente por CUIT con consulta a AFIP. También cubre CRM, proveedores, compras, stock, importación de lista de precios desde PDF y un panel de administración con sesión temporizada."
+        },
+        "result": {
+          "en": "It is in production at cotizador.nexa.builders. ARCA electronic invoicing is still in homologation. Years in the trade: pending.",
+          "es": "Está en producción en cotizador.nexa.builders. La facturación electrónica ARCA sigue en homologación. Años en el oficio: pendiente."
+        },
+        "facts": [
+          {
+            "value": { "en": "Pending", "es": "Pendiente" },
+            "label": {
+              "en": "Years in the trade",
+              "es": "Años en el oficio"
+            }
+          },
+          {
+            "value": { "en": "cotizador.nexa.builders", "es": "cotizador.nexa.builders" },
+            "label": {
+              "en": "In production",
+              "es": "En producción"
+            }
+          },
+          {
+            "value": { "en": "ARCA", "es": "ARCA" },
+            "label": {
+              "en": "Invoicing in homologation",
+              "es": "Facturación en homologación"
+            }
+          }
+        ]
+      }
     },
     {
       "id": "nexa",
@@ -100,7 +137,44 @@
         "/projects/nexa-3.png",
         "/projects/nexa-4.png"
       ],
-      "category": "Web Application"
+      "category": "Web Application",
+      "caseStudy": {
+        "problem": {
+          "en": "Tech communities in Argentina grow in isolation. Each one runs events, builds membership, and keeps its own space, but they rarely intersect. That caps everyone's reach.",
+          "es": "Las comunidades tech en Argentina crecen aisladas. Cada una organiza eventos, suma miembros y construye su propio espacio, pero rara vez se cruzan. Eso limita el alcance de todas."
+        },
+        "approach": {
+          "en": "I built NEXA so they stop growing alone: public community profiles with geographic discovery, a shared event agenda, a moderated onboarding flow, an organizer dashboard with roles, Luma sync for automatic event publishing, and segmented alerts by location. An MCP server at /api/mcp exposes discovery and operations as tools.",
+          "es": "Construí NEXA para que dejen de crecer solas: perfiles públicos con descubrimiento geográfico, agenda de eventos compartida, postulación moderada, dashboard de organizadores con roles, sincronización con Luma para publicar eventos y alertas segmentadas por ubicación. Un servidor MCP en /api/mcp expone descubrimiento y operación como tools."
+        },
+        "result": {
+          "en": "It is in production at nexa.builders. Community and reach figures: pending. The target is all of LATAM.",
+          "es": "Está en producción en nexa.builders. Cifras de comunidades y alcance: pendiente. La mira está puesta en toda LATAM."
+        },
+        "facts": [
+          {
+            "value": { "en": "Pending", "es": "Pendiente" },
+            "label": {
+              "en": "Communities",
+              "es": "Comunidades"
+            }
+          },
+          {
+            "value": { "en": "Pending", "es": "Pendiente" },
+            "label": {
+              "en": "People in the network",
+              "es": "Personas en la red"
+            }
+          },
+          {
+            "value": { "en": "nexa.builders", "es": "nexa.builders" },
+            "label": {
+              "en": "In production",
+              "es": "En producción"
+            }
+          }
+        ]
+      }
     },
     {
       "id": "somos-huella",
@@ -108,7 +182,7 @@
         "en": {
           "title": "Somos Huella",
           "short": "Facial recognition platform to help families in Venezuela reunite with missing loved ones. Families register, the system compares, a human verifies. In production at somoshuella.org.",
-          "description": "Somos Huella is a facial recognition system built to help families in Venezuela find people who disappeared after earthquakes. A family registers a missing person with a photo, last known location, and contact details. If someone finds a person — from children to injured individuals who cannot communicate — they upload a photo and the system compares that face against the registry to suggest possible matches using computer vision.\n\nEach face is converted into a 512-dimensional numeric fingerprint. New photos are matched against the full registry in about half a second, with candidates ranked by similarity. The system never makes an automatic identification: it returns probable matches for human verification. The final decision is always human.\n\nThe platform is in production with a public site, hardened REST API, and face search — deployed on a VPS with GPU-accelerated indexing locally and CPU-based search at the edge.",
+          "description": "Somos Huella is a facial recognition system built to help families in Venezuela find people who disappeared after earthquakes. A family registers a missing person with a photo, last known location, and contact details. If someone finds a person (from children to injured individuals who cannot communicate), they upload a photo and the system compares that face against the registry to suggest possible matches using computer vision.\n\nEach face is converted into a 512-dimensional numeric fingerprint. New photos are matched against the full registry in about half a second, with candidates ranked by similarity. The system never makes an automatic identification: it returns probable matches for human verification. The final decision is always human.\n\nThe platform is in production with a public site, hardened REST API, and face search, deployed on a VPS with GPU-accelerated indexing locally and CPU-based search at the edge.",
           "features": [
             "Missing-person registry with photo, last known location, and family contact",
             "Face search that returns ranked candidate matches in ~0.5 seconds",
@@ -121,7 +195,7 @@
         "es": {
           "title": "Somos Huella",
           "short": "Plataforma de reconocimiento facial para ayudar a familias en Venezuela a reencontrarse con seres queridos desaparecidos. La familia registra, el sistema compara, una persona verifica. En producción en somoshuella.org.",
-          "description": "Somos Huella es un sistema de reconocimiento facial diseñado para ayudar a familias en Venezuela a encontrar personas que desaparecieron tras terremotos. Una familia registra a un ser querido con foto, última ubicación conocida y datos de contacto. Si alguien encuentra a una persona — desde chicos hasta personas lesionadas que no pueden comunicarse — puede subir una foto y el sistema compara ese rostro contra el registro para sugerir posibles coincidencias usando visión artificial.\n\nCada rostro se convierte en una huella numérica de 512 dimensiones. Las fotos nuevas se contrastan contra todo el registro en alrededor de medio segundo, con candidatos ordenados por parecido. El sistema nunca identifica de forma automática: devuelve coincidencias probables para verificación humana. La decisión final siempre es humana.\n\nLa plataforma está en producción con sitio público, API REST endurecida y búsqueda por rostro — desplegada en un VPS con indexado acelerado por GPU en local y búsqueda vectorial en el servidor.",
+          "description": "Somos Huella es un sistema de reconocimiento facial diseñado para ayudar a familias en Venezuela a encontrar personas que desaparecieron tras terremotos. Una familia registra a un ser querido con foto, última ubicación conocida y datos de contacto. Si alguien encuentra a una persona (desde chicos hasta personas lesionadas que no pueden comunicarse), puede subir una foto y el sistema compara ese rostro contra el registro para sugerir posibles coincidencias usando visión artificial.\n\nCada rostro se convierte en una huella numérica de 512 dimensiones. Las fotos nuevas se contrastan contra todo el registro en alrededor de medio segundo, con candidatos ordenados por parecido. El sistema nunca identifica de forma automática: devuelve coincidencias probables para verificación humana. La decisión final siempre es humana.\n\nLa plataforma está en producción con sitio público, API REST endurecida y búsqueda por rostro, desplegada en un VPS con indexado acelerado por GPU en local y búsqueda vectorial en el servidor.",
           "features": [
             "Registro de personas buscadas con foto, última ubicación y contacto familiar",
             "Búsqueda por rostro que devuelve candidatos ordenados en ~0,5 segundos",
@@ -148,7 +222,44 @@
       "githubUrl": "https://github.com/Repetto-A/ML-FaceRecognizer",
       "demoUrl": "https://somoshuella.org",
       "images": ["/projects/somoshuella-1.png"],
-      "category": "AI / Social Impact"
+      "category": "AI / Social Impact",
+      "caseStudy": {
+        "problem": {
+          "en": "Families in Venezuela are looking for people who disappeared after earthquakes. A registry is not enough if matching a found face to that registry takes too long, or if the system pretends to identify someone on its own.",
+          "es": "Familias en Venezuela buscan personas que desaparecieron tras terremotos. Un registro no alcanza si comparar un rostro encontrado tarda demasiado, o si el sistema pretende identificar a alguien por su cuenta."
+        },
+        "approach": {
+          "en": "A family registers a missing person with a photo, last known location, and contact details. If someone finds a person (from children to injured people who cannot communicate), they upload a photo. Each face becomes a numeric fingerprint. The system ranks likely matches for a human to verify. It never makes an automatic identification.",
+          "es": "Una familia registra a un ser querido con foto, última ubicación conocida y datos de contacto. Si alguien encuentra a una persona (desde chicos hasta personas lesionadas que no pueden comunicarse), sube una foto. Cada rostro se convierte en una huella numérica. El sistema ordena coincidencias probables para que una persona las verifique. Nunca identifica de forma automática."
+        },
+        "result": {
+          "en": "The platform is in production at somoshuella.org, with a public site, a hardened REST API, and face search. Search time and embedding size: pending. Indexing runs on a local GPU. Search runs on a VPS with pgvector. The final decision is always human.",
+          "es": "La plataforma está en producción en somoshuella.org, con sitio público, API REST endurecida y búsqueda por rostro. Tiempo de búsqueda y tamaño de la huella: pendiente. El indexado corre en GPU local. La búsqueda corre en un VPS con pgvector. La decisión final siempre es humana."
+        },
+        "facts": [
+          {
+            "value": { "en": "Pending", "es": "Pendiente" },
+            "label": {
+              "en": "Face search",
+              "es": "Búsqueda por rostro"
+            }
+          },
+          {
+            "value": { "en": "Pending", "es": "Pendiente" },
+            "label": {
+              "en": "Embedding dimensions",
+              "es": "Dimensiones de la huella"
+            }
+          },
+          {
+            "value": { "en": "somoshuella.org", "es": "somoshuella.org" },
+            "label": {
+              "en": "In production",
+              "es": "En producción"
+            }
+          }
+        ]
+      }
     },
     {
       "id": "farmhero",
@@ -191,7 +302,37 @@
         "/projects/farmhero-4.jpg",
         "/projects/farmhero-5.jpg"
       ],
-      "category": "Game / AgTech"
+      "category": "Game / AgTech",
+      "caseStudy": {
+        "problem": {
+          "en": "Teaching sustainable agriculture and resource management with made-up examples stays abstract. The brief was to make those decisions feel real, using actual satellite data.",
+          "es": "Enseñar agricultura sostenible y gestión de recursos con ejemplos inventados queda abstracto. El desafío era que esas decisiones se sientan reales, con datos satelitales de verdad."
+        },
+        "approach": {
+          "en": "An educational simulator that uses real NASA and CONAE satellite layers. Players restore degraded land with limited capital and choose interventions (fertilizers, pesticides, irrigation) whose short and long-term effects the game simulates, including droughts, heat waves, and floods. Built as a NASA Space Apps prototype, then iterated after the hackathon.",
+          "es": "Un simulador educativo que usa capas satelitales reales de NASA y CONAE. Los jugadores restauran tierras degradadas con capital limitado y eligen intervenciones (fertilizantes, plaguicidas, irrigación) cuyos efectos a corto y largo plazo simula el juego, incluidas sequías, olas de calor e inundaciones. Nació como prototipo en NASA Space Apps y se siguió iterando después del hackathon."
+        },
+        "result": {
+          "en": "Built for NASA Space Apps 2025. Award place and prototype build time: pending. Local press covered the project (Telefe Rosario, La Capital, El Ciudadano, and others listed below).",
+          "es": "Hecho para NASA Space Apps 2025. Puesto y tiempo de prototipo: pendiente. Hubo cobertura local (Telefe Rosario, La Capital, El Ciudadano y otros medios listados abajo)."
+        },
+        "facts": [
+          {
+            "value": { "en": "Pending", "es": "Pendiente" },
+            "label": {
+              "en": "NASA Space Apps place",
+              "es": "Puesto NASA Space Apps"
+            }
+          },
+          {
+            "value": { "en": "Pending", "es": "Pendiente" },
+            "label": {
+              "en": "Prototype build",
+              "es": "Prototipo"
+            }
+          }
+        ]
+      }
     },
     {
       "id": "nasa-spaceapps",
@@ -234,7 +375,44 @@
       "githubUrl": "https://github.com/Repetto-A/AI-Seismic-Detection",
       "demoUrl": null,
       "images": ["/projects/nasa-1.png", "/projects/nasa-2.png", "/projects/nasa-3.png"],
-      "category": "AI/ML Research"
+      "category": "AI/ML Research",
+      "caseStudy": {
+        "problem": {
+          "en": "Sending seismic data home from the Moon or Mars costs energy that scales with distance. Seismic events are rare, so most of what you transmit is noise.",
+          "es": "Mandar datos sísmicos desde la Luna o Marte consume energía que escala con la distancia. Los eventos sísmicos son raros, así que la mayor parte de lo que se transmite es ruido."
+        },
+        "approach": {
+          "en": "An on-board LSTM trained on real data from NASA's Apollo (Moon) and InSight (Mars) missions. Classification runs in situ to separate seismic signal from noise, so only useful bytes go back to Earth.",
+          "es": "Un LSTM a bordo, entrenado con datos reales de las misiones Apollo (Luna) e InSight (Marte) de la NASA. La clasificación corre in situ para separar la señal sísmica del ruido, y a la Tierra vuelven solo los bytes útiles."
+        },
+        "result": {
+          "en": "Built for NASA Space Apps 2024. Award place: pending. The software and hardware needed stay low-cost in development, operation, energy, and footprint.",
+          "es": "Hecho para NASA Space Apps 2024. Puesto: pendiente. El software y el hardware necesarios son de bajo costo en desarrollo, operación, energía y espacio."
+        },
+        "facts": [
+          {
+            "value": { "en": "Pending", "es": "Pendiente" },
+            "label": {
+              "en": "NASA Space Apps 2024 place",
+              "es": "Puesto NASA Space Apps 2024"
+            }
+          },
+          {
+            "value": { "en": "LSTM", "es": "LSTM" },
+            "label": {
+              "en": "On-board model",
+              "es": "Modelo a bordo"
+            }
+          },
+          {
+            "value": { "en": "Apollo + InSight", "es": "Apollo + InSight" },
+            "label": {
+              "en": "Training data",
+              "es": "Datos de entrenamiento"
+            }
+          }
+        ]
+      }
     },
     {
       "id": "consentinel",
@@ -242,7 +420,7 @@
         "en": {
           "title": "ConSentinel",
           "short": "Permission kernel that sits between autonomous AI agents and user funds, using behavior graphs, contextual risk scoring and biometric step-up verification to allow, audit, challenge or deny each action.",
-          "description": "ConSentinel is a security middleware for the age of autonomous financial agents. As AI agents start executing real-world actions — payments, transfers, wallet operations — the classic binary permission model breaks down: allow everything or block everything is too blunt.\n\nI built the permission kernel, the MCP server for external agent validation, and the risk engine. The kernel evaluates each agent action against a per-user behavior graph, vector memory of past precedents, and deterministic intent drift detection before the action reaches the wallet. Decisions are granular: allow, allow with audit, require biometric step-up, or deny. Step-up verification uses WebAuthn passkeys just-in-time, with WhatsApp deep links as a fallback channel.\n\nBuilt in ~36 hours during Platanus Hack 2026 (Argentina). Recognized as a judge's favorite for its approach to agentic financial safety.",
+          "description": "ConSentinel is a security middleware for the age of autonomous financial agents. As AI agents start executing real-world actions (payments, transfers, wallet operations), the classic binary permission model breaks down: allow everything or block everything is too blunt.\n\nI built the permission kernel, the MCP server for external agent validation, and the risk engine. The kernel evaluates each agent action against a per-user behavior graph, vector memory of past precedents, and deterministic intent drift detection before the action reaches the wallet. Decisions are granular: allow, allow with audit, require biometric step-up, or deny. Step-up verification uses WebAuthn passkeys just-in-time, with WhatsApp deep links as a fallback channel.\n\nBuilt in ~36 hours during Platanus Hack 2026 (Argentina). Recognized as a judge's favorite for its approach to agentic financial safety.",
           "features": [
             "Permission kernel with four granular outcomes: allow, allow_with_audit, step_up, deny",
             "Per-user behavior graph tracking counterparties, amounts, routes and frequency patterns",
@@ -256,7 +434,7 @@
         "es": {
           "title": "ConSentinel",
           "short": "Kernel de permisos que se interpone entre agentes de IA autónomos y los fondos del usuario, usando grafos de comportamiento, scoring de riesgo contextual y validación biométrica para permitir, auditar, desafiar o denegar cada acción.",
-          "description": "ConSentinel es un middleware de seguridad para la era de los agentes financieros autónomos. A medida que los agentes de IA empiezan a ejecutar acciones reales — pagos, transferencias, operaciones de wallet — el modelo clásico de permisos binarios queda corto: permitir todo o bloquear todo es demasiado tosco.\n\nConstruí el kernel de permisos, el servidor MCP para validación de agentes externos y el motor de riesgo. El kernel evalúa cada acción del agente contra un grafo de comportamiento por usuario, memoria vectorial de precedentes y detección determinista de drift de intención antes de que la acción llegue a la wallet. Las decisiones son granulares: permitir, permitir con auditoría, requerir validación biométrica o denegar. La verificación step-up usa passkeys WebAuthn just-in-time, con deep links de WhatsApp como canal de fallback.\n\nConstruido en ~36 horas durante Platanus Hack 2026 (Argentina). Reconocido como favorito del jurado por su enfoque de seguridad financiera agéntica.",
+          "description": "ConSentinel es un middleware de seguridad para la era de los agentes financieros autónomos. A medida que los agentes de IA empiezan a ejecutar acciones reales (pagos, transferencias, operaciones de wallet), el modelo clásico de permisos binarios queda corto: permitir todo o bloquear todo es demasiado tosco.\n\nConstruí el kernel de permisos, el servidor MCP para validación de agentes externos y el motor de riesgo. El kernel evalúa cada acción del agente contra un grafo de comportamiento por usuario, memoria vectorial de precedentes y detección determinista de drift de intención antes de que la acción llegue a la wallet. Las decisiones son granulares: permitir, permitir con auditoría, requerir validación biométrica o denegar. La verificación step-up usa passkeys WebAuthn just-in-time, con deep links de WhatsApp como canal de fallback.\n\nConstruido en ~36 horas durante Platanus Hack 2026 (Argentina). Reconocido como favorito del jurado por su enfoque de seguridad financiera agéntica.",
           "features": [
             "Kernel de permisos con cuatro resultados granulares: permitir, permitir con auditoría, step-up, denegar",
             "Grafo de comportamiento por usuario que trackea contrapartes, montos, rutas y patrones de frecuencia",
@@ -283,7 +461,40 @@
       "githubUrl": "https://github.com/Repetto-A/Consentinel",
       "demoUrl": "https://consentinel.vercel.app",
       "images": ["/projects/consentinel-1.png"],
-      "category": "AI / Security Infrastructure"
+      "category": "AI / Security Infrastructure",
+      "caseStudy": {
+        "problem": {
+          "en": "When AI agents start executing real actions (payments, transfers, wallet operations), a binary permission model is too blunt: allow everything or block everything.",
+          "es": "Cuando los agentes de IA empiezan a ejecutar acciones reales (pagos, transferencias, operaciones de wallet), el permiso binario queda corto: o se permite todo o se bloquea todo."
+        },
+        "approach": {
+          "en": "I built the permission kernel, the MCP server for external agent validation, and the risk engine. Each action is evaluated against a per-user behavior graph, vector memory of past precedents, and deterministic intent drift detection before it reaches the wallet. Outcomes are allow, allow with audit, biometric step-up, or deny. Step-up uses WebAuthn passkeys, with WhatsApp deep links as fallback.",
+          "es": "Construí el kernel de permisos, el servidor MCP para validar agentes externos y el motor de riesgo. Cada acción se evalúa contra un grafo de comportamiento por usuario, memoria vectorial de precedentes y detección determinista de drift de intención, antes de llegar a la wallet. Los resultados son permitir, permitir con auditoría, pedir biometría o denegar. El step-up usa passkeys WebAuthn, con deep links de WhatsApp como fallback."
+        },
+        "result": {
+          "en": "Judge's favorite at Platanus Hack 2026. Build time: pending.",
+          "es": "Favorito del jurado en Platanus Hack 2026. Tiempo de construcción: pendiente."
+        },
+        "facts": [
+          {
+            "value": { "en": "Pending", "es": "Pendiente" },
+            "label": {
+              "en": "Build time",
+              "es": "Tiempo de construcción"
+            }
+          },
+          {
+            "value": {
+              "en": "Judge's favorite",
+              "es": "Favorito del jurado"
+            },
+            "label": {
+              "en": "Platanus Hack 2026",
+              "es": "Platanus Hack 2026"
+            }
+          }
+        ]
+      }
     },
     {
       "id": "lavirginia-qc",
@@ -291,7 +502,7 @@
         "en": {
           "title": "Capsule Quality Control",
           "short": "Computer vision system for industrial quality control, built with a custom PyTorch CNN and a Node.js validation backend to detect damaged or disordered coffee capsule packages on a real production line.",
-          "description": "La Virginia, one of Argentina's leading coffee brands, challenged us to automate quality control on their capsule production line. Human inspectors can't keep up with the speed of the line, and defective packages — broken capsules, spilled coffee, disordered layouts — were slipping through.\n\nI designed and trained a convolutional neural network in PyTorch using a custom dataset of capsule and package photos I captured myself. The model classifies packages as OK or defective. I also built the FastAPI inference service and the main Node.js + Express backend that orchestrates a two-stage validation: the local CNN runs first, then an AI Gateway multimodal model evaluates three axes (capsule damage, capsule disorder, packaging damage) as a fallback. The rule is conservative: if any axis fails, the package is rejected.\n\nBuilt in 6 hours. Awarded 2nd place and selected for Nvidia for Startups based on the quality of the solution and execution speed.",
+          "description": "La Virginia, one of Argentina's leading coffee brands, challenged us to automate quality control on their capsule production line. Human inspectors can't keep up with the speed of the line, and defective packages (broken capsules, spilled coffee, disordered layouts) were slipping through.\n\nI designed and trained a convolutional neural network in PyTorch using a custom dataset of capsule and package photos I captured myself. The model classifies packages as OK or defective. I also built the FastAPI inference service and the main Node.js + Express backend that orchestrates a two-stage validation: the local CNN runs first, then an AI Gateway multimodal model evaluates three axes (capsule damage, capsule disorder, packaging damage) as a fallback. The rule is conservative: if any axis fails, the package is rejected.\n\nBuilt in 6 hours. Awarded 2nd place and selected for Nvidia for Startups based on the quality of the solution and execution speed.",
           "features": [
             "Custom CNN trained in PyTorch on a self-built dataset of capsule and package photos",
             "Two-stage validation pipeline: local CNN inference + AI Gateway multimodal fallback",
@@ -305,7 +516,7 @@
         "es": {
           "title": "Control de Calidad de Cápsulas",
           "short": "Sistema de visión artificial para control de calidad industrial, construido con una CNN propia en PyTorch y un backend de validación en Node.js para detectar cápsulas y empaques dañados o desordenados en una línea de producción real.",
-          "description": "La Virginia, una de las marcas de café líderes en Argentina, nos desafió a automatizar el control de calidad en su línea de producción de cápsulas. Los inspectores humanos no pueden seguir el ritmo de la línea, y los paquetes defectuosos — cápsulas rotas, café derramado, desorden — se escapaban.\n\nDiseñé y entrené una red convolucional en PyTorch usando un dataset propio de fotos de cápsulas y empaques que saqué yo mismo. El modelo clasifica paquetes como OK o defectuoso. También construí el servicio de inferencia en FastAPI y el backend principal en Node.js + Express que orquesta una validación en dos etapas: la CNN local corre primero, luego un modelo multimodal vía AI Gateway evalúa tres ejes (daño de cápsula, desorden de cápsulas, rotura de empaquetado) como fallback. La regla es conservadora: si falla un eje, se rechaza.\n\nConstruido en 6 horas. Premio al 2do lugar y seleccionados para Nvidia for Startups por la calidad de la solución y la velocidad de ejecución.",
+          "description": "La Virginia, una de las marcas de café líderes en Argentina, nos desafió a automatizar el control de calidad en su línea de producción de cápsulas. Los inspectores humanos no pueden seguir el ritmo de la línea, y los paquetes defectuosos (cápsulas rotas, café derramado, desorden) se escapaban.\n\nDiseñé y entrené una red convolucional en PyTorch usando un dataset propio de fotos de cápsulas y empaques que saqué yo mismo. El modelo clasifica paquetes como OK o defectuoso. También construí el servicio de inferencia en FastAPI y el backend principal en Node.js + Express que orquesta una validación en dos etapas: la CNN local corre primero, luego un modelo multimodal vía AI Gateway evalúa tres ejes (daño de cápsula, desorden de cápsulas, rotura de empaquetado) como fallback. La regla es conservadora: si falla un eje, se rechaza.\n\nConstruido en 6 horas. Premio al 2do lugar y seleccionados para Nvidia for Startups por la calidad de la solución y la velocidad de ejecución.",
           "features": [
             "CNN propia entrenada en PyTorch sobre un dataset construido con fotos de cápsulas y empaques",
             "Pipeline de validación en dos etapas: inferencia CNN local + fallback multimodal vía AI Gateway",
@@ -333,7 +544,40 @@
       "githubUrl": "https://github.com/Repetto-A/VirgIA",
       "demoUrl": null,
       "images": ["/projects/virgia-1.png", "/projects/virgia-2.png"],
-      "category": "AI / Industrial Vision"
+      "category": "AI / Industrial Vision",
+      "caseStudy": {
+        "problem": {
+          "en": "La Virginia asked to automate quality control on a coffee capsule line. Human inspectors cannot keep up with line speed, and defective packages (broken capsules, spilled coffee, disordered layouts) were getting through.",
+          "es": "La Virginia pidió automatizar el control de calidad en una línea de cápsulas de café. Los inspectores humanos no llegan a seguir el ritmo, y los paquetes defectuosos (cápsulas rotas, café derramado, desorden) se escapaban."
+        },
+        "approach": {
+          "en": "I designed and trained a convolutional network in PyTorch on a dataset of capsule and package photos I captured myself. A FastAPI service serves the model. A Node.js and Express backend runs two-stage validation: the local CNN first, then an AI Gateway multimodal model on three axes (capsule damage, capsule disorder, packaging damage). If any axis fails, the package is rejected.",
+          "es": "Diseñé y entrené una red convolucional en PyTorch con un dataset de fotos de cápsulas y empaques que saqué yo. Un servicio FastAPI sirve el modelo. Un backend Node.js y Express orquesta una validación en dos etapas: primero la CNN local, después un modelo multimodal vía AI Gateway en tres ejes (daño de cápsula, desorden, rotura de empaquetado). Si falla un eje, se rechaza."
+        },
+        "result": {
+          "en": "2nd place at Vercel Hackathon 2026, plus Nvidia for Startups. Build time: pending.",
+          "es": "2º puesto en Vercel Hackathon 2026, más Nvidia for Startups. Tiempo de construcción: pendiente."
+        },
+        "facts": [
+          {
+            "value": { "en": "Pending", "es": "Pendiente" },
+            "label": {
+              "en": "Build time",
+              "es": "Tiempo de construcción"
+            }
+          },
+          {
+            "value": {
+              "en": "2nd place + Nvidia",
+              "es": "2º puesto + Nvidia"
+            },
+            "label": {
+              "en": "Vercel Hackathon 2026",
+              "es": "Vercel Hackathon 2026"
+            }
+          }
+        ]
+      }
     },
     {
       "id": "zorrito-finance",
@@ -385,7 +629,37 @@
         "/projects/zorrito-3.jpg",
         "/projects/zorrito-4.jpeg"
       ],
-      "category": "Blockchain/DeFi"
+      "category": "Blockchain/DeFi",
+      "caseStudy": {
+        "problem": {
+          "en": "Saving is hard to teach, and most yield products ask people to risk principal. The brief was a no-loss way to save, play, and keep the capital.",
+          "es": "Ahorrar es difícil de enseñar, y la mayoría de los productos de rendimiento piden arriesgar el capital. El brief era un ahorro sin pérdida, para jugar y no perder lo depositado."
+        },
+        "approach": {
+          "en": "A no-loss lottery: users deposit into smart contracts that allocate capital to yield-generating protocols, keep full liquidity, and never lose principal. Users raise a virtual Zorrito. Age is verified with Self Protocol's zero-knowledge flow. Filecoin is used for storage.",
+          "es": "Una lotería sin pérdidas: los usuarios depositan en contratos inteligentes que asignan capital a protocolos de rendimiento, mantienen liquidez y no pierden el principal. Cada uno cuida a un Zorrito virtual. La edad se verifica con el flujo de conocimiento cero de Self Protocol. Filecoin se usa para almacenamiento."
+        },
+        "result": {
+          "en": "Built during ETH Global 2025. Award place: pending.",
+          "es": "Construida durante ETH Global 2025. Puesto: pendiente."
+        },
+        "facts": [
+          {
+            "value": { "en": "Pending", "es": "Pendiente" },
+            "label": {
+              "en": "ETH Global award",
+              "es": "Premio ETH Global"
+            }
+          },
+          {
+            "value": { "en": "Self Protocol", "es": "Self Protocol" },
+            "label": {
+              "en": "Age verification",
+              "es": "Verificación de edad"
+            }
+          }
+        ]
+      }
     },
     {
       "id": "braintumorai-web",
@@ -437,7 +711,44 @@
         "/projects/braintumorai-2.jpg",
         "/projects/braintumorai-3.jpg"
       ],
-      "category": "AI/ML Research"
+      "category": "AI/ML Research",
+      "caseStudy": {
+        "problem": {
+          "en": "Classifying brain MRI scans usually means sending the image to a server. For a screening demo, that is a privacy problem.",
+          "es": "Clasificar resonancias de cerebro suele implicar mandar la imagen a un servidor. En una demo de screening, eso es un problema de privacidad."
+        },
+        "approach": {
+          "en": "A PyTorch model runs entirely in the browser with ONNX Runtime Web. Images never leave the device. Classes: glioma, meningioma, pituitary, and no tumor. After the first load, it can run offline.",
+          "es": "Un modelo de PyTorch corre entero en el navegador con ONNX Runtime Web. Las imágenes no salen del dispositivo. Clases: glioma, meningioma, pituitaria y sin tumor. Después de la primera carga, puede correr sin conexión."
+        },
+        "result": {
+          "en": "Runs in the browser with WebGL acceleration. Accuracy, dataset size, and prediction time: pending.",
+          "es": "Corre en el navegador con aceleración WebGL. Precisión, tamaño del dataset y tiempo de predicción: pendiente."
+        },
+        "facts": [
+          {
+            "value": { "en": "Pending", "es": "Pendiente" },
+            "label": {
+              "en": "Test accuracy",
+              "es": "Precisión de test"
+            }
+          },
+          {
+            "value": { "en": "Pending", "es": "Pendiente" },
+            "label": {
+              "en": "Brain MRI images",
+              "es": "Imágenes de resonancia"
+            }
+          },
+          {
+            "value": { "en": "Pending", "es": "Pendiente" },
+            "label": {
+              "en": "Prediction time",
+              "es": "Tiempo de predicción"
+            }
+          }
+        ]
+      }
     },
     {
       "id": "roxium-dao-ops",
@@ -479,7 +790,37 @@
         "Tailwind CSS"
       ],
       "githubUrl": "https://github.com/Repetto-A/Roxium-DAO-Ops",
-      "category": "Blockchain/AI"
+      "category": "Blockchain/AI",
+      "caseStudy": {
+        "problem": {
+          "en": "DAO operations bury the status of proposals and tasks. Contributors cannot see bottlenecks or trends until the damage has already spread.",
+          "es": "Operar un DAO esconde el estado de las proposals y las tasks. Los contribuidores no ven cuellos de botella ni tendencias hasta que el daño ya se expandió."
+        },
+        "approach": {
+          "en": "A DAO operations platform with proposal and task tracking, full status history, dashboards and analytics, and AI-powered daily digests that summarize the factors contributors need to watch.",
+          "es": "Una plataforma de operaciones para DAOs con tracking de proposals y tasks, historial de estados, dashboards, analytics y resúmenes diarios con IA que sintetizan los factores a los que hay que prestarle atención."
+        },
+        "result": {
+          "en": "Built for ETH Argentina 2025. Award place and build time: pending.",
+          "es": "Hecho para ETH Argentina 2025. Puesto y tiempo de construcción: pendiente."
+        },
+        "facts": [
+          {
+            "value": { "en": "Pending", "es": "Pendiente" },
+            "label": {
+              "en": "PowerHouse prize",
+              "es": "Premio PowerHouse"
+            }
+          },
+          {
+            "value": { "en": "Pending", "es": "Pendiente" },
+            "label": {
+              "en": "Build time",
+              "es": "Tiempo de construcción"
+            }
+          }
+        ]
+      }
     }
   ]
 }

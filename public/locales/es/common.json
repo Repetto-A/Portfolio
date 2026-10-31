@@ -115,6 +115,7 @@
     "cta": {
       "learnMore": "Conoce Más",
       "viewCode": "Ver Código",
+      "code": "Código",
       "liveDemo": "Demo en Vivo",
       "getInTouch": "Contactar",
       "backToProjects": "Volver a Proyectos"
@@ -126,6 +127,20 @@
       "links": "Enlaces",
       "viewSourceCode": "Ver Código Fuente"
     },
+    "caseStudy": {
+      "kicker": "Caso de estudio",
+      "problem": "El problema",
+      "approach": "Qué se construyó",
+      "result": "Resultado",
+      "features": "Qué hace el sistema",
+      "recognition": "Reconocimiento",
+      "press": "Prensa",
+      "pressOpen": "Abrir nota",
+      "gallery": "Capturas"
+    },
+    "features": "Qué hace el sistema",
+    "techStack": "Stack tecnológico",
+    "image": "Captura",
     "timeline": {
       "title": "Cronología del Proyecto",
       "today": "Hoy"
