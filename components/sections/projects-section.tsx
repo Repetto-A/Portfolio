@@ -116,7 +116,9 @@ export function ProjectsSection({
                 variant="outline"
                 className="h-auto min-h-[44px] w-full sm:w-auto"
               >
-                <Link href="/sprint">{getTranslation(translations, "hero.cta.sprint")}</Link>
+                <Link href="/sprint" prefetch={false}>
+                  {getTranslation(translations, "hero.cta.sprint")}
+                </Link>
               </Button>
             </div>
           </div>

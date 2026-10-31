@@ -166,7 +166,11 @@ export function ContactSection() {
               </div>
               <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
                 {getTranslation(translations, "contact.companies")}{" "}
-                <Link href="/sprint" className="text-foreground underline underline-offset-4">
+                <Link
+                  href="/sprint"
+                  prefetch={false}
+                  className="text-foreground underline underline-offset-4"
+                >
                   {getTranslation(translations, "contact.companiesCta")}
                 </Link>
               </p>

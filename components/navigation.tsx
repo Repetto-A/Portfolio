@@ -47,6 +47,7 @@ export function Navigation() {
               <Link
                 key={item.href}
                 href={item.href}
+                prefetch={item.href === "/sprint" ? false : undefined}
                 className="text-sm font-medium text-muted-foreground transition-colors duration-150 hover:text-foreground"
               >
                 {item.label}
@@ -93,6 +94,7 @@ export function Navigation() {
                 <Link
                   key={item.href}
                   href={item.href}
+                  prefetch={item.href === "/sprint" ? false : undefined}
                   className="block min-h-11 px-3 py-3 text-sm font-medium text-muted-foreground transition-colors duration-150 hover:text-foreground"
                   onClick={() => setIsOpen(false)}
                 >

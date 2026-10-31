@@ -62,6 +62,7 @@ export function TrainingsSection() {
           </SprintCalendlyButton>
           <Link
             href="/sprint"
+            prefetch={false}
             className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-md border border-border px-5 py-3 text-sm font-medium transition-[border-color,background-color,transform] duration-200 ease-out hover:border-foreground/40 hover:bg-muted/50 active:scale-[0.98] sm:w-auto"
           >
             {getTranslation(translations, "trainings.cta")}

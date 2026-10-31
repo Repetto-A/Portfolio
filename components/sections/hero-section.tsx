@@ -87,7 +87,7 @@ export function HeroSection({ photo }: { photo: ReactNode }) {
                 variant="outline"
                 className="group h-auto min-h-[44px] w-full border-border/60 sm:w-auto"
               >
-                <Link href="/sprint">
+                <Link href="/sprint" prefetch={false}>
                   {getTranslation(translations, "hero.cta.sprint")}
                   <ArrowRight
                     className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5"

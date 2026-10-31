@@ -21,6 +21,7 @@ export function Footer() {
             <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2">
               <Link
                 href="/sprint"
+                prefetch={false}
                 className="inline-flex min-h-11 items-center gap-2 text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
               >
                 <span aria-hidden className="h-px w-6 bg-[var(--sprint-accent)]" />
