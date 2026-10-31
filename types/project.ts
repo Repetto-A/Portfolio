@@ -11,7 +11,7 @@ export interface ProjectLocale {
 }
 
 export interface CaseStudyFact {
-  value: string
+  value: LocalizedText
   label: LocalizedText
 }
 

@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import projectsData from "@/content/projects.json"
 import { ProjectPageContent, type ProjectPageData } from "@/components/project-page-content"
 import { generateMetadata as genMetadata, generateProjectSchema, siteConfig } from "@/lib/seo"
+import type { ProjectCaseStudy } from "@/types/project"
 
 type ProjectContent = {
   title?: string
@@ -14,7 +15,7 @@ type ProjectContent = {
 type ProjectWithLocales = {
   locales?: { en?: ProjectContent; es?: ProjectContent }
   timeline?: unknown
-  caseStudy?: ProjectPageData["caseStudy"]
+  caseStudy?: ProjectCaseStudy
 }
 
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
@@ -28,14 +29,18 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
     })
   }
 
-  const projectContent: ProjectContent = (projectData as ProjectWithLocales).locales?.en ?? {}
+  const projectWithLocales = projectData as ProjectWithLocales
+  const projectContent: ProjectContent = projectWithLocales.locales?.en ?? {}
+  const caseStudy = projectWithLocales.caseStudy
   const keywords = [...projectData.techStack, projectData.category, "project", "portfolio"]
   const firstImage = projectData.images?.[0]
   const ogImage = firstImage ? `${siteConfig.url}${firstImage}` : undefined
+  const description =
+    caseStudy?.problem.en || projectContent.short || projectContent.description || ""
 
   return genMetadata({
     title: projectContent.title || projectData.id,
-    description: projectContent.short || projectContent.description || "",
+    description,
     canonical: `${siteConfig.url}/projects/${params.id}`,
     ogImage,
     ogType: "article",
@@ -56,12 +61,14 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
     notFound()
   }
 
-  const projectContent: ProjectContent = (projectData as ProjectWithLocales).locales?.en ?? {}
+  const projectWithLocales = projectData as ProjectWithLocales
+  const projectContent: ProjectContent = projectWithLocales.locales?.en ?? {}
+  const caseStudy = projectWithLocales.caseStudy
 
   const projectSchema = generateProjectSchema({
     id: projectData.id,
     title: projectContent.title ?? "",
-    description: projectContent.description ?? "",
+    description: caseStudy?.problem.en || projectContent.description || "",
     status: projectData.status,
     techStack: projectData.techStack,
     githubUrl: projectData.githubUrl,
@@ -77,10 +84,10 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
     demoUrl: projectData.demoUrl ?? null,
     images: projectData.images ?? [],
     category: projectData.category,
-    locales: (projectData as ProjectWithLocales).locales ?? {},
-    caseStudy: (projectData as ProjectWithLocales).caseStudy,
-    timeline: Array.isArray((projectData as ProjectWithLocales).timeline)
-      ? ((projectData as ProjectWithLocales).timeline as ProjectPageData["timeline"])
+    locales: projectWithLocales.locales ?? {},
+    caseStudy: projectWithLocales.caseStudy,
+    timeline: Array.isArray(projectWithLocales.timeline)
+      ? (projectWithLocales.timeline as ProjectPageData["timeline"])
       : undefined,
   }
 
