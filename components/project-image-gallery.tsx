@@ -31,7 +31,11 @@ export function ProjectImageGallery({ images, projectTitle, className }: Project
 
   return (
     <div className={className}>
-      <div className="grid md:grid-cols-2 gap-6">
+      <div
+        className={
+          images.length === 1 ? "grid max-w-3xl grid-cols-1 gap-6" : "grid gap-6 md:grid-cols-2"
+        }
+      >
         {images.map((image, index) => {
           const fullPath = image.startsWith("/") ? image : `/${image}`
 

@@ -172,55 +172,59 @@ export function ProjectPageContent({ project }: { project: ProjectPageData }) {
             </div>
 
             <div className="space-y-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle>
-                    {getTranslation(translations, "projects.details.techStack")}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {project.techStack.map((tech) => (
-                      <Badge key={tech} variant="secondary" className="text-xs">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+              {project.techStack.length > 0 ? (
+                <Card>
+                  <CardHeader>
+                    <CardTitle>
+                      {getTranslation(translations, "projects.details.techStack")}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex flex-wrap gap-2">
+                      {project.techStack.map((tech) => (
+                        <Badge key={tech} variant="secondary" className="text-xs">
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              ) : null}
 
-              <Card>
-                <CardHeader>
-                  <CardTitle>{getTranslation(translations, "projects.details.links")}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  {project.githubUrl && (
-                    <Button
-                      asChild
-                      variant="outline"
-                      className="w-full justify-start bg-transparent"
-                    >
-                      <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                        <Github className="mr-2 h-4 w-4" aria-hidden />
-                        {getTranslation(translations, "projects.details.viewSourceCode")}
-                      </Link>
-                    </Button>
-                  )}
+              {project.githubUrl || project.demoUrl ? (
+                <Card>
+                  <CardHeader>
+                    <CardTitle>{getTranslation(translations, "projects.details.links")}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    {project.githubUrl && (
+                      <Button
+                        asChild
+                        variant="outline"
+                        className="w-full justify-start bg-transparent"
+                      >
+                        <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                          <Github className="mr-2 h-4 w-4" aria-hidden />
+                          {getTranslation(translations, "projects.details.viewSourceCode")}
+                        </Link>
+                      </Button>
+                    )}
 
-                  {project.demoUrl && (
-                    <Button
-                      asChild
-                      variant="outline"
-                      className="w-full justify-start bg-transparent"
-                    >
-                      <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="mr-2 h-4 w-4" aria-hidden />
-                        {getTranslation(translations, "projects.cta.liveDemo")}
-                      </Link>
-                    </Button>
-                  )}
-                </CardContent>
-              </Card>
+                    {project.demoUrl && (
+                      <Button
+                        asChild
+                        variant="outline"
+                        className="w-full justify-start bg-transparent"
+                      >
+                        <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="mr-2 h-4 w-4" aria-hidden />
+                          {getTranslation(translations, "projects.cta.liveDemo")}
+                        </Link>
+                      </Button>
+                    )}
+                  </CardContent>
+                </Card>
+              ) : null}
             </div>
           </div>
 

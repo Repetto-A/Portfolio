@@ -190,19 +190,20 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
                 </div>
               )}
 
-              {/* Tech stack */}
-              <div>
-                <h4 className="text-sm font-semibold text-foreground mb-3">
-                  {getTranslation(translations, "projects.techStack")}
-                </h4>
-                <div className="flex flex-wrap gap-1.5">
-                  {project.techStack.map((t) => (
-                    <Badge key={t} variant="secondary" className="text-xs">
-                      {t}
-                    </Badge>
-                  ))}
+              {project.techStack.length > 0 ? (
+                <div>
+                  <h4 className="text-sm font-semibold text-foreground mb-3">
+                    {getTranslation(translations, "projects.techStack")}
+                  </h4>
+                  <div className="flex flex-wrap gap-1.5">
+                    {project.techStack.map((t) => (
+                      <Badge key={t} variant="secondary" className="text-xs">
+                        {t}
+                      </Badge>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              ) : null}
 
               {/* Press & Media */}
               {pressLinks.length > 0 && (

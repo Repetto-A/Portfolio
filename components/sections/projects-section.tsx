@@ -166,18 +166,20 @@ export function ProjectsSection() {
                     {projectContent.short}
                   </p>
 
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.techStack.slice(0, 3).map((tech) => (
-                      <Badge key={tech} variant="outline" className="text-xs">
-                        {tech}
-                      </Badge>
-                    ))}
-                    {project.techStack.length > 3 && (
-                      <Badge variant="outline" className="text-xs text-muted-foreground">
-                        +{project.techStack.length - 3}
-                      </Badge>
-                    )}
-                  </div>
+                  {project.techStack.length > 0 ? (
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.techStack.slice(0, 3).map((tech) => (
+                        <Badge key={tech} variant="outline" className="text-xs">
+                          {tech}
+                        </Badge>
+                      ))}
+                      {project.techStack.length > 3 ? (
+                        <Badge variant="outline" className="text-xs text-muted-foreground">
+                          +{project.techStack.length - 3}
+                        </Badge>
+                      ) : null}
+                    </div>
+                  ) : null}
 
                   <div className="flex items-center justify-between pt-2 mt-auto border-t border-border/60">
                     <div className="flex items-center">

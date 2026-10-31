@@ -1,6 +1,77 @@
 {
   "projects": [
     {
+      "id": "agromaq",
+      "locales": {
+        "en": {
+          "title": "Agromaq",
+          "short": "Quotation and management system for a family agricultural machinery factory with around 40 years in the trade. Quotes, CRM, suppliers, purchasing, stock, and ARCA invoicing in homologation.",
+          "description": "I built the quotation flow and the management system for a family agricultural machinery factory with around 40 years in the trade. From the panel you can issue quotes and order notes from the catalog, with optional extras, discounts, payment terms, FX, and a client record by tax ID with an AFIP lookup. The management side covers CRM, suppliers, purchasing, stock, and electronic invoicing through ARCA, currently in homologation.",
+          "features": [
+            "Quotes and order notes from the machinery catalog, with optionals and discounts",
+            "Client record by tax ID with AFIP lookup",
+            "FX (BNA or manual) and payment terms",
+            "Price list import from PDF",
+            "CRM, suppliers, purchasing, and stock",
+            "ARCA electronic invoicing in homologation",
+            "Admin panel with a timed session"
+          ]
+        },
+        "es": {
+          "title": "Agromaq",
+          "short": "Cotizador y sistema de gestión para una fábrica familiar de maquinaria agrícola con cerca de 40 años. Cotizaciones, CRM, proveedores, compras, stock y facturación ARCA en homologación.",
+          "description": "Construí el cotizador y el sistema de gestión de una fábrica familiar de maquinaria agrícola con cerca de 40 años. Desde el panel se arman cotizaciones y notas de pedido con catálogo, opcionales, descuentos, condiciones de pago, tipo de cambio y cliente por CUIT con consulta a AFIP. El sistema cubre también CRM, proveedores, compras, stock y facturación electrónica ARCA, en homologación.",
+          "features": [
+            "Cotizaciones y notas de pedido con catálogo, opcionales y descuentos",
+            "Cliente por CUIT con consulta a AFIP",
+            "Tipo de cambio (BNA o manual) y condiciones de pago",
+            "Importación de lista de precios desde PDF",
+            "CRM, proveedores, compras y stock",
+            "Facturación electrónica ARCA en homologación",
+            "Panel de administración con sesión temporizada"
+          ]
+        }
+      },
+      "status": "production",
+      "techStack": [
+        "React",
+        "TypeScript",
+        "Vite",
+        "Tailwind CSS",
+        "FastAPI",
+        "SQLAlchemy",
+        "PostgreSQL",
+        "ReportLab"
+      ],
+      "githubUrl": null,
+      "demoUrl": "https://cotizador.nexa.builders",
+      "images": ["/projects/agromaq-1.png", "/projects/agromaq-2.png", "/projects/agromaq-3.png"],
+      "category": "Management System"
+    },
+    {
+      "id": "kraken-pos",
+      "locales": {
+        "en": {
+          "title": "Kraken POS",
+          "short": "Point of sale and stock control system.",
+          "description": "Point of sale system with stock control. The screenshot is a DEMO placeholder with sample data.",
+          "features": ["Point of sale", "Stock control"]
+        },
+        "es": {
+          "title": "Kraken POS",
+          "short": "Sistema de punto de venta y control de stock.",
+          "description": "Sistema de punto de venta con control de stock. La captura es un placeholder DEMO con datos de ejemplo.",
+          "features": ["Punto de venta", "Control de stock"]
+        }
+      },
+      "status": "in-progress",
+      "techStack": [],
+      "githubUrl": null,
+      "demoUrl": null,
+      "images": ["/projects/kraken-1.png"],
+      "category": "Management System"
+    },
+    {
       "id": "nexa",
       "locales": {
         "en": {

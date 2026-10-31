@@ -27,5 +27,5 @@
     "react-hooks/exhaustive-deps": "warn",
     "no-console": ["warn", { "allow": ["warn", "error"] }]
   },
-  "ignorePatterns": ["node_modules/", ".next/", "out/", "build/", "dist/"]
+  "ignorePatterns": ["node_modules/", ".next/", "out/", "build/", "dist/", "__tests__/"]
 }

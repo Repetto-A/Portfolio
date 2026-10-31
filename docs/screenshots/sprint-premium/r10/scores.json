@@ -1,0 +1,54 @@
+{
+  "axe": {
+    "/:desktop": { "photos": 1, "violations": [] },
+    "/:mobile": { "photos": 1, "violations": [] },
+    "/projects/agromaq:desktop": { "photos": 0, "violations": [] },
+    "/projects/agromaq:mobile": { "photos": 0, "violations": [] },
+    "/projects/kraken-pos:desktop": { "photos": 0, "violations": [] },
+    "/projects/kraken-pos:mobile": { "photos": 0, "violations": [] },
+    "/sprint:desktop": { "photos": 0, "violations": [] },
+    "/sprint:mobile": { "photos": 0, "violations": [] }
+  },
+  "notes": {
+    "portrait": "alejandro.webp only on home hero (1). /sprint uses speaker.jpg, not the portrait.",
+    "homeMobileLab": "Previous Slow 4G lab on home mobile was ~86-87. Desktop stays 99-100."
+  },
+  "lighthouse": {
+    "home:desktop": {
+      "url": "http://127.0.0.1:3001/",
+      "formFactor": "desktop",
+      "performance": 99,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "lcpMs": 852
+    },
+    "agromaq:desktop": {
+      "url": "http://127.0.0.1:3001/projects/agromaq",
+      "formFactor": "desktop",
+      "performance": 100,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "lcpMs": 250
+    },
+    "kraken:desktop": {
+      "url": "http://127.0.0.1:3001/projects/kraken-pos",
+      "formFactor": "desktop",
+      "performance": 100,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "lcpMs": 730
+    },
+    "sprint:desktop": {
+      "url": "http://127.0.0.1:3001/sprint",
+      "formFactor": "desktop",
+      "performance": 100,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "lcpMs": 286
+    }
+  }
+}
