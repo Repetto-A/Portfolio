@@ -1,6 +1,7 @@
 import { SprintSection, SprintHeading } from "./sprint-section"
 import { SPRINT_ANCHORS, SPRINT_SECTION_LABELS } from "@/lib/sprint/constants"
 import { generateSprintFaqSchema, SPRINT_FAQS } from "@/lib/sprint/offer"
+import { JsonLd } from "@/components/json-ld"
 
 export function SprintFaq() {
   const schema = generateSprintFaqSchema()
@@ -9,10 +10,7 @@ export function SprintFaq() {
     <SprintSection id={SPRINT_ANCHORS.faq} label={SPRINT_SECTION_LABELS.faq} spacing="compact" tint>
       <SprintHeading>Lo que pregunta dirección antes de agendar</SprintHeading>
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      />
+      <JsonLd data={schema} />
 
       <div className="mt-10 divide-y divide-border border-y border-border">
         {SPRINT_FAQS.map((faq) => (
