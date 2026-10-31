@@ -42,7 +42,7 @@ export function SprintClientsBand({ locale = "es", embedded = false }: SprintCli
 
   if (embedded) {
     return (
-      <div aria-label={aria} className="border-t border-border">
+      <div role="region" aria-label={aria} className="border-t border-border">
         {inner}
       </div>
     )

@@ -503,7 +503,6 @@ html.sprint-light {
 
 .sprint-display {
   font-family: var(--sprint-display);
-  font-optical-sizing: auto;
   font-weight: 600;
   letter-spacing: -0.03em;
   line-height: 1.08;

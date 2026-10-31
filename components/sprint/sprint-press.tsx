@@ -11,6 +11,8 @@ function PressLogo({ logo, decorative = false }: { logo: SprintPressLogo; decora
       alt={decorative ? "" : logo.alt}
       width={logo.w}
       height={logo.h}
+      sizes={`${Math.min(logo.w, 160)}px`}
+      loading="lazy"
       className={`sprint-press-logo ${logo.className} w-auto object-contain transition-opacity duration-300`}
     />
   )

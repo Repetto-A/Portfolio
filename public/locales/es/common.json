@@ -218,7 +218,21 @@
     "sprint": "Capacitaciones de IA"
   },
   "language": {
-    "switch": "Cambiar a Inglés",
+    "switch": "Cambiar a inglés",
     "current": "Español"
+  },
+  "a11y": {
+    "skipToMain": "Saltar al contenido principal",
+    "mainNav": "Principal",
+    "toggleMenu": "Abrir o cerrar el menú",
+    "switchToLight": "Cambiar a modo claro",
+    "switchToDark": "Cambiar a modo oscuro",
+    "toggleTheme": "Cambiar tema",
+    "switchLanguage": "Cambiar idioma",
+    "switchToEs": "Cambiar a español",
+    "switchToEn": "Cambiar a inglés",
+    "scrollToAbout": "Ir a la sección sobre mí",
+    "profilePhotoAlt": "Alejandro Repetto, ingeniero de software",
+    "screenshot": "{{title}}: captura {{n}}/{{total}}"
   }
 }

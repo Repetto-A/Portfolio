@@ -171,7 +171,7 @@ export function ContactSection() {
                 </Link>
               </p>
 
-              <Link
+              <a
                 href={resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -179,7 +179,7 @@ export function ContactSection() {
               >
                 <Download className="h-4 w-4" aria-hidden />
                 {getTranslation(translations, "hero.cta.resume")}
-              </Link>
+              </a>
             </div>
 
             {/* Contact Methods */}

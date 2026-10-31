@@ -220,5 +220,19 @@
   "language": {
     "switch": "Switch to Spanish",
     "current": "English"
+  },
+  "a11y": {
+    "skipToMain": "Skip to main content",
+    "mainNav": "Main",
+    "toggleMenu": "Open or close the menu",
+    "switchToLight": "Switch to light mode",
+    "switchToDark": "Switch to dark mode",
+    "toggleTheme": "Toggle theme",
+    "switchLanguage": "Switch language",
+    "switchToEs": "Switch to Spanish",
+    "switchToEn": "Switch to English",
+    "scrollToAbout": "Scroll to about section",
+    "profilePhotoAlt": "Alejandro Repetto, software engineer",
+    "screenshot": "{{title}}: screenshot {{n}}/{{total}}"
   }
 }

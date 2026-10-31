@@ -27,7 +27,7 @@ export function Navigation() {
 
   return (
     <nav
-      aria-label="Main"
+      aria-label={getTranslation(translations, "a11y.mainNav")}
       className="fixed top-0 z-50 w-full border-b border-border bg-background/80 pt-[env(safe-area-inset-top)] backdrop-blur-md"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -72,7 +72,7 @@ export function Navigation() {
               size="sm"
               onClick={() => setIsOpen(!isOpen)}
               className="size-11 p-0"
-              aria-label="Toggle menu"
+              aria-label={getTranslation(translations, "a11y.toggleMenu")}
               aria-expanded={isOpen}
               aria-controls="mobile-nav"
             >
@@ -81,7 +81,7 @@ export function Navigation() {
               ) : (
                 <Menu className="h-4 w-4" aria-hidden />
               )}
-              <span className="sr-only">Toggle menu</span>
+              <span className="sr-only">{getTranslation(translations, "a11y.toggleMenu")}</span>
             </Button>
           </div>
         </div>

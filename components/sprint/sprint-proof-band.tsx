@@ -1,8 +1,9 @@
 import Image from "next/image"
+import { SPRINT_SPEAKER_SRC } from "@/lib/media"
 
 /**
  * Banda visual full-bleed: Alejandro presentando en vivo ante una sala.
- * Esta no es la foto de perfil: se deja speaker.jpg a propósito.
+ * Esta no es la foto de perfil: se usa speaker.webp a propósito.
  */
 export function SprintProofBand() {
   return (
@@ -14,7 +15,7 @@ export function SprintProofBand() {
       */}
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-[var(--sprint-photo-matte)] sm:aspect-[2/1]">
         <Image
-          src="/sprint/speaker.jpg"
+          src={SPRINT_SPEAKER_SRC}
           alt="Alejandro Repetto presentando en Platanus Hack 2026"
           fill
           sizes="100vw"

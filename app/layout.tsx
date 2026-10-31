@@ -24,22 +24,25 @@ const inter = Inter({
   display: "swap",
   preload: true,
   fallback: ["system-ui", "arial"],
+  adjustFontFallback: true,
 })
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-jetbrains-mono",
-  display: "swap",
+  display: "optional",
   preload: false,
-  fallback: ["Courier New", "monospace"],
+  fallback: ["ui-monospace", "Courier New", "monospace"],
+  adjustFontFallback: true,
 })
 
 const newsreader = Newsreader({
   subsets: ["latin"],
+  weight: "600",
   variable: "--font-sprint-display",
   display: "swap",
-  axes: ["opsz"],
-  adjustFontFallback: false,
+  preload: true,
+  adjustFontFallback: true,
 })
 
 export const metadata: Metadata = genMetadata({
@@ -88,9 +91,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             __html: `(function(){try{var p=location.pathname.replace(/\\/+$/,"")||"/";if(p!=="/sprint")return;var t=new URLSearchParams(location.search).get("theme")==="light"?"light":"dark";var r=document.documentElement;r.classList.remove("light","dark","sprint-light");r.classList.add(t);if(t==="light")r.classList.add("sprint-light");r.style.colorScheme=t;r.lang="es";}catch(e){}})();`,
           }}
         />
+        <style
+          dangerouslySetInnerHTML={{
+            __html:
+              "[data-hero-photo]{position:relative;width:100%;aspect-ratio:4/5}[data-hero-photo] img[data-lcp-photo]{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 8%}@media (min-width:1024px){[data-hero-photo]{aspect-ratio:1}}",
+          }}
+        />
       </head>
       <body>
-        <SkipLink />
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -98,6 +106,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           disableTransitionOnChange
         >
           <I18nProvider>
+            <SkipLink />
             <ScrollProvider>
               <FloatingTitle />
               {children}
