@@ -12,7 +12,7 @@ export function ProjectNotFound() {
     <main className="min-h-screen bg-background flex items-center justify-center px-4">
       <div className="text-center space-y-6">
         <div className="space-y-2">
-          <h1 className="text-4xl font-bold text-foreground">
+          <h1 className="sprint-display text-4xl text-foreground">
             {getTranslation(translations, "projects.notFound.title")}
           </h1>
           <p className="text-muted-foreground">

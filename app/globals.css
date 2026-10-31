@@ -6,6 +6,11 @@
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
+  --sprint-display: var(--font-sprint-display), "Iowan Old Style", Palatino, serif;
+  --sprint-measure: 40rem;
+  --sprint-heading-measure: 44rem;
+  --sprint-accent: oklch(0.43 0.145 40);
+  --sprint-accent-foreground: oklch(0.99 0.012 85);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -42,6 +47,8 @@
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
+  --sprint-accent: oklch(0.62 0.19 38);
+  --sprint-accent-foreground: oklch(0.99 0 0);
   --card: oklch(0.16 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.16 0 0);
@@ -333,11 +340,6 @@ body {
 
 /* ── Sprint: type system + themes (solo /sprint) ───── */
 .sprint-page {
-  --sprint-display: var(--font-sprint-display), "Iowan Old Style", Palatino, serif;
-  --sprint-measure: 40rem;
-  --sprint-heading-measure: 44rem;
-  --sprint-accent: oklch(0.62 0.19 38);
-  --sprint-accent-foreground: oklch(0.99 0 0);
   --sprint-tint: color-mix(in oklab, var(--muted) 40%, transparent);
   --sprint-photo-matte: #0a0908;
 }

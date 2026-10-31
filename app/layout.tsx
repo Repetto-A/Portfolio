@@ -1,5 +1,5 @@
 import { type ReactNode } from "react"
-import { Inter, JetBrains_Mono } from "next/font/google"
+import { Inter, JetBrains_Mono, Newsreader } from "next/font/google"
 import "./globals.css"
 import type { Metadata, Viewport } from "next"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -31,6 +31,14 @@ const jetbrainsMono = JetBrains_Mono({
   fallback: ["Courier New", "monospace"],
 })
 
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  variable: "--font-sprint-display",
+  display: "swap",
+  axes: ["opsz"],
+  adjustFontFallback: false,
+})
+
 export const metadata: Metadata = genMetadata({
   title: siteConfig.name,
   description: siteConfig.description,
@@ -57,7 +65,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${jetbrainsMono.variable}`}
+      className={`${inter.variable} ${jetbrainsMono.variable} ${newsreader.variable}`}
       suppressHydrationWarning
     >
       <head>

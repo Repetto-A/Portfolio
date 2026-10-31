@@ -3,10 +3,12 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowLeft, Github, ExternalLink, Calendar, Code, Zap, Eye, Shield, ScanLine } from "lucide-react"
+import { ArrowLeft, Github, ExternalLink } from "lucide-react"
 import Link from "next/link"
 import { ProjectImageGallery } from "@/components/project-image-gallery"
 import { ProjectTimeline } from "@/components/project-timeline"
+import { Navigation } from "@/components/navigation"
+import { Footer } from "@/components/footer"
 import { useTranslations, getTranslation } from "@/lib/i18n-context"
 
 type TimelineEvent = {
@@ -32,20 +34,6 @@ export type ProjectPageData = {
   category: string
   locales: { en?: ProjectContent; es?: ProjectContent }
   timeline?: TimelineEvent[]
-}
-
-const categoryIcons = {
-  "Web Application": Code,
-  "Business Automation": Zap,
-  "Management System": Calendar,
-  "AI/ML Research": Eye,
-  "Blockchain/DeFi": ExternalLink,
-  "Blockchain/AI": ExternalLink,
-  "Healthcare System": Calendar,
-  "Game / AgTech": Eye,
-  "AI / Security Infrastructure": Shield,
-  "AI / Industrial Vision": ScanLine,
-  "AI / Social Impact": Eye,
 }
 
 function getStatusConfig(translations: ReturnType<typeof useTranslations>[0]) {
@@ -76,157 +64,173 @@ function getStatusConfig(translations: ReturnType<typeof useTranslations>[0]) {
 export function ProjectPageContent({ project }: { project: ProjectPageData }) {
   const [translations, locale] = useTranslations()
   const statusConfig = getStatusConfig(translations)
-  const normalizedStatus =
-    project.status in statusConfig ? project.status : "in-progress"
+  const normalizedStatus = project.status in statusConfig ? project.status : "in-progress"
   const projectContent =
     (locale === "es" ? project.locales.es : project.locales.en) ||
     project.locales.en ||
     project.locales.es ||
     {}
-  const IconComponent = categoryIcons[project.category as keyof typeof categoryIcons] || Code
   const statusStyle =
-    statusConfig[normalizedStatus as keyof typeof statusConfig] ||
-    statusConfig["in-progress"]
+    statusConfig[normalizedStatus as keyof typeof statusConfig] || statusConfig["in-progress"]
   const categoryLabel =
-    getTranslation(translations, `projects.categories.${project.category}`) ||
-    project.category
+    getTranslation(translations, `projects.categories.${project.category}`) || project.category
 
   return (
-    <main className="min-h-screen bg-background pt-24 pb-16">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-8">
-          <Button variant="ghost" asChild>
-            <Link href="/#projects">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              {getTranslation(translations, "projects.cta.backToProjects")}
-            </Link>
-          </Button>
-        </div>
+    <>
+      <Navigation />
+      <main className="min-h-screen bg-background pt-24 pb-16">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-8">
+            <Button variant="ghost" asChild>
+              <Link href="/#projects">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                {getTranslation(translations, "projects.cta.backToProjects")}
+              </Link>
+            </Button>
+          </div>
 
-        <div className="space-y-6 mb-12">
-          <div className="flex items-start justify-between">
-            <div className="space-y-4">
-              <div className="flex items-center space-x-3">
-                <IconComponent className="h-6 w-6 text-primary" />
-                <h1 className="text-3xl sm:text-4xl font-bold text-foreground">
+          <div className="mb-12 space-y-6">
+            <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <span aria-hidden className="h-px w-8 bg-[var(--sprint-accent)]" />
+                  <span className="sprint-kicker text-[var(--sprint-accent)]">{categoryLabel}</span>
+                </div>
+                <h1 className="sprint-display text-[2rem] sm:text-[2.5rem]">
                   {projectContent.title}
                 </h1>
-              </div>
 
-              <div className="flex items-center space-x-3">
-                <Badge variant="outline" className={statusStyle.color}>
-                  {statusStyle.label}
-                </Badge>
-                <Badge variant="secondary">{categoryLabel}</Badge>
-              </div>
-            </div>
-
-            <div className="flex items-center space-x-2">
-              {project.githubUrl && (
-                <Button asChild variant="default">
-                  <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                    <Github className="mr-2 h-4 w-4" />
-                    {getTranslation(translations, "projects.cta.viewCode")}
-                  </Link>
-                </Button>
-              )}
-
-              {project.demoUrl && (
-                <Button asChild variant="outline">
-                  <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="mr-2 h-4 w-4" />
-                    {getTranslation(translations, "projects.cta.liveDemo")}
-                  </Link>
-                </Button>
-              )}
-            </div>
-          </div>
-
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            {projectContent.description}
-          </p>
-        </div>
-
-        <ProjectImageGallery
-          images={project.images || []}
-          projectTitle={projectContent.title ?? ""}
-          className="mb-12"
-        />
-
-        <div className="grid lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2 space-y-8">
-            <Card>
-              <CardHeader>
-                <CardTitle>{getTranslation(translations, "projects.details.features")}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
-                  {(projectContent.features || []).map((feature, index) => (
-                    <li key={index} className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
-                      <span className="text-muted-foreground">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-
-            {Array.isArray(project.timeline) && project.timeline.length > 0 && (
-              <ProjectTimeline timeline={project.timeline} />
-            )}
-          </div>
-
-          <div className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>{getTranslation(translations, "projects.details.techStack")}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {project.techStack.map((tech) => (
-                    <Badge key={tech} variant="secondary" className="text-xs">
-                      {tech}
-                    </Badge>
-                  ))}
+                <div className="flex items-center space-x-3">
+                  <Badge variant="outline" className={statusStyle.color}>
+                    {statusStyle.label}
+                  </Badge>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
 
-            <Card>
-              <CardHeader>
-                <CardTitle>{getTranslation(translations, "projects.details.links")}</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                {project.githubUrl && (
-                  <Button
-                    asChild
-                    variant="outline"
-                    className="w-full justify-start bg-transparent"
-                  >
+              <div className="flex items-center space-x-2">
+                {project.githubUrl ? (
+                  <Button asChild variant="default">
                     <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                       <Github className="mr-2 h-4 w-4" />
-                      {getTranslation(translations, "projects.details.viewSourceCode")}
+                      {getTranslation(translations, "projects.cta.viewCode")}
                     </Link>
                   </Button>
-                )}
+                ) : null}
 
-                {project.demoUrl && (
-                  <Button
-                    asChild
-                    variant="outline"
-                    className="w-full justify-start bg-transparent"
-                  >
+                {project.demoUrl ? (
+                  <Button asChild variant="outline">
                     <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="mr-2 h-4 w-4" />
                       {getTranslation(translations, "projects.cta.liveDemo")}
                     </Link>
                   </Button>
-                )}
-              </CardContent>
-            </Card>
+                ) : null}
+              </div>
+            </div>
+
+            <p className="max-w-3xl text-lg leading-[1.7] text-pretty text-muted-foreground">
+              {projectContent.description}
+            </p>
+          </div>
+
+          <ProjectImageGallery
+            images={project.images || []}
+            projectTitle={projectContent.title ?? ""}
+            className="mb-12"
+          />
+
+          <div className="grid lg:grid-cols-3 gap-8">
+            <div className="lg:col-span-2 space-y-8">
+              <Card>
+                <CardHeader>
+                  <CardTitle>{getTranslation(translations, "projects.details.features")}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-3">
+                    {(projectContent.features || []).map((feature, index) => (
+                      <li key={index} className="flex items-start space-x-3">
+                        <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
+                        <span className="text-muted-foreground">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+
+              {Array.isArray(project.timeline) && project.timeline.length > 0 && (
+                <ProjectTimeline timeline={project.timeline} />
+              )}
+            </div>
+
+            <div className="space-y-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle>
+                    {getTranslation(translations, "projects.details.techStack")}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-wrap gap-2">
+                    {project.techStack.map((tech) => (
+                      <Badge key={tech} variant="secondary" className="text-xs">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>{getTranslation(translations, "projects.details.links")}</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-3">
+                  {project.githubUrl && (
+                    <Button
+                      asChild
+                      variant="outline"
+                      className="w-full justify-start bg-transparent"
+                    >
+                      <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                        <Github className="mr-2 h-4 w-4" />
+                        {getTranslation(translations, "projects.details.viewSourceCode")}
+                      </Link>
+                    </Button>
+                  )}
+
+                  {project.demoUrl && (
+                    <Button
+                      asChild
+                      variant="outline"
+                      className="w-full justify-start bg-transparent"
+                    >
+                      <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="mr-2 h-4 w-4" />
+                        {getTranslation(translations, "projects.cta.liveDemo")}
+                      </Link>
+                    </Button>
+                  )}
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          <div id="project-sprint" className="mt-20 scroll-mt-20 border-t border-border pt-12">
+            <div className="flex max-w-xl flex-col items-start gap-5">
+              <h2 className="sprint-display text-[1.5rem] sm:text-[1.875rem]">
+                {getTranslation(translations, "projects.collaboration.title")}
+              </h2>
+              <p className="text-muted-foreground">
+                {getTranslation(translations, "projects.collaboration.description")}
+              </p>
+              <Button asChild size="lg">
+                <Link href="/sprint">{getTranslation(translations, "hero.cta.sprint")}</Link>
+              </Button>
+            </div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
+      <Footer />
+    </>
   )
 }

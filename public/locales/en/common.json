@@ -3,15 +3,18 @@
     "home": "Home",
     "about": "About",
     "projects": "Projects",
+    "sprint": "Sprint",
     "contact": "Contact"
   },
   "hero": {
     "name": "Alejandro Repetto",
+    "kicker": "SpaceXAI Ambassador",
     "title": "Software Engineer",
-    "description": "I'm obsessed with reducing complexity. I build fast, ship faster, and I don't sleep until every test passes.\nAwarded at NASA Space Apps, ETH Argentina, and ETH Global.",
+    "description": "I train teams to stop talking about AI and start executing with it. A 30-day sprint: diagnosis, applied training, and an internal hackathon.\nAwarded at NASA Space Apps, ETH Argentina, and ETH Global.",
     "cta": {
-      "projects": "Explore Projects",
-      "resume": "Download Resume"
+      "projects": "Projects",
+      "resume": "Download resume",
+      "sprint": "See the sprint"
     },
     "stats": {
       "projects": "Projects",
@@ -19,17 +22,18 @@
       "specialization": "Hackathons"
     },
     "status": {
-      "currently": "Currently",
-      "building": "Building AI Solutions",
+      "currently": "+300",
+      "building": "people trained",
       "focus": "Focus",
-      "automation": "Automation & ML"
+      "automation": "Training and hackathons"
     },
     "scroll": "Learn more"
   },
   "about": {
     "title": "About",
+    "eyebrow": "Who",
     "bio": {
-      "short": "I'm a Systems Engineering student and a nerd who loves solving problems. I found in software my holy grail for doing it. I'm very good at automating tasks that used to take countless hours and entire teams, doing it scalably, efficiently and securely, driven by my passion for competitive programming and cybersecurity. Above all, I'm curious and love a good challenge.",
+      "short": "I train technical and executive teams to execute with AI, not just talk about it. Lecturer in the UCEL Diploma in applied AI, trainer at CRIA, and SpaceXAI Ambassador. Founder of NEXA. Background in competitive programming and cybersecurity.",
       "background": {
         "title": "Background",
         "text": "I've been programming seriously since 2022, when I placed 6th in my first ICPC tournament. A 2024 winter training camp was a turning point that transformed how I approach technical challenges.\n\nToday I'm a lecturer in the Diploma in AI applied to professional practice (UCEL), an AI trainer and consultant for companies at CRIA, founder of NEXA (+3M people across +50 communities), and a SpaceXAI Ambassador. I train teams mainly on Cursor and Grok Bot. I've also trained with Copilot and other tools.\n\nMy projects range from NASA Space Apps prediction algorithms to production systems with RAG architectures."
@@ -40,8 +44,24 @@
       }
     }
   },
+  "trainings": {
+    "eyebrow": "For companies",
+    "title": "From talking about AI to executing with AI",
+    "lead": "A 30-day sprint: diagnosis, applied training, and an internal hackathon. Your team leaves with prototypes, usage rules, and a 90-day roadmap.",
+    "proof": "I have already trained +300 people in AI between CRIA and the UCEL Diploma in AI applied to professional practice. The stack is led by SpaceXAI: Cursor and Grok Bot.",
+    "pacesHeadline": "We set it to your pace: intensive or sustained",
+    "paceIntensivo": "Intensive",
+    "paceIntensivoDetail": "3 classes of 1 h 30 per week (Monday, Wednesday and Friday).",
+    "paceSostenido": "Sustained",
+    "paceSostenidoDetail": "1 class of 2 h 30 per week.",
+    "programKicker": "Modular program",
+    "programLead": "Five modules. The company chooses.",
+    "cta": "See the sprint",
+    "ctaHint": "Paces, program and how it works, on one page."
+  },
   "skills": {
-    "title": "Skills & Technologies",
+    "eyebrow": "Stack",
+    "title": "Skills and technologies",
     "subtitle": "The stack is led by SpaceXAI (Cursor and Grok Bot). Also Claude Code, Copilot, and the rest of the tools for systems and automations.",
     "categories": {
       "languages": "Languages & Frameworks",
@@ -65,8 +85,8 @@
     }
   },
   "projects": {
-    "title": "Featured Projects",
-    "description": "A collection of engineering projects spanning management systems, automation, and applied AI/ML built to solve real-world challenges.",
+    "title": "Projects",
+    "description": "Production systems, automations, and applied AI. What I teach, I build.",
     "categories": {
       "Web Application": "Web Application",
       "Business Automation": "Business Automation",
@@ -80,7 +100,7 @@
       "AI / Industrial Vision": "AI / Industrial Vision",
       "AI / Social Impact": "AI / Social Impact"
     },
-    "eyebrow": "Selected Work",
+    "eyebrow": "Work",
     "status": {
       "in-progress": "In Progress",
       "production": "Production",
@@ -107,8 +127,8 @@
       "today": "Today"
     },
     "collaboration": {
-      "title": "Interested in collaborating?",
-      "description": "I'm always open to discussing new projects and opportunities in systems engineering and AI/ML."
+      "title": "Does your company need execution, not more talks?",
+      "description": "The AI Execution Sprint is the format: applied training and an internal hackathon in 30 days."
     },
     "notFound": {
       "title": "Project Not Found",
@@ -117,8 +137,8 @@
     "viewFullPage": "View Full Page"
   },
   "awards": {
-    "title": "Some Awards & Recognition",
-    "eyebrow": "Recognition",
+    "title": "Awards and recognition",
+    "eyebrow": "Credentials",
     "keyTechnologies": "Key Technologies",
     "viewAwardDetails": "View Award Details",
     "seeProject": "See Project",
@@ -158,9 +178,12 @@
       "consulting": "Consulting",
       "other": "Other"
     },
+    "eyebrow": "Contact",
+    "companies": "If your company wants to go from talking about AI to executing, the sprint is here.",
+    "companiesCta": "See the sprint",
     "info": {
-      "title": "Let's Connect",
-      "description": "I'm always interested in discussing new opportunities, whether it's a challenging systems engineering project, AI/ML implementation, or automation solution. Feel free to reach out through any of the channels below."
+      "title": "Write to me",
+      "description": "Consulting, projects, or the sprint for your team. Any of these channels works."
     },
     "methods": {
       "email": "Email",

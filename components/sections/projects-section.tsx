@@ -122,7 +122,7 @@ export function ProjectsSection() {
                 id={`project-${project.id}`}
                 data-project-id={project.id}
                 onClick={() => handleProjectModalOpen(project)}
-                className={`group hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 h-full flex flex-col overflow-hidden border-border hover:border-primary/30 cursor-pointer scroll-reveal-stagger-${(index % 3) + 1}`}
+                className={`group flex h-full cursor-pointer flex-col overflow-hidden border-border transition-colors duration-300 hover:border-[var(--sprint-accent)]/50 scroll-reveal-stagger-${(index % 3) + 1}`}
               >
                 {/* Project thumbnail — -mt-6 to break out of Card's py-6 top padding */}
                 {project.images?.[0] && (
@@ -153,8 +153,8 @@ export function ProjectsSection() {
                     </Badge>
                   </div>
 
-                  <CardTitle className="text-lg leading-snug group-hover:text-primary transition-colors pointer-events-none">
-                    <span className="hover:underline text-left w-full underline-offset-4">
+                  <CardTitle className="pointer-events-none text-lg leading-snug tracking-tight">
+                    <span className="w-full text-left underline-offset-4 group-hover:underline">
                       {projectContent.title}
                     </span>
                   </CardTitle>
@@ -217,7 +217,7 @@ export function ProjectsSection() {
                       </Link>
                     </div>
 
-                    <span className="text-xs h-7 px-2.5 text-muted-foreground group-hover:text-primary inline-flex items-center">
+                    <span className="inline-flex h-7 items-center px-2.5 text-xs text-muted-foreground group-hover:text-foreground">
                       {getTranslation(translations, "projects.cta.learnMore")} →
                     </span>
                   </div>
@@ -227,19 +227,24 @@ export function ProjectsSection() {
           })}
         </div>
 
-        {/* Collaboration CTA */}
-        <div className="text-center mt-20">
-          <div className="inline-flex flex-col items-center space-y-5">
-            <div className="h-px w-16 bg-border" />
-            <h3 className="text-2xl sm:text-3xl font-bold text-foreground">
+        <div id="projects-cta" className="mt-20 scroll-mt-20 border-t border-border pt-12">
+          <div className="flex max-w-xl flex-col items-start gap-5">
+            <h3 className="sprint-display text-[1.5rem] sm:text-[1.875rem]">
               {getTranslation(translations, "projects.collaboration.title")}
             </h3>
-            <p className="text-muted-foreground max-w-md">
+            <p className="text-muted-foreground">
               {getTranslation(translations, "projects.collaboration.description")}
             </p>
-            <Button asChild size="lg" className="shadow-lg shadow-primary/20">
-              <Link href="#contact">{getTranslation(translations, "projects.cta.getInTouch")}</Link>
-            </Button>
+            <div className="flex flex-wrap gap-3">
+              <Button asChild size="lg">
+                <Link href="/sprint">{getTranslation(translations, "hero.cta.sprint")}</Link>
+              </Button>
+              <Button asChild size="lg" variant="outline">
+                <Link href="#contact">
+                  {getTranslation(translations, "projects.cta.getInTouch")}
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </Container>

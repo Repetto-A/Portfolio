@@ -12,13 +12,13 @@ interface SectionProps {
 const variantClasses = {
   default: "bg-background",
   muted: "bg-muted/30",
-  gradient: "bg-gradient-to-b from-background to-muted/20",
+  gradient: "bg-muted/15",
 }
 
 const spacingClasses = {
-  default: "py-24",
-  compact: "py-16",
-  relaxed: "py-32",
+  default: "py-24 sm:py-32",
+  compact: "py-16 sm:py-24",
+  relaxed: "py-28 sm:py-36",
 }
 
 export function Section({
@@ -29,7 +29,10 @@ export function Section({
   spacing = "default",
 }: SectionProps) {
   return (
-    <section id={id} className={cn(variantClasses[variant], spacingClasses[spacing], className)}>
+    <section
+      id={id}
+      className={cn("scroll-mt-20", variantClasses[variant], spacingClasses[spacing], className)}
+    >
       {children}
     </section>
   )

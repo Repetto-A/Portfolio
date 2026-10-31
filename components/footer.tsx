@@ -9,20 +9,19 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-card border-t border-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+    <footer className="border-t border-border bg-card">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
           <div>
-            <p className="font-mono font-semibold text-foreground text-sm mb-1">
-              Alejandro Repetto
-            </p>
-            <p className="text-muted-foreground text-xs">
+            <p className="sprint-display text-base text-foreground">Alejandro Repetto</p>
+            <p className="mt-1 text-xs text-muted-foreground">
               © {currentYear} · {getTranslation(translations, "footer.rights")}
             </p>
             <Link
               href="/sprint"
-              className="mt-2 inline-block text-xs text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+              className="mt-3 inline-flex items-center gap-2 text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
             >
+              <span aria-hidden className="h-px w-6 bg-[var(--sprint-accent)]" />
               {getTranslation(translations, "footer.sprint")}
             </Link>
           </div>
@@ -32,7 +31,7 @@ export function Footer() {
               href="https://github.com/Repetto-A"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors duration-150"
+              className="text-muted-foreground transition-colors duration-150 hover:text-foreground"
               aria-label="Visit GitHub profile"
             >
               <Github className="h-5 w-5" />
@@ -43,7 +42,7 @@ export function Footer() {
               href="https://www.linkedin.com/in/alejandro-repetto"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors duration-150"
+              className="text-muted-foreground transition-colors duration-150 hover:text-foreground"
               aria-label="Visit LinkedIn profile"
             >
               <Linkedin className="h-5 w-5" />
@@ -52,7 +51,7 @@ export function Footer() {
 
             <Link
               href="mailto:contact@repetto-a.com"
-              className="text-muted-foreground hover:text-primary transition-colors duration-150"
+              className="text-muted-foreground transition-colors duration-150 hover:text-foreground"
               aria-label="Send email"
             >
               <Mail className="h-5 w-5" />

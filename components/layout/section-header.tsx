@@ -15,34 +15,33 @@ export function SectionHeader({
   description,
   children,
   className,
-  align = "center",
+  align = "left",
   eyebrow,
 }: SectionHeaderProps) {
   const alignClass = align === "center" ? "text-center" : "text-left"
   const eyebrowAlign = align === "center" ? "justify-center" : "justify-start"
 
   return (
-    <div className={cn("space-y-3 mb-16", alignClass, className)}>
-      {eyebrow && (
-        <div className={cn("flex items-center gap-2.5", eyebrowAlign)}>
-          <div className="h-px w-8 bg-primary" />
-          <span className="text-xs font-semibold uppercase tracking-[0.15em] text-primary">
-            {eyebrow}
-          </span>
-          <div className="h-px w-8 bg-primary" />
+    <div className={cn("mb-12 sm:mb-16", alignClass, className)}>
+      {eyebrow ? (
+        <div className={cn("mb-8 flex items-center gap-3 sm:mb-10", eyebrowAlign)}>
+          <span aria-hidden className="sprint-label-line h-px w-10 bg-[var(--sprint-accent)]" />
+          <span className="sprint-kicker text-[var(--sprint-accent)]">{eyebrow}</span>
         </div>
-      )}
-      <h2
-        className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-foreground text-balance"
-        style={{ lineHeight: "1.15", letterSpacing: "-0.035em" }}
-      >
+      ) : null}
+      <h2 className="sprint-display sprint-heading-measure text-[1.875rem] sm:text-[2.375rem] lg:text-[2.625rem]">
         {title}
       </h2>
-      {description && (
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty leading-relaxed pt-1">
+      {description ? (
+        <p
+          className={cn(
+            "sprint-measure mt-6 text-lg leading-[1.7] text-pretty text-muted-foreground",
+            align === "center" && "mx-auto"
+          )}
+        >
           {description}
         </p>
-      )}
+      ) : null}
       {children}
     </div>
   )

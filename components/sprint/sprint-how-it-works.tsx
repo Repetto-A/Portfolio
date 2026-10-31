@@ -1,7 +1,8 @@
 import { SprintSection, SprintHeading, SprintProse } from "./sprint-section"
 import { SprintTimeline } from "./sprint-timeline"
-import { SprintCurriculum, type CurriculumTopic } from "./sprint-curriculum"
+import { SprintCurriculum } from "./sprint-curriculum"
 import { SprintPaces } from "./sprint-paces"
+import { SPRINT_CURRICULUM } from "@/lib/sprint/curriculum"
 import { SPRINT_ANCHORS, SPRINT_SECTION_LABELS } from "@/lib/sprint/constants"
 
 const STEPS = [
@@ -37,43 +38,11 @@ const STEPS = [
   },
 ] as const
 
-const CURRICULUM: { title: string; summary: string; topics: CurriculumTopic[] }[] = [
-  {
-    title: "Panorama de IA y seguridad",
-    summary: "Qué plan usar en la empresa y qué no.",
-    topics: ["Qué plan usar", "Qué no usar", "Criterio de seguridad"],
-  },
-  {
-    title: "IA local vs propietaria, y Gemini",
-    summary: "Cuándo conviene local, cuándo un modelo propietario, y dónde entra Gemini.",
-    topics: ["IA local", "Modelos propietarios", "Gemini"],
-  },
-  {
-    title: "Desarrollo con agentes en Cursor y Grok Bot",
-    summary:
-      "SDD, skills, hooks, MCP, agents.md y memories. Claude Code también, y Claude Code dedicado a pedido.",
-    topics: [
-      "SDD",
-      "Skills",
-      "Hooks",
-      "MCP",
-      "agents.md",
-      "Memories",
-      "Claude Code",
-      "Claude Code dedicado a pedido",
-    ],
-  },
-  {
-    title: "Datos",
-    summary: "RAG, knowledge graphs y Engram.",
-    topics: ["RAG", "Knowledge graphs", "Engram"],
-  },
-  {
-    title: "Automatización y agentes",
-    summary: "n8n, LangChain y LangGraph.",
-    topics: ["n8n", "LangChain", "LangGraph"],
-  },
-]
+const CURRICULUM = SPRINT_CURRICULUM.map((module) => ({
+  title: module.title.es,
+  summary: module.summary.es,
+  topics: module.topics,
+}))
 
 export function SprintHowItWorks() {
   return (

@@ -119,17 +119,23 @@ export function ContactSection() {
       <Container maxWidth="7xl">
         <SectionHeader
           title={getTranslation(translations, "navigation.contact")}
-          eyebrow="Get In Touch"
+          eyebrow={getTranslation(translations, "contact.eyebrow")}
         />
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid gap-12 lg:grid-cols-2">
           {/* Contact Information */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-xl font-semibold text-foreground mb-6">
+              <h3 className="mb-4 text-xl font-semibold tracking-tight text-foreground">
                 {getTranslation(translations, "contact.info.title")}
               </h3>
-              <p className="text-muted-foreground leading-relaxed mb-6">
+              <p className="mb-4 leading-relaxed text-muted-foreground">
                 {getTranslation(translations, "contact.info.description")}
+              </p>
+              <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
+                {getTranslation(translations, "contact.companies")}{" "}
+                <Link href="/sprint" className="text-foreground underline-offset-4 hover:underline">
+                  {getTranslation(translations, "contact.companiesCta")}
+                </Link>
               </p>
 
               <Link
@@ -269,12 +275,7 @@ export function ContactSection() {
                 {/* Honeypot - hidden from humans */}
                 <div style={{ position: "absolute", left: "-9999px" }} aria-hidden="true">
                   <Label htmlFor="honeypot">Leave empty</Label>
-                  <Input
-                    id="honeypot"
-                    {...register("honeypot")}
-                    tabIndex={-1}
-                    autoComplete="off"
-                  />
+                  <Input id="honeypot" {...register("honeypot")} tabIndex={-1} autoComplete="off" />
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-4">

@@ -98,17 +98,17 @@ export function SkillsSection() {
         <SectionHeader
           title={getTranslation(translations, "skills.title")}
           description={getTranslation(translations, "skills.subtitle")}
-          eyebrow="Technical Stack"
+          eyebrow={getTranslation(translations, "skills.eyebrow")}
         />
 
         <Grid cols={{ md: 2, lg: 4 }} gap="md">
           {skillCategories.map((category, index) => (
             <Card
               key={index}
-              className={`h-full border-t-2 border-t-foreground/20 scroll-reveal-stagger-${index + 1}`}
+              className={`h-full border-border transition-colors hover:border-[var(--sprint-accent)]/50 scroll-reveal-stagger-${index + 1}`}
             >
               <CardHeader className="pb-3">
-                <CardTitle className="text-base font-semibold">
+                <CardTitle className="text-base font-semibold tracking-tight">
                   {getTranslation(translations, category.titleKey)}
                 </CardTitle>
               </CardHeader>
@@ -118,7 +118,7 @@ export function SkillsSection() {
                     <Badge
                       key={skillIndex}
                       variant="outline"
-                      className="text-xs cursor-default transition-all duration-150 hover:bg-foreground/5 hover:border-foreground/30"
+                      className="cursor-default text-xs transition-all duration-150 hover:border-foreground/30 hover:bg-foreground/5"
                     >
                       {skill}
                     </Badge>

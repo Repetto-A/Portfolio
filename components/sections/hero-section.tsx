@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowDown, ExternalLink } from "lucide-react"
+import { ArrowDown, ArrowRight, ExternalLink } from "lucide-react"
 import Link from "next/link"
 import { useTranslations, getTranslation, getResumeUrl } from "@/lib/i18n-context"
 import { ProfilePhoto } from "@/components/profile-photo"
@@ -14,8 +14,7 @@ export function HeroSection() {
   const resumeUrl = getResumeUrl(locale)
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16 overflow-hidden">
-      {/* Subtle dot-grid background */}
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-4 pt-16 sm:px-6 lg:px-8">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.04] dark:opacity-[0.07]"
         style={{
@@ -23,18 +22,24 @@ export function HeroSection() {
           backgroundSize: "32px 32px",
         }}
       />
-      {/* Top-right ambient glow */}
-      <div className="pointer-events-none absolute -top-40 -right-40 w-[600px] h-[600px] bg-foreground/[0.03] dark:bg-foreground/[0.05] rounded-full blur-[120px]" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-40 left-1/2 -z-10 h-[420px] w-[820px] -translate-x-1/2 rounded-full opacity-[0.12] blur-3xl"
+        style={{ background: "radial-gradient(closest-side, var(--sprint-accent), transparent)" }}
+      />
 
-      <div className="w-full max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-          {/* Left Column - Text Content */}
+      <div className="mx-auto w-full max-w-7xl">
+        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
           <div className="space-y-8">
             <div className="space-y-5">
+              <p className="sprint-kicker text-[var(--sprint-accent)]">
+                {getTranslation(translations, "hero.kicker")}
+              </p>
+
               <h1
                 ref={registerHeroTitleRef}
                 className={cn(
-                  "font-mono font-semibold text-foreground leading-tight whitespace-nowrap transition-opacity duration-100",
+                  "sprint-display whitespace-nowrap text-foreground transition-opacity duration-100",
                   fontsReady && isFloatingTitleActive && "opacity-0"
                 )}
                 style={{ fontSize: "clamp(2rem, 5vw, 3.75rem)" }}
@@ -42,115 +47,109 @@ export function HeroSection() {
                 {getTranslation(translations, "hero.name")}
               </h1>
 
-              <h2
-                className="font-mono text-muted-foreground font-medium"
-                style={{ fontSize: "clamp(1rem, 2.2vw, 1.375rem)" }}
-              >
+              <p className="text-base text-muted-foreground sm:text-lg">
                 {getTranslation(translations, "hero.title")}
-              </h2>
+              </p>
 
-              <p
-                className="text-muted-foreground leading-relaxed text-pretty max-w-lg"
-                style={{ fontSize: "clamp(0.9375rem, 1.4vw, 1.0625rem)" }}
-              >
+              <p className="max-w-lg text-[1.0625rem] leading-[1.7] text-pretty text-muted-foreground">
                 {(() => {
                   const desc = getTranslation(translations, "hero.description")
                   const [main, awards] = desc.split("\n")
                   return (
                     <>
                       {main}
-                      {awards && (
+                      {awards ? (
                         <>
                           <br />
                           <Link
                             href="#awards"
-                            className="underline-offset-4 decoration-primary/40 hover:underline hover:text-foreground transition-colors"
+                            className="underline-offset-4 decoration-[var(--sprint-accent)]/40 transition-colors hover:underline hover:text-foreground"
                           >
                             {awards}
                           </Link>
                         </>
-                      )}
+                      ) : null}
                     </>
                   )
                 })()}
               </p>
             </div>
 
-            {/* CTAs */}
             <div className="flex flex-wrap gap-3">
-              <Button
-                asChild
-                size="lg"
-                className="group w-full sm:w-auto shadow-lg shadow-primary/20 font-semibold"
-              >
-                <Link href="#projects">
-                  {getTranslation(translations, "hero.cta.projects")}
-                  <ArrowDown className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-y-0.5" />
+              <Button asChild size="lg" className="group w-full font-semibold sm:w-auto">
+                <Link href="/sprint">
+                  {getTranslation(translations, "hero.cta.sprint")}
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
                 </Link>
               </Button>
               <Button
                 asChild
                 size="lg"
                 variant="outline"
-                className="group w-full sm:w-auto border-border/60"
+                className="group w-full border-border/60 sm:w-auto"
               >
-                <Link href={resumeUrl} target="_blank" rel="noopener noreferrer">
-                  {getTranslation(translations, "hero.cta.resume")}
-                  <ExternalLink className="ml-2 h-4 w-4 opacity-50 group-hover:opacity-100 transition-opacity duration-200" />
+                <Link href="#projects">
+                  {getTranslation(translations, "hero.cta.projects")}
+                  <ArrowDown className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-y-0.5" />
                 </Link>
               </Button>
             </div>
+
+            <Link
+              href={resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+            >
+              {getTranslation(translations, "hero.cta.resume")}
+              <ExternalLink className="h-3.5 w-3.5 opacity-60" />
+            </Link>
           </div>
 
-          {/* Right Column - Profile Image */}
-          <div className="flex justify-center lg:justify-end order-first lg:order-last pt-6">
-            <div className="relative w-full max-w-md lg:max-w-none aspect-square max-h-[40vh] sm:max-h-[50vh] lg:max-h-none">
-              {/* Ambient glow behind image */}
-              <div className="absolute -inset-6 bg-primary/10 dark:bg-primary/15 rounded-3xl blur-3xl pointer-events-none" />
+          <div className="order-first flex justify-center pt-6 lg:order-last lg:justify-end">
+            <div className="relative aspect-square w-full max-h-[40vh] max-w-md sm:max-h-[50vh] lg:max-h-none lg:max-w-none">
+              <div
+                className="pointer-events-none absolute -inset-6 rounded-3xl blur-3xl"
+                style={{
+                  background: "color-mix(in oklab, var(--sprint-accent) 18%, transparent)",
+                }}
+              />
 
-              {/* Image container — edge-to-edge, clean */}
-              <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl ring-1 ring-border">
+              <div className="relative h-full w-full overflow-hidden rounded-2xl shadow-2xl ring-1 ring-border">
                 <ProfilePhoto
                   alt="Alejandro Repetto, Software Engineer"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
                   priority
                 />
-                {/* Subtle gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/25 via-transparent to-transparent pointer-events-none" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/25 via-transparent to-transparent" />
               </div>
 
-              {/* Floating card — top right */}
-              <div className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 bg-card/95 border border-border rounded-xl p-2.5 sm:p-3 shadow-lg backdrop-blur-md">
-                <div className="flex items-center gap-1.5 mb-0.5">
-                  <span className="inline-block w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
-                  <span className="text-xs text-muted-foreground whitespace-nowrap">
-                    {getTranslation(translations, "hero.status.currently")}
-                  </span>
-                </div>
-                <div className="text-xs sm:text-sm font-semibold text-foreground whitespace-nowrap">
+              <div className="absolute -top-3 -right-3 rounded-xl border border-border bg-card/95 p-2.5 shadow-lg backdrop-blur-md sm:-top-4 sm:-right-4 sm:p-3">
+                <p className="sprint-index text-lg font-semibold tracking-tight text-[var(--sprint-accent)] sm:text-xl">
+                  {getTranslation(translations, "hero.status.currently")}
+                </p>
+                <p className="text-xs text-muted-foreground sm:text-sm">
                   {getTranslation(translations, "hero.status.building")}
-                </div>
+                </p>
               </div>
 
-              {/* Floating card — bottom left */}
-              <div className="absolute -bottom-3 -left-3 sm:-bottom-4 sm:-left-4 bg-card/95 border border-border rounded-xl p-2.5 sm:p-3 shadow-lg backdrop-blur-md">
-                <div className="text-xs text-muted-foreground whitespace-nowrap mb-0.5">
+              <div className="absolute -bottom-3 -left-3 rounded-xl border border-border bg-card/95 p-2.5 shadow-lg backdrop-blur-md sm:-bottom-4 sm:-left-4 sm:p-3">
+                <p className="sprint-kicker text-muted-foreground">
                   {getTranslation(translations, "hero.status.focus")}
-                </div>
-                <div className="text-xs sm:text-sm font-semibold text-foreground whitespace-nowrap">
+                </p>
+                <p className="mt-1 text-xs font-semibold text-foreground sm:text-sm">
                   {getTranslation(translations, "hero.status.automation")}
-                </div>
+                </p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="flex justify-center mt-14 sm:mt-18">
+        <div className="mt-14 flex justify-center sm:mt-18">
           <Link href="#about" className="group" aria-label="Scroll to about section">
             <div className="flex flex-col items-center gap-0">
-              <div className="w-px h-8 bg-border group-hover:bg-primary transition-colors duration-300" />
-              <div className="w-1.5 h-1.5 rounded-full bg-muted-foreground group-hover:bg-primary transition-colors duration-300 mt-1" />
+              <div className="h-8 w-px bg-border transition-colors duration-300 group-hover:bg-[var(--sprint-accent)]" />
+              <div className="mt-1 h-1.5 w-1.5 rounded-full bg-muted-foreground transition-colors duration-300 group-hover:bg-[var(--sprint-accent)]" />
             </div>
           </Link>
         </div>

@@ -1,6 +1,7 @@
 import { Navigation } from "@/components/navigation"
 import { HeroSection } from "@/components/sections/hero-section"
 import { AboutSection } from "@/components/sections/about-section"
+import { TrainingsSection } from "@/components/sections/trainings-section"
 import { SkillsSection } from "@/components/sections/skills-section"
 import { AwardsSection } from "@/components/sections/awards-section"
 import { ProjectsSection } from "@/components/sections/projects-section"
@@ -22,6 +23,7 @@ export default function Home() {
       <Navigation />
       <HeroSection />
       <AboutSection />
+      <TrainingsSection />
       <SkillsSection />
       <div className="flex justify-center">
         <div className="h-px w-16 bg-border" />

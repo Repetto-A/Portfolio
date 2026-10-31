@@ -3,15 +3,18 @@
     "home": "Inicio",
     "about": "Acerca",
     "projects": "Proyectos",
+    "sprint": "Sprint",
     "contact": "Contacto"
   },
   "hero": {
     "name": "Alejandro Repetto",
+    "kicker": "SpaceXAI Ambassador",
     "title": "Software Engineer",
-    "description": "Estoy obsesionado con reducir la complejidad. Construyo rápido, itero más rápido, y no duermo hasta que pasen todos los tests.\nPremiado en NASA Space Apps, ETH Argentina y ETH Global.",
+    "description": "Capacito equipos para que dejen de hablar de IA y empiecen a ejecutar. Sprint de 30 días: diagnóstico, capacitación aplicada y hackathon interna.\nPremiado en NASA Space Apps, ETH Argentina y ETH Global.",
     "cta": {
-      "projects": "Explorar Proyectos",
-      "resume": "Descargar CV"
+      "projects": "Proyectos",
+      "resume": "Descargar CV",
+      "sprint": "Ver el sprint"
     },
     "stats": {
       "projects": "Proyectos",
@@ -19,17 +22,18 @@
       "specialization": "Hackathons"
     },
     "status": {
-      "currently": "Actualmente",
-      "building": "Desarrollando Soluciones IA",
+      "currently": "+300",
+      "building": "personas capacitadas",
       "focus": "Enfoque",
-      "automation": "Automatización y ML"
+      "automation": "Capacitación y hackathons"
     },
     "scroll": "Conoce más"
   },
   "about": {
     "title": "Acerca de mí",
+    "eyebrow": "Quién",
     "bio": {
-      "short": "Soy estudiante de Ingeniería en Sistemas y un nerd al que le fascina resolver problemas. Encontré en el software mi santo grial para lograrlo. Soy muy bueno automatizando tareas que solían llevar incontables horas y empleados, y lo hago de forma escalable, eficiente y segura, gracias a mi pasión por la programación competitiva y la ciberseguridad. Ante todo soy curioso y me encantan los desafíos.",
+      "short": "Capacito equipos técnicos y ejecutivos para ejecutar con IA, no para hablar de ella. Docente en la Diplomatura de IA de UCEL, capacitador en CRIA y SpaceXAI Ambassador. Founder de NEXA. Base en programación competitiva y ciberseguridad.",
       "background": {
         "title": "Trayectoria",
         "text": "Programo seriamente desde el 2022, cuando obtuve el 6to puesto en mi primer torneo ICPC. Un training camp de invierno en 2024 fue un punto de inflexión que transformó mi forma de abordar desafíos técnicos.\n\nHoy soy docente en la Diplomatura de IA aplicada al ejercicio profesional (UCEL), capacitador y consultor en IA para empresas en CRIA, founder de NEXA (+3M de personas en +50 comunidades) y SpaceXAI Ambassador. Capacito sobre todo con Cursor y Grok Bot. También di capacitaciones con Copilot y otras herramientas.\n\nMis proyectos van desde algoritmos de predicción para NASA Space Apps hasta sistemas en producción con arquitecturas RAG."
@@ -40,8 +44,24 @@
       }
     }
   },
+  "trainings": {
+    "eyebrow": "Para empresas",
+    "title": "De hablar de IA a ejecutar con IA",
+    "lead": "Sprint de 30 días: diagnóstico, capacitación aplicada y hackathon interna. Tu equipo termina con prototipos, reglas de uso y un roadmap de 90 días.",
+    "proof": "Ya capacité en IA a +300 personas entre CRIA y la Diplomatura de IA aplicada al ejercicio profesional (UCEL). El stack lo lidera SpaceXAI: Cursor y Grok Bot.",
+    "pacesHeadline": "Lo armamos a tu ritmo: intensivo o sostenido",
+    "paceIntensivo": "Intensivo",
+    "paceIntensivoDetail": "3 clases de 1 h 30 por semana (lunes, miércoles y viernes).",
+    "paceSostenido": "Sostenido",
+    "paceSostenidoDetail": "1 clase de 2 h 30 por semana.",
+    "programKicker": "Programa modular",
+    "programLead": "Cinco módulos. La empresa elige.",
+    "cta": "Ver el sprint",
+    "ctaHint": "Ritmos, programa y cómo funciona, en una sola página."
+  },
   "skills": {
-    "title": "Habilidades y Tecnologías",
+    "eyebrow": "Stack",
+    "title": "Habilidades y tecnologías",
     "subtitle": "El stack lo lidera SpaceXAI (Cursor y Grok Bot). También Claude Code, Copilot y el resto de herramientas para construir sistemas y automatizaciones.",
     "categories": {
       "languages": "Lenguajes y Frameworks",
@@ -65,8 +85,8 @@
     }
   },
   "projects": {
-    "title": "Proyectos Destacados",
-    "description": "Una colección de proyectos de ingeniería que abarcan sistemas de gestión, automatizaciones e IA/ML aplicada para resolver desafíos del mundo real.",
+    "title": "Proyectos",
+    "description": "Sistemas en producción, automatizaciones e IA aplicada. Lo que enseño, lo construyo.",
     "categories": {
       "Web Application": "Aplicación Web",
       "Business Automation": "Automatización Empresarial",
@@ -80,7 +100,7 @@
       "AI / Industrial Vision": "IA / Visión Industrial",
       "AI / Social Impact": "IA / Impacto Social"
     },
-    "eyebrow": "Trabajo Destacado",
+    "eyebrow": "Trabajo",
     "status": {
       "in-progress": "En Progreso",
       "production": "Producción",
@@ -107,8 +127,8 @@
       "today": "Hoy"
     },
     "collaboration": {
-      "title": "¿Interesado en colaborar?",
-      "description": "Siempre estoy abierto a discutir nuevos proyectos y oportunidades en ingeniería en sistemas e IA/ML."
+      "title": "¿Tu empresa necesita ejecución, no más charlas?",
+      "description": "El AI Execution Sprint es el formato: capacitación aplicada y hackathon interna en 30 días."
     },
     "notFound": {
       "title": "Proyecto No Encontrado",
@@ -117,17 +137,20 @@
     "viewFullPage": "Ver Página Completa"
   },
   "awards": {
-    "title": "Algunos premios y reconocimientos",
-    "eyebrow": "Reconocimientos",
+    "title": "Premios y reconocimientos",
+    "eyebrow": "Credenciales",
     "keyTechnologies": "Tecnologías Clave",
     "viewAwardDetails": "Ver Detalles del Premio",
     "seeProject": "Ver Proyecto",
     "seeProjectAria": "Ver proyecto {{title}}"
   },
   "contact": {
+    "eyebrow": "Contacto",
+    "companies": "Si tu empresa quiere pasar de hablar de IA a ejecutar, el sprint está acá.",
+    "companiesCta": "Ver el sprint",
     "info": {
-      "title": "Conectemos",
-      "description": "Siempre estoy interesado en discutir nuevas oportunidades, ya sea un desafío de ingeniería en sistemas, implementación de IA/ML o solución de automatización. No dudes en contactarme por cualquiera de estos canales."
+      "title": "Escribime",
+      "description": "Consultoría, proyectos o el sprint para tu equipo. Cualquiera de estos canales llega."
     },
     "methods": {
       "email": "Email",
