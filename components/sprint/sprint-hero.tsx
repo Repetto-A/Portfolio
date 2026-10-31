@@ -22,7 +22,7 @@ export function SprintHero() {
     <header className="relative overflow-hidden pt-28 pb-20 sm:pt-36 sm:pb-28">
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-40 left-1/2 -z-10 h-[420px] w-[820px] -translate-x-1/2 rounded-full opacity-[0.12] blur-3xl"
+        className="sprint-hero-glow pointer-events-none absolute -top-40 left-1/2 -z-10 h-[420px] w-[820px] -translate-x-1/2 rounded-full opacity-[0.12] blur-3xl"
         style={{ background: "radial-gradient(closest-side, var(--sprint-accent), transparent)" }}
       />
 

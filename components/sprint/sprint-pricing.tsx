@@ -80,7 +80,7 @@ export function SprintPricing() {
             )}
           >
             {t.core ? (
-              <span className="absolute -top-2.5 left-6 rounded-full bg-[var(--sprint-accent)] px-2.5 py-0.5 font-mono text-[10px] font-medium tracking-[0.15em] text-white uppercase">
+              <span className="absolute -top-2.5 left-6 rounded-full bg-[var(--sprint-accent)] px-2.5 py-0.5 font-mono text-[10px] font-medium tracking-[0.15em] text-[var(--sprint-accent-foreground)] uppercase">
                 Recomendado
               </span>
             ) : null}

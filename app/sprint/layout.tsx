@@ -46,11 +46,7 @@ export const metadata: Metadata = {
 
 export default function SprintLayout({ children }: { children: ReactNode }) {
   return (
-    <div
-      lang="es"
-      style={{ ["--sprint-accent" as string]: "oklch(0.62 0.19 38)" }}
-      className={`${newsreader.variable} sprint-page min-h-screen bg-background text-foreground`}
-    >
+    <div lang="es" className={newsreader.variable}>
       {children}
     </div>
   )

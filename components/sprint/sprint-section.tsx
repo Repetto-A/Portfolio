@@ -31,7 +31,7 @@ export function SprintSection({
       className={cn(
         spacing === "default" ? "py-24 sm:py-32" : "py-16 sm:py-24",
         "scroll-mt-20",
-        tint && "bg-muted/[0.4] dark:bg-muted/[0.15]",
+        tint && "bg-[var(--sprint-tint)]",
         className
       )}
     >

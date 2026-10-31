@@ -37,7 +37,7 @@ export function SprintWhatsAppBubble() {
       >
         <span
           aria-hidden
-          className="hidden whitespace-nowrap rounded-2xl border border-border bg-card px-3 py-2 text-xs font-medium leading-snug text-foreground shadow-md sm:inline"
+          className="sprint-wa-chip hidden whitespace-nowrap rounded-2xl border border-border bg-card px-3 py-2 text-xs font-medium leading-snug text-foreground shadow-md sm:inline"
         >
           Hablemos por WhatsApp
         </span>
@@ -51,7 +51,7 @@ export function SprintWhatsAppBubble() {
             aria-hidden
           />
           <span
-            className="relative z-[1] flex size-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg ring-1 ring-black/10 transition-[filter,transform] duration-200 ease-out group-hover:brightness-110 group-active:scale-[0.98] group-focus-visible:outline-2 group-focus-visible:outline-offset-2 group-focus-visible:outline-[var(--sprint-accent)] dark:ring-white/20"
+            className="sprint-wa-fab relative z-[1] flex size-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg ring-1 ring-black/10 transition-[filter,transform] duration-200 ease-out group-hover:brightness-110 group-active:scale-[0.98] group-focus-visible:outline-2 group-focus-visible:outline-offset-2 group-focus-visible:outline-[var(--sprint-accent)]"
             aria-hidden
           >
             <WhatsAppIcon />

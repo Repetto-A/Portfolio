@@ -11,7 +11,7 @@ function PressLogo({ logo }: { logo: SprintPressLogo }) {
       alt={logo.alt}
       width={logo.w}
       height={logo.h}
-      className={`${logo.className} w-auto object-contain opacity-50 transition-opacity duration-300 [filter:brightness(0)] group-hover/logo:opacity-90 dark:opacity-55 dark:[filter:brightness(0)_invert(1)] dark:group-hover/logo:opacity-100`}
+      className={`sprint-press-logo ${logo.className} w-auto object-contain transition-opacity duration-300`}
     />
   )
 

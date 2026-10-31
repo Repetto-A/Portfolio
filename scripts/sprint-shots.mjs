@@ -1,9 +1,10 @@
 import { chromium } from "@playwright/test"
 import { mkdir } from "node:fs/promises"
 
-const OUT = process.env.SHOT_DIR || "/workspace/docs/screenshots/sprint-premium/r2"
-const PREFIX = process.env.SHOT_PREFIX || "before"
+const OUT = process.env.SHOT_DIR || "/workspace/docs/screenshots/sprint-premium/r3"
+const PREFIX = process.env.SHOT_PREFIX || "dark"
 const THEME = process.env.SHOT_THEME || "dark"
+const PATH = process.env.SHOT_PATH || "/sprint"
 const MOBILE_WIDTH = Number(process.env.SHOT_MOBILE_WIDTH || 390)
 const EXTRA = (process.env.SHOT_SECTIONS || "")
   .split(",")
@@ -22,9 +23,12 @@ const browser = await chromium.launch({ args: ["--font-render-hinting=none"] })
 async function applyTheme(page, theme) {
   await page.evaluate((t) => {
     const root = document.documentElement
-    root.classList.remove("light", "dark")
+    root.classList.remove("light", "dark", "sprint-light")
     root.classList.add(t)
+    if (t === "light") root.classList.add("sprint-light")
     root.style.colorScheme = t
+    const pageRoot = document.querySelector(".sprint-page")
+    if (pageRoot) pageRoot.setAttribute("data-sprint-theme", t)
   }, theme)
 }
 
@@ -40,8 +44,11 @@ async function openSprint(width, height) {
       localStorage.setItem("theme", theme)
     } catch {}
   }, THEME)
-  await page.goto("http://localhost:3000/sprint", { waitUntil: "networkidle", timeout: 60000 })
+  await page.goto(`http://localhost:3000${PATH}`, { waitUntil: "networkidle", timeout: 60000 })
   await applyTheme(page, THEME)
+  await page.evaluate(() => {
+    document.documentElement.style.scrollBehavior = "auto"
+  })
   await page.locator("h1").first().waitFor({ state: "visible", timeout: 30000 })
   await page.waitForTimeout(900)
   return { context, page }
@@ -58,9 +65,9 @@ for (const shot of viewports) {
   for (const section of EXTRA) {
     await page.evaluate((id) => {
       const el = document.getElementById(id)
-      if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 12 })
+      if (el) el.scrollIntoView({ block: "start", behavior: "instant" })
     }, section)
-    await page.waitForTimeout(400)
+    await page.waitForTimeout(600)
     await page.screenshot({
       path: `${OUT}/${PREFIX}-${shot.name}-${section}.png`,
       fullPage: false,

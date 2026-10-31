@@ -26,7 +26,7 @@ export function SprintCalendlyButton({
         "group inline-flex min-h-[44px] items-center justify-center gap-2 rounded-md px-4 py-3 text-center sm:px-6",
         "bg-foreground text-background font-medium",
         "transition-[background-color,color,transform] duration-200 ease-out",
-        "hover:bg-[var(--sprint-accent)] hover:text-white active:scale-[0.98]",
+        "hover:bg-[var(--sprint-accent)] hover:text-[var(--sprint-accent-foreground)] active:scale-[0.98]",
         "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--sprint-accent)]",
         className
       )}

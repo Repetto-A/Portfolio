@@ -71,6 +71,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* /sprint fuerza dark (default) o light (?theme=light) antes del paint. No toca otras rutas. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var p=location.pathname.replace(/\\/+$/,"")||"/";if(p!=="/sprint")return;var t=new URLSearchParams(location.search).get("theme")==="light"?"light":"dark";var r=document.documentElement;r.classList.remove("light","dark","sprint-light");r.classList.add(t);if(t==="light")r.classList.add("sprint-light");r.style.colorScheme=t;}catch(e){}})();`,
+          }}
+        />
       </head>
       <body>
         <a href="#main-content" className="skip-to-main">
