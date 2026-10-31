@@ -33,6 +33,7 @@ const skillCategories = [
   {
     titleKey: "skills.categories.frameworks",
     skills: [
+      "SpaceXSI",
       "Cursor",
       "Grok Bot",
       "Claude Code",
@@ -92,7 +93,7 @@ export function SkillsSection() {
   const [translations] = useTranslations()
 
   return (
-    <Section variant="muted" spacing="default">
+    <Section id="skills" variant="muted" spacing="default">
       <Container maxWidth="7xl">
         <SectionHeader
           title={getTranslation(translations, "skills.title")}

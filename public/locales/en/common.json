@@ -50,7 +50,7 @@
     "eyebrow": "For companies",
     "title": "From talking about AI to executing with AI",
     "lead": "A 30-day sprint: diagnosis, applied training, and an internal hackathon. Your team leaves with prototypes, usage rules, and a 90-day roadmap.",
-    "proof": "I have already trained +300 people in AI between CRIA and the UCEL Diploma in AI applied to professional practice. I train teams mainly on Cursor and Grok Bot.",
+    "proof": "I have already trained +300 people in AI between CRIA and the UCEL Diploma in AI applied to professional practice. The program is called SpaceXSI: Cursor and Grok Bot.",
     "pacesHeadline": "We set it to your pace: intensive or sustained",
     "paceIntensivo": "Intensive",
     "paceIntensivoDetail": "3 classes of 1 h 30 per week (Monday, Wednesday and Friday).",
@@ -65,7 +65,7 @@
   "skills": {
     "eyebrow": "Stack",
     "title": "Skills and technologies",
-    "subtitle": "Cursor, Grok Bot, Claude Code, Copilot, and the rest of the tools for systems and automations.",
+    "subtitle": "The program is SpaceXSI (Cursor and Grok Bot). Also Claude Code, Copilot, and the rest of the tools for systems and automations.",
     "categories": {
       "languages": "Languages & Frameworks",
       "frameworks": "AI/ML & Data Science",

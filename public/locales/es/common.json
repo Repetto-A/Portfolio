@@ -50,7 +50,7 @@
     "eyebrow": "Para empresas",
     "title": "De hablar de IA a ejecutar con IA",
     "lead": "Sprint de 30 días: diagnóstico, capacitación aplicada y hackathon interna. Tu equipo termina con prototipos, reglas de uso y un roadmap de 90 días.",
-    "proof": "Ya capacité en IA a +300 personas entre CRIA y la Diplomatura de IA aplicada al ejercicio profesional (UCEL). Capacito sobre todo con Cursor y Grok Bot.",
+    "proof": "Ya capacité en IA a +300 personas entre CRIA y la Diplomatura de IA aplicada al ejercicio profesional (UCEL). El programa se llama SpaceXSI: Cursor y Grok Bot.",
     "pacesHeadline": "Lo armamos a tu ritmo: intensivo o sostenido",
     "paceIntensivo": "Intensivo",
     "paceIntensivoDetail": "3 clases de 1 h 30 por semana (lunes, miércoles y viernes).",
@@ -65,7 +65,7 @@
   "skills": {
     "eyebrow": "Stack",
     "title": "Habilidades y tecnologías",
-    "subtitle": "Cursor, Grok Bot, Claude Code, Copilot y el resto de herramientas para construir sistemas y automatizaciones.",
+    "subtitle": "El programa es SpaceXSI (Cursor y Grok Bot). También Claude Code, Copilot y el resto de herramientas para construir sistemas y automatizaciones.",
     "categories": {
       "languages": "Lenguajes y Frameworks",
       "frameworks": "IA/ML y Ciencia de Datos",

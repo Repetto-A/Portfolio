@@ -64,7 +64,7 @@ export function SprintHowItWorks() {
 
         <p className="sprint-measure mt-5 text-sm leading-relaxed text-muted-foreground">
           La empresa elige los módulos. No los vemos todos: arrancamos por lo que le sirve al
-          equipo, según el diagnóstico. El stack arranca en Cursor y Grok Bot. También Claude Code,
+          equipo, según el diagnóstico. El eje es SpaceXSI (Cursor y Grok Bot). También Claude Code,
           Copilot y otras herramientas.
         </p>
 

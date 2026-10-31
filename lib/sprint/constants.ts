@@ -10,6 +10,18 @@ export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURICo
 export const LINKEDIN_URL = "https://www.linkedin.com/in/alejandro-repetto"
 export const GITHUB_URL = "https://github.com/Repetto-A"
 
+/**
+ * Nombre del programa (antes SpaceXAI). Credencial personal, no un
+ * respaldo de SpaceXSI sobre los servicios de Alejandro.
+ *
+ * Logo: no hay archivo oficial en el repo. Cuando Alejandro lo pase,
+ * ponerlo en `public/spacexsi-ambassador.svg` (o .png) y setear
+ * `SPACEXSI_LOGO_SRC` a esa ruta. No inventar ni redibujar el logo.
+ */
+export const SPACEXSI_NAME = "SpaceXSI"
+export const SPACEXSI_AMBASSADOR_LABEL = "SpaceXSI Ambassador"
+export const SPACEXSI_LOGO_SRC: string | null = null
+
 /** Copy único del siguiente paso. No mezclar con “diagnóstico” de la semana 1. */
 export const CTA_COPY = {
   primary: "Agendar una charla",
