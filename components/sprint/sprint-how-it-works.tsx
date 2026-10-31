@@ -1,6 +1,7 @@
 import { SprintSection, SprintHeading, SprintProse } from "./sprint-section"
 import { SprintTimeline } from "./sprint-timeline"
 import { SprintCurriculum, type CurriculumTopic } from "./sprint-curriculum"
+import { SprintPaces } from "./sprint-paces"
 import { SPRINT_ANCHORS, SPRINT_SECTION_LABELS } from "@/lib/sprint/constants"
 
 const STEPS = [
@@ -36,50 +37,41 @@ const STEPS = [
   },
 ] as const
 
-const CURRICULUM: { title: string; topics: CurriculumTopic[] }[] = [
+const CURRICULUM: { title: string; summary: string; topics: CurriculumTopic[] }[] = [
   {
-    title: "Cambio de paradigma",
+    title: "Panorama de IA y seguridad",
+    summary: "Qué plan usar en la empresa y qué no.",
+    topics: ["Qué plan usar", "Qué no usar", "Criterio de seguridad"],
+  },
+  {
+    title: "IA local vs propietaria, y Gemini",
+    summary: "Cuándo conviene local, cuándo un modelo propietario, y dónde entra Gemini.",
+    topics: ["IA local", "Modelos propietarios", "Gemini"],
+  },
+  {
+    title: "Desarrollo con agentes en Cursor y Grok Bot",
+    summary:
+      "SDD, skills, hooks, MCP, agents.md y memories. Claude Code también, y Claude Code dedicado a pedido.",
     topics: [
-      "Prompt engineering",
-      "Context engineering",
-      "Harness engineering",
-      "Spec Driven Development",
-      "Frameworks para SDD",
-      "IDEs agénticos",
-      "Orquestación de múltiples agentes",
-      "Loops engineering",
+      "SDD",
+      "Skills",
+      "Hooks",
+      "MCP",
+      "agents.md",
+      "Memories",
+      "Claude Code",
+      "Claude Code dedicado a pedido",
     ],
   },
   {
-    title: "Darle buen contexto a la IA y optimizar costos haciéndolo",
-    topics: [
-      "RAG",
-      "CAG",
-      "Engrams",
-      "Knowledge graphs",
-      "Skills y rules",
-      "MCPs",
-      "Crear tus propios MCPs",
-      "Optimización de tokens",
-    ],
+    title: "Datos",
+    summary: "RAG, knowledge graphs y Engram.",
+    topics: ["RAG", "Knowledge graphs", "Engram"],
   },
   {
-    title: "Automatizaciones útiles para el día a día",
-    topics: [
-      "Cronjobs",
-      "Playwright y Selenium",
-      "Agentes de IA usando tu navegador",
-      "Scraping y crawlers",
-    ],
-  },
-  {
-    title: "Infraestructura y costos",
-    topics: [
-      "Correr IA en local",
-      "Open source vs. frontera",
-      "Servidores on-premise",
-      "Anonimización de datos",
-    ],
+    title: "Automatización y agentes",
+    summary: "n8n, LangChain y LangGraph.",
+    topics: ["n8n", "LangChain", "LangGraph"],
   },
 ]
 
@@ -95,11 +87,15 @@ export function SprintHowItWorks() {
 
       <SprintTimeline steps={STEPS} />
 
-      <div className="mt-16">
-        <h3 className="sprint-kicker text-muted-foreground">Temas que suelen pedir</h3>
+      <SprintPaces />
+
+      <div id="programa" className="mt-16 scroll-mt-20">
+        <h3 className="sprint-kicker text-muted-foreground">Programa modular</h3>
 
         <p className="sprint-measure mt-5 text-sm leading-relaxed text-muted-foreground">
-          No los vemos todos. En tu caso elegimos lo que le sirve al equipo, según el diagnóstico.
+          La empresa elige los módulos. No los vemos todos: arrancamos por lo que le sirve al
+          equipo, según el diagnóstico. El stack lo lidera SpaceXAI (Cursor y Grok Bot). También
+          Claude Code, Copilot y otras herramientas.
         </p>
 
         <SprintCurriculum modules={CURRICULUM} />

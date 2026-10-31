@@ -25,6 +25,21 @@ export const SHOW_SPRINT_PRICING = false
  */
 export const SHOW_SPRINT_PORTAL = false
 
+/** Cifra confirmada para prueba social. No inflar. */
+export const TRAINED_PEOPLE_STAT = "+300"
+
+export const SPRINT_PACES = {
+  headline: "Lo armamos a tu ritmo: intensivo o sostenido",
+  intensivo: {
+    name: "Intensivo",
+    detail: "3 clases de 1 h 30 por semana (lunes, miércoles y viernes).",
+  },
+  sostenido: {
+    name: "Sostenido",
+    detail: "1 clase de 2 h 30 por semana.",
+  },
+} as const
+
 export const SPRINT_ANCHORS = {
   problem: "problema",
   promise: "promesa",

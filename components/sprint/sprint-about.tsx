@@ -1,11 +1,11 @@
 import { SprintSection, SprintHeading, SprintProse } from "./sprint-section"
 import { SprintCriaLink, SprintNexaLink } from "./sprint-ext-link"
-import { SPRINT_ANCHORS, SPRINT_SECTION_LABELS } from "@/lib/sprint/constants"
+import { SPRINT_ANCHORS, SPRINT_SECTION_LABELS, TRAINED_PEOPLE_STAT } from "@/lib/sprint/constants"
 import { SPRINT_AWARDS } from "@/lib/sprint/proof"
 
 const HIGHLIGHTS = [
   {
-    stat: "+500",
+    stat: TRAINED_PEOPLE_STAT,
     label:
       "Personas capacitadas en IA entre CRIA y la Diplomatura de IA aplicada al ejercicio profesional (UCEL)",
   },
@@ -26,8 +26,12 @@ const FACTS = [
     forma directa con las empresas.
   </>,
   <>
-    Fundé <SprintNexaLink />: +50 comunidades y +3M de personas. Soy host de Builders Off The
-    Record, SpaceXAI Ambassador y miembro de SupaSquad (Supabase).
+    Soy SpaceXAI Ambassador. El stack con el que trabajo arranca en Cursor y Grok Bot. También di
+    capacitaciones con Copilot y otras herramientas.
+  </>,
+  <>
+    Fundé <SprintNexaLink />: +50 comunidades y +3M de personas. Soy host de Builders Off The Record
+    y miembro de SupaSquad (Supabase).
   </>,
   <>
     Soy embajador de Rosario Tech Week y organizo Shippear y NASA Space Apps Rosario. Organicé 4

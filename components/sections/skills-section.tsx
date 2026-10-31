@@ -33,6 +33,11 @@ const skillCategories = [
   {
     titleKey: "skills.categories.frameworks",
     skills: [
+      "SpaceXAI",
+      "Cursor",
+      "Grok Bot",
+      "Claude Code",
+      "GitHub Copilot",
       "TensorFlow",
       "PyTorch",
       "Scikit-learn",
@@ -78,6 +83,7 @@ const skillCategories = [
       "Document Processing",
       "AI Chatbots",
       "AI Agents",
+      "n8n",
       "Workflow Automations",
     ],
   },

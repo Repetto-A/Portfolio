@@ -70,8 +70,8 @@ export function SprintHero() {
         </dl>
 
         <p className="sprint-enter sprint-enter-4 sprint-measure mt-8 text-sm leading-relaxed text-muted-foreground">
-          Ya capacité en IA a más de 500 personas entre CRIA y la Diplomatura de UCEL. Trabajo con{" "}
-          <SprintCriaLink /> y doy clases en esa diplomatura.
+          Ya capacité en IA a +300 personas entre <SprintCriaLink /> y la Diplomatura de UCEL. Soy
+          SpaceXAI Ambassador: el stack arranca en Cursor y Grok Bot.
         </p>
       </div>
     </header>

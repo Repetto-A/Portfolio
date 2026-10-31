@@ -32,7 +32,7 @@
       "short": "I'm a Systems Engineering student and a nerd who loves solving problems. I found in software my holy grail for doing it. I'm very good at automating tasks that used to take countless hours and entire teams, doing it scalably, efficiently and securely, driven by my passion for competitive programming and cybersecurity. Above all, I'm curious and love a good challenge.",
       "background": {
         "title": "Background",
-        "text": "I've been programming seriously since 2022, when I placed 6th in my first ICPC tournament. A 2024 winter training camp was a turning point that transformed how I approach technical challenges.\n\nToday I'm a lecturer in the Diploma in AI applied to professional practice (UCEL), an AI trainer and consultant for companies at CRIA, founder of NEXA (+3M people across +50 communities), and a SpaceXAI Ambassador.\n\nMy projects range from NASA Space Apps prediction algorithms to production systems with RAG architectures."
+        "text": "I've been programming seriously since 2022, when I placed 6th in my first ICPC tournament. A 2024 winter training camp was a turning point that transformed how I approach technical challenges.\n\nToday I'm a lecturer in the Diploma in AI applied to professional practice (UCEL), an AI trainer and consultant for companies at CRIA, founder of NEXA (+3M people across +50 communities), and a SpaceXAI Ambassador. I train teams mainly on Cursor and Grok Bot. I've also trained with Copilot and other tools.\n\nMy projects range from NASA Space Apps prediction algorithms to production systems with RAG architectures."
       },
       "approach": {
         "title": "Approach",
@@ -42,7 +42,7 @@
   },
   "skills": {
     "title": "Skills & Technologies",
-    "subtitle": "A complete toolkit for building full applications, from modern web systems to AI-powered automations.",
+    "subtitle": "The stack is led by SpaceXAI (Cursor and Grok Bot). Also Claude Code, Copilot, and the rest of the tools for systems and automations.",
     "categories": {
       "languages": "Languages & Frameworks",
       "frameworks": "AI/ML & Data Science",

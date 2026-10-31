@@ -1,6 +1,6 @@
 import { SprintSection, SprintHeading, SprintProse } from "./sprint-section"
 import { SprintCalendlyButton } from "./sprint-calendly-button"
-import { SPRINT_ANCHORS, SPRINT_SECTION_LABELS } from "@/lib/sprint/constants"
+import { SPRINT_ANCHORS, SPRINT_PACES, SPRINT_SECTION_LABELS } from "@/lib/sprint/constants"
 
 const CRITERIA = [
   {
@@ -13,7 +13,7 @@ const CRITERIA = [
   },
   {
     label: "Equipo",
-    text: "Al menos 5 personas pueden dedicar 3-4 horas semanales al laboratorio y usar las clases para sacarse dudas",
+    text: "Al menos 5 personas pueden sumarse a las clases, en ritmo intensivo o sostenido. Las clases sirven para sacar dudas y bajar el laboratorio.",
   },
   {
     label: "Compromiso",
@@ -28,7 +28,7 @@ const CRITERIA = [
 const EXIT_SIGNALS = [
   "La prioridad es marcar el casillero de capacitación en IA, no que el equipo cambie cómo trabaja",
   "Querés tercerizar la IA y que tu equipo no tenga que meter mano",
-  "Nadie puede dedicarle horas semanales al laboratorio y la hackathon",
+  "Nadie puede sumarse a las clases ni a la hackathon",
   "No hay nadie de dirección dispuesto a involucrarse",
 ] as const
 
@@ -40,9 +40,9 @@ export function SprintAudience() {
       </SprintHeading>
       <SprintProse lead>
         <p>
-          El sprint pide tiempo del equipo y un sponsor interno con poder de decisión. Si eso no
-          está, no vas a sacar el provecho que deberías. Mejor hablarlo en el diagnóstico, antes de
-          arrancar.
+          El sprint pide un sponsor interno con poder de decisión y un equipo que pueda sumarse a
+          las clases. {SPRINT_PACES.headline}. Si eso no está, no vas a sacar el provecho que
+          deberías. Mejor hablarlo en el diagnóstico, antes de arrancar.
         </p>
       </SprintProse>
 

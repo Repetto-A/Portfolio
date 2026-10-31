@@ -1,7 +1,7 @@
 import type { ReactNode } from "react"
 import { SprintSection, SprintHeading } from "./sprint-section"
 import { SprintCriaLink } from "./sprint-ext-link"
-import { SPRINT_ANCHORS, SPRINT_SECTION_LABELS } from "@/lib/sprint/constants"
+import { SPRINT_ANCHORS, SPRINT_PACES, SPRINT_SECTION_LABELS } from "@/lib/sprint/constants"
 import {
   Accordion,
   AccordionContent,
@@ -15,6 +15,10 @@ const FAQS: { q: string; a: ReactNode }[] = [
     a: "Las dos cosas, en ese orden. Arranco como capacitación aplicada y termino como consultoría de ejecución: tu equipo aprende haciendo y sale con prototipos y un plan, no con teoría suelta.",
   },
   {
+    q: "¿El temario es fijo?",
+    a: "No. Es un programa modular: la empresa elige. Hay panorama de IA y seguridad, IA local vs propietaria y Gemini, desarrollo con agentes en Cursor y Grok Bot, datos (RAG, knowledge graphs, Engram) y automatización con n8n, LangChain y LangGraph.",
+  },
+  {
     q: "¿Necesitamos saber programar?",
     a: "No hace falta. Me adapto al nivel del equipo y trabajamos con no-code, low-code y prompting. Rinde más con equipos mixtos con ganas de probar. Si hay perfiles técnicos, mejor: es mi terreno.",
   },
@@ -24,7 +28,14 @@ const FAQS: { q: string; a: ReactNode }[] = [
   },
   {
     q: "¿Cuánto tiempo requiere del equipo?",
-    a: "Entre 2 y 3 horas por semana durante el sprint, más 1 o 2 días para la hackathon final. Menos que cualquier proyecto interno que nunca arranca.",
+    a: (
+      <div className="space-y-2">
+        <p>{SPRINT_PACES.headline}.</p>
+        <p>Intensivo: {SPRINT_PACES.intensivo.detail}</p>
+        <p>Sostenido: {SPRINT_PACES.sostenido.detail}</p>
+        <p>Más 1 o 2 días para la hackathon final.</p>
+      </div>
+    ),
   },
   {
     q: "¿Cómo manejan privacidad, datos sensibles y control de uso?",

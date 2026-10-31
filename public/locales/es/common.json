@@ -32,7 +32,7 @@
       "short": "Soy estudiante de Ingeniería en Sistemas y un nerd al que le fascina resolver problemas. Encontré en el software mi santo grial para lograrlo. Soy muy bueno automatizando tareas que solían llevar incontables horas y empleados, y lo hago de forma escalable, eficiente y segura, gracias a mi pasión por la programación competitiva y la ciberseguridad. Ante todo soy curioso y me encantan los desafíos.",
       "background": {
         "title": "Trayectoria",
-        "text": "Programo seriamente desde el 2022, cuando obtuve el 6to puesto en mi primer torneo ICPC. Un training camp de invierno en 2024 fue un punto de inflexión que transformó mi forma de abordar desafíos técnicos.\n\nHoy soy docente en la Diplomatura de IA aplicada al ejercicio profesional (UCEL), capacitador y consultor en IA para empresas en CRIA, founder de NEXA (+3M de personas en +50 comunidades) y SpaceXAI Ambassador.\n\nMis proyectos van desde algoritmos de predicción para NASA Space Apps hasta sistemas en producción con arquitecturas RAG."
+        "text": "Programo seriamente desde el 2022, cuando obtuve el 6to puesto en mi primer torneo ICPC. Un training camp de invierno en 2024 fue un punto de inflexión que transformó mi forma de abordar desafíos técnicos.\n\nHoy soy docente en la Diplomatura de IA aplicada al ejercicio profesional (UCEL), capacitador y consultor en IA para empresas en CRIA, founder de NEXA (+3M de personas en +50 comunidades) y SpaceXAI Ambassador. Capacito sobre todo con Cursor y Grok Bot. También di capacitaciones con Copilot y otras herramientas.\n\nMis proyectos van desde algoritmos de predicción para NASA Space Apps hasta sistemas en producción con arquitecturas RAG."
       },
       "approach": {
         "title": "Enfoque",
@@ -42,7 +42,7 @@
   },
   "skills": {
     "title": "Habilidades y Tecnologías",
-    "subtitle": "Un conjunto completo de herramientas para construir aplicaciones completas, desde sistemas web modernos hasta automatizaciones potenciadas por IA.",
+    "subtitle": "El stack lo lidera SpaceXAI (Cursor y Grok Bot). También Claude Code, Copilot y el resto de herramientas para construir sistemas y automatizaciones.",
     "categories": {
       "languages": "Lenguajes y Frameworks",
       "frameworks": "IA/ML y Ciencia de Datos",
