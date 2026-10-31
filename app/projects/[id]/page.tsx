@@ -14,6 +14,7 @@ type ProjectContent = {
 type ProjectWithLocales = {
   locales?: { en?: ProjectContent; es?: ProjectContent }
   timeline?: unknown
+  caseStudy?: ProjectPageData["caseStudy"]
 }
 
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
@@ -77,6 +78,7 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
     images: projectData.images ?? [],
     category: projectData.category,
     locales: (projectData as ProjectWithLocales).locales ?? {},
+    caseStudy: (projectData as ProjectWithLocales).caseStudy,
     timeline: Array.isArray((projectData as ProjectWithLocales).timeline)
       ? ((projectData as ProjectWithLocales).timeline as ProjectPageData["timeline"])
       : undefined,

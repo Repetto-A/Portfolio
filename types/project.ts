@@ -1,8 +1,25 @@
+export interface LocalizedText {
+  en: string
+  es: string
+}
+
 export interface ProjectLocale {
   title: string
   short: string
   description: string
   features: string[]
+}
+
+export interface CaseStudyFact {
+  value: string
+  label: LocalizedText
+}
+
+export interface ProjectCaseStudy {
+  problem: LocalizedText
+  approach: LocalizedText
+  result: LocalizedText
+  facts?: CaseStudyFact[]
 }
 
 export interface Project {
@@ -14,6 +31,7 @@ export interface Project {
   demoUrl: string | null
   images: string[]
   category: string
+  caseStudy?: ProjectCaseStudy
   timeline?: Array<{
     date: string
     title: { en: string; es: string }
