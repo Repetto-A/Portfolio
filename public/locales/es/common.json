@@ -113,12 +113,20 @@
       "regional-winner-global-nominee": "Ganador Regional · Nominado Global"
     },
     "cta": {
-      "learnMore": "Conoce Más",
+      "learnMore": "Ver el caso",
       "viewCode": "Ver Código",
       "liveDemo": "Demo en Vivo",
       "getInTouch": "Contactar",
       "backToProjects": "Volver a Proyectos"
     },
+    "empty": {
+      "title": "No hay proyectos para mostrar",
+      "description": "Cuando haya casos publicados, van a aparecer acá."
+    },
+    "gridLabel": "Listado de proyectos",
+    "openProject": "Abrir el proyecto",
+    "viewCodeAria": "Ver código en GitHub de",
+    "liveDemoAria": "Abrir la demo de",
     "details": {
       "about": "Acerca de Este Proyecto",
       "techStack": "Stack Tecnológico",
