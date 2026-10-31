@@ -45,42 +45,38 @@
       ],
       "githubUrl": null,
       "demoUrl": "https://cotizador.nexa.builders",
-      "images": [
-        "/projects/agromaq-1.png",
-        "/projects/agromaq-2.png",
-        "/projects/agromaq-3.png"
-      ],
+      "images": ["/projects/agromaq-1.png", "/projects/agromaq-2.png", "/projects/agromaq-3.png"],
       "category": "Management System",
       "caseStudy": {
         "problem": {
-          "en": "A family agricultural machinery factory with around 40 years in the trade needed to quote and run the business from one panel: catalog, clients, purchasing, and stock, without building each quote by hand.",
-          "es": "Una fábrica familiar de maquinaria agrícola, con cerca de 40 años, necesitaba cotizar y gestionar el negocio desde un solo panel: catálogo, clientes, compras y stock, sin armar cada presupuesto a mano."
+          "en": "A family agricultural machinery factory needed to quote and run the business from one panel: catalog, clients, purchasing, and stock, without building each quote by hand.",
+          "es": "Una fábrica familiar de maquinaria agrícola necesitaba cotizar y gestionar el negocio desde un solo panel: catálogo, clientes, compras y stock, sin armar cada presupuesto a mano."
         },
         "approach": {
           "en": "I built the quotation flow and the management system. From the panel you can issue quotes and order notes from the catalog, with optionals, discounts, payment terms, FX (BNA or manual), and a client record by tax ID with an AFIP lookup. It also covers CRM, suppliers, purchasing, stock, price list import from PDF, and an admin panel with a timed session.",
           "es": "Construí el cotizador y el sistema de gestión. Desde el panel se arman cotizaciones y notas de pedido con catálogo, opcionales, descuentos, condiciones de pago, tipo de cambio (BNA o manual) y cliente por CUIT con consulta a AFIP. También cubre CRM, proveedores, compras, stock, importación de lista de precios desde PDF y un panel de administración con sesión temporizada."
         },
         "result": {
-          "en": "It is in production at cotizador.nexa.builders. ARCA electronic invoicing is still in homologation.",
-          "es": "Está en producción en cotizador.nexa.builders. La facturación electrónica ARCA sigue en homologación."
+          "en": "It is in production at cotizador.nexa.builders. ARCA electronic invoicing is still in homologation. Years in the trade: pending.",
+          "es": "Está en producción en cotizador.nexa.builders. La facturación electrónica ARCA sigue en homologación. Años en el oficio: pendiente."
         },
         "facts": [
           {
-            "value": "~40 años",
+            "value": { "en": "Pending", "es": "Pendiente" },
             "label": {
-              "en": "In the trade",
-              "es": "En el oficio"
+              "en": "Years in the trade",
+              "es": "Años en el oficio"
             }
           },
           {
-            "value": "cotizador.nexa.builders",
+            "value": { "en": "cotizador.nexa.builders", "es": "cotizador.nexa.builders" },
             "label": {
               "en": "In production",
               "es": "En producción"
             }
           },
           {
-            "value": "ARCA",
+            "value": { "en": "ARCA", "es": "ARCA" },
             "label": {
               "en": "Invoicing in homologation",
               "es": "Facturación en homologación"
@@ -152,26 +148,26 @@
           "es": "Construí NEXA para que dejen de crecer solas: perfiles públicos con descubrimiento geográfico, agenda de eventos compartida, postulación moderada, dashboard de organizadores con roles, sincronización con Luma para publicar eventos y alertas segmentadas por ubicación. Un servidor MCP en /api/mcp expone descubrimiento y operación como tools."
         },
         "result": {
-          "en": "It is in production at nexa.builders. Today it connects +50 communities with +3M people. The target is all of LATAM.",
-          "es": "Está en producción en nexa.builders. Hoy conecta +50 comunidades con +3M de personas. La mira está puesta en toda LATAM."
+          "en": "It is in production at nexa.builders. Community and reach figures: pending. The target is all of LATAM.",
+          "es": "Está en producción en nexa.builders. Cifras de comunidades y alcance: pendiente. La mira está puesta en toda LATAM."
         },
         "facts": [
           {
-            "value": "+50",
+            "value": { "en": "Pending", "es": "Pendiente" },
             "label": {
               "en": "Communities",
               "es": "Comunidades"
             }
           },
           {
-            "value": "+3M",
+            "value": { "en": "Pending", "es": "Pendiente" },
             "label": {
               "en": "People in the network",
               "es": "Personas en la red"
             }
           },
           {
-            "value": "nexa.builders",
+            "value": { "en": "nexa.builders", "es": "nexa.builders" },
             "label": {
               "en": "In production",
               "es": "En producción"
@@ -225,9 +221,7 @@
       ],
       "githubUrl": "https://github.com/Repetto-A/ML-FaceRecognizer",
       "demoUrl": "https://somoshuella.org",
-      "images": [
-        "/projects/somoshuella-1.png"
-      ],
+      "images": ["/projects/somoshuella-1.png"],
       "category": "AI / Social Impact",
       "caseStudy": {
         "problem": {
@@ -235,30 +229,30 @@
           "es": "Familias en Venezuela buscan personas que desaparecieron tras terremotos. Un registro no alcanza si comparar un rostro encontrado tarda demasiado, o si el sistema pretende identificar a alguien por su cuenta."
         },
         "approach": {
-          "en": "A family registers a missing person with a photo, last known location, and contact details. If someone finds a person (from children to injured people who cannot communicate), they upload a photo. Each face becomes a 512-dimensional numeric fingerprint. The system ranks likely matches for a human to verify. It never makes an automatic identification.",
-          "es": "Una familia registra a un ser querido con foto, última ubicación conocida y datos de contacto. Si alguien encuentra a una persona (desde chicos hasta personas lesionadas que no pueden comunicarse), sube una foto. Cada rostro se convierte en una huella numérica de 512 dimensiones. El sistema ordena coincidencias probables para que una persona las verifique. Nunca identifica de forma automática."
+          "en": "A family registers a missing person with a photo, last known location, and contact details. If someone finds a person (from children to injured people who cannot communicate), they upload a photo. Each face becomes a numeric fingerprint. The system ranks likely matches for a human to verify. It never makes an automatic identification.",
+          "es": "Una familia registra a un ser querido con foto, última ubicación conocida y datos de contacto. Si alguien encuentra a una persona (desde chicos hasta personas lesionadas que no pueden comunicarse), sube una foto. Cada rostro se convierte en una huella numérica. El sistema ordena coincidencias probables para que una persona las verifique. Nunca identifica de forma automática."
         },
         "result": {
-          "en": "The platform is in production at somoshuella.org, with a public site, a hardened REST API, and face search. New photos are matched against the registry in about half a second. Indexing runs on a local GPU. Search runs on a VPS with pgvector. The final decision is always human.",
-          "es": "La plataforma está en producción en somoshuella.org, con sitio público, API REST endurecida y búsqueda por rostro. Las fotos nuevas se contrastan contra el registro en alrededor de medio segundo. El indexado corre en GPU local. La búsqueda corre en un VPS con pgvector. La decisión final siempre es humana."
+          "en": "The platform is in production at somoshuella.org, with a public site, a hardened REST API, and face search. Search time and embedding size: pending. Indexing runs on a local GPU. Search runs on a VPS with pgvector. The final decision is always human.",
+          "es": "La plataforma está en producción en somoshuella.org, con sitio público, API REST endurecida y búsqueda por rostro. Tiempo de búsqueda y tamaño de la huella: pendiente. El indexado corre en GPU local. La búsqueda corre en un VPS con pgvector. La decisión final siempre es humana."
         },
         "facts": [
           {
-            "value": "~0.5 s",
+            "value": { "en": "Pending", "es": "Pendiente" },
             "label": {
               "en": "Face search",
               "es": "Búsqueda por rostro"
             }
           },
           {
-            "value": "512",
+            "value": { "en": "Pending", "es": "Pendiente" },
             "label": {
               "en": "Embedding dimensions",
               "es": "Dimensiones de la huella"
             }
           },
           {
-            "value": "somoshuella.org",
+            "value": { "en": "somoshuella.org", "es": "somoshuella.org" },
             "label": {
               "en": "In production",
               "es": "En producción"
@@ -298,13 +292,7 @@
         }
       },
       "status": "production",
-      "techStack": [
-        "Next.js",
-        "React",
-        "TypeScript",
-        "Tailwind CSS",
-        "NASA & CONAE Data"
-      ],
+      "techStack": ["Next.js", "React", "TypeScript", "Tailwind CSS", "NASA & CONAE Data"],
       "githubUrl": "https://github.com/Repetto-A/NASA-FarmHero",
       "demoUrl": "https://nasa-farm-hero.vercel.app/",
       "images": [
@@ -325,33 +313,19 @@
           "es": "Un simulador educativo que usa capas satelitales reales de NASA y CONAE. Los jugadores restauran tierras degradadas con capital limitado y eligen intervenciones (fertilizantes, plaguicidas, irrigación) cuyos efectos a corto y largo plazo simula el juego, incluidas sequías, olas de calor e inundaciones. Nació como prototipo en NASA Space Apps y se siguió iterando después del hackathon."
         },
         "result": {
-          "en": "Regional Winner and Global Nominee at NASA Space Apps 2025. The prototype was built in 48 hours. Local press covered the project (Telefe Rosario, La Capital, El Ciudadano, and others listed below).",
-          "es": "Ganador Regional y Nominado Global en NASA Space Apps 2025. El prototipo se construyó en 48 horas. Hubo cobertura local (Telefe Rosario, La Capital, El Ciudadano y otros medios listados abajo)."
+          "en": "Built for NASA Space Apps 2025. Award place and prototype build time: pending. Local press covered the project (Telefe Rosario, La Capital, El Ciudadano, and others listed below).",
+          "es": "Hecho para NASA Space Apps 2025. Puesto y tiempo de prototipo: pendiente. Hubo cobertura local (Telefe Rosario, La Capital, El Ciudadano y otros medios listados abajo)."
         },
         "facts": [
           {
-            "value": "2025",
+            "value": { "en": "Pending", "es": "Pendiente" },
             "label": {
-              "en": "NASA Space Apps",
-              "es": "NASA Space Apps"
+              "en": "NASA Space Apps place",
+              "es": "Puesto NASA Space Apps"
             }
           },
           {
-            "value": "Regional",
-            "label": {
-              "en": "Local award winner",
-              "es": "Ganador regional"
-            }
-          },
-          {
-            "value": "Global",
-            "label": {
-              "en": "Global nominee",
-              "es": "Nominado global"
-            }
-          },
-          {
-            "value": "48 h",
+            "value": { "en": "Pending", "es": "Pendiente" },
             "label": {
               "en": "Prototype build",
               "es": "Prototipo"
@@ -400,11 +374,7 @@
       ],
       "githubUrl": "https://github.com/Repetto-A/AI-Seismic-Detection",
       "demoUrl": null,
-      "images": [
-        "/projects/nasa-1.png",
-        "/projects/nasa-2.png",
-        "/projects/nasa-3.png"
-      ],
+      "images": ["/projects/nasa-1.png", "/projects/nasa-2.png", "/projects/nasa-3.png"],
       "category": "AI/ML Research",
       "caseStudy": {
         "problem": {
@@ -416,26 +386,26 @@
           "es": "Un LSTM a bordo, entrenado con datos reales de las misiones Apollo (Luna) e InSight (Marte) de la NASA. La clasificación corre in situ para separar la señal sísmica del ruido, y a la Tierra vuelven solo los bytes útiles."
         },
         "result": {
-          "en": "2nd place at NASA Space Apps 2024. The software and hardware needed stay low-cost in development, operation, energy, and footprint.",
-          "es": "2do puesto en NASA Space Apps 2024. El software y el hardware necesarios son de bajo costo en desarrollo, operación, energía y espacio."
+          "en": "Built for NASA Space Apps 2024. Award place: pending. The software and hardware needed stay low-cost in development, operation, energy, and footprint.",
+          "es": "Hecho para NASA Space Apps 2024. Puesto: pendiente. El software y el hardware necesarios son de bajo costo en desarrollo, operación, energía y espacio."
         },
         "facts": [
           {
-            "value": "2nd",
+            "value": { "en": "Pending", "es": "Pendiente" },
             "label": {
-              "en": "NASA Space Apps 2024",
-              "es": "NASA Space Apps 2024"
+              "en": "NASA Space Apps 2024 place",
+              "es": "Puesto NASA Space Apps 2024"
             }
           },
           {
-            "value": "LSTM",
+            "value": { "en": "LSTM", "es": "LSTM" },
             "label": {
               "en": "On-board model",
               "es": "Modelo a bordo"
             }
           },
           {
-            "value": "Apollo + InSight",
+            "value": { "en": "Apollo + InSight", "es": "Apollo + InSight" },
             "label": {
               "en": "Training data",
               "es": "Datos de entrenamiento"
@@ -490,9 +460,7 @@
       ],
       "githubUrl": "https://github.com/Repetto-A/Consentinel",
       "demoUrl": "https://consentinel.vercel.app",
-      "images": [
-        "/projects/consentinel-1.png"
-      ],
+      "images": ["/projects/consentinel-1.png"],
       "category": "AI / Security Infrastructure",
       "caseStudy": {
         "problem": {
@@ -504,29 +472,25 @@
           "es": "Construí el kernel de permisos, el servidor MCP para validar agentes externos y el motor de riesgo. Cada acción se evalúa contra un grafo de comportamiento por usuario, memoria vectorial de precedentes y detección determinista de drift de intención, antes de llegar a la wallet. Los resultados son permitir, permitir con auditoría, pedir biometría o denegar. El step-up usa passkeys WebAuthn, con deep links de WhatsApp como fallback."
         },
         "result": {
-          "en": "Built in about 36 hours during Platanus Hack 2026 (Argentina). Recognized as a judge's favorite for its approach to agentic financial safety.",
-          "es": "Construido en unas 36 horas durante Platanus Hack 2026 (Argentina). Reconocido como favorito del jurado por su enfoque de seguridad financiera agéntica."
+          "en": "Judge's favorite at Platanus Hack 2026. Build time: pending.",
+          "es": "Favorito del jurado en Platanus Hack 2026. Tiempo de construcción: pendiente."
         },
         "facts": [
           {
-            "value": "~36 h",
+            "value": { "en": "Pending", "es": "Pendiente" },
             "label": {
               "en": "Build time",
               "es": "Tiempo de construcción"
             }
           },
           {
-            "value": "2026",
+            "value": {
+              "en": "Judge's favorite",
+              "es": "Favorito del jurado"
+            },
             "label": {
-              "en": "Platanus Hack",
-              "es": "Platanus Hack"
-            }
-          },
-          {
-            "value": "Judge's favorite",
-            "label": {
-              "en": "Recognition",
-              "es": "Reconocimiento"
+              "en": "Platanus Hack 2026",
+              "es": "Platanus Hack 2026"
             }
           }
         ]
@@ -579,10 +543,7 @@
       ],
       "githubUrl": "https://github.com/Repetto-A/VirgIA",
       "demoUrl": null,
-      "images": [
-        "/projects/virgia-1.png",
-        "/projects/virgia-2.png"
-      ],
+      "images": ["/projects/virgia-1.png", "/projects/virgia-2.png"],
       "category": "AI / Industrial Vision",
       "caseStudy": {
         "problem": {
@@ -594,29 +555,25 @@
           "es": "Diseñé y entrené una red convolucional en PyTorch con un dataset de fotos de cápsulas y empaques que saqué yo. Un servicio FastAPI sirve el modelo. Un backend Node.js y Express orquesta una validación en dos etapas: primero la CNN local, después un modelo multimodal vía AI Gateway en tres ejes (daño de cápsula, desorden, rotura de empaquetado). Si falla un eje, se rechaza."
         },
         "result": {
-          "en": "Built in 6 hours. Awarded 2nd place and selected for Nvidia for Startups, based on the quality of the solution and execution speed.",
-          "es": "Construido en 6 horas. 2do lugar y selección para Nvidia for Startups, por la calidad de la solución y la velocidad de ejecución."
+          "en": "2nd place at Vercel Hackathon 2026, plus Nvidia for Startups. Build time: pending.",
+          "es": "2º puesto en Vercel Hackathon 2026, más Nvidia for Startups. Tiempo de construcción: pendiente."
         },
         "facts": [
           {
-            "value": "6 h",
+            "value": { "en": "Pending", "es": "Pendiente" },
             "label": {
               "en": "Build time",
               "es": "Tiempo de construcción"
             }
           },
           {
-            "value": "2nd",
+            "value": {
+              "en": "2nd place + Nvidia",
+              "es": "2º puesto + Nvidia"
+            },
             "label": {
-              "en": "Vercel Hackathon",
-              "es": "Vercel Hackathon"
-            }
-          },
-          {
-            "value": "Nvidia",
-            "label": {
-              "en": "For Startups selection",
-              "es": "Selección For Startups"
+              "en": "Vercel Hackathon 2026",
+              "es": "Vercel Hackathon 2026"
             }
           }
         ]
@@ -683,26 +640,19 @@
           "es": "Una lotería sin pérdidas: los usuarios depositan en contratos inteligentes que asignan capital a protocolos de rendimiento, mantienen liquidez y no pierden el principal. Cada uno cuida a un Zorrito virtual. La edad se verifica con el flujo de conocimiento cero de Self Protocol. Filecoin se usa para almacenamiento."
         },
         "result": {
-          "en": "Built during ETH Global 2025. Awarded 2nd Best dApp Using Filecoin.",
-          "es": "Construida durante ETH Global 2025. Premiada como 2da mejor dApp usando Filecoin."
+          "en": "Built during ETH Global 2025. Award place: pending.",
+          "es": "Construida durante ETH Global 2025. Puesto: pendiente."
         },
         "facts": [
           {
-            "value": "2025",
+            "value": { "en": "Pending", "es": "Pendiente" },
             "label": {
-              "en": "ETH Global",
-              "es": "ETH Global"
+              "en": "ETH Global award",
+              "es": "Premio ETH Global"
             }
           },
           {
-            "value": "2nd",
-            "label": {
-              "en": "Best dApp using Filecoin",
-              "es": "Mejor dApp con Filecoin"
-            }
-          },
-          {
-            "value": "Self Protocol",
+            "value": { "en": "Self Protocol", "es": "Self Protocol" },
             "label": {
               "en": "Age verification",
               "es": "Verificación de edad"
@@ -768,33 +718,33 @@
           "es": "Clasificar resonancias de cerebro suele implicar mandar la imagen a un servidor. En una demo de screening, eso es un problema de privacidad."
         },
         "approach": {
-          "en": "A PyTorch model runs entirely in the browser with ONNX Runtime Web. Images never leave the device. Four classes: glioma, meningioma, pituitary, and no tumor. After the first load, it can run offline.",
-          "es": "Un modelo de PyTorch corre entero en el navegador con ONNX Runtime Web. Las imágenes no salen del dispositivo. Cuatro clases: glioma, meningioma, pituitaria y sin tumor. Después de la primera carga, puede correr sin conexión."
+          "en": "A PyTorch model runs entirely in the browser with ONNX Runtime Web. Images never leave the device. Classes: glioma, meningioma, pituitary, and no tumor. After the first load, it can run offline.",
+          "es": "Un modelo de PyTorch corre entero en el navegador con ONNX Runtime Web. Las imágenes no salen del dispositivo. Clases: glioma, meningioma, pituitaria y sin tumor. Después de la primera carga, puede correr sin conexión."
         },
         "result": {
-          "en": "95.4% test accuracy on 7,000+ brain MRI images. Predictions take 200-400ms after warmup, with WebGL acceleration.",
-          "es": "95.4% de precisión en más de 7.000 imágenes de resonancia. Las predicciones tardan 200-400 ms después del calentamiento, con aceleración WebGL."
+          "en": "Runs in the browser with WebGL acceleration. Accuracy, dataset size, and prediction time: pending.",
+          "es": "Corre en el navegador con aceleración WebGL. Precisión, tamaño del dataset y tiempo de predicción: pendiente."
         },
         "facts": [
           {
-            "value": "95.4%",
+            "value": { "en": "Pending", "es": "Pendiente" },
             "label": {
               "en": "Test accuracy",
               "es": "Precisión de test"
             }
           },
           {
-            "value": "7,000+",
+            "value": { "en": "Pending", "es": "Pendiente" },
             "label": {
               "en": "Brain MRI images",
               "es": "Imágenes de resonancia"
             }
           },
           {
-            "value": "200-400 ms",
+            "value": { "en": "Pending", "es": "Pendiente" },
             "label": {
-              "en": "After warmup",
-              "es": "Después del calentamiento"
+              "en": "Prediction time",
+              "es": "Tiempo de predicción"
             }
           }
         ]
@@ -851,26 +801,19 @@
           "es": "Una plataforma de operaciones para DAOs con tracking de proposals y tasks, historial de estados, dashboards, analytics y resúmenes diarios con IA que sintetizan los factores a los que hay que prestarle atención."
         },
         "result": {
-          "en": "1st place PowerHouse Ecosystem prize at ETH Argentina 2025. Built in under 48 hours.",
-          "es": "1er premio del ecosistema PowerHouse en ETH Argentina 2025. Construido en menos de 48 horas."
+          "en": "Built for ETH Argentina 2025. Award place and build time: pending.",
+          "es": "Hecho para ETH Argentina 2025. Puesto y tiempo de construcción: pendiente."
         },
         "facts": [
           {
-            "value": "1st",
+            "value": { "en": "Pending", "es": "Pendiente" },
             "label": {
               "en": "PowerHouse prize",
               "es": "Premio PowerHouse"
             }
           },
           {
-            "value": "2025",
-            "label": {
-              "en": "ETH Argentina",
-              "es": "ETH Argentina"
-            }
-          },
-          {
-            "value": "<48 h",
+            "value": { "en": "Pending", "es": "Pendiente" },
             "label": {
               "en": "Build time",
               "es": "Tiempo de construcción"

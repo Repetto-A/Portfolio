@@ -5,6 +5,7 @@ import { ProjectPageContent, type ProjectPageData } from "@/components/project-p
 import { JsonLd } from "@/components/json-ld"
 import { generateMetadata as genMetadata, generateProjectPageGraph, siteConfig } from "@/lib/seo"
 import es from "@/public/locales/es/common.json"
+import type { ProjectCaseStudy } from "@/types/project"
 
 type ProjectContent = {
   title?: string
@@ -16,7 +17,7 @@ type ProjectContent = {
 type ProjectWithLocales = {
   locales?: { en?: ProjectContent; es?: ProjectContent }
   timeline?: unknown
-  caseStudy?: ProjectPageData["caseStudy"]
+  caseStudy?: ProjectCaseStudy
 }
 
 function projectCopy(project: ProjectWithLocales): ProjectContent {
@@ -34,13 +35,16 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
     })
   }
 
-  const content = projectCopy(projectData as ProjectWithLocales)
+  const projectWithLocales = projectData as ProjectWithLocales
+  const content = projectCopy(projectWithLocales)
+  const caseStudy = projectWithLocales.caseStudy
   const firstImage = projectData.images?.[0]
   const ogImage = firstImage || siteConfig.ogImage
+  const description = caseStudy?.problem.es || content.description || ""
 
   return genMetadata({
     title: content.title || projectData.id,
-    description: content.short || content.description || "",
+    description,
     canonical: `${siteConfig.url}/projects/${params.id}`,
     ogImage,
     ogImageAlt: content.title || projectData.id,
@@ -62,7 +66,9 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
     notFound()
   }
 
-  const content = projectCopy(projectData as ProjectWithLocales)
+  const projectWithLocales = projectData as ProjectWithLocales
+  const content = projectCopy(projectWithLocales)
+  const caseStudy = projectWithLocales.caseStudy
 
   const project: ProjectPageData = {
     id: projectData.id,
@@ -72,10 +78,10 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
     demoUrl: projectData.demoUrl ?? null,
     images: projectData.images ?? [],
     category: projectData.category,
-    locales: (projectData as ProjectWithLocales).locales ?? {},
-    caseStudy: (projectData as ProjectWithLocales).caseStudy,
-    timeline: Array.isArray((projectData as ProjectWithLocales).timeline)
-      ? ((projectData as ProjectWithLocales).timeline as ProjectPageData["timeline"])
+    locales: projectWithLocales.locales ?? {},
+    caseStudy: projectWithLocales.caseStudy,
+    timeline: Array.isArray(projectWithLocales.timeline)
+      ? (projectWithLocales.timeline as ProjectPageData["timeline"])
       : undefined,
   }
 
@@ -85,7 +91,7 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
         data={generateProjectPageGraph({
           id: projectData.id,
           title: content.title ?? "",
-          description: content.description ?? content.short ?? "",
+          description: caseStudy?.problem.es || content.description || "",
           techStack: projectData.techStack,
           githubUrl: projectData.githubUrl,
           demoUrl: projectData.demoUrl,

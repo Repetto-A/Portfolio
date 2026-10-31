@@ -121,7 +121,7 @@ function ProjectPressList({
                   {link.source}
                 </span>
                 <span className="block truncate text-xs text-muted-foreground">
-                  {link.title.replace(/\u2014/g, ",")}
+                  {link.title.replace(/[\u2014\u2013]/g, "-")}
                 </span>
               </span>
               <span className="inline-flex shrink-0 items-center gap-1 text-xs text-muted-foreground">
@@ -150,12 +150,19 @@ export function ProjectPageContent({ project }: { project: ProjectPageData }) {
   const categoryLabel =
     getTranslation(translations, `projects.categories.${project.category}`) || project.category
   const caseStudy = project.caseStudy
+  // Grid cards keep locales.short/features and award blurbs. Case study pages
+  // only render caseStudy fields so unconfirmed figures do not leak.
+  const listingCopy = !caseStudy
   const award = getAwardForProject(project.id)
   const pressLinks = award?.press?.enabled && award.press.links.length > 0 ? award.press.links : []
   const problem = caseStudy ? localize(caseStudy.problem as LocalizedString, locale) : ""
   const approach = caseStudy ? localize(caseStudy.approach as LocalizedString, locale) : ""
   const result = caseStudy ? localize(caseStudy.result as LocalizedString, locale) : ""
   const facts = caseStudy?.facts ?? []
+  const features = listingCopy ? projectContent.features || [] : []
+  const hasTimeline = Array.isArray(project.timeline) && project.timeline.length > 0
+  const hasDetailColumn =
+    features.length > 0 || (listingCopy && Boolean(award)) || hasTimeline || pressLinks.length > 0
   const galleryLabel = getTranslation(translations, "projects.image") || "Screenshot"
 
   return (
@@ -193,7 +200,7 @@ export function ProjectPageContent({ project }: { project: ProjectPageData }) {
                   <Badge variant="outline" className={statusStyle.color}>
                     {statusStyle.label}
                   </Badge>
-                  {award ? (
+                  {listingCopy && award ? (
                     <Badge variant="outline" className="border-border text-foreground">
                       {award.year}
                     </Badge>
@@ -230,7 +237,7 @@ export function ProjectPageContent({ project }: { project: ProjectPageData }) {
               </div>
             </div>
 
-            {projectContent.short ? (
+            {listingCopy && projectContent.short ? (
               <p className="max-w-3xl text-lg leading-[1.7] text-pretty text-muted-foreground">
                 {projectContent.short}
               </p>
@@ -239,11 +246,13 @@ export function ProjectPageContent({ project }: { project: ProjectPageData }) {
             {facts.length > 0 ? (
               <dl className="grid gap-5 border-t border-border pt-6 sm:grid-cols-3">
                 {facts.map((fact) => (
-                  <div key={`${fact.value}-${fact.label.en}`}>
+                  <div key={fact.label.en}>
                     <dt className="sprint-kicker text-[var(--sprint-accent)]">
                       {localize(fact.label as LocalizedString, locale)}
                     </dt>
-                    <dd className="mt-2 text-sm leading-relaxed text-foreground">{fact.value}</dd>
+                    <dd className="mt-2 text-sm leading-relaxed text-foreground">
+                      {localize(fact.value as LocalizedString, locale)}
+                    </dd>
                   </div>
                 ))}
               </dl>
@@ -282,66 +291,70 @@ export function ProjectPageContent({ project }: { project: ProjectPageData }) {
             className="mb-12 mt-12"
           />
 
-          <div className="grid gap-8 lg:grid-cols-3">
-            <div className="space-y-8 lg:col-span-2">
-              {(projectContent.features || []).length > 0 ? (
-                <section aria-labelledby="project-features">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle>
-                        <h2 id="project-features" className="text-base font-semibold">
-                          {getTranslation(translations, "projects.caseStudy.features")}
-                        </h2>
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="space-y-3">
-                        {(projectContent.features || []).map((feature) => (
-                          <li key={feature} className="flex items-start space-x-3">
-                            <span
-                              className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-primary"
-                              aria-hidden
-                            />
-                            <span className="text-muted-foreground">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
-                </section>
-              ) : null}
+          <div
+            className={hasDetailColumn ? "grid gap-8 lg:grid-cols-3" : "grid gap-8 sm:grid-cols-2"}
+          >
+            {hasDetailColumn ? (
+              <div className="space-y-8 lg:col-span-2">
+                {features.length > 0 ? (
+                  <section aria-labelledby="project-features">
+                    <Card>
+                      <CardHeader>
+                        <CardTitle>
+                          <h2 id="project-features" className="text-base font-semibold">
+                            {getTranslation(translations, "projects.caseStudy.features")}
+                          </h2>
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <ul className="space-y-3">
+                          {features.map((feature) => (
+                            <li key={feature} className="flex items-start space-x-3">
+                              <span
+                                className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-primary"
+                                aria-hidden
+                              />
+                              <span className="text-muted-foreground">{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </CardContent>
+                    </Card>
+                  </section>
+                ) : null}
 
-              {award ? (
-                <section aria-labelledby="project-recognition">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle>
-                        <h2 id="project-recognition" className="text-base font-semibold">
-                          {getTranslation(translations, "projects.caseStudy.recognition")}
-                        </h2>
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-2 text-sm leading-relaxed text-muted-foreground">
-                      <p className="font-medium text-foreground">
-                        {award.event}
-                        {award.year ? ` (${award.year})` : ""}
-                      </p>
-                      <p>{localize(award.shortSummary, locale)}</p>
-                    </CardContent>
-                  </Card>
-                </section>
-              ) : null}
+                {listingCopy && award ? (
+                  <section aria-labelledby="project-recognition">
+                    <Card>
+                      <CardHeader>
+                        <CardTitle>
+                          <h2 id="project-recognition" className="text-base font-semibold">
+                            {getTranslation(translations, "projects.caseStudy.recognition")}
+                          </h2>
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent className="space-y-2 text-sm leading-relaxed text-muted-foreground">
+                        <p className="font-medium text-foreground">
+                          {award.event}
+                          {award.year ? ` (${award.year})` : ""}
+                        </p>
+                        <p>{localize(award.shortSummary, locale)}</p>
+                      </CardContent>
+                    </Card>
+                  </section>
+                ) : null}
 
-              {Array.isArray(project.timeline) && project.timeline.length > 0 ? (
-                <ProjectTimeline timeline={project.timeline} />
-              ) : null}
+                {hasTimeline && project.timeline ? (
+                  <ProjectTimeline timeline={project.timeline} />
+                ) : null}
 
-              <ProjectPressList
-                links={pressLinks}
-                heading={getTranslation(translations, "projects.caseStudy.press")}
-                openLabel={getTranslation(translations, "projects.caseStudy.pressOpen")}
-              />
-            </div>
+                <ProjectPressList
+                  links={pressLinks}
+                  heading={getTranslation(translations, "projects.caseStudy.press")}
+                  openLabel={getTranslation(translations, "projects.caseStudy.pressOpen")}
+                />
+              </div>
+            ) : null}
 
             <aside className="space-y-6">
               {project.techStack.length > 0 ? (
