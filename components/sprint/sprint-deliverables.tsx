@@ -40,20 +40,17 @@ const OUTCOMES: { icon: LucideIcon; title: string; body: string }[] = [
   },
   {
     icon: Sparkles,
-    title: "Energía interna",
-    body: "Un equipo que comprobó que puede construir con IA, no quedarse en la teoría.",
+    title: "Equipo que ya construyó",
+    body: "Gente que comprobó que puede construir con IA, no quedarse en la teoría.",
   },
 ]
 
 export function SprintDeliverables() {
   return (
     <SprintSection id={SPRINT_ANCHORS.deliverables} label={SPRINT_SECTION_LABELS.deliverables} tint>
-      <SprintHeading>Qué queda en tu empresa cuando termina el sprint</SprintHeading>
+      <SprintHeading>Qué se queda en tu empresa cuando me voy</SprintHeading>
       <SprintProse lead>
-        <p>
-          Todo lo construido queda en tu infraestructura y con tu equipo. Yo me voy, el conocimiento
-          no.
-        </p>
+        <p>Prototipos, criterio y reglas. En tu infraestructura, con tu equipo.</p>
       </SprintProse>
 
       <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

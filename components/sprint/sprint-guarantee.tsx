@@ -4,7 +4,7 @@ import { SPRINT_ANCHORS, SPRINT_SECTION_LABELS } from "@/lib/sprint/constants"
 
 export function SprintGuarantee() {
   return (
-    <SprintSection id={SPRINT_ANCHORS.guarantee} label={SPRINT_SECTION_LABELS.guarantee} tint>
+    <SprintSection id={SPRINT_ANCHORS.guarantee} label={SPRINT_SECTION_LABELS.guarantee}>
       <div className="rounded-xl border-2 border-[var(--sprint-accent)] bg-background p-6 sm:p-10">
         <SprintHeading>Te vas con un prototipo funcionando. Garantizado.</SprintHeading>
         <SprintProse>

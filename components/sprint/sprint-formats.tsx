@@ -127,13 +127,12 @@ export function SprintFormats() {
       id={SPRINT_ANCHORS.formats}
       label={SPRINT_SECTION_LABELS.formats}
       spacing="compact"
-      tint
     >
-      <SprintHeading>Cómo se compara cada formato</SprintHeading>
+      <SprintHeading>El sprint completo es el formato. Hay puntos de entrada.</SprintHeading>
       <SprintProse lead>
         <p>
-          El corazón de la propuesta es el sprint completo. Los otros formatos son puntos de entrada
-          o de continuidad.
+          Si todavía no estás para 30 días, arrancamos por un briefing o una capacitación. Si ya
+          hiciste el sprint, sigue el acompañamiento de implementación.
         </p>
       </SprintProse>
 

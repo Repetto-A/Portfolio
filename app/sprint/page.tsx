@@ -45,16 +45,16 @@ export default function SprintPage() {
       <div className="border-t border-border">
         <SprintProblem />
         <SprintPromise />
+        <SprintAudience />
         <SprintHowItWorks />
         <SprintDeliverables />
-        <SprintGovernance />
-        <SprintAudience />
         <SprintFormats />
         {/* Precios ocultos para la charla del 28/10. Reactivar con SHOW_SPRINT_PRICING. */}
         {SHOW_SPRINT_PRICING ? <SprintPricing /> : null}
-        <SprintGuarantee />
+        <SprintGovernance />
         <SprintAbout />
         <SprintPress />
+        <SprintGuarantee />
         <SprintFaq />
         <SprintCtaFinal />
       </div>

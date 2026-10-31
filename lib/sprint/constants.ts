@@ -11,7 +11,7 @@ export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURICo
  * Precios públicos en /sprint.
  *
  * `false` para la charla del 28/10: el QR no debe mostrar montos.
- * Volver a `true` para reactivar la sección 08 / Inversión (el componente
+ * Volver a `true` para reactivar la sección de Inversión (el componente
  * `SprintPricing` no se borra).
  */
 export const SHOW_SPRINT_PRICING = false
@@ -28,15 +28,15 @@ export const SHOW_SPRINT_PORTAL = false
 export const SPRINT_ANCHORS = {
   problem: "problema",
   promise: "promesa",
+  audience: "para-quien",
   howItWorks: "como-funciona",
   deliverables: "entregables",
-  governance: "gobernanza",
-  audience: "para-quien",
   formats: "formatos",
   pricing: "inversion",
-  guarantee: "garantia",
+  governance: "gobernanza",
   about: "sobre-mi",
   press: "prensa",
+  guarantee: "garantia",
   faq: "faq",
   cta: "agendar",
 } as const
@@ -45,23 +45,28 @@ function sectionNum(n: number) {
   return String(n).padStart(2, "0")
 }
 
-/** Si los precios están ocultos, 08+ se recorre para no dejar un hueco. */
-const afterFormats = SHOW_SPRINT_PRICING ? 8 : 7
+/**
+ * Orden de lectura para un ejecutivo: problema → oferta → para quién →
+ * cómo → qué queda → formatos → (inversión) → gobernanza → quién →
+ * prensa → garantía → FAQ → CTA.
+ * Si los precios están ocultos, se recorre el índice para no dejar un hueco.
+ */
+const pricingOffset = SHOW_SPRINT_PRICING ? 1 : 0
 
 export const SPRINT_SECTION_LABELS = {
   problem: "01 / El problema",
   promise: "02 / La propuesta",
-  howItWorks: "03 / Cómo funciona",
-  deliverables: "04 / Entregables",
-  governance: "05 / Gobernanza",
-  audience: "06 / Para quién",
-  formats: "07 / Formatos",
-  pricing: "08 / Inversión",
-  guarantee: `${sectionNum(afterFormats + 1)} / Garantía`,
-  about: `${sectionNum(afterFormats + 2)} / Quién está detrás`,
-  press: `${sectionNum(afterFormats + 3)} / Prensa y apariciones`,
-  faq: `${sectionNum(afterFormats + 4)} / Preguntas frecuentes`,
-  cta: `${sectionNum(afterFormats + 5)} / Siguiente paso`,
+  audience: "03 / Para quién",
+  howItWorks: "04 / Cómo funciona",
+  deliverables: "05 / Qué queda",
+  formats: "06 / Formatos",
+  pricing: "07 / Inversión",
+  governance: `${sectionNum(7 + pricingOffset)} / Gobernanza`,
+  about: `${sectionNum(8 + pricingOffset)} / Quién está detrás`,
+  press: `${sectionNum(9 + pricingOffset)} / Prensa y apariciones`,
+  guarantee: `${sectionNum(10 + pricingOffset)} / Garantía`,
+  faq: `${sectionNum(11 + pricingOffset)} / Preguntas frecuentes`,
+  cta: `${sectionNum(12 + pricingOffset)} / Siguiente paso`,
 } as const
 
 export type SprintAnchor = (typeof SPRINT_ANCHORS)[keyof typeof SPRINT_ANCHORS]

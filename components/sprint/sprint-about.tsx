@@ -44,12 +44,12 @@ const FACTS = [
 export function SprintAbout() {
   return (
     <SprintSection id={SPRINT_ANCHORS.about} label={SPRINT_SECTION_LABELS.about}>
-      <SprintHeading>Alejandro Repetto</SprintHeading>
+      <SprintHeading>Lo facilito yo. Lo construye tu equipo.</SprintHeading>
       <SprintProse lead>
         <p>
-          Software Engineer enfocado en IA. Enseño IA, la bajo a tierra en empresas y la pongo a
-          prueba con builders en hackathons. Vengo del deporte competitivo y trabajo igual: con
-          deadline y bajo presión.
+          Alejandro Repetto. Software Engineer enfocado en IA: la enseño, la bajo a tierra en
+          empresas y la pongo a prueba en hackathons. Vengo del deporte competitivo y trabajo igual:
+          con deadline y bajo presión.
         </p>
       </SprintProse>
 

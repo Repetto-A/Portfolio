@@ -1,22 +1,36 @@
 import { chromium } from "@playwright/test"
 import { mkdir } from "node:fs/promises"
 
-const OUT = process.env.SHOT_DIR || "/workspace/docs/screenshots/sprint-premium/r1"
+const OUT = process.env.SHOT_DIR || "/workspace/docs/screenshots/sprint-premium/r2"
 const PREFIX = process.env.SHOT_PREFIX || "before"
 const THEME = process.env.SHOT_THEME || "dark"
+const MOBILE_WIDTH = Number(process.env.SHOT_MOBILE_WIDTH || 390)
+const EXTRA = (process.env.SHOT_SECTIONS || "")
+  .split(",")
+  .map((s) => s.trim())
+  .filter(Boolean)
 
 await mkdir(OUT, { recursive: true })
 
-const shots = [
-  { name: `${PREFIX}-desktop`, width: 1440, height: 900 },
-  { name: `${PREFIX}-mobile`, width: 375, height: 812 },
+const viewports = [
+  { name: "desktop", width: 1440, height: 900 },
+  { name: "mobile", width: MOBILE_WIDTH, height: 844 },
 ]
 
 const browser = await chromium.launch({ args: ["--font-render-hinting=none"] })
 
-for (const shot of shots) {
+async function applyTheme(page, theme) {
+  await page.evaluate((t) => {
+    const root = document.documentElement
+    root.classList.remove("light", "dark")
+    root.classList.add(t)
+    root.style.colorScheme = t
+  }, theme)
+}
+
+async function openSprint(width, height) {
   const context = await browser.newContext({
-    viewport: { width: shot.width, height: shot.height },
+    viewport: { width, height },
     deviceScaleFactor: 2,
     colorScheme: THEME,
   })
@@ -27,18 +41,33 @@ for (const shot of shots) {
     } catch {}
   }, THEME)
   await page.goto("http://localhost:3000/sprint", { waitUntil: "networkidle", timeout: 60000 })
-  await page.evaluate((theme) => {
-    const root = document.documentElement
-    root.classList.remove("light", "dark")
-    root.classList.add(theme)
-    root.style.colorScheme = theme
-  }, THEME)
+  await applyTheme(page, THEME)
+  await page.locator("h1").first().waitFor({ state: "visible", timeout: 30000 })
   await page.waitForTimeout(900)
+  return { context, page }
+}
+
+for (const shot of viewports) {
+  const { context, page } = await openSprint(shot.width, shot.height)
   await page.screenshot({
-    path: `${OUT}/${shot.name}.png`,
+    path: `${OUT}/${PREFIX}-${shot.name}.png`,
     fullPage: false,
   })
-  console.log("saved", `${OUT}/${shot.name}.png`)
+  console.log("saved", `${OUT}/${PREFIX}-${shot.name}.png`)
+
+  for (const section of EXTRA) {
+    await page.evaluate((id) => {
+      const el = document.getElementById(id)
+      if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 12 })
+    }, section)
+    await page.waitForTimeout(400)
+    await page.screenshot({
+      path: `${OUT}/${PREFIX}-${shot.name}-${section}.png`,
+      fullPage: false,
+    })
+    console.log("saved", `${OUT}/${PREFIX}-${shot.name}-${section}.png`)
+  }
+
   await context.close()
 }
 

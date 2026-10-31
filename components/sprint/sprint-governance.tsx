@@ -47,16 +47,12 @@ const GOVERNANCE_DELIVERABLES = [
 export function SprintGovernance() {
   return (
     <SprintSection id={SPRINT_ANCHORS.governance} label={SPRINT_SECTION_LABELS.governance}>
-      <SprintHeading>Tu equipo ya usa IA. La pregunta es si lo hace de forma segura.</SprintHeading>
+      <SprintHeading>Tu equipo ya usa IA. La pregunta es con qué reglas.</SprintHeading>
       <SprintProse lead>
         <p>
-          El objetivo no es que cada persona use cualquier herramienta de IA como pueda. El objetivo
-          es que la empresa tenga criterios claros sobre qué se puede usar, con qué datos, en qué
-          casos, bajo qué permisos y con qué trazabilidad.
-        </p>
-        <p>
-          El uso informal ya pasa en casi todas las empresas, aunque no siempre se vea. La solución
-          no es frenar la adopción: es dejar de improvisar y poner reglas que todos entienden.
+          Criterios claros sobre qué se puede usar, con qué datos, en qué casos, bajo qué permisos y
+          con qué trazabilidad. El uso informal ya pasa. La solución no es frenarlo: es dejar de
+          improvisar.
         </p>
       </SprintProse>
 
@@ -123,12 +119,11 @@ export function SprintGovernance() {
         <div className="flex flex-col gap-3 border-t border-border bg-card px-6 py-5 sm:px-8">
           <p className="sprint-kicker text-[var(--sprint-accent)]">Para equipos técnicos</p>
           <p className="text-sm leading-relaxed text-muted-foreground">
-            Cuando hay perfiles de ingeniería, el sprint puede derivar en arquitectura interna: IA
-            local cuando tiene sentido, conectores MCP para exponer funciones entre áreas y un
-            roadmap que define qué prototipo va a producción, cuál necesita más pruebas y cuál se
-            frena. Sobre esa base configuro permisos granulares, registros de actividad, gateways,
-            feature flags y medidores de uso y costo. Cuando aplica, la memoria de los asistentes
-            corre sobre knowledge graphs que reducen hasta ~120× el consumo de tokens.
+            Si hay perfiles de ingeniería, el sprint puede bajar a arquitectura: IA local cuando
+            tiene sentido, conectores MCP entre áreas y un roadmap de qué prototipo va a producción,
+            cuál necesita más pruebas y cuál se frena. Permisos, registros, gateways, feature flags
+            y medidores de uso y costo. Cuando aplica, la memoria de los asistentes corre sobre
+            knowledge graphs que reducen hasta ~120× el consumo de tokens.
           </p>
         </div>
       </div>

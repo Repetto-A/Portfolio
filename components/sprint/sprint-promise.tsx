@@ -8,23 +8,22 @@ const BLOCKS = [
   },
   {
     title: "Laboratorio + hackathon interna",
-    body: "Tu gente construye con mi mentoría, con deadline y en equipo, como en una hackathon de verdad. Lo que se arma queda en tu empresa.",
+    body: "Tu gente construye con mi mentoría, con deadline y en equipo. Lo que se arma queda en tu empresa.",
   },
   {
     title: "Gobernanza + roadmap",
-    body: "Reglas claras de qué usar, con qué datos y a qué costo, y un plan de 90 días para llevar los prototipos a producción. Dirección deja de enterarse tarde.",
+    body: "Reglas claras de qué usar, con qué datos y a qué costo, y un plan de 90 días para llevar los prototipos a producción.",
   },
 ]
 
 export function SprintPromise() {
   return (
     <SprintSection id={SPRINT_ANCHORS.promise} label={SPRINT_SECTION_LABELS.promise} tint>
-      <SprintHeading>Menos charlas de innovación. Más equipos construyendo cosas.</SprintHeading>
+      <SprintHeading>Un sprint de 30 días. Tu equipo termina construyendo.</SprintHeading>
       <SprintProse>
         <p>
-          El AI Execution Sprint junta en una sola secuencia de 30 días tres cosas que normalmente
-          contratás por separado: el curso, la consultora y el comité de IA. La diferencia es que
-          acá tu equipo termina construyendo.
+          En una sola secuencia: diagnóstico, capacitación aplicada y hackathon interna. Al final
+          quedan prototipos funcionando, un equipo que sabe usarlos y reglas para escalar.
         </p>
       </SprintProse>
 
@@ -46,11 +45,6 @@ export function SprintPromise() {
           </li>
         ))}
       </ul>
-
-      <p className="sprint-index mt-12 text-sm tracking-wide text-[var(--sprint-accent)]">
-        &gt; Resultado: prototipos funcionando, un equipo que sabe usarlos y reglas claras para
-        escalar.
-      </p>
     </SprintSection>
   )
 }

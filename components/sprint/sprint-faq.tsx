@@ -16,7 +16,7 @@ const FAQS: { q: string; a: ReactNode }[] = [
   },
   {
     q: "¿Necesitamos saber programar?",
-    a: "No hace falta. Me adapto al nivel del equipo y trabajamos con no-code, low-code y prompting. Donde más rinde es con equipos interdisciplinarios con ganas de probar cosas al borde de lo que creen posible. Y si hay perfiles técnicos, mejor todavía: ahí le saco el máximo jugo, porque es mi terreno.",
+    a: "No hace falta. Me adapto al nivel del equipo y trabajamos con no-code, low-code y prompting. Rinde más con equipos mixtos con ganas de probar. Si hay perfiles técnicos, mejor: es mi terreno.",
   },
   {
     q: "¿Qué tipo de prototipos pueden salir?",
@@ -28,7 +28,7 @@ const FAQS: { q: string; a: ReactNode }[] = [
   },
   {
     q: "¿Cómo manejan privacidad, datos sensibles y control de uso?",
-    a: "El sprint incluye un marco de gobernanza: políticas de uso, criterios de privacidad, permisos por rol y validación humana de los outputs. También miro costos: qué conviene pagar y cómo medir el gasto real. Si hay equipo técnico, puedo ayudar a configurar trazas o medidores de uso para que dirección vea qué pasa y para detectar usos que no corresponden, como gastar tokens del trabajo en cosas personales. La decisión de usar modelos locales, cloud o no usar IA en un caso se toma según sensibilidad de datos, costo y performance, no como moda.",
+    a: "El sprint incluye un marco de gobernanza: políticas de uso, criterios de privacidad, permisos por rol y validación humana de los outputs. También miro costos: qué conviene pagar y cómo medir el gasto real. Si hay equipo técnico, puedo ayudar a configurar trazas o medidores de uso para que dirección vea qué pasa. Local, cloud o no usar IA se decide por sensibilidad de datos, costo y performance, no por moda.",
   },
   {
     q: "¿Qué áreas de la empresa pueden participar?",
@@ -68,7 +68,7 @@ const FAQS: { q: string; a: ReactNode }[] = [
 export function SprintFaq() {
   return (
     <SprintSection id={SPRINT_ANCHORS.faq} label={SPRINT_SECTION_LABELS.faq} spacing="compact" tint>
-      <SprintHeading>Lo que suelen preguntar antes de agendar</SprintHeading>
+      <SprintHeading>Lo que pregunta dirección antes de agendar</SprintHeading>
 
       <Accordion type="single" collapsible className="mt-10">
         {FAQS.map((faq) => (

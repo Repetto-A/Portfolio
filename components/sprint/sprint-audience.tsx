@@ -35,12 +35,13 @@ const EXIT_SIGNALS = [
 export function SprintAudience() {
   return (
     <SprintSection id={SPRINT_ANCHORS.audience} label={SPRINT_SECTION_LABELS.audience}>
-      <SprintHeading>Hecho para equipos que quieren construir, no solo mirar.</SprintHeading>
+      <SprintHeading>
+        Si tu empresa ya habló de IA y ahora quiere ejecutar, esto aplica.
+      </SprintHeading>
       <SprintProse lead>
         <p>
-          Funciona mejor en empresas con procesos que se repiten y un equipo con ganas de meter
-          mano. Eso sí: no es algo que delegás y seguís con lo de siempre. El sprint pide tiempo del
-          equipo; si eso no está, no vas a sacar el provecho que deberías. Mejor hablarlo antes de
+          El sprint pide tiempo del equipo y un sponsor interno con poder de decisión. Si eso no
+          está, no vas a sacar el provecho que deberías. Mejor hablarlo en el diagnóstico, antes de
           arrancar.
         </p>
       </SprintProse>
@@ -55,7 +56,7 @@ export function SprintAudience() {
           {CRITERIA.map((item, i) => (
             <li
               key={item.label}
-              className="grid gap-3 border-b border-border py-5 sm:grid-cols-[5.5rem_1fr] sm:gap-6 sm:items-start"
+              className="grid gap-3 border-b border-border py-5 sm:grid-cols-[5.5rem_1fr] sm:items-start sm:gap-6"
             >
               <div className="flex flex-col gap-1">
                 <span className="sprint-index text-[11px] leading-none text-muted-foreground select-none">

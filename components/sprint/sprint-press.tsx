@@ -46,7 +46,7 @@ export function SprintPress() {
     >
       <SprintHeading>Prensa y apariciones</SprintHeading>
       <SprintProse lead>
-        <p>Notas, entrevistas y videos sobre proyectos, hackatones y trayectoria pública.</p>
+        <p>Notas, entrevistas y videos sobre proyectos, hackathons y trayectoria pública.</p>
       </SprintProse>
 
       <div

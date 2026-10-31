@@ -89,19 +89,17 @@ export function SprintHowItWorks() {
       <SprintHeading>Cinco etapas. Un objetivo: que quede algo construido.</SprintHeading>
       <SprintProse lead>
         <p>
-          El sprint sigue una secuencia fija de 30 días. En cada etapa tu equipo incorpora nuevas
-          herramientas y conocimientos.
+          Secuencia fija de 30 días. En cada etapa el equipo aprende y lo aplica sobre sus procesos.
         </p>
       </SprintProse>
 
       <SprintTimeline steps={STEPS} />
 
       <div className="mt-16">
-        <h3 className="sprint-kicker text-muted-foreground">Temas que me suelen pedir</h3>
+        <h3 className="sprint-kicker text-muted-foreground">Temas que suelen pedir</h3>
 
         <p className="sprint-measure mt-5 text-sm leading-relaxed text-muted-foreground">
-          No los vemos todos en cada sprint. Es lo que las empresas suelen pedirme; en tu caso
-          elegimos lo que le sirve a tu equipo según lo que salga del diagnóstico.
+          No los vemos todos. En tu caso elegimos lo que le sirve al equipo, según el diagnóstico.
         </p>
 
         <SprintCurriculum modules={CURRICULUM} />

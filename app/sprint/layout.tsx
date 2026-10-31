@@ -11,9 +11,9 @@ const newsreader = Newsreader({
 })
 
 export const metadata: Metadata = {
-  title: "AI Execution Sprint: tu equipo construye prototipos de IA en 30 días | Alejandro Repetto",
+  title: "AI Execution Sprint: de hablar de IA a ejecutar con IA, en 30 días | Alejandro Repetto",
   description:
-    "Sprint de 30 días para empresas: diagnóstico, capacitación aplicada y hackathon interna. Termina con prototipos funcionales construidos por tu propio equipo y un roadmap de 90 días.",
+    "Sprint de 30 días para dirección y equipos: diagnóstico, capacitación aplicada y hackathon interna. Tu equipo termina con prototipos, reglas de uso y un roadmap de 90 días.",
   alternates: {
     canonical: "https://www.repetto-a.com/sprint",
   },
@@ -21,9 +21,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_AR",
     url: "https://www.repetto-a.com/sprint",
-    title: "AI Execution Sprint: prototipos de IA construidos por tu equipo en 30 días",
+    title: "AI Execution Sprint: de hablar de IA a ejecutar con IA, en 30 días",
     description:
-      "Diagnóstico, capacitación aplicada y hackathon interna. Tu equipo termina con prototipos funcionando sobre sus propios procesos.",
+      "Diagnóstico, capacitación aplicada y hackathon interna. Tu equipo termina con prototipos, gobernanza y un roadmap de 90 días.",
     siteName: "Alejandro Repetto",
     images: [
       {
@@ -36,9 +36,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Execution Sprint: prototipos de IA construidos por tu equipo en 30 días",
+    title: "AI Execution Sprint: de hablar de IA a ejecutar con IA, en 30 días",
     description:
-      "Diagnóstico, capacitación aplicada y hackathon interna. Tu equipo termina con prototipos funcionando sobre sus propios procesos.",
+      "Diagnóstico, capacitación aplicada y hackathon interna. Tu equipo termina con prototipos, gobernanza y un roadmap de 90 días.",
     images: ["https://www.repetto-a.com/sprint/og.jpg"],
   },
   robots: { index: true, follow: true },
