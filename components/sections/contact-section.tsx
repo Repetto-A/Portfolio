@@ -1,7 +1,5 @@
 "use client"
 
-import React from "react"
-
 import { useState, useEffect } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -62,7 +60,7 @@ export function ContactSection() {
     handleSubmit,
     reset,
     watch,
-    formState: { isValid, errors },
+    formState: { errors },
   } = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
     mode: "onChange",
@@ -122,8 +120,6 @@ export function ContactSection() {
     }
   }
 
-  const isFormValid = isValid
-
   return (
     <Section id="contact" variant="muted" spacing="relaxed">
       <Container maxWidth="7xl">
@@ -168,7 +164,7 @@ export function ContactSection() {
               </div>
               <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
                 {getTranslation(translations, "contact.companies")}{" "}
-                <Link href="/sprint" className="text-foreground underline-offset-4 hover:underline">
+                <Link href="/sprint" className="text-foreground underline underline-offset-4">
                   {getTranslation(translations, "contact.companiesCta")}
                 </Link>
               </p>
@@ -179,7 +175,7 @@ export function ContactSection() {
                 rel="noopener noreferrer"
                 className="mb-8 inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-border bg-card px-4 py-2 text-sm font-medium transition-colors hover:bg-accent"
               >
-                <Download className="h-4 w-4" />
+                <Download className="h-4 w-4" aria-hidden />
                 {getTranslation(translations, "hero.cta.resume")}
               </Link>
             </div>
@@ -188,7 +184,7 @@ export function ContactSection() {
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <Mail className="h-5 w-5 text-primary" />
+                  <Mail className="h-5 w-5 text-primary" aria-hidden />
                 </div>
                 <div>
                   <div className="font-medium text-foreground">
@@ -205,7 +201,7 @@ export function ContactSection() {
 
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <Linkedin className="h-5 w-5 text-primary" />
+                  <Linkedin className="h-5 w-5 text-primary" aria-hidden />
                 </div>
                 <div>
                   <div className="font-medium text-foreground">LinkedIn</div>
@@ -222,7 +218,7 @@ export function ContactSection() {
 
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <Github className="h-5 w-5 text-primary" />
+                  <Github className="h-5 w-5 text-primary" aria-hidden />
                 </div>
                 <div>
                   <div className="font-medium text-foreground">GitHub</div>
@@ -239,7 +235,7 @@ export function ContactSection() {
 
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <MapPin className="h-5 w-5 text-primary" />
+                  <MapPin className="h-5 w-5 text-primary" aria-hidden />
                 </div>
                 <div>
                   <div className="font-medium text-foreground">
@@ -251,7 +247,7 @@ export function ContactSection() {
 
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <Clock className="h-5 w-5 text-primary" />
+                  <Clock className="h-5 w-5 text-primary" aria-hidden />
                 </div>
                 <div>
                   <div className="font-medium text-foreground">
@@ -275,7 +271,7 @@ export function ContactSection() {
                     <span className="text-muted-foreground">
                       {getTranslation(translations, "contact.availability.consulting")}
                     </span>
-                    <span className="text-emerald-600 dark:text-emerald-400 font-medium">
+                    <span className="font-medium text-emerald-800 dark:text-emerald-300">
                       {getTranslation(translations, "contact.availability.available")}
                     </span>
                   </div>
@@ -283,7 +279,7 @@ export function ContactSection() {
                     <span className="text-muted-foreground">
                       {getTranslation(translations, "contact.availability.freelance")}
                     </span>
-                    <span className="text-emerald-600 dark:text-emerald-400 font-medium">
+                    <span className="font-medium text-emerald-800 dark:text-emerald-300">
                       {getTranslation(translations, "contact.availability.available")}
                     </span>
                   </div>
@@ -308,7 +304,7 @@ export function ContactSection() {
             <CardContent>
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" noValidate>
                 {/* Honeypot - hidden from humans */}
-                <div style={{ position: "absolute", left: "-9999px" }} aria-hidden="true">
+                <div className="hidden" hidden>
                   <Label htmlFor="honeypot">Leave empty</Label>
                   <Input id="honeypot" {...register("honeypot")} tabIndex={-1} autoComplete="off" />
                 </div>
@@ -320,12 +316,17 @@ export function ContactSection() {
                     </Label>
                     <Input
                       id="name"
+                      autoComplete="name"
+                      aria-invalid={errors.name ? true : undefined}
+                      aria-describedby={errors.name ? "contact-name-error" : undefined}
                       {...register("name")}
                       placeholder={getTranslation(translations, "contact.form.namePlaceholder")}
                     />
-                    {errors.name && (
-                      <p className="text-xs text-destructive">{errors.name.message}</p>
-                    )}
+                    {errors.name ? (
+                      <p id="contact-name-error" className="text-xs text-destructive" role="alert">
+                        {errors.name.message}
+                      </p>
+                    ) : null}
                   </div>
 
                   <div className="space-y-2">
@@ -335,12 +336,19 @@ export function ContactSection() {
                     <Input
                       id="email"
                       type="email"
+                      autoComplete="email"
+                      spellCheck={false}
+                      inputMode="email"
+                      aria-invalid={errors.email ? true : undefined}
+                      aria-describedby={errors.email ? "contact-email-error" : undefined}
                       {...register("email")}
                       placeholder={getTranslation(translations, "contact.form.emailPlaceholder")}
                     />
-                    {errors.email && (
-                      <p className="text-xs text-destructive">{errors.email.message}</p>
-                    )}
+                    {errors.email ? (
+                      <p id="contact-email-error" className="text-xs text-destructive" role="alert">
+                        {errors.email.message}
+                      </p>
+                    ) : null}
                   </div>
                 </div>
 
@@ -350,12 +358,17 @@ export function ContactSection() {
                   </Label>
                   <Input
                     id="subject"
+                    autoComplete="off"
+                    aria-invalid={errors.subject ? true : undefined}
+                    aria-describedby={errors.subject ? "contact-subject-error" : undefined}
                     {...register("subject")}
                     placeholder={getTranslation(translations, "contact.form.subjectPlaceholder")}
                   />
-                  {errors.subject && (
-                    <p className="text-xs text-destructive">{errors.subject.message}</p>
-                  )}
+                  {errors.subject ? (
+                    <p id="contact-subject-error" className="text-xs text-destructive" role="alert">
+                      {errors.subject.message}
+                    </p>
+                  ) : null}
                 </div>
 
                 <div className="space-y-2">
@@ -364,17 +377,26 @@ export function ContactSection() {
                   </Label>
                   <Textarea
                     id="message"
+                    autoComplete="off"
+                    aria-invalid={errors.message ? true : undefined}
+                    aria-describedby={
+                      errors.message
+                        ? "contact-message-error contact-message-count"
+                        : "contact-message-count"
+                    }
                     {...register("message")}
                     rows={5}
                     placeholder={getTranslation(translations, "contact.form.messagePlaceholder")}
                   />
-                  <p className="text-xs text-muted-foreground">
+                  <p id="contact-message-count" className="text-xs text-muted-foreground">
                     {messageValue.length}/5000{" "}
                     {getTranslation(translations, "contact.form.characters")}
                   </p>
-                  {errors.message && (
-                    <p className="text-xs text-destructive">{errors.message.message}</p>
-                  )}
+                  {errors.message ? (
+                    <p id="contact-message-error" className="text-xs text-destructive" role="alert">
+                      {errors.message.message}
+                    </p>
+                  ) : null}
                 </div>
 
                 {submitStatus === "success" && (
@@ -382,7 +404,7 @@ export function ContactSection() {
                     className="p-3 bg-green-50 dark:bg-green-950/30 text-green-700 dark:text-green-400 rounded-md text-sm flex items-center space-x-2"
                     aria-live="polite"
                   >
-                    <CheckCircle className="h-4 w-4" />
+                    <CheckCircle className="h-4 w-4" aria-hidden />
                     <span>{getTranslation(translations, "contact.successMessage")}</span>
                   </div>
                 )}
@@ -392,21 +414,21 @@ export function ContactSection() {
                     className="p-3 bg-red-50 dark:bg-red-950/30 text-red-700 dark:text-red-400 rounded-md text-sm flex items-center space-x-2"
                     aria-live="polite"
                   >
-                    <AlertCircle className="h-4 w-4" />
+                    <AlertCircle className="h-4 w-4" aria-hidden />
                     <span>
                       {serverError || getTranslation(translations, "contact.errorMessage")}
                     </span>
                   </div>
                 )}
 
-                <Button type="submit" className="w-full" disabled={!isFormValid || isSubmitting}>
+                <Button type="submit" className="w-full" disabled={isSubmitting}>
                   {isSubmitting ? (
                     <span className="animate-pulse">
                       {getTranslation(translations, "contact.form.sending")}
                     </span>
                   ) : (
                     <>
-                      <Send className="mr-2 h-4 w-4" />
+                      <Send className="mr-2 h-4 w-4" aria-hidden />
                       {getTranslation(translations, "contact.form.send")}
                     </>
                   )}

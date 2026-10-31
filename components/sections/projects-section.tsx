@@ -143,7 +143,7 @@ export function ProjectsSection() {
                 <CardHeader className="space-y-3 pb-3">
                   <div className="flex items-start justify-between gap-2">
                     <div className="flex items-center gap-2">
-                      <IconComponent className="h-4 w-4 text-primary flex-shrink-0" />
+                      <IconComponent className="h-4 w-4 shrink-0 text-primary" aria-hidden />
                       <Badge variant="outline" className={statusStyle.color}>
                         {statusStyle.label}
                       </Badge>
@@ -189,7 +189,7 @@ export function ProjectsSection() {
                           onClick={(e) => e.stopPropagation()}
                           className="inline-flex size-11 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
                         >
-                          <Github className="h-4 w-4" />
+                          <Github className="h-4 w-4" aria-hidden />
                           <span className="sr-only">GitHub</span>
                         </Link>
                       )}
@@ -201,7 +201,7 @@ export function ProjectsSection() {
                           onClick={(e) => e.stopPropagation()}
                           className="inline-flex size-11 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
                         >
-                          <ExternalLink className="h-4 w-4" />
+                          <ExternalLink className="h-4 w-4" aria-hidden />
                           <span className="sr-only">Demo</span>
                         </Link>
                       )}
@@ -211,16 +211,23 @@ export function ProjectsSection() {
                         className="inline-flex size-11 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
                         aria-label={getTranslation(translations, "projects.viewFullPage")}
                       >
-                        <Eye className="h-4 w-4" />
+                        <Eye className="h-4 w-4" aria-hidden />
                         <span className="sr-only">
                           {getTranslation(translations, "projects.viewFullPage")}
                         </span>
                       </Link>
                     </div>
 
-                    <span className="inline-flex h-7 items-center px-2.5 text-xs text-muted-foreground group-hover:text-foreground">
-                      {getTranslation(translations, "projects.cta.learnMore")} →
-                    </span>
+                    <button
+                      type="button"
+                      className="inline-flex min-h-11 items-center px-2.5 text-xs text-muted-foreground underline-offset-4 hover:text-foreground hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        handleProjectModalOpen(project)
+                      }}
+                    >
+                      {getTranslation(translations, "projects.cta.learnMore")}
+                    </button>
                   </div>
                 </CardContent>
               </Card>
@@ -262,15 +269,15 @@ function getStatusConfig(translations: Translations) {
   return {
     "in-progress": {
       label: getTranslation(translations, "projects.status.in-progress"),
-      color: "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20",
+      color: "bg-amber-500/10 text-amber-800 dark:text-amber-300 border-amber-500/20",
     },
     production: {
       label: getTranslation(translations, "projects.status.production"),
-      color: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20",
+      color: "bg-emerald-500/10 text-emerald-800 dark:text-emerald-300 border-emerald-500/20",
     },
     prototype: {
       label: getTranslation(translations, "projects.status.prototype"),
-      color: "bg-violet-500/10 text-violet-600 dark:text-violet-400 border-violet-500/20",
+      color: "bg-violet-500/10 text-violet-800 dark:text-violet-300 border-violet-500/20",
     },
     "regional-winner-global-nominee": {
       label: getTranslation(translations, "projects.status.regional-winner-global-nominee"),

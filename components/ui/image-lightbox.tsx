@@ -307,7 +307,7 @@ export function ImageLightbox({
         aria-modal="true"
       >
         <DialogTitle className="sr-only">
-          {projectTitle ? `${projectTitle} — Image lightbox` : "Image lightbox"}
+          {projectTitle ? `${projectTitle} · Image lightbox` : "Image lightbox"}
         </DialogTitle>
         <DialogDescription className="sr-only">
           Image {currentIndex + 1}

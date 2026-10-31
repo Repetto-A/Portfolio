@@ -41,23 +41,23 @@ function getStatusConfig(translations: ReturnType<typeof useTranslations>[0]) {
   return {
     "in-progress": {
       label: getTranslation(translations, "projects.status.in-progress"),
-      color: "bg-yellow-500/10 text-yellow-500 border-yellow-500/20",
+      color: "bg-yellow-500/10 text-yellow-800 dark:text-yellow-300 border-yellow-500/20",
     },
     production: {
       label: getTranslation(translations, "projects.status.production"),
-      color: "bg-green-500/10 text-green-500 border-green-500/20",
+      color: "bg-green-500/10 text-green-800 dark:text-green-300 border-green-500/20",
     },
     prototype: {
       label: getTranslation(translations, "projects.status.prototype"),
-      color: "bg-purple-500/10 text-purple-500 border-purple-500/20",
+      color: "bg-purple-500/10 text-purple-800 dark:text-purple-300 border-purple-500/20",
     },
     "winner-local / in-evaluation-global": {
       label: getTranslation(translations, "projects.status.winner-local / in-evaluation-global"),
-      color: "bg-blue-500/10 text-blue-500 border-blue-500/20",
+      color: "bg-blue-500/10 text-blue-800 dark:text-blue-300 border-blue-500/20",
     },
     "regional-winner-global-nominee": {
       label: getTranslation(translations, "projects.status.regional-winner-global-nominee"),
-      color: "bg-blue-500/10 text-blue-500 border-blue-500/20",
+      color: "bg-blue-500/10 text-blue-800 dark:text-blue-300 border-blue-500/20",
     },
   }
 }
@@ -79,12 +79,12 @@ export function ProjectPageContent({ project }: { project: ProjectPageData }) {
   return (
     <>
       <Navigation />
-      <main className="min-h-screen bg-background pt-24 pb-16">
+      <main id="main-content" className="min-h-screen bg-background pt-24 pb-16">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
             <Button variant="ghost" asChild>
               <Link href="/#projects">
-                <ArrowLeft className="mr-2 h-4 w-4" />
+                <ArrowLeft className="mr-2 h-4 w-4" aria-hidden />
                 {getTranslation(translations, "projects.cta.backToProjects")}
               </Link>
             </Button>
@@ -116,7 +116,7 @@ export function ProjectPageContent({ project }: { project: ProjectPageData }) {
                     className="h-auto min-h-[44px] w-full sm:w-auto"
                   >
                     <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                      <Github className="mr-2 h-4 w-4" />
+                      <Github className="mr-2 h-4 w-4" aria-hidden />
                       {getTranslation(translations, "projects.cta.viewCode")}
                     </Link>
                   </Button>
@@ -129,7 +129,7 @@ export function ProjectPageContent({ project }: { project: ProjectPageData }) {
                     className="h-auto min-h-[44px] w-full sm:w-auto"
                   >
                     <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="mr-2 h-4 w-4" />
+                      <ExternalLink className="mr-2 h-4 w-4" aria-hidden />
                       {getTranslation(translations, "projects.cta.liveDemo")}
                     </Link>
                   </Button>
@@ -201,7 +201,7 @@ export function ProjectPageContent({ project }: { project: ProjectPageData }) {
                       className="w-full justify-start bg-transparent"
                     >
                       <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                        <Github className="mr-2 h-4 w-4" />
+                        <Github className="mr-2 h-4 w-4" aria-hidden />
                         {getTranslation(translations, "projects.details.viewSourceCode")}
                       </Link>
                     </Button>
@@ -214,7 +214,7 @@ export function ProjectPageContent({ project }: { project: ProjectPageData }) {
                       className="w-full justify-start bg-transparent"
                     >
                       <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="mr-2 h-4 w-4" />
+                        <ExternalLink className="mr-2 h-4 w-4" aria-hidden />
                         {getTranslation(translations, "projects.cta.liveDemo")}
                       </Link>
                     </Button>

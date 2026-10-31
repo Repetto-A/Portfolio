@@ -18,6 +18,7 @@ export function SprintProofBand() {
           alt="Alejandro Repetto presentando en Platanus Hack 2026"
           fill
           sizes="100vw"
+          quality={72}
           className="sprint-kenburns object-cover object-center"
           priority={false}
         />

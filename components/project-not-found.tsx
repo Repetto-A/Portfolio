@@ -9,7 +9,10 @@ export function ProjectNotFound() {
   const [translations] = useTranslations()
 
   return (
-    <main className="min-h-screen bg-background flex items-center justify-center px-4">
+    <main
+      id="main-content"
+      className="min-h-screen bg-background flex items-center justify-center px-4"
+    >
       <div className="text-center space-y-6">
         <div className="space-y-2">
           <h1 className="sprint-display text-4xl text-foreground">
@@ -22,7 +25,7 @@ export function ProjectNotFound() {
 
         <Button asChild>
           <Link href="/#projects">
-            <ArrowLeft className="mr-2 h-4 w-4" />
+            <ArrowLeft className="mr-2 h-4 w-4" aria-hidden />
             {getTranslation(translations, "projects.cta.backToProjects")}
           </Link>
         </Button>

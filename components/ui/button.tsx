@@ -10,7 +10,7 @@ interface ButtonProps extends ComponentProps<"button"> {
 
 const getButtonClasses = (variant = "default", size = "default") => {
   const baseClasses =
-    "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all duration-150 disabled:pointer-events-none disabled:opacity-50 outline-none focus-visible:ring-2 focus-visible:ring-offset-2 active:scale-[0.98]"
+    "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-[color,background-color,border-color,box-shadow,transform] duration-150 disabled:pointer-events-none disabled:opacity-50 outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-[0.98]"
 
   const variantClasses = {
     default: "bg-primary text-primary-foreground shadow hover:bg-primary/90 hover:shadow-md",

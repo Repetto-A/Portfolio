@@ -9,6 +9,7 @@ function applySprintHtmlTheme(theme: SprintTheme) {
   root.classList.add(theme)
   if (theme === "light") root.classList.add("sprint-light")
   root.style.colorScheme = theme
+  root.lang = "es"
 }
 
 function restoreUserHtmlTheme() {
@@ -20,13 +21,18 @@ function restoreUserHtmlTheme() {
   } catch {
     restore = null
   }
-  if (!restore || restore === "system") {
-    restore = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
-  }
+  if (!restore || restore === "system") restore = "dark"
   if (restore !== "light" && restore !== "dark") restore = "dark"
   root.classList.remove("light", "dark")
   root.classList.add(restore)
   root.style.colorScheme = restore
+  let locale = "en"
+  try {
+    locale = window.localStorage.getItem("preferred-locale") || "en"
+  } catch {
+    locale = "en"
+  }
+  root.lang = locale === "es" ? "es" : "en"
 }
 
 /**

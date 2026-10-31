@@ -59,7 +59,10 @@ export function SprintDeliverables() {
             key={title}
             className={`scroll-reveal-stagger-${(i % 3) + 1} group relative flex flex-col rounded-xl border border-border bg-card p-6 transition-colors hover:border-[var(--sprint-accent)]/50`}
           >
-            <span className="sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 select-none">
+            <span
+              className="sprint-index absolute right-5 top-5 select-none text-xs text-muted-foreground"
+              aria-hidden
+            >
               {String(i + 1).padStart(2, "0")}
             </span>
             <Icon

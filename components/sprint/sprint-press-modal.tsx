@@ -10,6 +10,7 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
+import Image from "next/image"
 import { FileText, Play, ArrowUpRight, ExternalLink } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { SPRINT_PRESS, SPRINT_PRESS_TOTAL, type SprintPressLink } from "@/lib/sprint/proof"
@@ -41,14 +42,15 @@ function SprintYoutubePlayer({ videoId, title }: { videoId: string; title: strin
     <button
       type="button"
       onClick={() => setActive(true)}
-      className="group/yt relative aspect-video w-full overflow-hidden rounded-lg bg-black ring-1 ring-border focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--sprint-accent)]"
+      className="group/yt relative aspect-video w-full overflow-hidden rounded-lg bg-black ring-1 ring-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--sprint-accent)]"
       aria-label={`Reproducir: ${title}`}
     >
-      <img
+      <Image
         src={`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`}
         alt={title}
-        className="h-full w-full object-cover"
-        loading="lazy"
+        fill
+        sizes="(max-width: 768px) 100vw, 42rem"
+        className="object-cover"
       />
       <div className="absolute inset-0 flex items-center justify-center bg-black/30 transition-colors group-hover/yt:bg-black/40">
         <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[var(--sprint-accent)] shadow-lg transition-transform group-hover/yt:scale-110">
@@ -88,7 +90,7 @@ function SprintPressArticleRow({ item }: { item: SprintPressLink }) {
         href={item.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="group flex gap-4 rounded-lg border border-border bg-card/40 p-4 transition-colors hover:border-[var(--sprint-accent)]/35 hover:bg-muted/25"
+        className="group flex gap-4 rounded-lg border border-border bg-card/40 p-4 transition-colors hover:border-[var(--sprint-accent)]/35 hover:bg-muted/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--sprint-accent)]"
       >
         {inner}
       </a>
@@ -148,7 +150,7 @@ function SprintPressVideoRow({ item }: { item: SprintPressLink }) {
         href={item.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="group flex gap-4 rounded-lg border border-border bg-card/40 p-4 transition-colors hover:border-[var(--sprint-accent)]/35 hover:bg-muted/25"
+        className="group flex gap-4 rounded-lg border border-border bg-card/40 p-4 transition-colors hover:border-[var(--sprint-accent)]/35 hover:bg-muted/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--sprint-accent)]"
       >
         {inner}
       </a>
@@ -195,7 +197,7 @@ export function SprintPressModal() {
       <DialogTrigger asChild>
         <button
           type="button"
-          className="group inline-flex items-center gap-1.5 font-mono text-xs tracking-[0.1em] text-muted-foreground uppercase transition-colors hover:text-foreground"
+          className="group inline-flex min-h-11 items-center gap-1.5 font-mono text-xs tracking-[0.1em] text-muted-foreground uppercase transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--sprint-accent)]"
         >
           Ver las {SPRINT_PRESS_TOTAL} notas y entrevistas
           <ArrowUpRight

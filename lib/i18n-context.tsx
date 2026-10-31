@@ -37,6 +37,11 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     }
   }, [])
 
+  useIsomorphicLayoutEffect(() => {
+    const path = window.location.pathname.replace(/\/+$/, "") || "/"
+    document.documentElement.lang = path === "/sprint" ? "es" : locale === "es" ? "es" : "en"
+  }, [locale])
+
   const translations = TRANSLATIONS[locale] ?? en
 
   const setLocale = (newLocale: string) => {

@@ -26,7 +26,10 @@ export function Navigation() {
   const hideBrandForDock = heroTitleRect != null && !(fontsReady && scrollProgress >= 1)
 
   return (
-    <nav className="fixed top-0 z-50 w-full border-b border-border bg-background/80 pt-[env(safe-area-inset-top)] backdrop-blur-md">
+    <nav
+      aria-label="Main"
+      className="fixed top-0 z-50 w-full border-b border-border bg-background/80 pt-[env(safe-area-inset-top)] backdrop-blur-md"
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <Link
@@ -69,15 +72,22 @@ export function Navigation() {
               size="sm"
               onClick={() => setIsOpen(!isOpen)}
               className="size-11 p-0"
+              aria-label="Toggle menu"
+              aria-expanded={isOpen}
+              aria-controls="mobile-nav"
             >
-              {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+              {isOpen ? (
+                <X className="h-4 w-4" aria-hidden />
+              ) : (
+                <Menu className="h-4 w-4" aria-hidden />
+              )}
               <span className="sr-only">Toggle menu</span>
             </Button>
           </div>
         </div>
 
         {isOpen ? (
-          <div className="md:hidden">
+          <div className="md:hidden" id="mobile-nav">
             <div className="space-y-1 border-t border-border bg-background px-2 pt-2 pb-3">
               {navItems.map((item) => (
                 <Link

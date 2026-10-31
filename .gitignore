@@ -25,3 +25,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Lighthouse full JSON dumps (multi-MB). Keep summary.json / scores.json.
+docs/screenshots/sprint-premium/r8/**/lh-*.json

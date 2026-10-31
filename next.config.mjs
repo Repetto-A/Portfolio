@@ -7,6 +7,9 @@ const nextConfig = {
     ignoreBuildErrors: false,
   },
   output: "standalone",
+  experimental: {
+    optimizePackageImports: ["lucide-react"],
+  },
   images: {
     unoptimized: false, // Habilitar la optimización de imágenes
     remotePatterns: [
@@ -15,6 +18,11 @@ const nextConfig = {
         hostname: "localhost",
         port: process.env.PORT || "3000",
         pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "i.ytimg.com",
+        pathname: "/vi/**",
       },
       {
         protocol: "https",

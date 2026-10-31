@@ -1,0 +1,2890 @@
+{
+  "phase": "before",
+  "base": "http://localhost:3001",
+  "startedAt": "2026-10-31T03:54:33.982Z",
+  "lighthouse": {
+    "home:mobile": {
+      "runs": [
+        {
+          "fetchTime": "2026-10-31T03:54:38.733Z",
+          "lighthouseVersion": "13.6.0",
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+          "formFactor": "mobile",
+          "scores": {
+            "performance": 85,
+            "accessibility": 93,
+            "bestPractices": 96,
+            "seo": 100
+          },
+          "metrics": {
+            "lcpMs": 4217.5652,
+            "cls": 0.0005233271484407334,
+            "tbtMs": 100.00000000000045,
+            "fcpMs": 1067.5652,
+            "siMs": 1371.1134832063115,
+            "ttfbMs": 46,
+            "lcpDisplay": "4.2 s",
+            "clsDisplay": "0.001"
+          },
+          "lcpElement": null,
+          "failedA11y": [
+            {
+              "id": "color-contrast",
+              "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+              "items": [
+                "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text…\">",
+                "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text…\">",
+                "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text…\">",
+                "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text…\">",
+                "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text…\">",
+                "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text…\">",
+                "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text…\">",
+                "<span class=\"text-emerald-600 dark:text-emerald-400 font-medium\">"
+              ]
+            },
+            {
+              "id": "label-content-name-mismatch",
+              "title": "Elements with visible text labels do not have matching accessible names.",
+              "items": [
+                "<button class=\"justify-center gap-2 whitespace-nowrap transition-all duration-150 disable…\" aria-label=\"Switch to Spanish\">",
+                "<button class=\"inline-flex items-center gap-2 whitespace-nowrap text-sm font-medium trans…\" aria-label=\"Open press and media for FarmHero\" type=\"button\" aria-haspopup=\"dialog\" aria-expanded=\"false\" aria-controls=\"radix-:Rf57jsqkq:\" data-state=\"closed\" data-slot=\"dialog-trigger\">"
+              ]
+            },
+            {
+              "id": "link-in-text-block",
+              "title": "Links rely on color to be distinguishable.",
+              "items": [
+                "<a class=\"text-foreground underline-offset-4 hover:underline\" href=\"/sprint\">"
+              ]
+            }
+          ],
+          "opportunities": [],
+          "seoFails": [],
+          "bpFails": [
+            {
+              "id": "errors-in-console",
+              "title": "Browser errors were logged to the console"
+            }
+          ]
+        },
+        {
+          "fetchTime": "2026-10-31T03:54:48.577Z",
+          "lighthouseVersion": "13.6.0",
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+          "formFactor": "mobile",
+          "scores": {
+            "performance": 86,
+            "accessibility": 93,
+            "bestPractices": 96,
+            "seo": 100
+          },
+          "metrics": {
+            "lcpMs": 4207.9754,
+            "cls": 0.0005233271484407334,
+            "tbtMs": 0.9999999999995453,
+            "fcpMs": 1057.9754,
+            "siMs": 1194.926036843748,
+            "ttfbMs": 26,
+            "lcpDisplay": "4.2 s",
+            "clsDisplay": "0.001"
+          },
+          "lcpElement": null,
+          "failedA11y": [
+            {
+              "id": "color-contrast",
+              "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+              "items": [
+                "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text…\">",
+                "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text…\">",
+                "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text…\">",
+                "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text…\">",
+                "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text…\">",
+                "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text…\">",
+                "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text…\">",
+                "<span class=\"text-emerald-600 dark:text-emerald-400 font-medium\">"
+              ]
+            },
+            {
+              "id": "label-content-name-mismatch",
+              "title": "Elements with visible text labels do not have matching accessible names.",
+              "items": [
+                "<button class=\"justify-center gap-2 whitespace-nowrap transition-all duration-150 disable…\" aria-label=\"Switch to Spanish\">",
+                "<button class=\"inline-flex items-center gap-2 whitespace-nowrap text-sm font-medium trans…\" aria-label=\"Open press and media for FarmHero\" type=\"button\" aria-haspopup=\"dialog\" aria-expanded=\"false\" aria-controls=\"radix-:Rf57jsqkq:\" data-state=\"closed\" data-slot=\"dialog-trigger\">"
+              ]
+            },
+            {
+              "id": "link-in-text-block",
+              "title": "Links rely on color to be distinguishable.",
+              "items": [
+                "<a class=\"text-foreground underline-offset-4 hover:underline\" href=\"/sprint\">"
+              ]
+            }
+          ],
+          "opportunities": [],
+          "seoFails": [],
+          "bpFails": [
+            {
+              "id": "errors-in-console",
+              "title": "Browser errors were logged to the console"
+            }
+          ]
+        },
+        {
+          "fetchTime": "2026-10-31T03:54:58.661Z",
+          "lighthouseVersion": "13.6.0",
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+          "formFactor": "mobile",
+          "scores": {
+            "performance": 86,
+            "accessibility": 93,
+            "bestPractices": 96,
+            "seo": 100
+          },
+          "metrics": {
+            "lcpMs": 4211.0423,
+            "cls": 0.0005233271484407334,
+            "tbtMs": 15.000000000000455,
+            "fcpMs": 1061.0423,
+            "siMs": 1244.0746309248186,
+            "ttfbMs": 30,
+            "lcpDisplay": "4.2 s",
+            "clsDisplay": "0.001"
+          },
+          "lcpElement": null,
+          "failedA11y": [
+            {
+              "id": "color-contrast",
+              "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+              "items": [
+                "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text…\">",
+                "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text…\">",
+                "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text…\">",
+                "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text…\">",
+                "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text…\">",
+                "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text…\">",
+                "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text…\">",
+                "<span class=\"text-emerald-600 dark:text-emerald-400 font-medium\">"
+              ]
+            },
+            {
+              "id": "label-content-name-mismatch",
+              "title": "Elements with visible text labels do not have matching accessible names.",
+              "items": [
+                "<button class=\"justify-center gap-2 whitespace-nowrap transition-all duration-150 disable…\" aria-label=\"Switch to Spanish\">",
+                "<button class=\"inline-flex items-center gap-2 whitespace-nowrap text-sm font-medium trans…\" aria-label=\"Open press and media for FarmHero\" type=\"button\" aria-haspopup=\"dialog\" aria-expanded=\"false\" aria-controls=\"radix-:Rf57jsqkq:\" data-state=\"closed\" data-slot=\"dialog-trigger\">"
+              ]
+            },
+            {
+              "id": "link-in-text-block",
+              "title": "Links rely on color to be distinguishable.",
+              "items": [
+                "<a class=\"text-foreground underline-offset-4 hover:underline\" href=\"/sprint\">"
+              ]
+            }
+          ],
+          "opportunities": [],
+          "seoFails": [],
+          "bpFails": [
+            {
+              "id": "errors-in-console",
+              "title": "Browser errors were logged to the console"
+            }
+          ]
+        }
+      ],
+      "median": {
+        "performance": 86,
+        "accessibility": 93,
+        "bestPractices": 96,
+        "seo": 100,
+        "lcpMs": 4211.0423,
+        "cls": 0.0005233271484407334,
+        "tbtMs": 15.000000000000455,
+        "fcpMs": 1061.0423
+      }
+    },
+    "home:desktop": {
+      "runs": [
+        {
+          "fetchTime": "2026-10-31T03:55:08.410Z",
+          "lighthouseVersion": "13.6.0",
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+          "formFactor": "desktop",
+          "scores": {
+            "performance": 99,
+            "accessibility": 93,
+            "bestPractices": 96,
+            "seo": 100
+          },
+          "metrics": {
+            "lcpMs": 853.8585,
+            "cls": 0.0003228540219264132,
+            "tbtMs": 0,
+            "fcpMs": 293.8585,
+            "siMs": 399.7667479333155,
+            "ttfbMs": 17,
+            "lcpDisplay": "0.9 s",
+            "clsDisplay": "0"
+          },
+          "lcpElement": null,
+          "failedA11y": [
+            {
+              "id": "color-contrast",
+              "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+              "items": [
+                "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text…\">",
+                "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text…\">",
+                "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text…\">",
+                "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text…\">",
+                "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text…\">",
+                "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text…\">",
+                "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text…\">",
+                "<span class=\"text-emerald-600 dark:text-emerald-400 font-medium\">"
+              ]
+            },
+            {
+              "id": "label-content-name-mismatch",
+              "title": "Elements with visible text labels do not have matching accessible names.",
+              "items": [
+                "<button class=\"justify-center gap-2 whitespace-nowrap transition-all duration-150 disable…\" aria-label=\"Switch to Spanish\">",
+                "<button class=\"inline-flex items-center gap-2 whitespace-nowrap text-sm font-medium trans…\" aria-label=\"Open press and media for FarmHero\" type=\"button\" aria-haspopup=\"dialog\" aria-expanded=\"false\" aria-controls=\"radix-:Rf57jsqkq:\" data-state=\"closed\" data-slot=\"dialog-trigger\">"
+              ]
+            },
+            {
+              "id": "link-in-text-block",
+              "title": "Links rely on color to be distinguishable.",
+              "items": [
+                "<a class=\"text-foreground underline-offset-4 hover:underline\" href=\"/sprint\">"
+              ]
+            }
+          ],
+          "opportunities": [],
+          "seoFails": [],
+          "bpFails": [
+            {
+              "id": "errors-in-console",
+              "title": "Browser errors were logged to the console"
+            }
+          ]
+        }
+      ],
+      "median": {
+        "performance": 99,
+        "accessibility": 93,
+        "bestPractices": 96,
+        "seo": 100,
+        "lcpMs": 853.8585,
+        "cls": 0.0003228540219264132,
+        "tbtMs": 0,
+        "fcpMs": 293.8585
+      }
+    },
+    "sprint:mobile": {
+      "runs": [
+        {
+          "fetchTime": "2026-10-31T03:55:18.585Z",
+          "lighthouseVersion": "13.6.0",
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+          "formFactor": "mobile",
+          "scores": {
+            "performance": 88,
+            "accessibility": 93,
+            "bestPractices": 96,
+            "seo": 100
+          },
+          "metrics": {
+            "lcpMs": 3910.7298999999994,
+            "cls": 0,
+            "tbtMs": 70,
+            "fcpMs": 1060.7299,
+            "siMs": 1088.8399916534458,
+            "ttfbMs": 28,
+            "lcpDisplay": "3.9 s",
+            "clsDisplay": "0"
+          },
+          "lcpElement": null,
+          "failedA11y": [
+            {
+              "id": "aria-hidden-focus",
+              "title": "`[aria-hidden=\"true\"]` elements contain focusable descendents",
+              "items": ["<span class=\"sprint-marquee-dup contents\" aria-hidden=\"true\">"]
+            },
+            {
+              "id": "color-contrast",
+              "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+              "items": [
+                "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 selec…\">",
+                "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 selec…\">",
+                "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 selec…\">",
+                "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 selec…\">",
+                "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 selec…\">",
+                "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 selec…\">",
+                "<span class=\"sprint-kicker absolute -top-2.5 left-6 rounded-full bg-[var(--sprint-accen…\">"
+              ]
+            }
+          ],
+          "opportunities": [],
+          "seoFails": [],
+          "bpFails": [
+            {
+              "id": "errors-in-console",
+              "title": "Browser errors were logged to the console"
+            }
+          ]
+        },
+        {
+          "fetchTime": "2026-10-31T03:55:27.525Z",
+          "lighthouseVersion": "13.6.0",
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+          "formFactor": "mobile",
+          "scores": {
+            "performance": 88,
+            "accessibility": 93,
+            "bestPractices": 96,
+            "seo": 100
+          },
+          "metrics": {
+            "lcpMs": 3832.4605999999994,
+            "cls": 0,
+            "tbtMs": 79,
+            "fcpMs": 1057.4606,
+            "siMs": 1085.9993292037213,
+            "ttfbMs": 25,
+            "lcpDisplay": "3.8 s",
+            "clsDisplay": "0"
+          },
+          "lcpElement": null,
+          "failedA11y": [
+            {
+              "id": "aria-hidden-focus",
+              "title": "`[aria-hidden=\"true\"]` elements contain focusable descendents",
+              "items": ["<span class=\"sprint-marquee-dup contents\" aria-hidden=\"true\">"]
+            },
+            {
+              "id": "color-contrast",
+              "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+              "items": [
+                "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 selec…\">",
+                "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 selec…\">",
+                "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 selec…\">",
+                "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 selec…\">",
+                "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 selec…\">",
+                "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 selec…\">",
+                "<span class=\"sprint-kicker absolute -top-2.5 left-6 rounded-full bg-[var(--sprint-accen…\">"
+              ]
+            }
+          ],
+          "opportunities": [],
+          "seoFails": [],
+          "bpFails": [
+            {
+              "id": "errors-in-console",
+              "title": "Browser errors were logged to the console"
+            }
+          ]
+        },
+        {
+          "fetchTime": "2026-10-31T03:55:36.901Z",
+          "lighthouseVersion": "13.6.0",
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+          "formFactor": "mobile",
+          "scores": {
+            "performance": 88,
+            "accessibility": 93,
+            "bestPractices": 96,
+            "seo": 100
+          },
+          "metrics": {
+            "lcpMs": 3836.6206999999995,
+            "cls": 0,
+            "tbtMs": 90,
+            "fcpMs": 1061.6207,
+            "siMs": 1143.7909891857137,
+            "ttfbMs": 34,
+            "lcpDisplay": "3.8 s",
+            "clsDisplay": "0"
+          },
+          "lcpElement": null,
+          "failedA11y": [
+            {
+              "id": "aria-hidden-focus",
+              "title": "`[aria-hidden=\"true\"]` elements contain focusable descendents",
+              "items": ["<span class=\"sprint-marquee-dup contents\" aria-hidden=\"true\">"]
+            },
+            {
+              "id": "color-contrast",
+              "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+              "items": [
+                "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 selec…\">",
+                "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 selec…\">",
+                "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 selec…\">",
+                "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 selec…\">",
+                "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 selec…\">",
+                "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 selec…\">",
+                "<span class=\"sprint-kicker absolute -top-2.5 left-6 rounded-full bg-[var(--sprint-accen…\">"
+              ]
+            }
+          ],
+          "opportunities": [],
+          "seoFails": [],
+          "bpFails": [
+            {
+              "id": "errors-in-console",
+              "title": "Browser errors were logged to the console"
+            }
+          ]
+        }
+      ],
+      "median": {
+        "performance": 88,
+        "accessibility": 93,
+        "bestPractices": 96,
+        "seo": 100,
+        "lcpMs": 3836.6206999999995,
+        "cls": 0,
+        "tbtMs": 79,
+        "fcpMs": 1060.7299
+      }
+    },
+    "sprint:desktop": {
+      "runs": [
+        {
+          "fetchTime": "2026-10-31T03:55:45.976Z",
+          "lighthouseVersion": "13.6.0",
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+          "formFactor": "desktop",
+          "scores": {
+            "performance": 100,
+            "accessibility": 93,
+            "bestPractices": 96,
+            "seo": 100
+          },
+          "metrics": {
+            "lcpMs": 789.9199999999998,
+            "cls": 0,
+            "tbtMs": 0,
+            "fcpMs": 289.92,
+            "siMs": 340.77158592748447,
+            "ttfbMs": 29,
+            "lcpDisplay": "0.8 s",
+            "clsDisplay": "0"
+          },
+          "lcpElement": null,
+          "failedA11y": [
+            {
+              "id": "aria-hidden-focus",
+              "title": "`[aria-hidden=\"true\"]` elements contain focusable descendents",
+              "items": ["<span class=\"sprint-marquee-dup contents\" aria-hidden=\"true\">"]
+            },
+            {
+              "id": "color-contrast",
+              "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+              "items": [
+                "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 selec…\">",
+                "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 selec…\">",
+                "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 selec…\">",
+                "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 selec…\">",
+                "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 selec…\">",
+                "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 selec…\">",
+                "<span class=\"sprint-kicker absolute -top-2.5 left-6 rounded-full bg-[var(--sprint-accen…\">"
+              ]
+            }
+          ],
+          "opportunities": [],
+          "seoFails": [],
+          "bpFails": [
+            {
+              "id": "errors-in-console",
+              "title": "Browser errors were logged to the console"
+            }
+          ]
+        }
+      ],
+      "median": {
+        "performance": 100,
+        "accessibility": 93,
+        "bestPractices": 96,
+        "seo": 100,
+        "lcpMs": 789.9199999999998,
+        "cls": 0,
+        "tbtMs": 0,
+        "fcpMs": 289.92
+      }
+    },
+    "sprint-light:mobile": {
+      "runs": [
+        {
+          "fetchTime": "2026-10-31T03:55:55.568Z",
+          "lighthouseVersion": "13.6.0",
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+          "formFactor": "mobile",
+          "scores": {
+            "performance": 100,
+            "accessibility": 93,
+            "bestPractices": 96,
+            "seo": 69
+          },
+          "metrics": {
+            "lcpMs": 1062.751,
+            "cls": 0,
+            "tbtMs": 41.5,
+            "fcpMs": 1062.751,
+            "siMs": 1130.410006898026,
+            "ttfbMs": 25,
+            "lcpDisplay": "1.1 s",
+            "clsDisplay": "0"
+          },
+          "lcpElement": null,
+          "failedA11y": [
+            {
+              "id": "aria-hidden-focus",
+              "title": "`[aria-hidden=\"true\"]` elements contain focusable descendents",
+              "items": ["<span class=\"sprint-marquee-dup contents\" aria-hidden=\"true\">"]
+            },
+            {
+              "id": "color-contrast",
+              "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+              "items": [
+                "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 selec…\">",
+                "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 selec…\">",
+                "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 selec…\">",
+                "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 selec…\">",
+                "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 selec…\">",
+                "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 selec…\">"
+              ]
+            }
+          ],
+          "opportunities": [],
+          "seoFails": [
+            {
+              "id": "is-crawlable",
+              "title": "Page is blocked from indexing"
+            }
+          ],
+          "bpFails": [
+            {
+              "id": "errors-in-console",
+              "title": "Browser errors were logged to the console"
+            }
+          ]
+        }
+      ],
+      "median": {
+        "performance": 100,
+        "accessibility": 93,
+        "bestPractices": 96,
+        "seo": 69,
+        "lcpMs": 1062.751,
+        "cls": 0,
+        "tbtMs": 41.5,
+        "fcpMs": 1062.751
+      }
+    },
+    "nexa:mobile": {
+      "runs": [
+        {
+          "fetchTime": "2026-10-31T03:56:04.965Z",
+          "lighthouseVersion": "13.6.0",
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+          "formFactor": "mobile",
+          "scores": {
+            "performance": 100,
+            "accessibility": 96,
+            "bestPractices": 96,
+            "seo": 100
+          },
+          "metrics": {
+            "lcpMs": 910.6294,
+            "cls": 0.0005233271484407334,
+            "tbtMs": 6.5,
+            "fcpMs": 910.6294,
+            "siMs": 1170.3520118274505,
+            "ttfbMs": 9,
+            "lcpDisplay": "0.9 s",
+            "clsDisplay": "0.001"
+          },
+          "lcpElement": null,
+          "failedA11y": [
+            {
+              "id": "color-contrast",
+              "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+              "items": [
+                "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text…\">"
+              ]
+            },
+            {
+              "id": "label-content-name-mismatch",
+              "title": "Elements with visible text labels do not have matching accessible names.",
+              "items": [
+                "<button class=\"justify-center gap-2 whitespace-nowrap transition-all duration-150 disable…\" aria-label=\"Switch to Spanish\">",
+                "<div class=\"group relative aspect-video bg-muted rounded-lg overflow-hidden cursor-poi…\" tabindex=\"0\" role=\"button\" aria-label=\"View NEXA screenshot 1 in lightbox\">",
+                "<div class=\"group relative aspect-video bg-muted rounded-lg overflow-hidden cursor-poi…\" tabindex=\"0\" role=\"button\" aria-label=\"View NEXA screenshot 2 in lightbox\">",
+                "<div class=\"group relative aspect-video bg-muted rounded-lg overflow-hidden cursor-poi…\" tabindex=\"0\" role=\"button\" aria-label=\"View NEXA screenshot 3 in lightbox\">",
+                "<div class=\"group relative aspect-video bg-muted rounded-lg overflow-hidden cursor-poi…\" tabindex=\"0\" role=\"button\" aria-label=\"View NEXA screenshot 4 in lightbox\">"
+              ]
+            }
+          ],
+          "opportunities": [],
+          "seoFails": [],
+          "bpFails": [
+            {
+              "id": "errors-in-console",
+              "title": "Browser errors were logged to the console"
+            }
+          ]
+        }
+      ],
+      "median": {
+        "performance": 100,
+        "accessibility": 96,
+        "bestPractices": 96,
+        "seo": 100,
+        "lcpMs": 910.6294,
+        "cls": 0.0005233271484407334,
+        "tbtMs": 6.5,
+        "fcpMs": 910.6294
+      }
+    }
+  },
+  "axe": {
+    "home": {
+      "url": "http://localhost:3001/",
+      "extra": {},
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "nodes": [
+            {
+              "target": [
+                "#project-nexa > .pb-3.space-y-3.\\@container\\/card-header > .justify-between.items-start.gap-2 > .gap-2.flex.items-center > .bg-emerald-500\\/10.border-emerald-500\\/20.text-emerald-600"
+              ],
+              "html": "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 gap-1 transition-colors hover:bg-accent hover:text-accent-foreground bg-emerald-500/",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.31 (foreground color: #009966, background color: #e6f8f2, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "#project-somos-huella > .pb-3.space-y-3.\\@container\\/card-header > .justify-between.items-start.gap-2 > .gap-2.flex.items-center > .bg-emerald-500\\/10.border-emerald-500\\/20.text-emerald-600"
+              ],
+              "html": "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 gap-1 transition-colors hover:bg-accent hover:text-accent-foreground bg-emerald-500/",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.31 (foreground color: #009966, background color: #e6f8f2, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "#project-farmhero > .pb-3.space-y-3.\\@container\\/card-header > .justify-between.items-start.gap-2 > .gap-2.flex.items-center > .bg-emerald-500\\/10.border-emerald-500\\/20.text-emerald-600"
+              ],
+              "html": "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 gap-1 transition-colors hover:bg-accent hover:text-accent-foreground bg-emerald-500/",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.31 (foreground color: #009966, background color: #e6f8f2, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "#project-nasa-spaceapps > .pb-3.space-y-3.\\@container\\/card-header > .justify-between.items-start.gap-2 > .gap-2.flex.items-center > .bg-emerald-500\\/10.border-emerald-500\\/20.text-emerald-600"
+              ],
+              "html": "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 gap-1 transition-colors hover:bg-accent hover:text-accent-foreground bg-emerald-500/",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.31 (foreground color: #009966, background color: #e6f8f2, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [".bg-amber-500\\/10"],
+              "html": "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 gap-1 transition-colors hover:bg-accent hover:text-accent-foreground bg-amber-500/10",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.96 (foreground color: #e17100, background color: #fff5e6, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "#project-braintumorai-web > .pb-3.space-y-3.\\@container\\/card-header > .justify-between.items-start.gap-2 > .gap-2.flex.items-center > .bg-emerald-500\\/10.border-emerald-500\\/20.text-emerald-600"
+              ],
+              "html": "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 gap-1 transition-colors hover:bg-accent hover:text-accent-foreground bg-emerald-500/",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.31 (foreground color: #009966, background color: #e6f8f2, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "#project-roxium-dao-ops > .pb-3.space-y-3.\\@container\\/card-header > .justify-between.items-start.gap-2 > .gap-2.flex.items-center > .bg-emerald-500\\/10.border-emerald-500\\/20.text-emerald-600"
+              ],
+              "html": "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 gap-1 transition-colors hover:bg-accent hover:text-accent-foreground bg-emerald-500/",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.31 (foreground color: #009966, background color: #e6f8f2, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".justify-between.flex.items-center:nth-child(1) > .text-emerald-600.dark\\:text-emerald-400.font-medium"
+              ],
+              "html": "<span class=\"text-emerald-600 dark:text-emerald-400 font-medium\">Available</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.65 (foreground color: #009966, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "impact": "serious",
+          "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+          "help": "Elements must have their visible text as part of their accessible name",
+          "nodes": [
+            {
+              "target": [
+                ".md\\:hidden > .space-x-1.md\\:min-h-9[aria-label=\"Switch to Spanish\"]"
+              ],
+              "html": "<button class=\"justify-center gap-2...\" aria-label=\"Switch to Spanish\">",
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": ["button[type=\"button\"]"],
+              "html": "<button class=\"inline-flex items-ce...\" aria-label=\"Open press and media...\" type=\"button\" aria-haspopup=\"dialog\" aria-expanded=\"false\" aria-controls=\"radix-:Rf57jsqkq:\" data-state=\"closed\" data-slot=\"dialog-trigger\">",
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            }
+          ]
+        },
+        {
+          "id": "link-in-text-block",
+          "impact": "serious",
+          "description": "Ensure links are distinguished from surrounding text in a way that does not rely on color",
+          "help": "Links must be distinguishable without relying on color",
+          "nodes": [
+            {
+              "target": [
+                ".mb-6.leading-relaxed > .hover\\:underline.underline-offset-4[href$=\"sprint\"]"
+              ],
+              "html": "<a class=\"text-foreground underline-offset-4 hover:underline\" href=\"/sprint\">See the sprint</a>",
+              "failureSummary": "Fix any of the following:\n  The link has insufficient color contrast of 2.53:1 with the surrounding text. (Minimum contrast is 3:1, link text: #0a0a0a, surrounding text: #525252)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            }
+          ]
+        }
+      ],
+      "passes": 43,
+      "incomplete": [
+        {
+          "id": "aria-valid-attr-value",
+          "nodes": 1
+        },
+        {
+          "id": "color-contrast",
+          "nodes": 14
+        }
+      ]
+    },
+    "home-about": {
+      "url": "http://localhost:3001/",
+      "extra": {
+        "hash": "#about"
+      },
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "nodes": [
+            {
+              "target": [
+                "#project-nexa > .pb-3.space-y-3.\\@container\\/card-header > .justify-between.items-start.gap-2 > .gap-2.flex.items-center > .bg-emerald-500\\/10.border-emerald-500\\/20.text-emerald-600"
+              ],
+              "html": "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 gap-1 transition-colors hover:bg-accent hover:text-accent-foreground bg-emerald-500/",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.31 (foreground color: #009966, background color: #e6f8f2, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "#project-somos-huella > .pb-3.space-y-3.\\@container\\/card-header > .justify-between.items-start.gap-2 > .gap-2.flex.items-center > .bg-emerald-500\\/10.border-emerald-500\\/20.text-emerald-600"
+              ],
+              "html": "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 gap-1 transition-colors hover:bg-accent hover:text-accent-foreground bg-emerald-500/",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.31 (foreground color: #009966, background color: #e6f8f2, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "#project-farmhero > .pb-3.space-y-3.\\@container\\/card-header > .justify-between.items-start.gap-2 > .gap-2.flex.items-center > .bg-emerald-500\\/10.border-emerald-500\\/20.text-emerald-600"
+              ],
+              "html": "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 gap-1 transition-colors hover:bg-accent hover:text-accent-foreground bg-emerald-500/",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.31 (foreground color: #009966, background color: #e6f8f2, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "#project-nasa-spaceapps > .pb-3.space-y-3.\\@container\\/card-header > .justify-between.items-start.gap-2 > .gap-2.flex.items-center > .bg-emerald-500\\/10.border-emerald-500\\/20.text-emerald-600"
+              ],
+              "html": "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 gap-1 transition-colors hover:bg-accent hover:text-accent-foreground bg-emerald-500/",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.31 (foreground color: #009966, background color: #e6f8f2, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [".bg-amber-500\\/10"],
+              "html": "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 gap-1 transition-colors hover:bg-accent hover:text-accent-foreground bg-amber-500/10",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.96 (foreground color: #e17100, background color: #fff5e6, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "#project-braintumorai-web > .pb-3.space-y-3.\\@container\\/card-header > .justify-between.items-start.gap-2 > .gap-2.flex.items-center > .bg-emerald-500\\/10.border-emerald-500\\/20.text-emerald-600"
+              ],
+              "html": "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 gap-1 transition-colors hover:bg-accent hover:text-accent-foreground bg-emerald-500/",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.31 (foreground color: #009966, background color: #e6f8f2, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "#project-roxium-dao-ops > .pb-3.space-y-3.\\@container\\/card-header > .justify-between.items-start.gap-2 > .gap-2.flex.items-center > .bg-emerald-500\\/10.border-emerald-500\\/20.text-emerald-600"
+              ],
+              "html": "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 gap-1 transition-colors hover:bg-accent hover:text-accent-foreground bg-emerald-500/",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.31 (foreground color: #009966, background color: #e6f8f2, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".justify-between.flex.items-center:nth-child(1) > .text-emerald-600.dark\\:text-emerald-400.font-medium"
+              ],
+              "html": "<span class=\"text-emerald-600 dark:text-emerald-400 font-medium\">Available</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.65 (foreground color: #009966, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "impact": "serious",
+          "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+          "help": "Elements must have their visible text as part of their accessible name",
+          "nodes": [
+            {
+              "target": [
+                ".md\\:hidden > .space-x-1.md\\:min-h-9[aria-label=\"Switch to Spanish\"]"
+              ],
+              "html": "<button class=\"justify-center gap-2...\" aria-label=\"Switch to Spanish\">",
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": ["button[type=\"button\"]"],
+              "html": "<button class=\"inline-flex items-ce...\" aria-label=\"Open press and media...\" type=\"button\" aria-haspopup=\"dialog\" aria-expanded=\"false\" aria-controls=\"radix-:Rf57jsqkq:\" data-state=\"closed\" data-slot=\"dialog-trigger\">",
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            }
+          ]
+        },
+        {
+          "id": "link-in-text-block",
+          "impact": "serious",
+          "description": "Ensure links are distinguished from surrounding text in a way that does not rely on color",
+          "help": "Links must be distinguishable without relying on color",
+          "nodes": [
+            {
+              "target": [
+                ".mb-6.leading-relaxed > .hover\\:underline.underline-offset-4[href$=\"sprint\"]"
+              ],
+              "html": "<a class=\"text-foreground underline-offset-4 hover:underline\" href=\"/sprint\">See the sprint</a>",
+              "failureSummary": "Fix any of the following:\n  The link has insufficient color contrast of 2.53:1 with the surrounding text. (Minimum contrast is 3:1, link text: #0a0a0a, surrounding text: #525252)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            }
+          ]
+        }
+      ],
+      "passes": 43,
+      "incomplete": [
+        {
+          "id": "aria-valid-attr-value",
+          "nodes": 1
+        },
+        {
+          "id": "color-contrast",
+          "nodes": 14
+        }
+      ]
+    },
+    "home-projects": {
+      "url": "http://localhost:3001/",
+      "extra": {
+        "hash": "#projects"
+      },
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "nodes": [
+            {
+              "target": [
+                "#project-nexa > .pb-3.space-y-3.\\@container\\/card-header > .justify-between.items-start.gap-2 > .gap-2.flex.items-center > .bg-emerald-500\\/10.border-emerald-500\\/20.text-emerald-600"
+              ],
+              "html": "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 gap-1 transition-colors hover:bg-accent hover:text-accent-foreground bg-emerald-500/",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.31 (foreground color: #009966, background color: #e6f8f2, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "#project-somos-huella > .pb-3.space-y-3.\\@container\\/card-header > .justify-between.items-start.gap-2 > .gap-2.flex.items-center > .bg-emerald-500\\/10.border-emerald-500\\/20.text-emerald-600"
+              ],
+              "html": "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 gap-1 transition-colors hover:bg-accent hover:text-accent-foreground bg-emerald-500/",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.31 (foreground color: #009966, background color: #e6f8f2, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "#project-farmhero > .pb-3.space-y-3.\\@container\\/card-header > .justify-between.items-start.gap-2 > .gap-2.flex.items-center > .bg-emerald-500\\/10.border-emerald-500\\/20.text-emerald-600"
+              ],
+              "html": "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 gap-1 transition-colors hover:bg-accent hover:text-accent-foreground bg-emerald-500/",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.31 (foreground color: #009966, background color: #e6f8f2, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "#project-nasa-spaceapps > .pb-3.space-y-3.\\@container\\/card-header > .justify-between.items-start.gap-2 > .gap-2.flex.items-center > .bg-emerald-500\\/10.border-emerald-500\\/20.text-emerald-600"
+              ],
+              "html": "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 gap-1 transition-colors hover:bg-accent hover:text-accent-foreground bg-emerald-500/",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.31 (foreground color: #009966, background color: #e6f8f2, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [".bg-amber-500\\/10"],
+              "html": "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 gap-1 transition-colors hover:bg-accent hover:text-accent-foreground bg-amber-500/10",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.96 (foreground color: #e17100, background color: #fff5e6, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "#project-braintumorai-web > .pb-3.space-y-3.\\@container\\/card-header > .justify-between.items-start.gap-2 > .gap-2.flex.items-center > .bg-emerald-500\\/10.border-emerald-500\\/20.text-emerald-600"
+              ],
+              "html": "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 gap-1 transition-colors hover:bg-accent hover:text-accent-foreground bg-emerald-500/",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.31 (foreground color: #009966, background color: #e6f8f2, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "#project-roxium-dao-ops > .pb-3.space-y-3.\\@container\\/card-header > .justify-between.items-start.gap-2 > .gap-2.flex.items-center > .bg-emerald-500\\/10.border-emerald-500\\/20.text-emerald-600"
+              ],
+              "html": "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 gap-1 transition-colors hover:bg-accent hover:text-accent-foreground bg-emerald-500/",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.31 (foreground color: #009966, background color: #e6f8f2, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".justify-between.flex.items-center:nth-child(1) > .text-emerald-600.dark\\:text-emerald-400.font-medium"
+              ],
+              "html": "<span class=\"text-emerald-600 dark:text-emerald-400 font-medium\">Available</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.65 (foreground color: #009966, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "impact": "serious",
+          "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+          "help": "Elements must have their visible text as part of their accessible name",
+          "nodes": [
+            {
+              "target": [
+                ".md\\:hidden > .space-x-1.md\\:min-h-9[aria-label=\"Switch to Spanish\"]"
+              ],
+              "html": "<button class=\"justify-center gap-2...\" aria-label=\"Switch to Spanish\">",
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": ["button[type=\"button\"]"],
+              "html": "<button class=\"inline-flex items-ce...\" aria-label=\"Open press and media...\" type=\"button\" aria-haspopup=\"dialog\" aria-expanded=\"false\" aria-controls=\"radix-:Rf57jsqkq:\" data-state=\"closed\" data-slot=\"dialog-trigger\">",
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            }
+          ]
+        },
+        {
+          "id": "link-in-text-block",
+          "impact": "serious",
+          "description": "Ensure links are distinguished from surrounding text in a way that does not rely on color",
+          "help": "Links must be distinguishable without relying on color",
+          "nodes": [
+            {
+              "target": [
+                ".mb-6.leading-relaxed > .hover\\:underline.underline-offset-4[href$=\"sprint\"]"
+              ],
+              "html": "<a class=\"text-foreground underline-offset-4 hover:underline\" href=\"/sprint\">See the sprint</a>",
+              "failureSummary": "Fix any of the following:\n  The link has insufficient color contrast of 2.53:1 with the surrounding text. (Minimum contrast is 3:1, link text: #0a0a0a, surrounding text: #525252)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            }
+          ]
+        }
+      ],
+      "passes": 43,
+      "incomplete": [
+        {
+          "id": "aria-valid-attr-value",
+          "nodes": 1
+        },
+        {
+          "id": "color-contrast",
+          "nodes": 12
+        }
+      ]
+    },
+    "home-contact": {
+      "url": "http://localhost:3001/",
+      "extra": {
+        "hash": "#contact"
+      },
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "nodes": [
+            {
+              "target": [
+                "#project-nexa > .pb-3.space-y-3.\\@container\\/card-header > .justify-between.items-start.gap-2 > .gap-2.flex.items-center > .bg-emerald-500\\/10.border-emerald-500\\/20.text-emerald-600"
+              ],
+              "html": "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 gap-1 transition-colors hover:bg-accent hover:text-accent-foreground bg-emerald-500/",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.31 (foreground color: #009966, background color: #e6f8f2, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "#project-somos-huella > .pb-3.space-y-3.\\@container\\/card-header > .justify-between.items-start.gap-2 > .gap-2.flex.items-center > .bg-emerald-500\\/10.border-emerald-500\\/20.text-emerald-600"
+              ],
+              "html": "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 gap-1 transition-colors hover:bg-accent hover:text-accent-foreground bg-emerald-500/",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.31 (foreground color: #009966, background color: #e6f8f2, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "#project-farmhero > .pb-3.space-y-3.\\@container\\/card-header > .justify-between.items-start.gap-2 > .gap-2.flex.items-center > .bg-emerald-500\\/10.border-emerald-500\\/20.text-emerald-600"
+              ],
+              "html": "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 gap-1 transition-colors hover:bg-accent hover:text-accent-foreground bg-emerald-500/",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.31 (foreground color: #009966, background color: #e6f8f2, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "#project-nasa-spaceapps > .pb-3.space-y-3.\\@container\\/card-header > .justify-between.items-start.gap-2 > .gap-2.flex.items-center > .bg-emerald-500\\/10.border-emerald-500\\/20.text-emerald-600"
+              ],
+              "html": "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 gap-1 transition-colors hover:bg-accent hover:text-accent-foreground bg-emerald-500/",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.31 (foreground color: #009966, background color: #e6f8f2, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [".bg-amber-500\\/10"],
+              "html": "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 gap-1 transition-colors hover:bg-accent hover:text-accent-foreground bg-amber-500/10",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.96 (foreground color: #e17100, background color: #fff5e6, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "#project-braintumorai-web > .pb-3.space-y-3.\\@container\\/card-header > .justify-between.items-start.gap-2 > .gap-2.flex.items-center > .bg-emerald-500\\/10.border-emerald-500\\/20.text-emerald-600"
+              ],
+              "html": "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 gap-1 transition-colors hover:bg-accent hover:text-accent-foreground bg-emerald-500/",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.31 (foreground color: #009966, background color: #e6f8f2, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "#project-roxium-dao-ops > .pb-3.space-y-3.\\@container\\/card-header > .justify-between.items-start.gap-2 > .gap-2.flex.items-center > .bg-emerald-500\\/10.border-emerald-500\\/20.text-emerald-600"
+              ],
+              "html": "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 gap-1 transition-colors hover:bg-accent hover:text-accent-foreground bg-emerald-500/",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.31 (foreground color: #009966, background color: #e6f8f2, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".justify-between.flex.items-center:nth-child(1) > .text-emerald-600.dark\\:text-emerald-400.font-medium"
+              ],
+              "html": "<span class=\"text-emerald-600 dark:text-emerald-400 font-medium\">Available</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.65 (foreground color: #009966, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "impact": "serious",
+          "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+          "help": "Elements must have their visible text as part of their accessible name",
+          "nodes": [
+            {
+              "target": [
+                ".md\\:hidden > .space-x-1.md\\:min-h-9[aria-label=\"Switch to Spanish\"]"
+              ],
+              "html": "<button class=\"justify-center gap-2...\" aria-label=\"Switch to Spanish\">",
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": ["button[type=\"button\"]"],
+              "html": "<button class=\"inline-flex items-ce...\" aria-label=\"Open press and media...\" type=\"button\" aria-haspopup=\"dialog\" aria-expanded=\"false\" aria-controls=\"radix-:Rf57jsqkq:\" data-state=\"closed\" data-slot=\"dialog-trigger\">",
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            }
+          ]
+        },
+        {
+          "id": "link-in-text-block",
+          "impact": "serious",
+          "description": "Ensure links are distinguished from surrounding text in a way that does not rely on color",
+          "help": "Links must be distinguishable without relying on color",
+          "nodes": [
+            {
+              "target": [
+                ".mb-6.leading-relaxed > .hover\\:underline.underline-offset-4[href$=\"sprint\"]"
+              ],
+              "html": "<a class=\"text-foreground underline-offset-4 hover:underline\" href=\"/sprint\">See the sprint</a>",
+              "failureSummary": "Fix any of the following:\n  The link has insufficient color contrast of 2.53:1 with the surrounding text. (Minimum contrast is 3:1, link text: #0a0a0a, surrounding text: #525252)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            }
+          ]
+        }
+      ],
+      "passes": 43,
+      "incomplete": [
+        {
+          "id": "aria-valid-attr-value",
+          "nodes": 1
+        },
+        {
+          "id": "color-contrast",
+          "nodes": 12
+        }
+      ]
+    },
+    "sprint": {
+      "url": "http://localhost:3001/sprint",
+      "extra": {},
+      "violations": [
+        {
+          "id": "aria-hidden-focus",
+          "impact": "serious",
+          "description": "Ensure aria-hidden elements are not focusable nor contain focusable elements",
+          "help": "ARIA hidden element must not be focusable or contain focusable elements",
+          "nodes": [
+            {
+              "target": [".sprint-marquee-dup"],
+              "html": "<span class=\"sprint-marquee-dup contents\" aria-hidden=\"true\">",
+              "failureSummary": "Fix all of the following:\n  Focusable content should have tabindex=\"-1\", be removed from the DOM, or not be hidden with aria-hidden"
+            }
+          ]
+        },
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "nodes": [
+            {
+              "target": [
+                ".scroll-reveal-stagger-1.hover\\:border-\\[var\\(--sprint-accent\\)\\]\\/50.group:nth-child(1) > .right-5.top-5.text-muted-foreground\\/50"
+              ],
+              "html": "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 select-none\">01</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.95 (foreground color: #5d5d5d, background color: #0d0d0d, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".scroll-reveal-stagger-2.hover\\:border-\\[var\\(--sprint-accent\\)\\]\\/50.group:nth-child(2) > .right-5.top-5.text-muted-foreground\\/50"
+              ],
+              "html": "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 select-none\">02</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.95 (foreground color: #5d5d5d, background color: #0d0d0d, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".scroll-reveal-stagger-3.hover\\:border-\\[var\\(--sprint-accent\\)\\]\\/50.group:nth-child(3) > .right-5.top-5.text-muted-foreground\\/50"
+              ],
+              "html": "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 select-none\">03</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.95 (foreground color: #5d5d5d, background color: #0d0d0d, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".scroll-reveal-stagger-1.hover\\:border-\\[var\\(--sprint-accent\\)\\]\\/50.group:nth-child(4) > .right-5.top-5.text-muted-foreground\\/50"
+              ],
+              "html": "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 select-none\">04</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.95 (foreground color: #5d5d5d, background color: #0d0d0d, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".scroll-reveal-stagger-2.hover\\:border-\\[var\\(--sprint-accent\\)\\]\\/50.group:nth-child(5) > .right-5.top-5.text-muted-foreground\\/50"
+              ],
+              "html": "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 select-none\">05</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.95 (foreground color: #5d5d5d, background color: #0d0d0d, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".scroll-reveal-stagger-3.hover\\:border-\\[var\\(--sprint-accent\\)\\]\\/50.group:nth-child(6) > .right-5.top-5.text-muted-foreground\\/50"
+              ],
+              "html": "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 select-none\">06</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.95 (foreground color: #5d5d5d, background color: #0d0d0d, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [".-top-2\\.5"],
+              "html": "<span class=\"sprint-kicker absolute -top-2.5 left-6 rounded-full bg-[var(--sprint-accent)] px-2.5 py-0.5 text-[var(--sprint-accent-foreground)]\">Recomendado</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.86 (foreground color: #fcfcfc, background color: #e04f1a, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        }
+      ],
+      "passes": 44,
+      "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "nodes": 6
+        },
+        {
+          "id": "aria-valid-attr-value",
+          "nodes": 1
+        },
+        {
+          "id": "color-contrast",
+          "nodes": 2
+        }
+      ]
+    },
+    "sprint-light": {
+      "url": "http://localhost:3001/sprint?theme=light",
+      "extra": {},
+      "violations": [
+        {
+          "id": "aria-hidden-focus",
+          "impact": "serious",
+          "description": "Ensure aria-hidden elements are not focusable nor contain focusable elements",
+          "help": "ARIA hidden element must not be focusable or contain focusable elements",
+          "nodes": [
+            {
+              "target": [".sprint-marquee-dup"],
+              "html": "<span class=\"sprint-marquee-dup contents\" aria-hidden=\"true\">",
+              "failureSummary": "Fix all of the following:\n  Focusable content should have tabindex=\"-1\", be removed from the DOM, or not be hidden with aria-hidden"
+            }
+          ]
+        },
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "nodes": [
+            {
+              "target": [
+                ".scroll-reveal-stagger-1.hover\\:border-\\[var\\(--sprint-accent\\)\\]\\/50.group:nth-child(1) > .right-5.top-5.text-muted-foreground\\/50"
+              ],
+              "html": "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 select-none\">01</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.4 (foreground color: #aba29b, background color: #fdfaf4, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".scroll-reveal-stagger-2.hover\\:border-\\[var\\(--sprint-accent\\)\\]\\/50.group:nth-child(2) > .right-5.top-5.text-muted-foreground\\/50"
+              ],
+              "html": "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 select-none\">02</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.4 (foreground color: #aba29b, background color: #fdfaf4, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".scroll-reveal-stagger-3.hover\\:border-\\[var\\(--sprint-accent\\)\\]\\/50.group:nth-child(3) > .right-5.top-5.text-muted-foreground\\/50"
+              ],
+              "html": "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 select-none\">03</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.4 (foreground color: #aba29b, background color: #fdfaf4, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".scroll-reveal-stagger-1.hover\\:border-\\[var\\(--sprint-accent\\)\\]\\/50.group:nth-child(4) > .right-5.top-5.text-muted-foreground\\/50"
+              ],
+              "html": "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 select-none\">04</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.4 (foreground color: #aba29b, background color: #fdfaf4, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".scroll-reveal-stagger-2.hover\\:border-\\[var\\(--sprint-accent\\)\\]\\/50.group:nth-child(5) > .right-5.top-5.text-muted-foreground\\/50"
+              ],
+              "html": "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 select-none\">05</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.4 (foreground color: #aba29b, background color: #fdfaf4, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".scroll-reveal-stagger-3.hover\\:border-\\[var\\(--sprint-accent\\)\\]\\/50.group:nth-child(6) > .right-5.top-5.text-muted-foreground\\/50"
+              ],
+              "html": "<span class=\"sprint-index absolute right-5 top-5 text-xs text-muted-foreground/50 select-none\">06</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.4 (foreground color: #aba29b, background color: #fdfaf4, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        }
+      ],
+      "passes": 44,
+      "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "nodes": 6
+        },
+        {
+          "id": "aria-valid-attr-value",
+          "nodes": 1
+        },
+        {
+          "id": "color-contrast",
+          "nodes": 155
+        },
+        {
+          "id": "link-in-text-block",
+          "nodes": 1
+        }
+      ]
+    },
+    "nexa": {
+      "url": "http://localhost:3001/projects/nexa",
+      "extra": {},
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "nodes": [
+            {
+              "target": [".bg-green-500\\/10"],
+              "html": "<span class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 gap-1 transition-colors hover:bg-accent hover:text-accent-foreground bg-green-500/10",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.03 (foreground color: #00c950, background color: #e5faee, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "impact": "serious",
+          "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+          "help": "Elements must have their visible text as part of their accessible name",
+          "nodes": [
+            {
+              "target": [".md\\:hidden > .h-8.space-x-1.md\\:min-h-9"],
+              "html": "<button class=\"justify-center gap-2...\" aria-label=\"Switch to Spanish\">",
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [".relative.aspect-video.bg-muted:nth-child(1)"],
+              "html": "<div class=\"group relative aspect-video bg-muted rounded-lg overflow-hidden cursor-pointer border\" tabindex=\"0\" role=\"button\" aria-label=\"View NEXA screenshot 1 in lightbox\">",
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [".relative.aspect-video.bg-muted:nth-child(2)"],
+              "html": "<div class=\"group relative aspect-video bg-muted rounded-lg overflow-hidden cursor-pointer border\" tabindex=\"0\" role=\"button\" aria-label=\"View NEXA screenshot 2 in lightbox\">",
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [".relative.aspect-video.bg-muted:nth-child(3)"],
+              "html": "<div class=\"group relative aspect-video bg-muted rounded-lg overflow-hidden cursor-pointer border\" tabindex=\"0\" role=\"button\" aria-label=\"View NEXA screenshot 3 in lightbox\">",
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [".relative.aspect-video.bg-muted:nth-child(4)"],
+              "html": "<div class=\"group relative aspect-video bg-muted rounded-lg overflow-hidden cursor-pointer border\" tabindex=\"0\" role=\"button\" aria-label=\"View NEXA screenshot 4 in lightbox\">",
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            }
+          ]
+        }
+      ],
+      "passes": 41,
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": 4
+        }
+      ]
+    }
+  },
+  "inspect": {
+    "home": {
+      "title": "Alejandro Repetto: Systems Engineer & Full-Stack Developer | Portfolio",
+      "htmlLang": "en",
+      "colorScheme": "light",
+      "themeClass": "__variable_d8ebd1 __variable_4dc837 __variable_0b4612 light",
+      "hasSkip": true,
+      "skipText": "Skip to main content",
+      "hasMain": true,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Alejandro Repetto"
+        },
+        {
+          "tag": "H2",
+          "text": "About"
+        },
+        {
+          "tag": "H3",
+          "text": "Background"
+        },
+        {
+          "tag": "H3",
+          "text": "Approach"
+        },
+        {
+          "tag": "H2",
+          "text": "From talking about AI to executing with AI"
+        },
+        {
+          "tag": "H3",
+          "text": "We set it to your pace: intensive or sustained"
+        },
+        {
+          "tag": "H4",
+          "text": "Intensive"
+        },
+        {
+          "tag": "H4",
+          "text": "Sustained"
+        },
+        {
+          "tag": "H2",
+          "text": "Skills and technologies"
+        },
+        {
+          "tag": "H2",
+          "text": "Awards and recognition"
+        },
+        {
+          "tag": "H3",
+          "text": "Roxium DAO Ops"
+        },
+        {
+          "tag": "H4",
+          "text": "Key Technologies"
+        },
+        {
+          "tag": "H3",
+          "text": "FarmHero"
+        },
+        {
+          "tag": "H4",
+          "text": "Key Technologies"
+        },
+        {
+          "tag": "H3",
+          "text": "Zorrito Finance"
+        },
+        {
+          "tag": "H4",
+          "text": "Key Technologies"
+        },
+        {
+          "tag": "H3",
+          "text": "ConSentinel"
+        },
+        {
+          "tag": "H4",
+          "text": "Key Technologies"
+        },
+        {
+          "tag": "H3",
+          "text": "Capsule Quality Control"
+        },
+        {
+          "tag": "H4",
+          "text": "Key Technologies"
+        },
+        {
+          "tag": "H2",
+          "text": "Projects"
+        },
+        {
+          "tag": "H3",
+          "text": "Does your company need execution, not more talks?"
+        },
+        {
+          "tag": "H2",
+          "text": "Contact"
+        },
+        {
+          "tag": "H3",
+          "text": "Let's talk"
+        }
+      ],
+      "landmarks": [
+        {
+          "tag": "MAIN",
+          "role": null,
+          "aria": null,
+          "id": ""
+        },
+        {
+          "tag": "NAV",
+          "role": null,
+          "aria": null,
+          "id": ""
+        },
+        {
+          "tag": "FOOTER",
+          "role": null,
+          "aria": null,
+          "id": ""
+        }
+      ],
+      "imgs": [
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Falejandro.webp&w=640&q=88",
+          "alt": "Alejandro Repetto, Software Engineer",
+          "width": 548,
+          "height": 627,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fprojects%2Fnexa-1.png&w=640&q=75",
+          "alt": "NEXA",
+          "width": 924,
+          "height": 497,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fprojects%2Fsomoshuella-1.png&w=3840&q=75",
+          "alt": "Somos Huella",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fprojects%2Ffarmhero-1.jpg&w=3840&q=75",
+          "alt": "FarmHero",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fprojects%2Fnasa-1.png&w=3840&q=75",
+          "alt": "Lunar & Martian Seismic Detection",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fprojects%2Fconsentinel-1.png&w=3840&q=75",
+          "alt": "ConSentinel",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fprojects%2Fvirgia-1.png&w=3840&q=75",
+          "alt": "Capsule Quality Control",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fprojects%2Fzorrito-1.jpg&w=3840&q=75",
+          "alt": "Zorrito Finance",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fprojects%2Fbraintumorai-1.jpg&w=3840&q=75",
+          "alt": "Brain Tumor Classifier",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        }
+      ],
+      "photos": [
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Falejandro.webp&w=640&q=88",
+          "alt": "Alejandro Repetto, Software Engineer",
+          "width": 548,
+          "height": 627,
+          "hasDims": true
+        }
+      ],
+      "spacexsi": 1,
+      "spacexai": 0,
+      "mutedSample": {
+        "text": "About",
+        "color": "oklch(0.44 0 0)",
+        "bg": "oklch(1 0 0)",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "ratio": null
+      },
+      "accentSample": {
+        "text": "Alejandro Repetto",
+        "color": "oklch(0.145 0 0)",
+        "bg": "oklch(1 0 0)",
+        "fontSize": "18px",
+        "fontWeight": "600",
+        "ratio": null
+      },
+      "outlineNoneCount": 63
+    },
+    "sprint": {
+      "title": "AI Execution Sprint: de hablar de IA a ejecutar con IA, en 30 días | Alejandro Repetto",
+      "htmlLang": "en",
+      "colorScheme": "dark",
+      "themeClass": "__variable_d8ebd1 __variable_4dc837 __variable_0b4612 dark",
+      "hasSkip": true,
+      "skipText": "Skip to main content",
+      "hasMain": true,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Tu empresa deja de hablar de IA y empieza a ejecutar con IA. En 30 días, con tu "
+        },
+        {
+          "tag": "H2",
+          "text": "Tu empresa ya habló de IA. La operación sigue igual."
+        },
+        {
+          "tag": "H2",
+          "text": "Un sprint de 30 días. Tu equipo termina construyendo."
+        },
+        {
+          "tag": "H2",
+          "text": "Si tu empresa ya habló de IA y ahora quiere ejecutar, esto aplica."
+        },
+        {
+          "tag": "H2",
+          "text": "Cinco etapas. Un objetivo: que quede algo construido."
+        },
+        {
+          "tag": "H3",
+          "text": "Diagnóstico"
+        },
+        {
+          "tag": "H3",
+          "text": "Capacitación aplicada"
+        },
+        {
+          "tag": "H3",
+          "text": "Laboratorio guiado"
+        },
+        {
+          "tag": "H3",
+          "text": "Hackathon interna + Demo Day"
+        },
+        {
+          "tag": "H3",
+          "text": "Roadmap de implementación"
+        },
+        {
+          "tag": "H3",
+          "text": "Lo armamos a tu ritmo: intensivo o sostenido"
+        },
+        {
+          "tag": "H4",
+          "text": "Intensivo"
+        },
+        {
+          "tag": "H4",
+          "text": "Sostenido"
+        },
+        {
+          "tag": "H3",
+          "text": "Programa modular"
+        },
+        {
+          "tag": "H4",
+          "text": "Panorama de IA y seguridad"
+        },
+        {
+          "tag": "H4",
+          "text": "IA local vs propietaria, y Gemini"
+        },
+        {
+          "tag": "H4",
+          "text": "Desarrollo con agentes en Cursor y Grok Bot"
+        },
+        {
+          "tag": "H4",
+          "text": "Datos"
+        },
+        {
+          "tag": "H4",
+          "text": "Automatización y agentes"
+        },
+        {
+          "tag": "H2",
+          "text": "Qué se queda en tu empresa cuando me voy"
+        },
+        {
+          "tag": "H3",
+          "text": "Equipo capacitado"
+        },
+        {
+          "tag": "H3",
+          "text": "Oportunidades priorizadas"
+        },
+        {
+          "tag": "H3",
+          "text": "Prototipos funcionales"
+        },
+        {
+          "tag": "H3",
+          "text": "Roadmap de implementación"
+        },
+        {
+          "tag": "H3",
+          "text": "Marco de gobernanza"
+        },
+        {
+          "tag": "H3",
+          "text": "Equipo que ya construyó"
+        },
+        {
+          "tag": "H2",
+          "text": "El sprint completo es el formato. Hay puntos de entrada."
+        },
+        {
+          "tag": "H3",
+          "text": "Executive Briefing"
+        },
+        {
+          "tag": "H3",
+          "text": "AI Training para equipos"
+        },
+        {
+          "tag": "H3",
+          "text": "Hackathon interna"
+        },
+        {
+          "tag": "H3",
+          "text": "AI Execution Sprint"
+        },
+        {
+          "tag": "H3",
+          "text": "Implementation"
+        },
+        {
+          "tag": "H2",
+          "text": "Tu equipo ya usa IA. La pregunta es con qué reglas."
+        },
+        {
+          "tag": "H3",
+          "text": "Gobernanza de IA"
+        },
+        {
+          "tag": "H3",
+          "text": "Privacidad y anonimización"
+        },
+        {
+          "tag": "H3",
+          "text": "Accesos y permisos"
+        },
+        {
+          "tag": "H3",
+          "text": "Costos bajo control"
+        },
+        {
+          "tag": "H3",
+          "text": "Visibilidad de uso"
+        },
+        {
+          "tag": "H3",
+          "text": "Validación de outputs"
+        },
+        {
+          "tag": "H3",
+          "text": "Qué queda documentado"
+        },
+        {
+          "tag": "H2",
+          "text": "Lo facilito yo. Lo construye tu equipo."
+        },
+        {
+          "tag": "H3",
+          "text": "Reconocimientos"
+        },
+        {
+          "tag": "H2",
+          "text": "Prensa y apariciones"
+        },
+        {
+          "tag": "H2",
+          "text": "Te vas con un prototipo funcionando. Garantizado."
+        },
+        {
+          "tag": "H2",
+          "text": "Lo que pregunta dirección antes de agendar"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Esto es una capacitación o una consultoría?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿El temario es fijo?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Necesitamos saber programar?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Qué tipo de prototipos pueden salir?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Cuánto tiempo requiere del equipo?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Cómo manejan privacidad, datos sensibles y control de uso?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Qué áreas de la empresa pueden participar?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Cómo se eligen los casos internos?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Qué pasa después de la hackathon?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Se puede hacer remoto o híbrido?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Trabajás solo o con equipo?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Cómo se relaciona esto con CRIA?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Y si todavía no sabemos qué procesos queremos mejorar?"
+        },
+        {
+          "tag": "H2",
+          "text": "Hablemos."
+        }
+      ],
+      "landmarks": [
+        {
+          "tag": "MAIN",
+          "role": null,
+          "aria": null,
+          "id": ""
+        },
+        {
+          "tag": "NAV",
+          "role": null,
+          "aria": null,
+          "id": ""
+        },
+        {
+          "tag": "HEADER",
+          "role": null,
+          "aria": null,
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:Rhliafjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:Riliafjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:Rjliafjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:Rkliafjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:Rlliafjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:Rmliafjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:Rnliafjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:Roliafjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:Rpliafjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:Rqliafjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:Rrliafjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:Rsliafjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:Rtliafjsqkq:"
+        },
+        {
+          "tag": "FOOTER",
+          "role": null,
+          "aria": null,
+          "id": ""
+        }
+      ],
+      "imgs": [
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fspeaker.jpg&w=640&q=75",
+          "alt": "Alejandro Repetto presentando en Platanus Hack 2026",
+          "width": 1462,
+          "height": 487,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/sprint/media/la-capital.svg",
+          "alt": "La Capital",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Fel-ciudadano.png&w=1920&q=75",
+          "alt": "El Ciudadano",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Frts.png&w=1200&q=75",
+          "alt": "RTS Medios",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Ftelefe.png&w=384&q=75",
+          "alt": "Telefe Rosario",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Fecobiz.png&w=640&q=75",
+          "alt": "EcoBiz",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Fconclusion.png&w=1920&q=75",
+          "alt": "Conclusión",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/sprint/media/radiofonica.svg",
+          "alt": "Radiofónica",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Frosarionet.png&w=1080&q=75",
+          "alt": "RosarioNet",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/sprint/media/la-capital.svg",
+          "alt": "La Capital",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Fel-ciudadano.png&w=1920&q=75",
+          "alt": "El Ciudadano",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Frts.png&w=1200&q=75",
+          "alt": "RTS Medios",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Ftelefe.png&w=384&q=75",
+          "alt": "Telefe Rosario",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Fecobiz.png&w=640&q=75",
+          "alt": "EcoBiz",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Fconclusion.png&w=1920&q=75",
+          "alt": "Conclusión",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/sprint/media/radiofonica.svg",
+          "alt": "Radiofónica",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Frosarionet.png&w=1080&q=75",
+          "alt": "RosarioNet",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        }
+      ],
+      "photos": [
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fspeaker.jpg&w=640&q=75",
+          "alt": "Alejandro Repetto presentando en Platanus Hack 2026",
+          "width": 1462,
+          "height": 487,
+          "hasDims": true
+        }
+      ],
+      "spacexsi": 1,
+      "spacexai": 0,
+      "mutedSample": {
+        "text": "AI Execution Sprint · Capacitación y hackathons internas",
+        "color": "oklch(0.75 0 0)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "ratio": null
+      },
+      "accentSample": {
+        "text": "Alejandro Repetto",
+        "color": "oklch(0.985 0 0)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "fontSize": "13px",
+        "fontWeight": "500",
+        "ratio": null
+      },
+      "outlineNoneCount": 40
+    },
+    "sprint-light": {
+      "title": "AI Execution Sprint: de hablar de IA a ejecutar con IA, en 30 días | Alejandro Repetto",
+      "htmlLang": "en",
+      "colorScheme": "light",
+      "themeClass": "__variable_d8ebd1 __variable_4dc837 __variable_0b4612 light sprint-light",
+      "hasSkip": true,
+      "skipText": "Skip to main content",
+      "hasMain": true,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Tu empresa deja de hablar de IA y empieza a ejecutar con IA. En 30 días, con tu "
+        },
+        {
+          "tag": "H2",
+          "text": "Tu empresa ya habló de IA. La operación sigue igual."
+        },
+        {
+          "tag": "H2",
+          "text": "Un sprint de 30 días. Tu equipo termina construyendo."
+        },
+        {
+          "tag": "H2",
+          "text": "Si tu empresa ya habló de IA y ahora quiere ejecutar, esto aplica."
+        },
+        {
+          "tag": "H2",
+          "text": "Cinco etapas. Un objetivo: que quede algo construido."
+        },
+        {
+          "tag": "H3",
+          "text": "Diagnóstico"
+        },
+        {
+          "tag": "H3",
+          "text": "Capacitación aplicada"
+        },
+        {
+          "tag": "H3",
+          "text": "Laboratorio guiado"
+        },
+        {
+          "tag": "H3",
+          "text": "Hackathon interna + Demo Day"
+        },
+        {
+          "tag": "H3",
+          "text": "Roadmap de implementación"
+        },
+        {
+          "tag": "H3",
+          "text": "Lo armamos a tu ritmo: intensivo o sostenido"
+        },
+        {
+          "tag": "H4",
+          "text": "Intensivo"
+        },
+        {
+          "tag": "H4",
+          "text": "Sostenido"
+        },
+        {
+          "tag": "H3",
+          "text": "Programa modular"
+        },
+        {
+          "tag": "H4",
+          "text": "Panorama de IA y seguridad"
+        },
+        {
+          "tag": "H4",
+          "text": "IA local vs propietaria, y Gemini"
+        },
+        {
+          "tag": "H4",
+          "text": "Desarrollo con agentes en Cursor y Grok Bot"
+        },
+        {
+          "tag": "H4",
+          "text": "Datos"
+        },
+        {
+          "tag": "H4",
+          "text": "Automatización y agentes"
+        },
+        {
+          "tag": "H2",
+          "text": "Qué se queda en tu empresa cuando me voy"
+        },
+        {
+          "tag": "H3",
+          "text": "Equipo capacitado"
+        },
+        {
+          "tag": "H3",
+          "text": "Oportunidades priorizadas"
+        },
+        {
+          "tag": "H3",
+          "text": "Prototipos funcionales"
+        },
+        {
+          "tag": "H3",
+          "text": "Roadmap de implementación"
+        },
+        {
+          "tag": "H3",
+          "text": "Marco de gobernanza"
+        },
+        {
+          "tag": "H3",
+          "text": "Equipo que ya construyó"
+        },
+        {
+          "tag": "H2",
+          "text": "El sprint completo es el formato. Hay puntos de entrada."
+        },
+        {
+          "tag": "H3",
+          "text": "Executive Briefing"
+        },
+        {
+          "tag": "H3",
+          "text": "AI Training para equipos"
+        },
+        {
+          "tag": "H3",
+          "text": "Hackathon interna"
+        },
+        {
+          "tag": "H3",
+          "text": "AI Execution Sprint"
+        },
+        {
+          "tag": "H3",
+          "text": "Implementation"
+        },
+        {
+          "tag": "H2",
+          "text": "Tu equipo ya usa IA. La pregunta es con qué reglas."
+        },
+        {
+          "tag": "H3",
+          "text": "Gobernanza de IA"
+        },
+        {
+          "tag": "H3",
+          "text": "Privacidad y anonimización"
+        },
+        {
+          "tag": "H3",
+          "text": "Accesos y permisos"
+        },
+        {
+          "tag": "H3",
+          "text": "Costos bajo control"
+        },
+        {
+          "tag": "H3",
+          "text": "Visibilidad de uso"
+        },
+        {
+          "tag": "H3",
+          "text": "Validación de outputs"
+        },
+        {
+          "tag": "H3",
+          "text": "Qué queda documentado"
+        },
+        {
+          "tag": "H2",
+          "text": "Lo facilito yo. Lo construye tu equipo."
+        },
+        {
+          "tag": "H3",
+          "text": "Reconocimientos"
+        },
+        {
+          "tag": "H2",
+          "text": "Prensa y apariciones"
+        },
+        {
+          "tag": "H2",
+          "text": "Te vas con un prototipo funcionando. Garantizado."
+        },
+        {
+          "tag": "H2",
+          "text": "Lo que pregunta dirección antes de agendar"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Esto es una capacitación o una consultoría?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿El temario es fijo?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Necesitamos saber programar?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Qué tipo de prototipos pueden salir?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Cuánto tiempo requiere del equipo?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Cómo manejan privacidad, datos sensibles y control de uso?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Qué áreas de la empresa pueden participar?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Cómo se eligen los casos internos?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Qué pasa después de la hackathon?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Se puede hacer remoto o híbrido?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Trabajás solo o con equipo?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Cómo se relaciona esto con CRIA?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Y si todavía no sabemos qué procesos queremos mejorar?"
+        },
+        {
+          "tag": "H2",
+          "text": "Hablemos."
+        }
+      ],
+      "landmarks": [
+        {
+          "tag": "MAIN",
+          "role": null,
+          "aria": null,
+          "id": ""
+        },
+        {
+          "tag": "NAV",
+          "role": null,
+          "aria": null,
+          "id": ""
+        },
+        {
+          "tag": "HEADER",
+          "role": null,
+          "aria": null,
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:Rhliafjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:Riliafjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:Rjliafjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:Rkliafjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:Rlliafjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:Rmliafjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:Rnliafjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:Roliafjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:Rpliafjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:Rqliafjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:Rrliafjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:Rsliafjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:Rtliafjsqkq:"
+        },
+        {
+          "tag": "FOOTER",
+          "role": null,
+          "aria": null,
+          "id": ""
+        }
+      ],
+      "imgs": [
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fspeaker.jpg&w=640&q=75",
+          "alt": "Alejandro Repetto presentando en Platanus Hack 2026",
+          "width": 1462,
+          "height": 487,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/sprint/media/la-capital.svg",
+          "alt": "La Capital",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Fel-ciudadano.png&w=1920&q=75",
+          "alt": "El Ciudadano",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Frts.png&w=1200&q=75",
+          "alt": "RTS Medios",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Ftelefe.png&w=384&q=75",
+          "alt": "Telefe Rosario",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Fecobiz.png&w=640&q=75",
+          "alt": "EcoBiz",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Fconclusion.png&w=1920&q=75",
+          "alt": "Conclusión",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/sprint/media/radiofonica.svg",
+          "alt": "Radiofónica",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Frosarionet.png&w=1080&q=75",
+          "alt": "RosarioNet",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/sprint/media/la-capital.svg",
+          "alt": "La Capital",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Fel-ciudadano.png&w=1920&q=75",
+          "alt": "El Ciudadano",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Frts.png&w=1200&q=75",
+          "alt": "RTS Medios",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Ftelefe.png&w=384&q=75",
+          "alt": "Telefe Rosario",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Fecobiz.png&w=640&q=75",
+          "alt": "EcoBiz",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Fconclusion.png&w=1920&q=75",
+          "alt": "Conclusión",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/sprint/media/radiofonica.svg",
+          "alt": "Radiofónica",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Frosarionet.png&w=1080&q=75",
+          "alt": "RosarioNet",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        }
+      ],
+      "photos": [
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fspeaker.jpg&w=640&q=75",
+          "alt": "Alejandro Repetto presentando en Platanus Hack 2026",
+          "width": 1462,
+          "height": 487,
+          "hasDims": true
+        }
+      ],
+      "spacexsi": 1,
+      "spacexai": 0,
+      "mutedSample": {
+        "text": "AI Execution Sprint · Capacitación y hackathons internas",
+        "color": "oklch(0.42 0.024 52)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "ratio": null
+      },
+      "accentSample": {
+        "text": "Alejandro Repetto",
+        "color": "oklch(0.24 0.028 52)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "fontSize": "13px",
+        "fontWeight": "500",
+        "ratio": null
+      },
+      "outlineNoneCount": 41
+    },
+    "nexa": {
+      "title": "NEXA | Alejandro Repetto",
+      "htmlLang": "en",
+      "colorScheme": "light",
+      "themeClass": "__variable_d8ebd1 __variable_4dc837 __variable_0b4612 light",
+      "hasSkip": true,
+      "skipText": "Skip to main content",
+      "hasMain": true,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "NEXA"
+        },
+        {
+          "tag": "H2",
+          "text": "Does your company need execution, not more talks?"
+        }
+      ],
+      "landmarks": [
+        {
+          "tag": "NAV",
+          "role": null,
+          "aria": null,
+          "id": ""
+        },
+        {
+          "tag": "MAIN",
+          "role": null,
+          "aria": null,
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "role": "button",
+          "aria": "View NEXA screenshot 1 in lightbox",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "role": "button",
+          "aria": "View NEXA screenshot 2 in lightbox",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "role": "button",
+          "aria": "View NEXA screenshot 3 in lightbox",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "role": "button",
+          "aria": "View NEXA screenshot 4 in lightbox",
+          "id": ""
+        },
+        {
+          "tag": "FOOTER",
+          "role": null,
+          "aria": null,
+          "id": ""
+        }
+      ],
+      "imgs": [
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fprojects%2Fnexa-1.png&w=640&q=75",
+          "alt": "NEXA screenshot 1",
+          "width": 924,
+          "height": 497,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fprojects%2Fnexa-2.png&w=640&q=75",
+          "alt": "NEXA screenshot 2",
+          "width": 890,
+          "height": 513,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fprojects%2Fnexa-3.png&w=640&q=75",
+          "alt": "NEXA screenshot 3",
+          "width": 872,
+          "height": 546,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fprojects%2Fnexa-4.png&w=640&q=75",
+          "alt": "NEXA screenshot 4",
+          "width": 881,
+          "height": 543,
+          "hasDims": true
+        }
+      ],
+      "photos": [],
+      "spacexsi": 0,
+      "spacexai": 0,
+      "mutedSample": {
+        "text": "About",
+        "color": "oklch(0.44 0 0)",
+        "bg": "oklch(1 0 0)",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "ratio": null
+      },
+      "accentSample": {
+        "text": "Alejandro Repetto",
+        "color": "oklch(0.145 0 0)",
+        "bg": "oklch(1 0 0)",
+        "fontSize": "18px",
+        "fontWeight": "600",
+        "ratio": null
+      },
+      "outlineNoneCount": 22
+    }
+  },
+  "keyboard": {
+    "home": [
+      {
+        "tag": "A",
+        "text": "Skip to main content",
+        "href": "#main-content",
+        "outline": "solid 2px oklch(0.145 0 0)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "Alejandro Repetto",
+        "href": "/",
+        "outline": "solid 2px oklch(0.145 0 0)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Switch to dark mode",
+        "href": null,
+        "outline": "none 3px oklab(0.145 0 0 / 0.5)",
+        "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+        "visible": true
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Switch to Spanish",
+        "href": null,
+        "outline": "none 3px oklab(0.145 0 0 / 0.5)",
+        "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+        "visible": true
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Toggle menu",
+        "href": null,
+        "outline": "none 3px oklab(0.145 0 0 / 0.5)",
+        "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "Awarded at NASA Space Apps, ETH Argentina, and ETH Global.",
+        "href": "#awards",
+        "outline": "solid 2px oklab(0.145 0 0 / 0.5)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "Book a chat",
+        "href": "https://calendly.com/alejandrorepetto/diagnostico-ia",
+        "outline": "solid 2px oklch(0.43 0.145 40)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "See the sprint",
+        "href": "/sprint",
+        "outline": "none 3px oklab(0.145 0 0 / 0.5)",
+        "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "Download resume",
+        "href": "/resume-en.pdf",
+        "outline": "solid 2px oklch(0.145 0 0)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "Scroll to about section",
+        "href": "#about",
+        "outline": "solid 2px oklch(0.145 0 0)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "Book a chat",
+        "href": "https://calendly.com/alejandrorepetto/diagnostico-ia",
+        "outline": "solid 2px oklch(0.43 0.145 40)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "See the sprint",
+        "href": "/sprint",
+        "outline": "solid 2px oklch(0.145 0 0)",
+        "boxShadow": "none",
+        "visible": true
+      }
+    ],
+    "sprint": [
+      {
+        "tag": "A",
+        "text": "Skip to main content",
+        "href": "#main-content",
+        "outline": "solid 2px oklch(0.922 0 0)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "Alejandro Repetto",
+        "href": "/",
+        "outline": "solid 2px oklab(0.922 0 0 / 0.5)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "Agendar una charla",
+        "href": "https://calendly.com/alejandrorepetto/diagnostico-ia",
+        "outline": "solid 2px oklch(0.62 0.19 38)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "Agendar una charla",
+        "href": "https://calendly.com/alejandrorepetto/diagnostico-ia",
+        "outline": "solid 2px oklch(0.62 0.19 38)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "Escribime a contact@repetto-a.com",
+        "href": "mailto:contact@repetto-a.com?subject=Sprint%20de%20IA",
+        "outline": "solid 2px oklch(0.922 0 0)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "¿Es para tu empresa?→",
+        "href": "#para-quien",
+        "outline": "solid 2px oklch(0.922 0 0)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "CRIA",
+        "href": "https://somoscria.ar/",
+        "outline": "solid 2px oklab(0.922 0 0 / 0.5)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "Agendar una charla",
+        "href": "https://calendly.com/alejandrorepetto/diagnostico-ia",
+        "outline": "solid 2px oklch(0.62 0.19 38)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "Agendar una charla",
+        "href": "https://calendly.com/alejandrorepetto/diagnostico-ia",
+        "outline": "solid 2px oklch(0.62 0.19 38)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "Escribime a contact@repetto-a.com",
+        "href": "mailto:contact@repetto-a.com?subject=Sprint%20de%20IA",
+        "outline": "solid 2px oklch(0.922 0 0)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "CRIA",
+        "href": "https://somoscria.ar/",
+        "outline": "solid 2px oklab(0.922 0 0 / 0.5)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "nexa.builders",
+        "href": "https://nexa.builders",
+        "outline": "solid 2px oklab(0.922 0 0 / 0.5)",
+        "boxShadow": "none",
+        "visible": true
+      }
+    ]
+  },
+  "reducedMotion": {
+    "sprint": {
+      "animationDuration": "1e-05s",
+      "transitionDuration": "1e-05s",
+      "scrollBehavior": "auto"
+    }
+  },
+  "finishedAt": "2026-10-31T03:56:23.059Z"
+}

@@ -93,12 +93,13 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
                   {/* Main image */}
                   <div className="group/carousel relative aspect-video rounded-lg overflow-hidden border border-border bg-muted">
                     <button
+                      type="button"
                       onClick={() => {
                         setLightboxIndex(carouselIndex)
                         setLightboxOpen(true)
                       }}
                       className="block w-full h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                      aria-label={`${content.title} — ${getTranslation(translations, "projects.image") || "Image"} ${carouselIndex + 1}. Click to expand.`}
+                      aria-label={`${content.title} · ${getTranslation(translations, "projects.image") || "Image"} ${carouselIndex + 1}. Click to expand.`}
                     >
                       <Image
                         src={project.images[carouselIndex]}

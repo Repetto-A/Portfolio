@@ -4,6 +4,7 @@ import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { SectionHeader } from "@/components/layout/section-header"
 import { useTranslations, getTranslation } from "@/lib/i18n-context"
+import { SPACEXSI_AMBASSADOR_LABEL } from "@/lib/sprint/constants"
 
 export function AboutSection() {
   const [translations] = useTranslations()
@@ -21,7 +22,7 @@ export function AboutSection() {
             />
             <ul className="list-none">
               <li className="text-sm leading-relaxed text-muted-foreground">
-                {getTranslation(translations, "about.credential")}
+                {SPACEXSI_AMBASSADOR_LABEL}
               </li>
             </ul>
           </div>

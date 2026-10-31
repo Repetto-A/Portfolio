@@ -124,8 +124,12 @@
 
 html {
   scroll-behavior: smooth;
-  /* Prevent horizontal overflow */
   overflow-x: hidden;
+  color-scheme: dark;
+}
+
+html.light {
+  color-scheme: light;
 }
 
 body {
@@ -199,6 +203,13 @@ body {
     @apply outline-2 outline-offset-2 outline-ring;
   }
 
+  button,
+  a,
+  [role="button"],
+  [type="submit"] {
+    touch-action: manipulation;
+  }
+
   /* Prevent text overflow */
   h1,
   h2,
@@ -230,7 +241,8 @@ body {
   border-radius: 0.5rem;
 }
 
-.skip-to-main:focus {
+.skip-to-main:focus,
+.skip-to-main:focus-visible {
   left: 1rem;
   top: 1rem;
 }

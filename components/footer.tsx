@@ -45,7 +45,7 @@ export function Footer() {
               className="inline-flex size-11 items-center justify-center text-muted-foreground transition-colors duration-150 hover:text-foreground"
               aria-label="Visit GitHub profile"
             >
-              <Github className="h-5 w-5" />
+              <Github className="h-5 w-5" aria-hidden />
               <span className="sr-only">GitHub</span>
             </Link>
 
@@ -56,7 +56,7 @@ export function Footer() {
               className="inline-flex size-11 items-center justify-center text-muted-foreground transition-colors duration-150 hover:text-foreground"
               aria-label="Visit LinkedIn profile"
             >
-              <Linkedin className="h-5 w-5" />
+              <Linkedin className="h-5 w-5" aria-hidden />
               <span className="sr-only">LinkedIn</span>
             </Link>
 
@@ -65,7 +65,7 @@ export function Footer() {
               className="inline-flex size-11 items-center justify-center text-muted-foreground transition-colors duration-150 hover:text-foreground"
               aria-label="Send email"
             >
-              <Mail className="h-5 w-5" />
+              <Mail className="h-5 w-5" aria-hidden />
               <span className="sr-only">Email</span>
             </Link>
           </div>

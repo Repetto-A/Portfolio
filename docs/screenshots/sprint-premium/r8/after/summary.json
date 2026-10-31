@@ -1,0 +1,2177 @@
+{
+  "phase": "after",
+  "base": "http://localhost:3001",
+  "startedAt": "2026-10-31T04:12:39.893Z",
+  "lighthouse": {
+    "home:mobile": {
+      "runs": [
+        {
+          "fetchTime": "2026-10-31T04:12:43.577Z",
+          "lighthouseVersion": "13.6.0",
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+          "formFactor": "mobile",
+          "scores": {
+            "performance": 87,
+            "accessibility": 100,
+            "bestPractices": 100,
+            "seo": 100
+          },
+          "metrics": {
+            "lcpMs": 4066.6785999999993,
+            "cls": 0.0005233271484407334,
+            "tbtMs": 18.500000000000227,
+            "fcpMs": 1066.6786,
+            "siMs": 1135.793670696915,
+            "ttfbMs": 33,
+            "lcpDisplay": "4.1 s",
+            "clsDisplay": "0.001"
+          },
+          "lcpElement": null,
+          "failedA11y": [
+            {
+              "id": "label-content-name-mismatch",
+              "title": "Elements with visible text labels do not have matching accessible names.",
+              "items": [
+                "<button class=\"justify-center gap-2 whitespace-nowrap transition-[color,background-color,…\" aria-label=\"Switch to Spanish (ES)\">"
+              ]
+            }
+          ],
+          "opportunities": [],
+          "seoFails": [],
+          "bpFails": []
+        },
+        {
+          "fetchTime": "2026-10-31T04:12:53.381Z",
+          "lighthouseVersion": "13.6.0",
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+          "formFactor": "mobile",
+          "scores": {
+            "performance": 87,
+            "accessibility": 100,
+            "bestPractices": 100,
+            "seo": 100
+          },
+          "metrics": {
+            "lcpMs": 4060.6735000000003,
+            "cls": 0.0005233271484407334,
+            "tbtMs": 22,
+            "fcpMs": 1060.6735,
+            "siMs": 1136.5799428827927,
+            "ttfbMs": 24,
+            "lcpDisplay": "4.1 s",
+            "clsDisplay": "0.001"
+          },
+          "lcpElement": null,
+          "failedA11y": [
+            {
+              "id": "label-content-name-mismatch",
+              "title": "Elements with visible text labels do not have matching accessible names.",
+              "items": [
+                "<button class=\"justify-center gap-2 whitespace-nowrap transition-[color,background-color,…\" aria-label=\"Switch to Spanish (ES)\">"
+              ]
+            }
+          ],
+          "opportunities": [],
+          "seoFails": [],
+          "bpFails": []
+        },
+        {
+          "fetchTime": "2026-10-31T04:13:02.837Z",
+          "lighthouseVersion": "13.6.0",
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+          "formFactor": "mobile",
+          "scores": {
+            "performance": 87,
+            "accessibility": 100,
+            "bestPractices": 100,
+            "seo": 100
+          },
+          "metrics": {
+            "lcpMs": 4059.8655000000003,
+            "cls": 0.0005233271484407334,
+            "tbtMs": 11.499999999999773,
+            "fcpMs": 1059.8655,
+            "siMs": 1065.1061488484322,
+            "ttfbMs": 14,
+            "lcpDisplay": "4.1 s",
+            "clsDisplay": "0.001"
+          },
+          "lcpElement": null,
+          "failedA11y": [
+            {
+              "id": "label-content-name-mismatch",
+              "title": "Elements with visible text labels do not have matching accessible names.",
+              "items": [
+                "<button class=\"justify-center gap-2 whitespace-nowrap transition-[color,background-color,…\" aria-label=\"Switch to Spanish (ES)\">"
+              ]
+            }
+          ],
+          "opportunities": [],
+          "seoFails": [],
+          "bpFails": []
+        }
+      ],
+      "median": {
+        "performance": 87,
+        "accessibility": 100,
+        "bestPractices": 100,
+        "seo": 100,
+        "lcpMs": 4060.6735000000003,
+        "cls": 0.0005233271484407334,
+        "tbtMs": 18.500000000000227,
+        "fcpMs": 1060.6735
+      }
+    },
+    "home:desktop": {
+      "runs": [
+        {
+          "fetchTime": "2026-10-31T04:13:12.379Z",
+          "lighthouseVersion": "13.6.0",
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+          "formFactor": "desktop",
+          "scores": {
+            "performance": 99,
+            "accessibility": 100,
+            "bestPractices": 100,
+            "seo": 100
+          },
+          "metrics": {
+            "lcpMs": 853.2729000000002,
+            "cls": 0.0002763988480613716,
+            "tbtMs": 0,
+            "fcpMs": 293.2729,
+            "siMs": 362.26222937696235,
+            "ttfbMs": 17,
+            "lcpDisplay": "0.9 s",
+            "clsDisplay": "0"
+          },
+          "lcpElement": null,
+          "failedA11y": [
+            {
+              "id": "label-content-name-mismatch",
+              "title": "Elements with visible text labels do not have matching accessible names.",
+              "items": [
+                "<button class=\"justify-center gap-2 whitespace-nowrap transition-[color,background-color,…\" aria-label=\"Switch to Spanish (ES)\">"
+              ]
+            }
+          ],
+          "opportunities": [],
+          "seoFails": [],
+          "bpFails": []
+        }
+      ],
+      "median": {
+        "performance": 99,
+        "accessibility": 100,
+        "bestPractices": 100,
+        "seo": 100,
+        "lcpMs": 853.2729000000002,
+        "cls": 0.0002763988480613716,
+        "tbtMs": 0,
+        "fcpMs": 293.2729
+      }
+    },
+    "sprint:mobile": {
+      "runs": [
+        {
+          "fetchTime": "2026-10-31T04:13:22.023Z",
+          "lighthouseVersion": "13.6.0",
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+          "formFactor": "mobile",
+          "scores": {
+            "performance": 100,
+            "accessibility": 100,
+            "bestPractices": 100,
+            "seo": 100
+          },
+          "metrics": {
+            "lcpMs": 1055.8143,
+            "cls": 0,
+            "tbtMs": 65,
+            "fcpMs": 1055.8143,
+            "siMs": 1075.6294336481385,
+            "ttfbMs": 49,
+            "lcpDisplay": "1.1 s",
+            "clsDisplay": "0"
+          },
+          "lcpElement": null,
+          "failedA11y": [],
+          "opportunities": [],
+          "seoFails": [],
+          "bpFails": []
+        },
+        {
+          "fetchTime": "2026-10-31T04:13:31.023Z",
+          "lighthouseVersion": "13.6.0",
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+          "formFactor": "mobile",
+          "scores": {
+            "performance": 100,
+            "accessibility": 100,
+            "bestPractices": 100,
+            "seo": 100
+          },
+          "metrics": {
+            "lcpMs": 1056.862,
+            "cls": 0,
+            "tbtMs": 76.93100000000004,
+            "fcpMs": 1056.862,
+            "siMs": 1056.862,
+            "ttfbMs": 26,
+            "lcpDisplay": "1.1 s",
+            "clsDisplay": "0"
+          },
+          "lcpElement": null,
+          "failedA11y": [],
+          "opportunities": [],
+          "seoFails": [],
+          "bpFails": []
+        },
+        {
+          "fetchTime": "2026-10-31T04:13:39.673Z",
+          "lighthouseVersion": "13.6.0",
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+          "formFactor": "mobile",
+          "scores": {
+            "performance": 100,
+            "accessibility": 100,
+            "bestPractices": 100,
+            "seo": 100
+          },
+          "metrics": {
+            "lcpMs": 1056.53,
+            "cls": 0,
+            "tbtMs": 71.26499999999965,
+            "fcpMs": 1056.53,
+            "siMs": 1056.53,
+            "ttfbMs": 32,
+            "lcpDisplay": "1.1 s",
+            "clsDisplay": "0"
+          },
+          "lcpElement": null,
+          "failedA11y": [],
+          "opportunities": [],
+          "seoFails": [],
+          "bpFails": []
+        }
+      ],
+      "median": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 100,
+        "seo": 100,
+        "lcpMs": 1056.53,
+        "cls": 0,
+        "tbtMs": 71.26499999999965,
+        "fcpMs": 1056.53
+      }
+    },
+    "sprint:desktop": {
+      "runs": [
+        {
+          "fetchTime": "2026-10-31T04:13:48.496Z",
+          "lighthouseVersion": "13.6.0",
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+          "formFactor": "desktop",
+          "scores": {
+            "performance": 100,
+            "accessibility": 100,
+            "bestPractices": 100,
+            "seo": 100
+          },
+          "metrics": {
+            "lcpMs": 287.8155,
+            "cls": 0,
+            "tbtMs": 0,
+            "fcpMs": 287.8155,
+            "siMs": 316.99851562668607,
+            "ttfbMs": 31,
+            "lcpDisplay": "0.3 s",
+            "clsDisplay": "0"
+          },
+          "lcpElement": null,
+          "failedA11y": [],
+          "opportunities": [],
+          "seoFails": [],
+          "bpFails": []
+        }
+      ],
+      "median": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 100,
+        "seo": 100,
+        "lcpMs": 287.8155,
+        "cls": 0,
+        "tbtMs": 0,
+        "fcpMs": 287.8155
+      }
+    },
+    "sprint-light:mobile": {
+      "runs": [
+        {
+          "fetchTime": "2026-10-31T04:13:57.526Z",
+          "lighthouseVersion": "13.6.0",
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+          "formFactor": "mobile",
+          "scores": {
+            "performance": 88,
+            "accessibility": 100,
+            "bestPractices": 100,
+            "seo": 69
+          },
+          "metrics": {
+            "lcpMs": 3757.9172,
+            "cls": 0,
+            "tbtMs": 111,
+            "fcpMs": 1057.9172,
+            "siMs": 1057.9172,
+            "ttfbMs": 28,
+            "lcpDisplay": "3.8 s",
+            "clsDisplay": "0"
+          },
+          "lcpElement": null,
+          "failedA11y": [],
+          "opportunities": [],
+          "seoFails": [
+            {
+              "id": "is-crawlable",
+              "title": "Page is blocked from indexing"
+            }
+          ],
+          "bpFails": []
+        }
+      ],
+      "median": {
+        "performance": 88,
+        "accessibility": 100,
+        "bestPractices": 100,
+        "seo": 69,
+        "lcpMs": 3757.9172,
+        "cls": 0,
+        "tbtMs": 111,
+        "fcpMs": 1057.9172
+      }
+    },
+    "nexa:mobile": {
+      "runs": [
+        {
+          "fetchTime": "2026-10-31T04:14:06.410Z",
+          "lighthouseVersion": "13.6.0",
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+          "formFactor": "mobile",
+          "scores": {
+            "performance": 100,
+            "accessibility": 100,
+            "bestPractices": 100,
+            "seo": 100
+          },
+          "metrics": {
+            "lcpMs": 913.4864,
+            "cls": 0.0005233271484407334,
+            "tbtMs": 0,
+            "fcpMs": 913.4864,
+            "siMs": 1008.2538334663643,
+            "ttfbMs": 12,
+            "lcpDisplay": "0.9 s",
+            "clsDisplay": "0.001"
+          },
+          "lcpElement": null,
+          "failedA11y": [
+            {
+              "id": "label-content-name-mismatch",
+              "title": "Elements with visible text labels do not have matching accessible names.",
+              "items": [
+                "<button class=\"justify-center gap-2 whitespace-nowrap transition-[color,background-color,…\" aria-label=\"Switch to Spanish (ES)\">",
+                "<div class=\"group relative aspect-video bg-muted rounded-lg overflow-hidden cursor-poi…\" tabindex=\"0\" role=\"button\" aria-label=\"NEXA screenshot 1\">",
+                "<div class=\"group relative aspect-video bg-muted rounded-lg overflow-hidden cursor-poi…\" tabindex=\"0\" role=\"button\" aria-label=\"NEXA screenshot 2\">",
+                "<div class=\"group relative aspect-video bg-muted rounded-lg overflow-hidden cursor-poi…\" tabindex=\"0\" role=\"button\" aria-label=\"NEXA screenshot 3\">",
+                "<div class=\"group relative aspect-video bg-muted rounded-lg overflow-hidden cursor-poi…\" tabindex=\"0\" role=\"button\" aria-label=\"NEXA screenshot 4\">"
+              ]
+            }
+          ],
+          "opportunities": [],
+          "seoFails": [],
+          "bpFails": []
+        }
+      ],
+      "median": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 100,
+        "seo": 100,
+        "lcpMs": 913.4864,
+        "cls": 0.0005233271484407334,
+        "tbtMs": 0,
+        "fcpMs": 913.4864
+      }
+    }
+  },
+  "axe": {
+    "home": {
+      "url": "http://localhost:3001/",
+      "extra": {},
+      "violations": [
+        {
+          "id": "label-content-name-mismatch",
+          "impact": "serious",
+          "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+          "help": "Elements must have their visible text as part of their accessible name",
+          "nodes": [
+            {
+              "target": [
+                ".md\\:hidden > .space-x-1.md\\:min-h-9[aria-label=\"Switch to Spanish (ES)\"]"
+              ],
+              "html": "<button class=\"justify-center gap-2...\" aria-label=\"Switch to Spanish (E...\">",
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            }
+          ]
+        }
+      ],
+      "passes": 46,
+      "incomplete": [
+        {
+          "id": "aria-valid-attr-value",
+          "nodes": 1
+        },
+        {
+          "id": "color-contrast",
+          "nodes": 14
+        }
+      ]
+    },
+    "home-about": {
+      "url": "http://localhost:3001/",
+      "extra": {
+        "hash": "#about"
+      },
+      "violations": [
+        {
+          "id": "label-content-name-mismatch",
+          "impact": "serious",
+          "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+          "help": "Elements must have their visible text as part of their accessible name",
+          "nodes": [
+            {
+              "target": [
+                ".md\\:hidden > .space-x-1.md\\:min-h-9[aria-label=\"Switch to Spanish (ES)\"]"
+              ],
+              "html": "<button class=\"justify-center gap-2...\" aria-label=\"Switch to Spanish (E...\">",
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            }
+          ]
+        }
+      ],
+      "passes": 46,
+      "incomplete": [
+        {
+          "id": "aria-valid-attr-value",
+          "nodes": 1
+        },
+        {
+          "id": "color-contrast",
+          "nodes": 14
+        }
+      ]
+    },
+    "home-projects": {
+      "url": "http://localhost:3001/",
+      "extra": {
+        "hash": "#projects"
+      },
+      "violations": [
+        {
+          "id": "label-content-name-mismatch",
+          "impact": "serious",
+          "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+          "help": "Elements must have their visible text as part of their accessible name",
+          "nodes": [
+            {
+              "target": [
+                ".md\\:hidden > .space-x-1.md\\:min-h-9[aria-label=\"Switch to Spanish (ES)\"]"
+              ],
+              "html": "<button class=\"justify-center gap-2...\" aria-label=\"Switch to Spanish (E...\">",
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            }
+          ]
+        }
+      ],
+      "passes": 46,
+      "incomplete": [
+        {
+          "id": "aria-valid-attr-value",
+          "nodes": 1
+        },
+        {
+          "id": "color-contrast",
+          "nodes": 12
+        }
+      ]
+    },
+    "home-contact": {
+      "url": "http://localhost:3001/",
+      "extra": {
+        "hash": "#contact"
+      },
+      "violations": [
+        {
+          "id": "label-content-name-mismatch",
+          "impact": "serious",
+          "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+          "help": "Elements must have their visible text as part of their accessible name",
+          "nodes": [
+            {
+              "target": [
+                ".md\\:hidden > .space-x-1.md\\:min-h-9[aria-label=\"Switch to Spanish (ES)\"]"
+              ],
+              "html": "<button class=\"justify-center gap-2...\" aria-label=\"Switch to Spanish (E...\">",
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            }
+          ]
+        }
+      ],
+      "passes": 46,
+      "incomplete": [
+        {
+          "id": "aria-valid-attr-value",
+          "nodes": 1
+        },
+        {
+          "id": "color-contrast",
+          "nodes": 14
+        }
+      ]
+    },
+    "sprint": {
+      "url": "http://localhost:3001/sprint",
+      "extra": {},
+      "violations": [],
+      "passes": 44,
+      "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "nodes": 1
+        },
+        {
+          "id": "aria-valid-attr-value",
+          "nodes": 1
+        },
+        {
+          "id": "color-contrast",
+          "nodes": 2
+        }
+      ]
+    },
+    "sprint-light": {
+      "url": "http://localhost:3001/sprint?theme=light",
+      "extra": {},
+      "violations": [],
+      "passes": 44,
+      "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "nodes": 1
+        },
+        {
+          "id": "aria-valid-attr-value",
+          "nodes": 1
+        },
+        {
+          "id": "color-contrast",
+          "nodes": 154
+        },
+        {
+          "id": "link-in-text-block",
+          "nodes": 1
+        }
+      ]
+    },
+    "nexa": {
+      "url": "http://localhost:3001/projects/nexa",
+      "extra": {},
+      "violations": [
+        {
+          "id": "label-content-name-mismatch",
+          "impact": "serious",
+          "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+          "help": "Elements must have their visible text as part of their accessible name",
+          "nodes": [
+            {
+              "target": [".md\\:hidden > .h-8.space-x-1.md\\:min-h-9"],
+              "html": "<button class=\"justify-center gap-2...\" aria-label=\"Switch to Spanish (E...\">",
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": ["div[aria-label=\"NEXA screenshot 1\"]"],
+              "html": "<div class=\"group relative aspect-video bg-muted rounded-lg overflow-hidden cursor-pointer border\" tabindex=\"0\" role=\"button\" aria-label=\"NEXA screenshot 1\">",
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": ["div[aria-label=\"NEXA screenshot 2\"]"],
+              "html": "<div class=\"group relative aspect-video bg-muted rounded-lg overflow-hidden cursor-pointer border\" tabindex=\"0\" role=\"button\" aria-label=\"NEXA screenshot 2\">",
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": ["div[aria-label=\"NEXA screenshot 3\"]"],
+              "html": "<div class=\"group relative aspect-video bg-muted rounded-lg overflow-hidden cursor-pointer border\" tabindex=\"0\" role=\"button\" aria-label=\"NEXA screenshot 3\">",
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": ["div[aria-label=\"NEXA screenshot 4\"]"],
+              "html": "<div class=\"group relative aspect-video bg-muted rounded-lg overflow-hidden cursor-pointer border\" tabindex=\"0\" role=\"button\" aria-label=\"NEXA screenshot 4\">",
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            }
+          ]
+        }
+      ],
+      "passes": 41,
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": 4
+        }
+      ]
+    }
+  },
+  "inspect": {
+    "home": {
+      "title": "Alejandro Repetto: Systems Engineer & Full-Stack Developer | Portfolio",
+      "htmlLang": "en",
+      "colorScheme": "dark",
+      "themeClass": "__variable_d8ebd1 __variable_c552df __variable_0b4612 dark",
+      "hasSkip": true,
+      "skipText": "Skip to main content",
+      "hasMain": true,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Alejandro Repetto"
+        },
+        {
+          "tag": "H2",
+          "text": "About"
+        },
+        {
+          "tag": "H3",
+          "text": "Background"
+        },
+        {
+          "tag": "H3",
+          "text": "Approach"
+        },
+        {
+          "tag": "H2",
+          "text": "From talking about AI to executing with AI"
+        },
+        {
+          "tag": "H3",
+          "text": "We set it to your pace: intensive or sustained"
+        },
+        {
+          "tag": "H4",
+          "text": "Intensive"
+        },
+        {
+          "tag": "H4",
+          "text": "Sustained"
+        },
+        {
+          "tag": "H2",
+          "text": "Skills and technologies"
+        },
+        {
+          "tag": "H2",
+          "text": "Awards and recognition"
+        },
+        {
+          "tag": "H3",
+          "text": "Roxium DAO Ops"
+        },
+        {
+          "tag": "H4",
+          "text": "Key Technologies"
+        },
+        {
+          "tag": "H3",
+          "text": "FarmHero"
+        },
+        {
+          "tag": "H4",
+          "text": "Key Technologies"
+        },
+        {
+          "tag": "H3",
+          "text": "Zorrito Finance"
+        },
+        {
+          "tag": "H4",
+          "text": "Key Technologies"
+        },
+        {
+          "tag": "H3",
+          "text": "ConSentinel"
+        },
+        {
+          "tag": "H4",
+          "text": "Key Technologies"
+        },
+        {
+          "tag": "H3",
+          "text": "Capsule Quality Control"
+        },
+        {
+          "tag": "H4",
+          "text": "Key Technologies"
+        },
+        {
+          "tag": "H2",
+          "text": "Projects"
+        },
+        {
+          "tag": "H3",
+          "text": "Does your company need execution, not more talks?"
+        },
+        {
+          "tag": "H2",
+          "text": "Contact"
+        },
+        {
+          "tag": "H3",
+          "text": "Let's talk"
+        }
+      ],
+      "landmarks": [
+        {
+          "tag": "NAV",
+          "role": null,
+          "aria": "Main",
+          "id": ""
+        },
+        {
+          "tag": "MAIN",
+          "role": null,
+          "aria": null,
+          "id": "main-content"
+        },
+        {
+          "tag": "FOOTER",
+          "role": null,
+          "aria": null,
+          "id": ""
+        }
+      ],
+      "imgs": [
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Falejandro.webp&w=640&q=88",
+          "alt": "Alejandro Repetto, Software Engineer",
+          "width": 390,
+          "height": 446,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fprojects%2Fnexa-1.png&w=640&q=75",
+          "alt": "NEXA",
+          "width": 390,
+          "height": 210,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fprojects%2Fsomoshuella-1.png&w=640&q=75",
+          "alt": "Somos Huella",
+          "width": 351,
+          "height": 624,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fprojects%2Ffarmhero-1.jpg&w=640&q=75",
+          "alt": "FarmHero",
+          "width": 390,
+          "height": 218,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fprojects%2Fnasa-1.png&w=640&q=75",
+          "alt": "Lunar & Martian Seismic Detection",
+          "width": 390,
+          "height": 220,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fprojects%2Fconsentinel-1.png&w=640&q=75",
+          "alt": "ConSentinel",
+          "width": 390,
+          "height": 259,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fprojects%2Fvirgia-1.png&w=640&q=75",
+          "alt": "Capsule Quality Control",
+          "width": 390,
+          "height": 519,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fprojects%2Fzorrito-1.jpg&w=640&q=75",
+          "alt": "Zorrito Finance",
+          "width": 390,
+          "height": 195,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fprojects%2Fbraintumorai-1.jpg&w=640&q=75",
+          "alt": "Brain Tumor Classifier",
+          "width": 390,
+          "height": 261,
+          "hasDims": true
+        }
+      ],
+      "photos": [
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Falejandro.webp&w=640&q=88",
+          "alt": "Alejandro Repetto, Software Engineer",
+          "width": 390,
+          "height": 446,
+          "hasDims": true
+        }
+      ],
+      "spacexsi": 1,
+      "spacexai": 0,
+      "mutedSample": {
+        "text": "About",
+        "color": "oklch(0.75 0 0)",
+        "bg": "oklch(0.145 0 0)",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "ratio": null
+      },
+      "accentSample": {
+        "text": "Alejandro Repetto",
+        "color": "oklch(0.985 0 0)",
+        "bg": "oklch(0.145 0 0)",
+        "fontSize": "18px",
+        "fontWeight": "600",
+        "ratio": null
+      },
+      "outlineNoneCount": 72
+    },
+    "sprint": {
+      "title": "AI Execution Sprint: de hablar de IA a ejecutar con IA, en 30 días | Alejandro Repetto",
+      "htmlLang": "es",
+      "colorScheme": "dark",
+      "themeClass": "__variable_d8ebd1 __variable_c552df __variable_0b4612 dark",
+      "hasSkip": true,
+      "skipText": "Saltar al contenido principal",
+      "hasMain": true,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Tu empresa deja de hablar de IA y empieza a ejecutar con IA. En 30 días, con tu "
+        },
+        {
+          "tag": "H2",
+          "text": "Tu empresa ya habló de IA. La operación sigue igual."
+        },
+        {
+          "tag": "H2",
+          "text": "Un sprint de 30 días. Tu equipo termina construyendo."
+        },
+        {
+          "tag": "H2",
+          "text": "Si tu empresa ya habló de IA y ahora quiere ejecutar, esto aplica."
+        },
+        {
+          "tag": "H2",
+          "text": "Cinco etapas. Un objetivo: que quede algo construido."
+        },
+        {
+          "tag": "H3",
+          "text": "Diagnóstico"
+        },
+        {
+          "tag": "H3",
+          "text": "Capacitación aplicada"
+        },
+        {
+          "tag": "H3",
+          "text": "Laboratorio guiado"
+        },
+        {
+          "tag": "H3",
+          "text": "Hackathon interna + Demo Day"
+        },
+        {
+          "tag": "H3",
+          "text": "Roadmap de implementación"
+        },
+        {
+          "tag": "H3",
+          "text": "Lo armamos a tu ritmo: intensivo o sostenido"
+        },
+        {
+          "tag": "H4",
+          "text": "Intensivo"
+        },
+        {
+          "tag": "H4",
+          "text": "Sostenido"
+        },
+        {
+          "tag": "H3",
+          "text": "Programa modular"
+        },
+        {
+          "tag": "H4",
+          "text": "Panorama de IA y seguridad"
+        },
+        {
+          "tag": "H4",
+          "text": "IA local vs propietaria, y Gemini"
+        },
+        {
+          "tag": "H4",
+          "text": "Desarrollo con agentes en Cursor y Grok Bot"
+        },
+        {
+          "tag": "H4",
+          "text": "Datos"
+        },
+        {
+          "tag": "H4",
+          "text": "Automatización y agentes"
+        },
+        {
+          "tag": "H2",
+          "text": "Qué se queda en tu empresa cuando me voy"
+        },
+        {
+          "tag": "H3",
+          "text": "Equipo capacitado"
+        },
+        {
+          "tag": "H3",
+          "text": "Oportunidades priorizadas"
+        },
+        {
+          "tag": "H3",
+          "text": "Prototipos funcionales"
+        },
+        {
+          "tag": "H3",
+          "text": "Roadmap de implementación"
+        },
+        {
+          "tag": "H3",
+          "text": "Marco de gobernanza"
+        },
+        {
+          "tag": "H3",
+          "text": "Equipo que ya construyó"
+        },
+        {
+          "tag": "H2",
+          "text": "El sprint completo es el formato. Hay puntos de entrada."
+        },
+        {
+          "tag": "H3",
+          "text": "Executive Briefing"
+        },
+        {
+          "tag": "H3",
+          "text": "AI Training para equipos"
+        },
+        {
+          "tag": "H3",
+          "text": "Hackathon interna"
+        },
+        {
+          "tag": "H3",
+          "text": "AI Execution Sprint"
+        },
+        {
+          "tag": "H3",
+          "text": "Implementation"
+        },
+        {
+          "tag": "H2",
+          "text": "Tu equipo ya usa IA. La pregunta es con qué reglas."
+        },
+        {
+          "tag": "H3",
+          "text": "Gobernanza de IA"
+        },
+        {
+          "tag": "H3",
+          "text": "Privacidad y anonimización"
+        },
+        {
+          "tag": "H3",
+          "text": "Accesos y permisos"
+        },
+        {
+          "tag": "H3",
+          "text": "Costos bajo control"
+        },
+        {
+          "tag": "H3",
+          "text": "Visibilidad de uso"
+        },
+        {
+          "tag": "H3",
+          "text": "Validación de outputs"
+        },
+        {
+          "tag": "H3",
+          "text": "Qué queda documentado"
+        },
+        {
+          "tag": "H2",
+          "text": "Lo facilito yo. Lo construye tu equipo."
+        },
+        {
+          "tag": "H3",
+          "text": "Reconocimientos"
+        },
+        {
+          "tag": "H2",
+          "text": "Prensa y apariciones"
+        },
+        {
+          "tag": "H2",
+          "text": "Te vas con un prototipo funcionando. Garantizado."
+        },
+        {
+          "tag": "H2",
+          "text": "Lo que pregunta dirección antes de agendar"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Esto es una capacitación o una consultoría?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿El temario es fijo?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Necesitamos saber programar?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Qué tipo de prototipos pueden salir?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Cuánto tiempo requiere del equipo?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Cómo manejan privacidad, datos sensibles y control de uso?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Qué áreas de la empresa pueden participar?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Cómo se eligen los casos internos?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Qué pasa después de la hackathon?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Se puede hacer remoto o híbrido?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Trabajás solo o con equipo?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Cómo se relaciona esto con CRIA?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Y si todavía no sabemos qué procesos queremos mejorar?"
+        },
+        {
+          "tag": "H2",
+          "text": "Hablemos."
+        }
+      ],
+      "landmarks": [
+        {
+          "tag": "NAV",
+          "role": null,
+          "aria": "Principal",
+          "id": ""
+        },
+        {
+          "tag": "MAIN",
+          "role": null,
+          "aria": null,
+          "id": "main-content"
+        },
+        {
+          "tag": "HEADER",
+          "role": null,
+          "aria": null,
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:R13b3efjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:R15b3efjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:R17b3efjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:R19b3efjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:R1bb3efjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:R1db3efjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:R1fb3efjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:R1hb3efjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:R1jb3efjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:R1lb3efjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:R1nb3efjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:R1pb3efjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:R1rb3efjsqkq:"
+        },
+        {
+          "tag": "FOOTER",
+          "role": null,
+          "aria": null,
+          "id": ""
+        }
+      ],
+      "imgs": [
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fspeaker.jpg&w=640&q=72",
+          "alt": "Alejandro Repetto presentando en Platanus Hack 2026",
+          "width": 390,
+          "height": 129,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/sprint/media/la-capital.svg",
+          "alt": "La Capital",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Fel-ciudadano.png&w=1920&q=75",
+          "alt": "El Ciudadano",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Frts.png&w=1200&q=75",
+          "alt": "RTS Medios",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Ftelefe.png&w=384&q=75",
+          "alt": "Telefe Rosario",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Fecobiz.png&w=640&q=75",
+          "alt": "EcoBiz",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Fconclusion.png&w=1920&q=75",
+          "alt": "Conclusión",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/sprint/media/radiofonica.svg",
+          "alt": "Radiofónica",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Frosarionet.png&w=1080&q=75",
+          "alt": "RosarioNet",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/sprint/media/la-capital.svg",
+          "alt": "",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Fel-ciudadano.png&w=1920&q=75",
+          "alt": "",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Frts.png&w=1200&q=75",
+          "alt": "",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Ftelefe.png&w=384&q=75",
+          "alt": "",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Fecobiz.png&w=640&q=75",
+          "alt": "",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Fconclusion.png&w=1920&q=75",
+          "alt": "",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/sprint/media/radiofonica.svg",
+          "alt": "",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Frosarionet.png&w=1080&q=75",
+          "alt": "",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        }
+      ],
+      "photos": [
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fspeaker.jpg&w=640&q=72",
+          "alt": "Alejandro Repetto presentando en Platanus Hack 2026",
+          "width": 390,
+          "height": 129,
+          "hasDims": true
+        }
+      ],
+      "spacexsi": 0,
+      "spacexai": 0,
+      "mutedSample": {
+        "text": "AI Execution Sprint · Capacitación y hackathons internas",
+        "color": "oklch(0.75 0 0)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "ratio": null
+      },
+      "accentSample": {
+        "text": "Alejandro Repetto",
+        "color": "oklch(0.985 0 0)",
+        "bg": "oklch(0.145 0 0)",
+        "fontSize": "13px",
+        "fontWeight": "500",
+        "ratio": null
+      },
+      "outlineNoneCount": 37
+    },
+    "sprint-light": {
+      "title": "AI Execution Sprint: de hablar de IA a ejecutar con IA, en 30 días | Alejandro Repetto",
+      "htmlLang": "es",
+      "colorScheme": "light",
+      "themeClass": "__variable_d8ebd1 __variable_c552df __variable_0b4612 light sprint-light",
+      "hasSkip": true,
+      "skipText": "Saltar al contenido principal",
+      "hasMain": true,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Tu empresa deja de hablar de IA y empieza a ejecutar con IA. En 30 días, con tu "
+        },
+        {
+          "tag": "H2",
+          "text": "Tu empresa ya habló de IA. La operación sigue igual."
+        },
+        {
+          "tag": "H2",
+          "text": "Un sprint de 30 días. Tu equipo termina construyendo."
+        },
+        {
+          "tag": "H2",
+          "text": "Si tu empresa ya habló de IA y ahora quiere ejecutar, esto aplica."
+        },
+        {
+          "tag": "H2",
+          "text": "Cinco etapas. Un objetivo: que quede algo construido."
+        },
+        {
+          "tag": "H3",
+          "text": "Diagnóstico"
+        },
+        {
+          "tag": "H3",
+          "text": "Capacitación aplicada"
+        },
+        {
+          "tag": "H3",
+          "text": "Laboratorio guiado"
+        },
+        {
+          "tag": "H3",
+          "text": "Hackathon interna + Demo Day"
+        },
+        {
+          "tag": "H3",
+          "text": "Roadmap de implementación"
+        },
+        {
+          "tag": "H3",
+          "text": "Lo armamos a tu ritmo: intensivo o sostenido"
+        },
+        {
+          "tag": "H4",
+          "text": "Intensivo"
+        },
+        {
+          "tag": "H4",
+          "text": "Sostenido"
+        },
+        {
+          "tag": "H3",
+          "text": "Programa modular"
+        },
+        {
+          "tag": "H4",
+          "text": "Panorama de IA y seguridad"
+        },
+        {
+          "tag": "H4",
+          "text": "IA local vs propietaria, y Gemini"
+        },
+        {
+          "tag": "H4",
+          "text": "Desarrollo con agentes en Cursor y Grok Bot"
+        },
+        {
+          "tag": "H4",
+          "text": "Datos"
+        },
+        {
+          "tag": "H4",
+          "text": "Automatización y agentes"
+        },
+        {
+          "tag": "H2",
+          "text": "Qué se queda en tu empresa cuando me voy"
+        },
+        {
+          "tag": "H3",
+          "text": "Equipo capacitado"
+        },
+        {
+          "tag": "H3",
+          "text": "Oportunidades priorizadas"
+        },
+        {
+          "tag": "H3",
+          "text": "Prototipos funcionales"
+        },
+        {
+          "tag": "H3",
+          "text": "Roadmap de implementación"
+        },
+        {
+          "tag": "H3",
+          "text": "Marco de gobernanza"
+        },
+        {
+          "tag": "H3",
+          "text": "Equipo que ya construyó"
+        },
+        {
+          "tag": "H2",
+          "text": "El sprint completo es el formato. Hay puntos de entrada."
+        },
+        {
+          "tag": "H3",
+          "text": "Executive Briefing"
+        },
+        {
+          "tag": "H3",
+          "text": "AI Training para equipos"
+        },
+        {
+          "tag": "H3",
+          "text": "Hackathon interna"
+        },
+        {
+          "tag": "H3",
+          "text": "AI Execution Sprint"
+        },
+        {
+          "tag": "H3",
+          "text": "Implementation"
+        },
+        {
+          "tag": "H2",
+          "text": "Tu equipo ya usa IA. La pregunta es con qué reglas."
+        },
+        {
+          "tag": "H3",
+          "text": "Gobernanza de IA"
+        },
+        {
+          "tag": "H3",
+          "text": "Privacidad y anonimización"
+        },
+        {
+          "tag": "H3",
+          "text": "Accesos y permisos"
+        },
+        {
+          "tag": "H3",
+          "text": "Costos bajo control"
+        },
+        {
+          "tag": "H3",
+          "text": "Visibilidad de uso"
+        },
+        {
+          "tag": "H3",
+          "text": "Validación de outputs"
+        },
+        {
+          "tag": "H3",
+          "text": "Qué queda documentado"
+        },
+        {
+          "tag": "H2",
+          "text": "Lo facilito yo. Lo construye tu equipo."
+        },
+        {
+          "tag": "H3",
+          "text": "Reconocimientos"
+        },
+        {
+          "tag": "H2",
+          "text": "Prensa y apariciones"
+        },
+        {
+          "tag": "H2",
+          "text": "Te vas con un prototipo funcionando. Garantizado."
+        },
+        {
+          "tag": "H2",
+          "text": "Lo que pregunta dirección antes de agendar"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Esto es una capacitación o una consultoría?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿El temario es fijo?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Necesitamos saber programar?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Qué tipo de prototipos pueden salir?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Cuánto tiempo requiere del equipo?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Cómo manejan privacidad, datos sensibles y control de uso?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Qué áreas de la empresa pueden participar?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Cómo se eligen los casos internos?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Qué pasa después de la hackathon?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Se puede hacer remoto o híbrido?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Trabajás solo o con equipo?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Cómo se relaciona esto con CRIA?"
+        },
+        {
+          "tag": "H3",
+          "text": "¿Y si todavía no sabemos qué procesos queremos mejorar?"
+        },
+        {
+          "tag": "H2",
+          "text": "Hablemos."
+        }
+      ],
+      "landmarks": [
+        {
+          "tag": "NAV",
+          "role": null,
+          "aria": "Principal",
+          "id": ""
+        },
+        {
+          "tag": "MAIN",
+          "role": null,
+          "aria": null,
+          "id": "main-content"
+        },
+        {
+          "tag": "HEADER",
+          "role": null,
+          "aria": null,
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:R13b3efjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:R15b3efjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:R17b3efjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:R19b3efjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:R1bb3efjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:R1db3efjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:R1fb3efjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:R1hb3efjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:R1jb3efjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:R1lb3efjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:R1nb3efjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:R1pb3efjsqkq:"
+        },
+        {
+          "tag": "DIV",
+          "role": "region",
+          "aria": null,
+          "id": "radix-:R1rb3efjsqkq:"
+        },
+        {
+          "tag": "FOOTER",
+          "role": null,
+          "aria": null,
+          "id": ""
+        }
+      ],
+      "imgs": [
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fspeaker.jpg&w=640&q=72",
+          "alt": "Alejandro Repetto presentando en Platanus Hack 2026",
+          "width": 390,
+          "height": 129,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/sprint/media/la-capital.svg",
+          "alt": "La Capital",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Fel-ciudadano.png&w=1920&q=75",
+          "alt": "El Ciudadano",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Frts.png&w=1200&q=75",
+          "alt": "RTS Medios",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Ftelefe.png&w=384&q=75",
+          "alt": "Telefe Rosario",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Fecobiz.png&w=640&q=75",
+          "alt": "EcoBiz",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Fconclusion.png&w=1920&q=75",
+          "alt": "Conclusión",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/sprint/media/radiofonica.svg",
+          "alt": "Radiofónica",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Frosarionet.png&w=1080&q=75",
+          "alt": "RosarioNet",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/sprint/media/la-capital.svg",
+          "alt": "",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Fel-ciudadano.png&w=1920&q=75",
+          "alt": "",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Frts.png&w=1200&q=75",
+          "alt": "",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Ftelefe.png&w=384&q=75",
+          "alt": "",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Fecobiz.png&w=640&q=75",
+          "alt": "",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Fconclusion.png&w=1920&q=75",
+          "alt": "",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/sprint/media/radiofonica.svg",
+          "alt": "",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fmedia%2Frosarionet.png&w=1080&q=75",
+          "alt": "",
+          "width": 0,
+          "height": 0,
+          "hasDims": true
+        }
+      ],
+      "photos": [
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fsprint%2Fspeaker.jpg&w=640&q=72",
+          "alt": "Alejandro Repetto presentando en Platanus Hack 2026",
+          "width": 390,
+          "height": 129,
+          "hasDims": true
+        }
+      ],
+      "spacexsi": 0,
+      "spacexai": 0,
+      "mutedSample": {
+        "text": "AI Execution Sprint · Capacitación y hackathons internas",
+        "color": "oklch(0.42 0.024 52)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "ratio": null
+      },
+      "accentSample": {
+        "text": "Alejandro Repetto",
+        "color": "oklch(0.24 0.028 52)",
+        "bg": "oklch(0.965 0.014 82)",
+        "fontSize": "13px",
+        "fontWeight": "500",
+        "ratio": null
+      },
+      "outlineNoneCount": 38
+    },
+    "nexa": {
+      "title": "NEXA | Alejandro Repetto",
+      "htmlLang": "en",
+      "colorScheme": "dark",
+      "themeClass": "__variable_d8ebd1 __variable_c552df __variable_0b4612 dark",
+      "hasSkip": true,
+      "skipText": "Skip to main content",
+      "hasMain": true,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "NEXA"
+        },
+        {
+          "tag": "H2",
+          "text": "Does your company need execution, not more talks?"
+        }
+      ],
+      "landmarks": [
+        {
+          "tag": "NAV",
+          "role": null,
+          "aria": "Main",
+          "id": ""
+        },
+        {
+          "tag": "MAIN",
+          "role": null,
+          "aria": null,
+          "id": "main-content"
+        },
+        {
+          "tag": "DIV",
+          "role": "button",
+          "aria": "NEXA screenshot 1",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "role": "button",
+          "aria": "NEXA screenshot 2",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "role": "button",
+          "aria": "NEXA screenshot 3",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "role": "button",
+          "aria": "NEXA screenshot 4",
+          "id": ""
+        },
+        {
+          "tag": "FOOTER",
+          "role": null,
+          "aria": null,
+          "id": ""
+        }
+      ],
+      "imgs": [
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fprojects%2Fnexa-1.png&w=640&q=75",
+          "alt": "NEXA screenshot 1",
+          "width": 390,
+          "height": 210,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fprojects%2Fnexa-2.png&w=640&q=75",
+          "alt": "NEXA screenshot 2",
+          "width": 390,
+          "height": 224,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fprojects%2Fnexa-3.png&w=640&q=75",
+          "alt": "NEXA screenshot 3",
+          "width": 390,
+          "height": 244,
+          "hasDims": true
+        },
+        {
+          "src": "http://localhost:3001/_next/image?url=%2Fprojects%2Fnexa-4.png&w=640&q=75",
+          "alt": "NEXA screenshot 4",
+          "width": 390,
+          "height": 240,
+          "hasDims": true
+        }
+      ],
+      "photos": [],
+      "spacexsi": 0,
+      "spacexai": 0,
+      "mutedSample": {
+        "text": "About",
+        "color": "oklch(0.75 0 0)",
+        "bg": "oklch(0.145 0 0)",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "ratio": null
+      },
+      "accentSample": {
+        "text": "Alejandro Repetto",
+        "color": "oklch(0.985 0 0)",
+        "bg": "oklch(0.145 0 0)",
+        "fontSize": "18px",
+        "fontWeight": "600",
+        "ratio": null
+      },
+      "outlineNoneCount": 22
+    }
+  },
+  "keyboard": {
+    "home": [
+      {
+        "tag": "A",
+        "text": "Skip to main content",
+        "href": "#main-content",
+        "outline": "solid 2px oklch(0.922 0 0)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "Alejandro Repetto",
+        "href": "/",
+        "outline": "solid 2px oklch(0.922 0 0)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Switch to light mode",
+        "href": null,
+        "outline": "none 2px oklch(0.922 0 0)",
+        "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklab(0 0 0 / 0) 0px 0px 0px 0px, oklab(0 0 0 / 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+        "visible": true
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Switch to Spanish (ES)",
+        "href": null,
+        "outline": "none 2px oklch(0.922 0 0)",
+        "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklab(0 0 0 / 0) 0px 0px 0px 0px, oklab(0 0 0 / 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+        "visible": true
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Toggle menu",
+        "href": null,
+        "outline": "none 2px oklch(0.922 0 0)",
+        "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklab(0 0 0 / 0) 0px 0px 0px 0px, oklab(0 0 0 / 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "Awarded at NASA Space Apps, ETH Argentina, and ETH Global.",
+        "href": "#awards",
+        "outline": "solid 2px oklab(0.922 0 0 / 0.5)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "Book a chat",
+        "href": "https://calendly.com/alejandrorepetto/diagnostico-ia",
+        "outline": "solid 2px oklch(0.62 0.19 38)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "See the sprint",
+        "href": "/sprint",
+        "outline": "none 2px oklch(0.922 0 0)",
+        "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklab(0 0 0 / 0) 0px 0px 0px 0px, oklab(0 0 0 / 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "Download resume",
+        "href": "/resume-en.pdf",
+        "outline": "solid 2px oklch(0.922 0 0)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "Scroll to about section",
+        "href": "#about",
+        "outline": "solid 2px oklch(0.922 0 0)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "Book a chat",
+        "href": "https://calendly.com/alejandrorepetto/diagnostico-ia",
+        "outline": "solid 2px oklch(0.62 0.19 38)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "See the sprint",
+        "href": "/sprint",
+        "outline": "solid 2px oklch(0.922 0 0)",
+        "boxShadow": "none",
+        "visible": true
+      }
+    ],
+    "sprint": [
+      {
+        "tag": "A",
+        "text": "Saltar al contenido principal",
+        "href": "#main-content",
+        "outline": "solid 2px oklch(0.922 0 0)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "Alejandro Repetto",
+        "href": "/",
+        "outline": "solid 2px oklab(0.922 0 0 / 0.5)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "Agendar una charla",
+        "href": "https://calendly.com/alejandrorepetto/diagnostico-ia",
+        "outline": "solid 2px oklch(0.62 0.19 38)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "Agendar una charla",
+        "href": "https://calendly.com/alejandrorepetto/diagnostico-ia",
+        "outline": "solid 2px oklch(0.62 0.19 38)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "Escribime a contact@repetto-a.com",
+        "href": "mailto:contact@repetto-a.com?subject=Sprint%20de%20IA",
+        "outline": "solid 2px oklch(0.922 0 0)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "¿Es para tu empresa?→",
+        "href": "#para-quien",
+        "outline": "solid 2px oklch(0.922 0 0)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "CRIA",
+        "href": "https://somoscria.ar/",
+        "outline": "solid 2px oklab(0.922 0 0 / 0.5)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "Agendar una charla",
+        "href": "https://calendly.com/alejandrorepetto/diagnostico-ia",
+        "outline": "solid 2px oklch(0.62 0.19 38)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "Agendar una charla",
+        "href": "https://calendly.com/alejandrorepetto/diagnostico-ia",
+        "outline": "solid 2px oklch(0.62 0.19 38)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "Escribime a contact@repetto-a.com",
+        "href": "mailto:contact@repetto-a.com?subject=Sprint%20de%20IA",
+        "outline": "solid 2px oklch(0.922 0 0)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "CRIA",
+        "href": "https://somoscria.ar/",
+        "outline": "solid 2px oklab(0.922 0 0 / 0.5)",
+        "boxShadow": "none",
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "text": "nexa.builders",
+        "href": "https://nexa.builders",
+        "outline": "solid 2px oklab(0.922 0 0 / 0.5)",
+        "boxShadow": "none",
+        "visible": true
+      }
+    ]
+  },
+  "reducedMotion": {
+    "sprint": {
+      "animationDuration": "1e-05s",
+      "transitionDuration": "1e-05s",
+      "scrollBehavior": "auto"
+    }
+  },
+  "finishedAt": "2026-10-31T04:14:23.577Z"
+}

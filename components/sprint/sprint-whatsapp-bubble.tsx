@@ -23,7 +23,7 @@ export function SprintWhatsAppBubble() {
         rel="noopener noreferrer"
         aria-label={CTA_COPY.whatsappAria}
         onClick={() => captureCTA("cta_whatsapp_click", { location: "fab" })}
-        className="pointer-events-auto group flex items-center gap-2.5 rounded-2xl focus-visible:outline-none"
+        className="pointer-events-auto group flex items-center gap-2.5 rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[var(--sprint-accent)]"
       >
         <span
           aria-hidden

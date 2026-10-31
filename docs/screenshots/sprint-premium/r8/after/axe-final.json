@@ -1,0 +1,42 @@
+{
+  "at": "2026-10-31T04:20:32.245Z",
+  "axeFinal": {
+    "home": {
+      "url": "http://127.0.0.1:3001/",
+      "violations": [],
+      "passes": 31
+    },
+    "homeInspect": {
+      "lang": "en",
+      "className": "__variable_d8ebd1 __variable_c552df __variable_0b4612 dark",
+      "colorScheme": "dark",
+      "skipText": "Skip to main content",
+      "photoCount": 1,
+      "spacexsi": 1,
+      "spacexai": 0
+    },
+    "sprint": {
+      "url": "http://127.0.0.1:3001/sprint",
+      "violations": [],
+      "passes": 30
+    },
+    "sprintInspect": {
+      "lang": "es",
+      "colorScheme": "dark",
+      "skipText": "Saltar al contenido principal",
+      "spacexsi": 0,
+      "photoAle": 0,
+      "speaker": true
+    },
+    "sprint-light": {
+      "url": "http://127.0.0.1:3001/sprint?theme=light",
+      "violations": [],
+      "passes": 30
+    },
+    "nexa": {
+      "url": "http://127.0.0.1:3001/projects/nexa",
+      "violations": [],
+      "passes": 27
+    }
+  }
+}

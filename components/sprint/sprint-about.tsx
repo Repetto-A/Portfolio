@@ -1,11 +1,6 @@
 import { SprintSection, SprintHeading, SprintProse } from "./sprint-section"
 import { SprintCriaLink, SprintNexaLink } from "./sprint-ext-link"
-import {
-  SPACEXSI_AMBASSADOR_LABEL,
-  SPRINT_ANCHORS,
-  SPRINT_SECTION_LABELS,
-  TRAINED_PEOPLE_STAT,
-} from "@/lib/sprint/constants"
+import { SPRINT_ANCHORS, SPRINT_SECTION_LABELS, TRAINED_PEOPLE_STAT } from "@/lib/sprint/constants"
 import { SPRINT_AWARDS } from "@/lib/sprint/proof"
 
 const HIGHLIGHTS = [
@@ -30,7 +25,6 @@ const FACTS = [
     clases en la Diplomatura de IA aplicada al ejercicio profesional (UCEL). También trabajo de
     forma directa con las empresas.
   </>,
-  SPACEXSI_AMBASSADOR_LABEL,
   <>
     El stack arranca en Cursor y Grok Bot. También di capacitaciones con Copilot y otras
     herramientas.

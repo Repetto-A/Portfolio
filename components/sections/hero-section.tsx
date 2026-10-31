@@ -64,7 +64,7 @@ export function HeroSection() {
                           <br />
                           <Link
                             href="#awards"
-                            className="underline-offset-4 decoration-[var(--sprint-accent)]/40 transition-colors hover:underline hover:text-foreground"
+                            className="underline underline-offset-4 decoration-[var(--sprint-accent)]/40 transition-colors hover:text-foreground"
                           >
                             {awards}
                           </Link>
@@ -88,7 +88,10 @@ export function HeroSection() {
               >
                 <Link href="/sprint">
                   {getTranslation(translations, "hero.cta.sprint")}
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+                  <ArrowRight
+                    className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5"
+                    aria-hidden
+                  />
                 </Link>
               </Button>
             </div>
@@ -100,7 +103,7 @@ export function HeroSection() {
               className="inline-flex min-h-11 items-center gap-1.5 text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
             >
               {getTranslation(translations, "hero.cta.resume")}
-              <ExternalLink className="h-3.5 w-3.5 opacity-60" />
+              <ExternalLink className="h-3.5 w-3.5 opacity-60" aria-hidden />
             </Link>
           </div>
 

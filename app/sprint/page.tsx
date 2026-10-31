@@ -51,24 +51,20 @@ export default function SprintPage({ searchParams }: SprintPageProps) {
       className="sprint-page min-h-screen bg-background text-foreground"
     >
       <SprintThemeSync theme={theme} />
-      <main>
-        <nav className="absolute top-0 left-0 right-0 z-10">
-          <div className="mx-auto flex max-w-5xl items-center justify-between px-4 pb-6 pt-[max(1.5rem,env(safe-area-inset-top))] sm:px-6 sm:py-7 lg:px-8">
-            <Link
-              href="/"
-              className="inline-flex min-h-[44px] items-center text-[13px] font-medium tracking-[0.01em] text-foreground transition-colors hover:text-[var(--sprint-accent)]"
-            >
-              Alejandro Repetto
-            </Link>
-            <SprintCalendlyButton
-              location="nav"
-              className="min-h-[44px] px-3.5 py-2 text-sm sm:px-4"
-            >
-              {CTA_COPY.primary}
-            </SprintCalendlyButton>
-          </div>
-        </nav>
-
+      <nav aria-label="Principal" className="absolute top-0 left-0 right-0 z-10">
+        <div className="mx-auto flex max-w-5xl items-center justify-between px-4 pb-6 pt-[max(1.5rem,env(safe-area-inset-top))] sm:px-6 sm:py-7 lg:px-8">
+          <Link
+            href="/"
+            className="inline-flex min-h-[44px] items-center text-[13px] font-medium tracking-[0.01em] text-foreground transition-colors hover:text-[var(--sprint-accent)]"
+          >
+            Alejandro Repetto
+          </Link>
+          <SprintCalendlyButton location="nav" className="min-h-[44px] px-3.5 py-2 text-sm sm:px-4">
+            {CTA_COPY.primary}
+          </SprintCalendlyButton>
+        </div>
+      </nav>
+      <main id="main-content">
         <SprintHero />
 
         <SprintProofBand />
@@ -122,10 +118,9 @@ export default function SprintPage({ searchParams }: SprintPageProps) {
             </div>
           </div>
         </footer>
-
-        <SprintWhatsAppBubble />
-        <SprintContactDock />
       </main>
+      <SprintWhatsAppBubble />
+      <SprintContactDock />
     </div>
   )
 }

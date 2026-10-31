@@ -14,6 +14,9 @@ import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { ScrollProvider } from "@/lib/scroll-context"
 import { FloatingTitle } from "@/components/floating-title"
+import { SkipLink } from "@/components/skip-link"
+
+const showVercelTelemetry = process.env.VERCEL === "1"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -27,7 +30,7 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-jetbrains-mono",
   display: "swap",
-  preload: true,
+  preload: false,
   fallback: ["Courier New", "monospace"],
 })
 
@@ -54,9 +57,10 @@ export const viewport: Viewport = {
   userScalable: true,
   viewportFit: "cover",
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
     { media: "(prefers-color-scheme: dark)", color: "#000000" },
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
   ],
+  colorScheme: "dark",
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -66,7 +70,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${jetbrainsMono.variable} ${newsreader.variable}`}
+      className={`${inter.variable} ${jetbrainsMono.variable} ${newsreader.variable} dark`}
       suppressHydrationWarning
     >
       <head>
@@ -78,32 +82,32 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }}
         />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* /sprint fuerza dark (default) o light (?theme=light) antes del paint. No toca otras rutas. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var p=location.pathname.replace(/\\/+$/,"")||"/";if(p!=="/sprint")return;var t=new URLSearchParams(location.search).get("theme")==="light"?"light":"dark";var r=document.documentElement;r.classList.remove("light","dark","sprint-light");r.classList.add(t);if(t==="light")r.classList.add("sprint-light");r.style.colorScheme=t;}catch(e){}})();`,
+            __html: `(function(){try{var p=location.pathname.replace(/\\/+$/,"")||"/";if(p!=="/sprint")return;var t=new URLSearchParams(location.search).get("theme")==="light"?"light":"dark";var r=document.documentElement;r.classList.remove("light","dark","sprint-light");r.classList.add(t);if(t==="light")r.classList.add("sprint-light");r.style.colorScheme=t;r.lang="es";}catch(e){}})();`,
           }}
         />
       </head>
       <body>
-        <a href="#main-content" className="skip-to-main">
-          Skip to main content
-        </a>
+        <SkipLink />
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="dark"
+          enableSystem={false}
           disableTransitionOnChange
         >
           <I18nProvider>
             <ScrollProvider>
               <FloatingTitle />
-              <div id="main-content">{children}</div>
+              {children}
             </ScrollProvider>
-            <Analytics />
-            <SpeedInsights />
+            {showVercelTelemetry ? (
+              <>
+                <Analytics />
+                <SpeedInsights />
+              </>
+            ) : null}
           </I18nProvider>
         </ThemeProvider>
       </body>

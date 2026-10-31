@@ -4,18 +4,18 @@ import { SprintPressModal } from "./sprint-press-modal"
 import { SPRINT_ANCHORS, SPRINT_SECTION_LABELS } from "@/lib/sprint/constants"
 import { SPRINT_PRESS_LOGOS, type SprintPressLogo } from "@/lib/sprint/proof"
 
-function PressLogo({ logo }: { logo: SprintPressLogo }) {
+function PressLogo({ logo, decorative = false }: { logo: SprintPressLogo; decorative?: boolean }) {
   const img = (
     <Image
       src={logo.src}
-      alt={logo.alt}
+      alt={decorative ? "" : logo.alt}
       width={logo.w}
       height={logo.h}
       className={`sprint-press-logo ${logo.className} w-auto object-contain transition-opacity duration-300`}
     />
   )
 
-  if (logo.url) {
+  if (logo.url && !decorative) {
     return (
       <a
         href={logo.url}
@@ -29,11 +29,7 @@ function PressLogo({ logo }: { logo: SprintPressLogo }) {
     )
   }
 
-  return (
-    <span className="group/logo inline-flex items-center" aria-label={logo.alt}>
-      {img}
-    </span>
-  )
+  return <span className="group/logo inline-flex items-center">{img}</span>
 }
 
 export function SprintPress() {
@@ -59,7 +55,7 @@ export function SprintPress() {
           ))}
           <span className="sprint-marquee-dup contents" aria-hidden>
             {SPRINT_PRESS_LOGOS.map((logo) => (
-              <PressLogo key={`dup-${logo.src}`} logo={logo} />
+              <PressLogo key={`dup-${logo.src}`} logo={logo} decorative />
             ))}
           </span>
         </div>

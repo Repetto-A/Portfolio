@@ -16,22 +16,33 @@ export function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <Button variant="ghost" size="sm" className="size-11 p-0 md:size-9">
+      <Button
+        variant="ghost"
+        size="sm"
+        disabled
+        className="size-11 p-0 md:size-9"
+        aria-label="Toggle theme"
+      >
         <span className="sr-only">Toggle theme</span>
       </Button>
     )
   }
 
+  const nextTheme = theme === "dark" ? "light" : "dark"
+
   return (
     <Button
       variant="ghost"
       size="sm"
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      onClick={() => setTheme(nextTheme)}
       className="size-11 p-0 md:size-9"
-      aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+      aria-label={`Switch to ${nextTheme} mode`}
     >
-      {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-      <span className="sr-only">Toggle theme</span>
+      {theme === "dark" ? (
+        <Sun className="h-4 w-4" aria-hidden />
+      ) : (
+        <Moon className="h-4 w-4" aria-hidden />
+      )}
     </Button>
   )
 }

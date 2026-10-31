@@ -85,7 +85,7 @@ function FormatRow({ format: f }: { format: Format }) {
   if (f.core) {
     return (
       <div className="sprint-recommended relative my-6 rounded-xl border border-[var(--sprint-accent)]/50 bg-card p-6 shadow-md ring-1 ring-[var(--sprint-accent)]/20 sm:p-8">
-        <span className="sprint-kicker absolute -top-2.5 left-6 rounded-full bg-[var(--sprint-accent)] px-2.5 py-0.5 text-[var(--sprint-accent-foreground)]">
+        <span className="sprint-kicker absolute -top-2.5 left-6 rounded-full bg-[color-mix(in_oklab,var(--sprint-accent),black_28%)] px-2.5 py-0.5 text-[var(--sprint-accent-foreground)]">
           Recomendado
         </span>
 

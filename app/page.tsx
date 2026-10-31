@@ -19,22 +19,24 @@ export const metadata: Metadata = generateMetadata({
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background">
+    <>
       <Navigation />
-      <HeroSection />
-      <AboutSection />
-      <TrainingsSection />
-      <SkillsSection />
-      <div className="flex justify-center">
-        <div className="h-px w-16 bg-border" />
-      </div>
-      <AwardsSection />
-      <ProjectsSection />
-      <div className="flex justify-center">
-        <div className="h-px w-16 bg-border" />
-      </div>
-      <ContactSection />
+      <main id="main-content" className="min-h-screen bg-background">
+        <HeroSection />
+        <AboutSection />
+        <TrainingsSection />
+        <SkillsSection />
+        <div className="flex justify-center">
+          <div className="h-px w-16 bg-border" />
+        </div>
+        <AwardsSection />
+        <ProjectsSection />
+        <div className="flex justify-center">
+          <div className="h-px w-16 bg-border" />
+        </div>
+        <ContactSection />
+      </main>
       <Footer />
-    </main>
+    </>
   )
 }
