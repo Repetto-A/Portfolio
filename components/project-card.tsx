@@ -120,6 +120,7 @@ export const ProjectCard = memo(function ProjectCard({
             src={thumbnail}
             alt=""
             fill
+            loading="lazy"
             className="object-cover transition-transform duration-500 motion-safe:group-hover:scale-105"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
