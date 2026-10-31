@@ -1,5 +1,5 @@
 import { type ReactNode } from "react"
-import { Inter, JetBrains_Mono, Newsreader } from "next/font/google"
+import localFont from "next/font/local"
 import "./globals.css"
 import type { Metadata, Viewport } from "next"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -18,28 +18,14 @@ import { SkipLink } from "@/components/skip-link"
 
 const showVercelTelemetry = process.env.VERCEL === "1"
 
-const inter = Inter({
-  subsets: ["latin"],
+const inter = localFont({
+  src: "../public/fonts/inter-latin.woff2",
   variable: "--font-inter",
   display: "swap",
-  preload: true,
-  fallback: ["system-ui", "arial"],
-})
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
-  display: "swap",
   preload: false,
-  fallback: ["Courier New", "monospace"],
-})
-
-const newsreader = Newsreader({
-  subsets: ["latin"],
-  variable: "--font-sprint-display",
-  display: "swap",
-  axes: ["opsz"],
-  adjustFontFallback: false,
+  fallback: ["system-ui", "arial"],
+  adjustFontFallback: "Arial",
+  weight: "100 900",
 })
 
 export const metadata: Metadata = genMetadata({
@@ -70,7 +56,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${jetbrainsMono.variable} ${newsreader.variable} dark`}
+      className={`${inter.variable} dark`}
       suppressHydrationWarning
     >
       <head>
@@ -88,9 +74,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             __html: `(function(){try{var p=location.pathname.replace(/\\/+$/,"")||"/";if(p!=="/sprint")return;var t=new URLSearchParams(location.search).get("theme")==="light"?"light":"dark";var r=document.documentElement;r.classList.remove("light","dark","sprint-light");r.classList.add(t);if(t==="light")r.classList.add("sprint-light");r.style.colorScheme=t;r.lang="es";}catch(e){}})();`,
           }}
         />
+        <style
+          dangerouslySetInnerHTML={{
+            __html:
+              "[data-hero-photo]{position:relative;width:100%;aspect-ratio:4/5}[data-hero-photo] img[data-lcp-photo]{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 8%}@media (min-width:1024px){[data-hero-photo]{aspect-ratio:1}}",
+          }}
+        />
       </head>
       <body>
-        <SkipLink />
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -98,6 +89,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           disableTransitionOnChange
         >
           <I18nProvider>
+            <SkipLink />
             <ScrollProvider>
               <FloatingTitle />
               {children}

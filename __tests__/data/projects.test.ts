@@ -4,10 +4,11 @@ import sitemap from "@/app/sitemap"
 describe("projects data", () => {
   const projects = projectsData.projects
 
-  it("includes Agromaq and does not list Kraken POS", () => {
+  it("includes Agromaq and does not include Kraken POS", () => {
     const ids = projects.map((p) => p.id)
     expect(ids).toContain("agromaq")
     expect(ids).not.toContain("kraken-pos")
+    expect(JSON.stringify(projectsData).toLowerCase()).not.toContain("kraken")
   })
 
   it("places Agromaq first, at the same visual rank as the rest", () => {

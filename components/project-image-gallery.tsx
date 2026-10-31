@@ -5,6 +5,7 @@ import Image from "next/image"
 import { ImageLightbox } from "@/components/ui/image-lightbox"
 import { ZoomIn } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { useTranslations, getTranslation } from "@/lib/i18n-context"
 
 interface ProjectImageGalleryProps {
   images: string[]
@@ -13,6 +14,7 @@ interface ProjectImageGalleryProps {
 }
 
 export function ProjectImageGallery({ images, projectTitle, className }: ProjectImageGalleryProps) {
+  const [translations] = useTranslations()
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [lightboxInitialIndex, setLightboxInitialIndex] = useState(0)
 
@@ -29,6 +31,12 @@ export function ProjectImageGallery({ images, projectTitle, className }: Project
     return null
   }
 
+  const screenshotLabel = (index: number) =>
+    getTranslation(translations, "a11y.screenshot")
+      .replace("{{title}}", projectTitle)
+      .replace("{{n}}", String(index + 1))
+      .replace("{{total}}", String(images.length))
+
   return (
     <div className={className}>
       <div
@@ -40,30 +48,20 @@ export function ProjectImageGallery({ images, projectTitle, className }: Project
           const fullPath = image.startsWith("/") ? image : `/${image}`
 
           return (
-            <div
+            <button
               key={index}
-              className="group relative aspect-video cursor-pointer overflow-hidden rounded-lg border bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              type="button"
+              className="group relative aspect-video cursor-pointer overflow-hidden rounded-lg border bg-muted text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               onClick={() => openLightbox(index)}
-              tabIndex={0}
-              role="button"
-              aria-label={
-                images.length > 1
-                  ? `${projectTitle} screenshot ${index + 1}/${images.length}`
-                  : `${projectTitle} screenshot ${index + 1}`
-              }
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault()
-                  openLightbox(index)
-                }
-              }}
+              aria-label={screenshotLabel(index)}
             >
               <Image
                 src={fullPath || "/placeholder.svg"}
                 alt=""
                 fill
                 className={cn("object-cover transition-all duration-300", "group-hover:scale-105")}
-                priority={index < 2}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority={index === 0}
                 onError={(e) => {
                   console.error(`Error loading image: ${fullPath}`)
                   const target = e.target as HTMLImageElement
@@ -97,16 +95,7 @@ export function ProjectImageGallery({ images, projectTitle, className }: Project
                   {index + 1}/{images.length}
                 </div>
               ) : null}
-
-              <div
-                aria-hidden
-                className="absolute right-0 bottom-0 left-0 bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-              >
-                <p className="text-sm font-medium text-white">
-                  {projectTitle} · Screenshot {index + 1}
-                </p>
-              </div>
-            </div>
+            </button>
           )
         })}
       </div>

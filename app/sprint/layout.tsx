@@ -36,5 +36,16 @@ export const metadata: Metadata = {
 }
 
 export default function SprintLayout({ children }: { children: ReactNode }) {
-  return <div lang="es">{children}</div>
+  return (
+    <>
+      <link
+        rel="preload"
+        href="/fonts/newsreader-600-latin.woff2"
+        as="font"
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
+      <div lang="es">{children}</div>
+    </>
+  )
 }

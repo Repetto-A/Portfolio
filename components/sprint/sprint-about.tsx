@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { SPRINT_SPEAKER_SRC } from "@/lib/media"
 import { SprintSection, SprintHeading, SprintProse } from "./sprint-section"
 import { SprintCriaLink, SprintNexaLink } from "./sprint-ext-link"
 import { SPRINT_ANCHORS, SPRINT_SECTION_LABELS, TRAINED_PEOPLE_STAT } from "@/lib/sprint/constants"
@@ -64,7 +65,7 @@ export function SprintAbout() {
         <figure>
           <div className="relative aspect-[4/5] overflow-hidden rounded-xl bg-[var(--sprint-photo-matte)] ring-1 ring-border">
             <Image
-              src="/sprint/speaker.jpg"
+              src={SPRINT_SPEAKER_SRC}
               alt="Alejandro Repetto presentando en Platanus Hack 2026"
               fill
               sizes="(max-width: 1024px) 100vw, 352px"
