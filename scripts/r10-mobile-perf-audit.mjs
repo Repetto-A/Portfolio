@@ -222,13 +222,18 @@ async function exerciseNav(page, width, height) {
       await page.waitForTimeout(400)
       log.steps.push({ openedMenu: true, clickedAbout: true, hash: await page.evaluate(() => location.hash) })
     }
-  }
-  const sprintCta = page.getByRole("link", { name: /sprint/i }).first()
-  if (await sprintCta.isVisible()) {
-    await sprintCta.click()
-    await page.waitForLoadState("load")
-    log.steps.push({ href: page.url() })
-    await page.goBack({ waitUntil: "load" })
+    if (await menu.isVisible()) {
+      const expanded = await menu.getAttribute("aria-expanded")
+      if (expanded !== "true") await menu.click()
+      await page.waitForTimeout(200)
+      const sprintNav = page.getByRole("link", { name: /^sprint$/i }).first()
+      if (await sprintNav.isVisible()) {
+        await sprintNav.click()
+        await page.waitForURL(/\/sprint/, { timeout: 15000 })
+        log.steps.push({ openedSprint: true, href: page.url() })
+        await page.goBack({ waitUntil: "load" })
+      }
+    }
   }
   await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight))
   await page.waitForTimeout(400)

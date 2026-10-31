@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils"
-import { PROFILE_PHOTO_DATA_URI } from "@/lib/lcp-photo-uri"
+import { PROFILE_PHOTO_SRC } from "@/lib/media"
 
 interface ProfilePhotoProps {
   alt?: string
@@ -8,7 +8,7 @@ interface ProfilePhotoProps {
 
 /**
  * Foto de perfil recortada para no cortar la cabeza.
- * LCP: img nativo inline (data URI) con width/height para no esperar CSS ni otra request.
+ * LCP: img nativo con width/height e inline styles, renderizado en el server.
  */
 export function ProfilePhoto({
   alt = "Alejandro Repetto, ingeniero de software",
@@ -19,12 +19,12 @@ export function ProfilePhoto({
     // eslint-disable-next-line @next/next/no-img-element
     <img
       data-lcp-photo=""
-      src={PROFILE_PHOTO_DATA_URI}
+      src={PROFILE_PHOTO_SRC}
       alt={alt}
-      width={720}
-      height={823}
+      width={540}
+      height={618}
       fetchPriority="high"
-      decoding="sync"
+      decoding="async"
       className={cn("object-cover object-[center_8%]", className)}
       style={{
         position: "absolute",

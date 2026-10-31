@@ -1,5 +1,5 @@
 import { type ReactNode } from "react"
-import { Inter, JetBrains_Mono, Newsreader } from "next/font/google"
+import localFont from "next/font/local"
 import "./globals.css"
 import type { Metadata, Viewport } from "next"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -18,31 +18,14 @@ import { SkipLink } from "@/components/skip-link"
 
 const showVercelTelemetry = process.env.VERCEL === "1"
 
-const inter = Inter({
-  subsets: ["latin"],
+const inter = localFont({
+  src: "../public/fonts/inter-latin.woff2",
   variable: "--font-inter",
   display: "swap",
-  preload: true,
-  fallback: ["system-ui", "arial"],
-  adjustFontFallback: true,
-})
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
-  display: "optional",
   preload: false,
-  fallback: ["ui-monospace", "Courier New", "monospace"],
-  adjustFontFallback: true,
-})
-
-const newsreader = Newsreader({
-  subsets: ["latin"],
-  weight: "600",
-  variable: "--font-sprint-display",
-  display: "swap",
-  preload: true,
-  adjustFontFallback: true,
+  fallback: ["system-ui", "arial"],
+  adjustFontFallback: "Arial",
+  weight: "100 900",
 })
 
 export const metadata: Metadata = genMetadata({
@@ -73,7 +56,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${jetbrainsMono.variable} ${newsreader.variable} dark`}
+      className={`${inter.variable} dark`}
       suppressHydrationWarning
     >
       <head>
