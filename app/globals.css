@@ -6,6 +6,11 @@
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
+  --sprint-display: var(--font-sprint-display), "Iowan Old Style", Palatino, serif;
+  --sprint-measure: 40rem;
+  --sprint-heading-measure: 44rem;
+  --sprint-accent: oklch(0.43 0.145 40);
+  --sprint-accent-foreground: oklch(0.99 0.012 85);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -15,7 +20,7 @@
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
+  --muted-foreground: oklch(0.44 0 0);
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
@@ -42,6 +47,8 @@
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
+  --sprint-accent: oklch(0.62 0.19 38);
+  --sprint-accent-foreground: oklch(0.99 0 0);
   --card: oklch(0.16 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.16 0 0);
@@ -51,7 +58,7 @@
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
+  --muted-foreground: oklch(0.75 0 0);
   --accent: oklch(0.269 0 0);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.396 0.141 25.723);
@@ -117,12 +124,18 @@
 
 html {
   scroll-behavior: smooth;
-  /* Prevent horizontal overflow */
   overflow-x: hidden;
+  color-scheme: dark;
+}
+
+html.light {
+  color-scheme: light;
 }
 
 body {
-  font-feature-settings: "rlig" 1, "calt" 1;
+  font-feature-settings:
+    "rlig" 1,
+    "calt" 1;
   /* Prevent horizontal overflow */
   overflow-x: hidden;
   /* Optimize font rendering */
@@ -153,6 +166,17 @@ body {
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    /* Evita el overlay negro al tocar elementos en dispositivos táctiles */
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  ::selection {
+    background: color-mix(
+      in oklab,
+      var(--sprint-accent, oklch(0.646 0.222 41.116)) 30%,
+      transparent
+    );
+    color: var(--foreground);
   }
 
   body {
@@ -161,13 +185,14 @@ body {
     line-height: 1.6;
   }
 
-  /* Ensure tap targets are at least 44x44px on touch devices */
+  /* Tap targets de 44px en controles, no en links de prosa */
   @media (pointer: coarse) {
     button,
-    a,
     [role="button"],
     [type="button"],
-    [type="submit"] {
+    [type="submit"],
+    a.inline-flex,
+    nav a {
       min-height: 44px;
       min-width: 44px;
     }
@@ -176,6 +201,13 @@ body {
   /* Improve focus visibility for keyboard navigation */
   *:focus-visible {
     @apply outline-2 outline-offset-2 outline-ring;
+  }
+
+  button,
+  a,
+  [role="button"],
+  [type="submit"] {
+    touch-action: manipulation;
   }
 
   /* Prevent text overflow */
@@ -209,7 +241,8 @@ body {
   border-radius: 0.5rem;
 }
 
-.skip-to-main:focus {
+.skip-to-main:focus,
+.skip-to-main:focus-visible {
   left: 1rem;
   top: 1rem;
 }
@@ -239,8 +272,12 @@ body {
 }
 
 @keyframes fade-in {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Card entrance on scroll — progressive enhancement */
@@ -282,22 +319,14 @@ body {
 
 /* Utility: gradient text (primary → violet) */
 .gradient-text {
-  background: linear-gradient(
-    135deg,
-    oklch(0.52 0.22 263) 0%,
-    oklch(0.55 0.25 295) 100%
-  );
+  background: linear-gradient(135deg, oklch(0.52 0.22 263) 0%, oklch(0.55 0.25 295) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .dark .gradient-text {
-  background: linear-gradient(
-    135deg,
-    oklch(0.68 0.18 263) 0%,
-    oklch(0.72 0.22 295) 100%
-  );
+  background: linear-gradient(135deg, oklch(0.68 0.18 263) 0%, oklch(0.72 0.22 295) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -319,5 +348,333 @@ body {
 
   a[href]:after {
     content: " (" attr(href) ")";
+  }
+}
+
+/* ── Sprint: type system + themes (solo /sprint) ───── */
+.sprint-page {
+  --sprint-tint: color-mix(in oklab, var(--muted) 40%, transparent);
+  --sprint-photo-matte: #0a0908;
+  scroll-padding-bottom: 5.5rem;
+}
+
+@media (min-width: 640px) {
+  .sprint-page {
+    scroll-padding-bottom: 0;
+  }
+}
+
+/*
+ * Dark: mismos tokens que `.dark` del sitio. La página los posee para no
+ * depender de html.dark (el default de /sprint es oscuro aunque el resto
+ * del portfolio esté en light).
+ */
+.sprint-page[data-sprint-theme="dark"] {
+  color-scheme: dark;
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.16 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.16 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.145 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.75 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.922 0 0);
+  --sprint-accent: oklch(0.62 0.19 38);
+  --sprint-accent-foreground: oklch(0.99 0 0);
+  --sprint-tint: color-mix(in oklab, var(--muted) 15%, transparent);
+  --sprint-photo-matte: #000;
+}
+
+/*
+ * Light premium: papel editorial, no un invertido del OLED.
+ * Hoja tibia, tinta cálida, cobre de imprenta (más bajo que el naranja
+ * del dark). Grain y un lavado radial en el hero.
+ */
+html.sprint-light,
+html.sprint-light.dark,
+.sprint-page[data-sprint-theme="light"] {
+  color-scheme: light;
+  --background: oklch(0.965 0.014 82);
+  --foreground: oklch(0.24 0.028 52);
+  --card: oklch(0.985 0.008 85);
+  --card-foreground: oklch(0.24 0.028 52);
+  --popover: oklch(0.985 0.008 85);
+  --popover-foreground: oklch(0.24 0.028 52);
+  --primary: oklch(0.24 0.028 52);
+  --primary-foreground: oklch(0.965 0.014 82);
+  --secondary: oklch(0.94 0.016 80);
+  --secondary-foreground: oklch(0.24 0.028 52);
+  --muted: oklch(0.938 0.016 80);
+  --muted-foreground: oklch(0.42 0.024 52);
+  --accent: oklch(0.94 0.016 80);
+  --accent-foreground: oklch(0.24 0.028 52);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.5 0.2 27);
+  --border: oklch(0.86 0.022 75);
+  --input: oklch(0.86 0.022 75);
+  --ring: oklch(0.45 0.12 42);
+  --sprint-accent: oklch(0.43 0.145 40);
+  --sprint-accent-foreground: oklch(0.99 0.012 85);
+  --sprint-tint: oklch(0.942 0.018 78);
+  --sprint-photo-matte: #1a1410;
+}
+
+.sprint-page[data-sprint-theme="light"] {
+  background-color: var(--background);
+  background-image:
+    radial-gradient(
+      ellipse 90% 42% at 50% -8%,
+      color-mix(in oklab, var(--sprint-accent) 10%, transparent),
+      transparent 62%
+    ),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
+  background-attachment: fixed, fixed;
+  background-size:
+    auto,
+    160px 160px;
+}
+
+html.sprint-light {
+  background-color: var(--background);
+}
+
+.sprint-page[data-sprint-theme="light"] .sprint-hero-glow {
+  opacity: 0.07;
+}
+
+.sprint-page[data-sprint-theme="light"] .sprint-proof-fade {
+  height: 5.5rem;
+}
+
+@media (min-width: 640px) {
+  .sprint-page[data-sprint-theme="light"] .sprint-proof-fade {
+    height: 7rem;
+  }
+}
+
+.sprint-press-logo {
+  filter: brightness(0);
+  opacity: 0.5;
+}
+
+.sprint-page[data-sprint-theme="dark"] .sprint-press-logo {
+  filter: brightness(0) invert(1);
+  opacity: 0.55;
+}
+
+.sprint-page[data-sprint-theme="dark"] :is(a, span):hover .sprint-press-logo {
+  opacity: 1;
+}
+
+.sprint-page[data-sprint-theme="light"] :is(a, span):hover .sprint-press-logo {
+  opacity: 0.9;
+}
+
+.sprint-page[data-sprint-theme="dark"] .sprint-wa-fab {
+  --tw-ring-color: rgb(255 255 255 / 0.2);
+}
+
+.sprint-page[data-sprint-theme="light"] .sprint-wa-chip {
+  box-shadow:
+    0 1px 0 oklch(0.35 0.04 50 / 0.06),
+    0 10px 24px oklch(0.35 0.04 50 / 0.08);
+}
+
+.sprint-page[data-sprint-theme="light"] .sprint-contact-dock > div {
+  box-shadow: 0 -10px 28px oklch(0.35 0.04 50 / 0.08);
+}
+
+.sprint-page[data-sprint-theme="light"] .sprint-recommended {
+  box-shadow:
+    0 1px 0 oklch(0.35 0.04 50 / 0.05),
+    0 18px 40px oklch(0.4 0.08 42 / 0.1);
+}
+
+.sprint-display {
+  font-family: var(--sprint-display);
+  font-optical-sizing: auto;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+blockquote.sprint-display {
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.sprint-kicker {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (min-width: 640px) {
+  .sprint-kicker {
+    letter-spacing: 0.18em;
+  }
+}
+
+.sprint-measure {
+  max-width: var(--sprint-measure);
+}
+
+.sprint-heading-measure {
+  max-width: var(--sprint-heading-measure);
+}
+
+.sprint-index {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Sprint: motion ────────────────────────────────── */
+/* Easing fuerte para UI (cubic-bezier de easing.dev, estilo iOS) */
+:root {
+  --sprint-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Entrada del hero al montar: cascada corta, solo transform + opacity */
+@keyframes sprint-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sprint-enter {
+  animation: sprint-rise 0.6s var(--sprint-ease-out) both;
+}
+.sprint-enter-2 {
+  animation-delay: 70ms;
+}
+.sprint-enter-3 {
+  animation-delay: 140ms;
+}
+.sprint-enter-4 {
+  animation-delay: 220ms;
+}
+
+/* Marca de acento de cada sección: la línea se dibuja al entrar en viewport */
+@keyframes sprint-grow-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .sprint-label-line {
+      transform-origin: left;
+      animation: sprint-grow-x 0.6s var(--sprint-ease-out) both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 30%;
+    }
+  }
+}
+
+/* Foto full-bleed: zoom-out sutil ligado al scroll (profundidad sin JS) */
+@keyframes sprint-kenburns {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .sprint-kenburns {
+      animation: sprint-kenburns linear both;
+      animation-timeline: view();
+      animation-range: entry 0% exit 100%;
+    }
+  }
+}
+
+/* ── Marquee (press logos) ─────────────────────────── */
+@keyframes sprint-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.sprint-marquee {
+  display: flex;
+  width: max-content;
+  animation: sprint-marquee 45s linear infinite;
+}
+
+/* Pausa al hover sobre la fila completa */
+.sprint-marquee-viewport:hover .sprint-marquee {
+  animation-play-state: paused;
+}
+
+/* Respeta prefers-reduced-motion: fila estática que envuelve, sin duplicados */
+@media (prefers-reduced-motion: reduce) {
+  .sprint-marquee {
+    animation: none;
+    width: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 1.5rem;
+    padding-right: 0;
+  }
+  .sprint-marquee-dup {
+    display: none;
+  }
+}
+
+/* Burbuja WhatsApp: pulso sutil en anillos, no en el botón */
+@keyframes sprint-wa-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.42;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+.sprint-wa-pulse {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sprint-wa-pulse {
+    animation: sprint-wa-pulse 2.6s var(--sprint-ease-out) infinite;
+  }
+  .sprint-wa-pulse-delay {
+    animation-delay: 0.85s;
   }
 }

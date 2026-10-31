@@ -3,15 +3,20 @@
     "home": "Home",
     "about": "About",
     "projects": "Projects",
-    "contact": "Contact"
+    "sprint": "Sprint",
+    "contact": "Contact",
+    "talk": "Book a chat"
   },
   "hero": {
     "name": "Alejandro Repetto",
+    "kicker": "For companies",
     "title": "Software Engineer",
-    "description": "I'm obsessed with reducing complexity. I build fast, ship faster, and I don't sleep until every test passes.\nAwarded at NASA Space Apps, ETH Argentina, and ETH Global.",
+    "description": "I train teams to stop talking about AI and start executing with it. A 30-day sprint: diagnosis, applied training, and an internal hackathon.\nAwarded at NASA Space Apps, ETH Argentina, and ETH Global.",
     "cta": {
-      "projects": "Explore Projects",
-      "resume": "Download Resume"
+      "projects": "Projects",
+      "resume": "Download resume",
+      "sprint": "See the sprint",
+      "talk": "Book a chat"
     },
     "stats": {
       "projects": "Projects",
@@ -19,30 +24,49 @@
       "specialization": "Hackathons"
     },
     "status": {
-      "currently": "Currently",
-      "building": "Building AI Solutions",
+      "currently": "+300",
+      "building": "people trained",
       "focus": "Focus",
-      "automation": "Automation & ML"
+      "automation": "Training and hackathons"
     },
     "scroll": "Learn more"
   },
   "about": {
     "title": "About",
+    "eyebrow": "Who",
     "bio": {
-      "short": "I'm a Systems Engineering student and a nerd who loves solving problems. I found in software my holy grail for doing it. I'm very good at automating tasks that used to take countless hours and entire teams, doing it scalably, efficiently and securely, driven by my passion for competitive programming and cybersecurity. Above all, I'm curious and love a good challenge.",
+      "short": "I train technical and executive teams to execute with AI, not just talk about it. Lecturer in the UCEL Diploma in applied AI, trainer at CRIA. Founder of NEXA. Background in competitive programming and cybersecurity.",
       "background": {
         "title": "Background",
-        "text": "I've been programming seriously since 2022, when I placed 6th in my first ICPC tournament. A 2024 winter training camp was a turning point that transformed how I approach technical challenges.\n\nMy projects range from NASA Space Apps prediction algorithms to production systems with RAG architectures."
+        "text": "I've been programming seriously since 2022, when I placed 6th in my first ICPC tournament. A 2024 winter training camp was a turning point that transformed how I approach technical challenges.\n\nToday I'm a lecturer in the Diploma in AI applied to professional practice (UCEL), an AI trainer and consultant for companies at CRIA, and founder of NEXA (+3M people across +50 communities). I train teams mainly on Cursor and Grok Bot. I've also trained with Copilot and other tools.\n\nMy projects range from NASA Space Apps prediction algorithms to production systems with RAG architectures."
       },
       "approach": {
         "title": "Approach",
         "text": "I'm very pragmatic. Competitive programming trained me to always analyze the time and space complexity of my projects, but the multiple hackathons I competed in taught me to build and validate MVPs fast, without losing sight of the architecture and distributed systems design that engineering gave me."
       }
-    }
+    },
+    "credential": "SpaceXSI Ambassador"
+  },
+  "trainings": {
+    "eyebrow": "For companies",
+    "title": "From talking about AI to executing with AI",
+    "lead": "A 30-day sprint: diagnosis, applied training, and an internal hackathon. Your team leaves with prototypes, usage rules, and a 90-day roadmap.",
+    "proof": "I have already trained +300 people in AI between CRIA and the UCEL Diploma in AI applied to professional practice. I train teams mainly on Cursor and Grok Bot.",
+    "pacesHeadline": "You start with a chat. Then Intensive or Sustained.",
+    "paceIntensivo": "Intensive",
+    "paceIntensivoDetail": "1.5 h per team per week, flexible days, 5 modules the company chooses.",
+    "paceSostenido": "Sustained",
+    "paceSostenidoDetail": "The same 1.5 h per team per week block, to keep the work going over time.",
+    "programKicker": "Modular program",
+    "programLead": "Five modules. The company chooses.",
+    "cta": "See the sprint",
+    "talk": "Book a chat",
+    "ctaHint": "Thirty minutes, free of charge. We see if it fits."
   },
   "skills": {
-    "title": "Skills & Technologies",
-    "subtitle": "A complete toolkit for building full applications, from modern web systems to AI-powered automations.",
+    "eyebrow": "Stack",
+    "title": "Skills and technologies",
+    "subtitle": "Cursor, Grok Bot, Claude Code, Copilot, and the rest of the tools for systems and automations.",
     "categories": {
       "languages": "Languages & Frameworks",
       "frameworks": "AI/ML & Data Science",
@@ -65,8 +89,8 @@
     }
   },
   "projects": {
-    "title": "Featured Projects",
-    "description": "A collection of engineering projects spanning management systems, automation, and applied AI/ML built to solve real-world challenges.",
+    "title": "Projects",
+    "description": "Production systems, automations, and applied AI. What I teach, I build.",
     "categories": {
       "Web Application": "Web Application",
       "Business Automation": "Business Automation",
@@ -75,13 +99,18 @@
       "Blockchain/DeFi": "Blockchain/DeFi",
       "Blockchain/AI": "Blockchain/AI",
       "Healthcare System": "Healthcare System",
-      "Game / AgTech": "Game / AgTech"
+      "Game / AgTech": "Game / AgTech",
+      "AI / Security Infrastructure": "AI / Security Infrastructure",
+      "AI / Industrial Vision": "AI / Industrial Vision",
+      "AI / Social Impact": "AI / Social Impact"
     },
+    "eyebrow": "Work",
     "status": {
       "in-progress": "In Progress",
       "production": "Production",
       "prototype": "Prototype",
-      "winner-local / in-evaluation-global": "Winner - Under Global Evaluation"
+      "winner-local / in-evaluation-global": "Winner - Under Global Evaluation",
+      "regional-winner-global-nominee": "Regional Winner · Global Nominee"
     },
     "cta": {
       "learnMore": "Learn More",
@@ -102,16 +131,32 @@
       "today": "Today"
     },
     "collaboration": {
-      "title": "Interested in collaborating?",
-      "description": "I'm always open to discussing new projects and opportunities in systems engineering and AI/ML."
-    }
+      "title": "Does your company need execution, not more talks?",
+      "description": "The AI Execution Sprint is the format: applied training and an internal hackathon in 30 days."
+    },
+    "notFound": {
+      "title": "Project Not Found",
+      "description": "The project you're looking for doesn't exist or has been moved."
+    },
+    "viewFullPage": "View Full Page"
+  },
+  "awards": {
+    "title": "Awards and recognition",
+    "eyebrow": "Credentials",
+    "keyTechnologies": "Key Technologies",
+    "viewAwardDetails": "View Award Details",
+    "seeProject": "See Project",
+    "seeProjectAria": "See project {{title}}"
   },
   "contact": {
     "form": {
-      "title": "Send a Message",
+      "title": "Or write here",
       "name": "Name",
       "email": "Email",
       "subject": "Subject",
+      "interest": "What are you interested in?",
+      "interestPlaceholder": "Choose an option",
+      "interestRequired": "Choose what you are interested in",
       "projectType": "Project Type",
       "projectTypePlaceholder": "Select project type",
       "message": "Message",
@@ -119,8 +164,8 @@
       "sending": "Sending...",
       "namePlaceholder": "Your name",
       "emailPlaceholder": "your.email@example.com",
-      "subjectPlaceholder": "Project inquiry, collaboration, etc.",
-      "messagePlaceholder": "Tell me about your project or how I can help you...",
+      "subjectPlaceholder": "AI sprint for my team",
+      "messagePlaceholder": "Tell me about your team and what you want to execute with AI.",
       "characters": "characters"
     },
     "validation": {
@@ -140,9 +185,16 @@
       "consulting": "Consulting",
       "other": "Other"
     },
+    "eyebrow": "Next step",
+    "companies": "If your company wants to go from talking about AI to executing, the sprint is here.",
+    "companiesCta": "See the sprint",
+    "talk": "Book a chat",
+    "write": "Write to me",
+    "whatsapp": "WhatsApp",
+    "talkHint": "Thirty minutes, free of charge. We see if it fits.",
     "info": {
-      "title": "Let's Connect",
-      "description": "I'm always interested in discussing new opportunities, whether it's a challenging systems engineering project, AI/ML implementation, or automation solution. Feel free to reach out through any of the channels below."
+      "title": "Let's talk",
+      "description": "A 30-minute diagnostic chat, free of charge. Or write to me, or send a WhatsApp."
     },
     "methods": {
       "email": "Email",
@@ -157,12 +209,13 @@
       "available": "Available",
       "discuss": "Open to Discuss"
     },
-    "successMessage": "Message sent successfully! I'll get back to you soon.",
+    "successMessage": "Message sent. Thanks for writing.",
     "errorMessage": "Error sending message. Please try again."
   },
   "footer": {
     "rights": "All rights reserved.",
-    "built": "Built with Next.js and Tailwind CSS"
+    "built": "Built with Next.js and Tailwind CSS",
+    "sprint": "AI trainings"
   },
   "language": {
     "switch": "Switch to Spanish",

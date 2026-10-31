@@ -11,7 +11,7 @@ import { Trophy, Award, ExternalLink, Users, ArrowRight, Lightbulb, Globe, Eye }
 import Link from "next/link"
 import { getVisibleAwards, localize } from "@/data/awards"
 import type { Award as AwardType } from "@/data/awards"
-import { useTranslations } from "@/lib/i18n-context"
+import { useTranslations, getTranslation } from "@/lib/i18n-context"
 import { hasMatchingProject } from "@/lib/project-utils"
 
 const ICON_MAP = {
@@ -26,44 +26,36 @@ function AwardCard({
   locale,
   onSeeMore,
   index,
+  translations,
 }: {
   award: AwardType
   locale: string
   onSeeMore: (projectId: string) => void
   index: number
+  translations: ReturnType<typeof useTranslations>[0]
 }) {
   const IconComponent = ICON_MAP[award.icon] ?? Trophy
   const showSeeMore = hasMatchingProject(award.projectId)
 
   return (
     <Card
-      className={`group hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border-2 overflow-hidden relative scroll-reveal-stagger-${(index % 3) + 1}`}
+      className={`group relative h-full overflow-hidden border-border transition-colors hover:border-[var(--sprint-accent)]/50 scroll-reveal-stagger-${(index % 3) + 1}`}
     >
-      <div
-        className={`absolute inset-0 bg-gradient-to-br ${award.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
-      />
-
       <CardHeader className="relative space-y-4 pb-4">
         <div className="flex items-center gap-3">
-          <div
-            className={`p-3 rounded-xl bg-gradient-to-br ${award.color} border ${award.borderColor}`}
-          >
-            <IconComponent className="h-6 w-6 text-foreground" />
+          <div className="rounded-lg border border-border p-2.5">
+            <IconComponent className="h-5 w-5 text-[var(--sprint-accent)]" />
           </div>
-          <Badge variant="outline" className={award.badgeColor}>
-            {award.year}
-          </Badge>
+          <span className="sprint-kicker text-muted-foreground">{award.year}</span>
         </div>
 
-        <div className="space-y-2">
-          <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors text-balance">
-            {localize(award.title, locale)}
-          </h3>
-        </div>
+        <h3 className="text-xl font-semibold tracking-tight text-balance text-foreground">
+          {localize(award.title, locale)}
+        </h3>
       </CardHeader>
 
-      <CardContent className="relative space-y-6 flex flex-col">
-        <div className="text-muted-foreground leading-relaxed min-h-32 space-y-3">
+      <CardContent className="relative flex flex-col space-y-6">
+        <div className="min-h-32 space-y-3 text-sm leading-relaxed text-muted-foreground">
           {localize(award.description, locale)
             .split("\n")
             .map((part, i) => (
@@ -72,9 +64,9 @@ function AwardCard({
         </div>
 
         <div>
-          <h4 className="text-sm font-semibold text-foreground mb-3 flex items-center">
-            <Users className="h-4 w-4 mr-2" />
-            {locale === "es" ? "Tecnologias Clave" : "Key Technologies"}
+          <h4 className="mb-3 flex items-center text-sm font-semibold text-foreground">
+            <Users className="mr-2 h-4 w-4" />
+            {getTranslation(translations, "awards.keyTechnologies")}
           </h4>
           <div className="flex flex-wrap gap-2">
             {award.tags.map((tech) => (
@@ -86,44 +78,38 @@ function AwardCard({
         </div>
 
         <div className="mt-auto space-y-0">
-          {/* Press CTA -- only if press is enabled and has links */}
-          {award.press?.enabled && award.press.links.length > 0 && (
-            <div className="pt-4 border-t border-border">
+          {award.press?.enabled && award.press.links.length > 0 ? (
+            <div className="border-t border-border pt-4">
               <PressModal awardTitle={award.title} links={award.press.links} locale={locale} />
             </div>
-          )}
+          ) : null}
 
-          {award.proofUrl && (
-            <div className="pt-4 border-t border-border">
+          {award.proofUrl ? (
+            <div className="border-t border-border pt-4">
               <Button asChild variant="ghost" size="sm" className="group/btn w-full justify-start">
                 <Link href={award.proofUrl} target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="mr-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                  {locale === "es" ? "Ver Detalles del Premio" : "View Award Details"}
+                  {getTranslation(translations, "awards.viewAwardDetails")}
                 </Link>
               </Button>
             </div>
-          )}
+          ) : null}
 
-          {/* See Project CTA -- scrolls to project and opens its modal */}
-          {showSeeMore && (
-            <div className="pt-4 border-t border-border">
+          {showSeeMore ? (
+            <div className="border-t border-border pt-4">
               <Button
                 variant="ghost"
                 size="sm"
                 className="group/btn w-full justify-start"
                 onClick={() => onSeeMore(award.projectId)}
-                aria-label={
-                  locale === "es"
-                    ? `Ver proyecto ${localize(award.title, locale)}`
-                    : `See project ${localize(award.title, locale)}`
-                }
+                aria-label={`${getTranslation(translations, "awards.seeProject")} ${localize(award.title, locale)}`}
               >
                 <Eye className="mr-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                {locale === "es" ? "Ver Proyecto" : "See Project"}
-                <ArrowRight className="ml-auto h-4 w-4 opacity-0 group-hover/btn:opacity-100 transition-opacity" />
+                {getTranslation(translations, "awards.seeProject")}
+                <ArrowRight className="ml-auto h-4 w-4 opacity-0 transition-opacity group-hover/btn:opacity-100" />
               </Button>
             </div>
-          )}
+          ) : null}
         </div>
       </CardContent>
     </Card>
@@ -131,7 +117,7 @@ function AwardCard({
 }
 
 export function AwardsSection() {
-  const [, locale] = useTranslations()
+  const [translations, locale] = useTranslations()
   const visibleAwards = getVisibleAwards()
 
   const handleSeeMore = (projectId: string) => {
@@ -142,13 +128,11 @@ export function AwardsSection() {
     <Section id="awards" variant="gradient" spacing="relaxed">
       <Container maxWidth="7xl">
         <SectionHeader
-          title={
-            locale === "es" ? "Algunos premios y reconocimientos" : "Some Awards & Recognition"
-          }
-          eyebrow={locale === "es" ? "Reconocimientos" : "Recognition"}
+          title={getTranslation(translations, "awards.title")}
+          eyebrow={getTranslation(translations, "awards.eyebrow")}
         />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           {visibleAwards.map((award, index) => (
             <AwardCard
               key={award.id}
@@ -156,6 +140,7 @@ export function AwardsSection() {
               locale={locale}
               onSeeMore={handleSeeMore}
               index={index}
+              translations={translations}
             />
           ))}
         </div>

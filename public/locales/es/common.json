@@ -3,15 +3,20 @@
     "home": "Inicio",
     "about": "Acerca",
     "projects": "Proyectos",
-    "contact": "Contacto"
+    "sprint": "Sprint",
+    "contact": "Contacto",
+    "talk": "Agendar una charla"
   },
   "hero": {
     "name": "Alejandro Repetto",
+    "kicker": "Para empresas",
     "title": "Software Engineer",
-    "description": "Estoy obsesionado con reducir la complejidad. Construyo rápido, itero más rápido, y no duermo hasta que pasen todos los tests.\nPremiado en NASA Space Apps, ETH Argentina y ETH Global.",
+    "description": "Capacito equipos para que dejen de hablar de IA y empiecen a ejecutar. Sprint de 30 días: diagnóstico, capacitación aplicada y hackathon interna.\nPremiado en NASA Space Apps, ETH Argentina y ETH Global.",
     "cta": {
-      "projects": "Explorar Proyectos",
-      "resume": "Descargar CV"
+      "projects": "Proyectos",
+      "resume": "Descargar CV",
+      "sprint": "Ver el sprint",
+      "talk": "Agendar una charla"
     },
     "stats": {
       "projects": "Proyectos",
@@ -19,30 +24,49 @@
       "specialization": "Hackathons"
     },
     "status": {
-      "currently": "Actualmente",
-      "building": "Desarrollando Soluciones IA",
+      "currently": "+300",
+      "building": "personas capacitadas",
       "focus": "Enfoque",
-      "automation": "Automatización y ML"
+      "automation": "Capacitación y hackathons"
     },
     "scroll": "Conoce más"
   },
   "about": {
-    "title": "Acerca de Mí",
+    "title": "Acerca de mí",
+    "eyebrow": "Quién",
     "bio": {
-      "short": "Soy estudiante de Ingeniería en Sistemas y un nerd al que le fascina resolver problemas. Encontré en el software mi santo grial para lograrlo. Soy muy bueno automatizando tareas que solían llevar incontables horas y empleados, y lo hago de forma escalable, eficiente y segura, gracias a mi pasión por la programación competitiva y la ciberseguridad. Ante todo soy curioso y me encantan los desafíos.",
+      "short": "Capacito equipos técnicos y ejecutivos para ejecutar con IA, no para hablar de ella. Docente en la Diplomatura de IA de UCEL, capacitador en CRIA. Founder de NEXA. Base en programación competitiva y ciberseguridad.",
       "background": {
         "title": "Trayectoria",
-        "text": "Programo seriamente desde el 2022, cuando obtuve el 6to puesto en mi primer torneo ICPC. Un training camp de invierno en 2024 fue un punto de inflexión que transformó mi forma de abordar desafíos técnicos.\n\nMis proyectos van desde algoritmos de predicción para NASA Space Apps hasta sistemas en producción con arquitecturas RAG."
+        "text": "Programo seriamente desde el 2022, cuando obtuve el 6to puesto en mi primer torneo ICPC. Un training camp de invierno en 2024 fue un punto de inflexión que transformó mi forma de abordar desafíos técnicos.\n\nHoy soy docente en la Diplomatura de IA aplicada al ejercicio profesional (UCEL), capacitador y consultor en IA para empresas en CRIA y founder de NEXA (+3M de personas en +50 comunidades). Capacito sobre todo con Cursor y Grok Bot. También di capacitaciones con Copilot y otras herramientas.\n\nMis proyectos van desde algoritmos de predicción para NASA Space Apps hasta sistemas en producción con arquitecturas RAG."
       },
       "approach": {
         "title": "Enfoque",
-        "text": "Soy muy pragmático, si bien la programación competitiva me entrenó para siempre analizar la complejidad temporal y espacial de mis proyectos, las múltiples hackathones en las que participé me enseñaron a desarrollar y validar MVP's rápido, sin olvidar la arquitectura y el correcto diseño de sistemas distribuidos que me dió la ingenieria."
+        "text": "Soy muy pragmático. Si bien la programación competitiva me entrenó para siempre analizar la complejidad temporal y espacial de mis proyectos, las múltiples hackathons en las que participé me enseñaron a desarrollar y validar MVPs rápido, sin olvidar la arquitectura y el correcto diseño de sistemas distribuidos que me dio la ingeniería."
       }
-    }
+    },
+    "credential": "SpaceXSI Ambassador"
+  },
+  "trainings": {
+    "eyebrow": "Para empresas",
+    "title": "De hablar de IA a ejecutar con IA",
+    "lead": "Sprint de 30 días: diagnóstico, capacitación aplicada y hackathon interna. Tu equipo termina con prototipos, reglas de uso y un roadmap de 90 días.",
+    "proof": "Ya capacité en IA a +300 personas entre CRIA y la Diplomatura de IA aplicada al ejercicio profesional (UCEL). Capacito sobre todo con Cursor y Grok Bot.",
+    "pacesHeadline": "Arrancás con una charla. Después Intensivo o Sostenido.",
+    "paceIntensivo": "Intensivo",
+    "paceIntensivoDetail": "1.5 h por equipo por semana, días flexibles, 5 módulos que elige la empresa.",
+    "paceSostenido": "Sostenido",
+    "paceSostenidoDetail": "El mismo bloque de 1.5 h por equipo por semana, para mantener el trabajo en el tiempo.",
+    "programKicker": "Programa modular",
+    "programLead": "Cinco módulos. La empresa elige.",
+    "cta": "Ver el sprint",
+    "talk": "Agendar una charla",
+    "ctaHint": "Treinta minutos, sin cargo. Vemos si aplica."
   },
   "skills": {
-    "title": "Habilidades y Tecnologías",
-    "subtitle": "Un conjunto completo de herramientas para construir aplicaciones completas, desde sistemas web modernos hasta automatizaciones potenciadas por IA.",
+    "eyebrow": "Stack",
+    "title": "Habilidades y tecnologías",
+    "subtitle": "Cursor, Grok Bot, Claude Code, Copilot y el resto de herramientas para construir sistemas y automatizaciones.",
     "categories": {
       "languages": "Lenguajes y Frameworks",
       "frameworks": "IA/ML y Ciencia de Datos",
@@ -65,8 +89,8 @@
     }
   },
   "projects": {
-    "title": "Proyectos Destacados",
-    "description": "Una colección de proyectos de ingeniería que abarcan sistemas de gestión, automatizaciones e IA/ML aplicada para resolver desafíos del mundo real.",
+    "title": "Proyectos",
+    "description": "Sistemas en producción, automatizaciones e IA aplicada. Lo que enseño, lo construyo.",
     "categories": {
       "Web Application": "Aplicación Web",
       "Business Automation": "Automatización Empresarial",
@@ -75,13 +99,18 @@
       "Blockchain/DeFi": "Blockchain/DeFi",
       "Blockchain/AI": "Blockchain/IA",
       "Healthcare System": "Sistema de Salud",
-      "Game / AgTech": "Juego / AgTech"
+      "Game / AgTech": "Juego / AgTech",
+      "AI / Security Infrastructure": "IA / Infraestructura de Seguridad",
+      "AI / Industrial Vision": "IA / Visión Industrial",
+      "AI / Social Impact": "IA / Impacto Social"
     },
+    "eyebrow": "Trabajo",
     "status": {
       "in-progress": "En Progreso",
       "production": "Producción",
       "prototype": "Prototipo",
-      "winner-local / in-evaluation-global": "Ganador - En Evaluación Global"
+      "winner-local / in-evaluation-global": "Ganador - En Evaluación Global",
+      "regional-winner-global-nominee": "Ganador Regional · Nominado Global"
     },
     "cta": {
       "learnMore": "Conoce Más",
@@ -102,14 +131,34 @@
       "today": "Hoy"
     },
     "collaboration": {
-      "title": "¿Interesado en colaborar?",
-      "description": "Siempre estoy abierto a discutir nuevos proyectos y oportunidades en ingeniería en sistemas e IA/ML."
-    }
+      "title": "¿Tu empresa necesita ejecución, no más charlas?",
+      "description": "El AI Execution Sprint es el formato: capacitación aplicada y hackathon interna en 30 días."
+    },
+    "notFound": {
+      "title": "Proyecto No Encontrado",
+      "description": "El proyecto que buscas no existe o fue movido."
+    },
+    "viewFullPage": "Ver Página Completa"
+  },
+  "awards": {
+    "title": "Premios y reconocimientos",
+    "eyebrow": "Credenciales",
+    "keyTechnologies": "Tecnologías Clave",
+    "viewAwardDetails": "Ver Detalles del Premio",
+    "seeProject": "Ver Proyecto",
+    "seeProjectAria": "Ver proyecto {{title}}"
   },
   "contact": {
+    "eyebrow": "Siguiente paso",
+    "companies": "Si tu empresa quiere pasar de hablar de IA a ejecutar, el sprint está acá.",
+    "companiesCta": "Ver el sprint",
+    "talk": "Agendar una charla",
+    "write": "Escribime",
+    "whatsapp": "WhatsApp",
+    "talkHint": "Treinta minutos, sin cargo. Vemos si aplica.",
     "info": {
-      "title": "Conectemos",
-      "description": "Siempre estoy interesado en discutir nuevas oportunidades, ya sea un desafío de ingeniería en sistemas, implementación de IA/ML o solución de automatización. No dudes en contactarme por cualquiera de estos canales."
+      "title": "Hablemos",
+      "description": "Una charla diagnóstico de 30 minutos, sin cargo. Si preferís, escribime o mandame un WhatsApp."
     },
     "methods": {
       "email": "Email",
@@ -125,10 +174,13 @@
       "discuss": "Abierto a Conversar"
     },
     "form": {
-      "title": "Enviar Mensaje",
+      "title": "O escribime acá",
       "name": "Nombre",
       "email": "Email",
       "subject": "Asunto",
+      "interest": "Qué te interesa?",
+      "interestPlaceholder": "Elegí una opción",
+      "interestRequired": "Elegí qué te interesa",
       "projectType": "Tipo de Proyecto",
       "projectTypePlaceholder": "Selecciona el tipo de proyecto",
       "message": "Mensaje",
@@ -136,8 +188,8 @@
       "sending": "Enviando...",
       "namePlaceholder": "Tu nombre",
       "emailPlaceholder": "tu.email@ejemplo.com",
-      "subjectPlaceholder": "Consulta de proyecto, colaboración, etc.",
-      "messagePlaceholder": "Cuéntame sobre tu proyecto o cómo puedo ayudarte...",
+      "subjectPlaceholder": "Sprint de IA para mi equipo",
+      "messagePlaceholder": "Contame de tu equipo y qué quieren ejecutar con IA.",
       "characters": "caracteres"
     },
     "validation": {
@@ -157,12 +209,13 @@
       "consulting": "Consultoría",
       "other": "Otro"
     },
-    "successMessage": "¡Mensaje enviado exitosamente! Te responderé pronto.",
+    "successMessage": "Mensaje enviado. Gracias por escribir.",
     "errorMessage": "Error al enviar mensaje. Por favor intenta de nuevo."
   },
   "footer": {
     "rights": "Todos los derechos reservados.",
-    "built": "Construido con Next.js y Tailwind CSS"
+    "built": "Construido con Next.js y Tailwind CSS",
+    "sprint": "Capacitaciones de IA"
   },
   "language": {
     "switch": "Cambiar a Inglés",

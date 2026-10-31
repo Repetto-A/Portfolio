@@ -19,6 +19,7 @@ import {
   ChevronLeft,
   ChevronRight,
   Expand,
+  Eye,
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
@@ -92,12 +93,13 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
                   {/* Main image */}
                   <div className="group/carousel relative aspect-video rounded-lg overflow-hidden border border-border bg-muted">
                     <button
+                      type="button"
                       onClick={() => {
                         setLightboxIndex(carouselIndex)
                         setLightboxOpen(true)
                       }}
                       className="block w-full h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                      aria-label={`${content.title} — ${getTranslation(translations, "projects.image") || "Image"} ${carouselIndex + 1}. Click to expand.`}
+                      aria-label={`${content.title} · ${getTranslation(translations, "projects.image") || "Image"} ${carouselIndex + 1}. Click to expand.`}
                     >
                       <Image
                         src={project.images[carouselIndex]}
@@ -188,19 +190,20 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
                 </div>
               )}
 
-              {/* Tech stack */}
-              <div>
-                <h4 className="text-sm font-semibold text-foreground mb-3">
-                  {getTranslation(translations, "projects.techStack")}
-                </h4>
-                <div className="flex flex-wrap gap-1.5">
-                  {project.techStack.map((t) => (
-                    <Badge key={t} variant="secondary" className="text-xs">
-                      {t}
-                    </Badge>
-                  ))}
+              {project.techStack.length > 0 ? (
+                <div>
+                  <h4 className="text-sm font-semibold text-foreground mb-3">
+                    {getTranslation(translations, "projects.techStack")}
+                  </h4>
+                  <div className="flex flex-wrap gap-1.5">
+                    {project.techStack.map((t) => (
+                      <Badge key={t} variant="secondary" className="text-xs">
+                        {t}
+                      </Badge>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              ) : null}
 
               {/* Press & Media */}
               {pressLinks.length > 0 && (
@@ -236,6 +239,12 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
 
               {/* Links */}
               <div className="flex flex-wrap gap-3 pt-2">
+                <Button asChild variant="secondary" size="sm">
+                  <Link href={`/projects/${project.id}`} onClick={onClose}>
+                    <Eye className="mr-2 h-4 w-4" />
+                    {getTranslation(translations, "projects.viewFullPage")}
+                  </Link>
+                </Button>
                 {project.githubUrl && (
                   <Button asChild variant="outline" size="sm">
                     <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">

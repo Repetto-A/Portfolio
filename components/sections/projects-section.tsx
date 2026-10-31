@@ -8,11 +8,12 @@ import { ProjectDetailModal } from "@/components/project-detail-modal"
 import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { SectionHeader } from "@/components/layout/section-header"
-import { ExternalLink, Github, Code, Zap, Calendar, Eye } from "lucide-react"
+import { ExternalLink, Github, Code, Zap, Calendar, Eye, Shield, ScanLine } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import projectsData from "@/content/projects.json"
 import { useTranslations, getTranslation, type Translations } from "@/lib/i18n-context"
+import { SprintCalendlyButton } from "@/components/sprint/sprint-calendly-button"
 
 const categoryIcons = {
   "Web Application": Code,
@@ -23,6 +24,9 @@ const categoryIcons = {
   "Blockchain/AI": ExternalLink,
   "Healthcare System": Calendar,
   "Game / AgTech": Eye,
+  "AI / Security Infrastructure": Shield,
+  "AI / Industrial Vision": ScanLine,
+  "AI / Social Impact": Eye,
 }
 
 interface Project {
@@ -37,7 +41,7 @@ interface Project {
   }
   status: string
   techStack: string[]
-  githubUrl: string
+  githubUrl: string | null
   demoUrl: string | null
   images: string[]
   category: keyof typeof categoryIcons
@@ -54,6 +58,9 @@ export function ProjectsSection() {
   const projects = projectsData.projects.map(
     (projectData): Project => ({
       ...projectData,
+      githubUrl: projectData.githubUrl ?? null,
+      demoUrl: projectData.demoUrl ?? null,
+      images: projectData.images ?? [],
       status: projectData.status in statusConfig ? projectData.status : "in-progress",
       category: (projectData.category in categoryIcons
         ? projectData.category
@@ -99,7 +106,7 @@ export function ProjectsSection() {
         <SectionHeader
           title={getTranslation(translations, "projects.title")}
           description={getTranslation(translations, "projects.description")}
-          eyebrow="Selected Work"
+          eyebrow={getTranslation(translations, "projects.eyebrow")}
         />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -115,7 +122,8 @@ export function ProjectsSection() {
                 key={project.id}
                 id={`project-${project.id}`}
                 data-project-id={project.id}
-                className={`group hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 h-full flex flex-col overflow-hidden border-border hover:border-primary/30 scroll-reveal-stagger-${(index % 3) + 1}`}
+                onClick={() => handleProjectModalOpen(project)}
+                className={`group flex h-full cursor-pointer flex-col overflow-hidden border-border transition-colors duration-300 hover:border-[var(--sprint-accent)]/50 scroll-reveal-stagger-${(index % 3) + 1}`}
               >
                 {/* Project thumbnail — -mt-6 to break out of Card's py-6 top padding */}
                 {project.images?.[0] && (
@@ -135,7 +143,7 @@ export function ProjectsSection() {
                 <CardHeader className="space-y-3 pb-3">
                   <div className="flex items-start justify-between gap-2">
                     <div className="flex items-center gap-2">
-                      <IconComponent className="h-4 w-4 text-primary flex-shrink-0" />
+                      <IconComponent className="h-4 w-4 shrink-0 text-primary" aria-hidden />
                       <Badge variant="outline" className={statusStyle.color}>
                         {statusStyle.label}
                       </Badge>
@@ -146,13 +154,10 @@ export function ProjectsSection() {
                     </Badge>
                   </div>
 
-                  <CardTitle className="text-lg leading-snug group-hover:text-primary transition-colors">
-                    <button
-                      onClick={() => handleProjectModalOpen(project)}
-                      className="hover:underline text-left w-full underline-offset-4"
-                    >
+                  <CardTitle className="pointer-events-none text-lg leading-snug tracking-tight">
+                    <span className="w-full text-left underline-offset-4 group-hover:underline">
                       {projectContent.title}
-                    </button>
+                    </span>
                   </CardTitle>
                 </CardHeader>
 
@@ -161,29 +166,32 @@ export function ProjectsSection() {
                     {projectContent.short}
                   </p>
 
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.techStack.slice(0, 3).map((tech) => (
-                      <Badge key={tech} variant="outline" className="text-xs">
-                        {tech}
-                      </Badge>
-                    ))}
-                    {project.techStack.length > 3 && (
-                      <Badge variant="outline" className="text-xs text-muted-foreground">
-                        +{project.techStack.length - 3}
-                      </Badge>
-                    )}
-                  </div>
+                  {project.techStack.length > 0 ? (
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.techStack.slice(0, 3).map((tech) => (
+                        <Badge key={tech} variant="outline" className="text-xs">
+                          {tech}
+                        </Badge>
+                      ))}
+                      {project.techStack.length > 3 ? (
+                        <Badge variant="outline" className="text-xs text-muted-foreground">
+                          +{project.techStack.length - 3}
+                        </Badge>
+                      ) : null}
+                    </div>
+                  ) : null}
 
                   <div className="flex items-center justify-between pt-2 mt-auto border-t border-border/60">
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center">
                       {project.githubUrl && (
                         <Link
                           href={project.githubUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-muted-foreground hover:text-foreground transition-colors"
+                          onClick={(e) => e.stopPropagation()}
+                          className="inline-flex size-11 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
                         >
-                          <Github className="h-4 w-4" />
+                          <Github className="h-4 w-4" aria-hidden />
                           <span className="sr-only">GitHub</span>
                         </Link>
                       )}
@@ -192,22 +200,36 @@ export function ProjectsSection() {
                           href={project.demoUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-muted-foreground hover:text-foreground transition-colors"
+                          onClick={(e) => e.stopPropagation()}
+                          className="inline-flex size-11 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
                         >
-                          <ExternalLink className="h-4 w-4" />
+                          <ExternalLink className="h-4 w-4" aria-hidden />
                           <span className="sr-only">Demo</span>
                         </Link>
                       )}
+                      <Link
+                        href={`/projects/${project.id}`}
+                        onClick={(e) => e.stopPropagation()}
+                        className="inline-flex size-11 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
+                        aria-label={getTranslation(translations, "projects.viewFullPage")}
+                      >
+                        <Eye className="h-4 w-4" aria-hidden />
+                        <span className="sr-only">
+                          {getTranslation(translations, "projects.viewFullPage")}
+                        </span>
+                      </Link>
                     </div>
 
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={() => handleProjectModalOpen(project)}
-                      className="text-xs h-7 px-2.5 text-muted-foreground hover:text-primary"
+                    <button
+                      type="button"
+                      className="inline-flex min-h-11 items-center px-2.5 text-xs text-muted-foreground underline-offset-4 hover:text-foreground hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        handleProjectModalOpen(project)
+                      }}
                     >
                       {getTranslation(translations, "projects.cta.learnMore")}
-                    </Button>
+                    </button>
                   </div>
                 </CardContent>
               </Card>
@@ -215,19 +237,27 @@ export function ProjectsSection() {
           })}
         </div>
 
-        {/* Collaboration CTA */}
-        <div className="text-center mt-20">
-          <div className="inline-flex flex-col items-center space-y-5">
-            <div className="h-px w-16 bg-border" />
-            <h3 className="text-2xl sm:text-3xl font-bold text-foreground">
+        <div id="projects-cta" className="mt-20 scroll-mt-20 border-t border-border pt-12">
+          <div className="flex max-w-xl flex-col items-start gap-5">
+            <h3 className="sprint-display text-[1.5rem] sm:text-[1.875rem]">
               {getTranslation(translations, "projects.collaboration.title")}
             </h3>
-            <p className="text-muted-foreground max-w-md">
+            <p className="text-muted-foreground">
               {getTranslation(translations, "projects.collaboration.description")}
             </p>
-            <Button asChild size="lg" className="shadow-lg shadow-primary/20">
-              <Link href="#contact">{getTranslation(translations, "projects.cta.getInTouch")}</Link>
-            </Button>
+            <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
+              <SprintCalendlyButton location="home-projects" className="w-full sm:w-auto">
+                {getTranslation(translations, "hero.cta.talk")}
+              </SprintCalendlyButton>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="h-auto min-h-[44px] w-full sm:w-auto"
+              >
+                <Link href="/sprint">{getTranslation(translations, "hero.cta.sprint")}</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </Container>
@@ -241,15 +271,15 @@ function getStatusConfig(translations: Translations) {
   return {
     "in-progress": {
       label: getTranslation(translations, "projects.status.in-progress"),
-      color: "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20",
+      color: "bg-amber-500/10 text-amber-800 dark:text-amber-300 border-amber-500/20",
     },
     production: {
       label: getTranslation(translations, "projects.status.production"),
-      color: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20",
+      color: "bg-emerald-500/10 text-emerald-800 dark:text-emerald-300 border-emerald-500/20",
     },
     prototype: {
       label: getTranslation(translations, "projects.status.prototype"),
-      color: "bg-violet-500/10 text-violet-600 dark:text-violet-400 border-violet-500/20",
+      color: "bg-violet-500/10 text-violet-800 dark:text-violet-300 border-violet-500/20",
     },
     "regional-winner-global-nominee": {
       label: getTranslation(translations, "projects.status.regional-winner-global-nominee"),

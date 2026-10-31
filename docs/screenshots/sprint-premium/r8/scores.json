@@ -1,0 +1,116 @@
+{
+  "lab": {
+    "tool": "Lighthouse 13.6.0 + axe-core 4.14.0 + Playwright",
+    "chrome": "HeadlessChrome/156",
+    "base": "http://127.0.0.1:3001 (Next standalone)",
+    "beforeAt": "2026-10-31T03:54:33.982Z",
+    "afterAt": "2026-10-31T04:12:39.893Z",
+    "note": "Medians. Mobile LCP is simulated Slow 4G. sprint-light SEO 69 is intentional noindex on ?theme=light. After Lighthouse still listed WCAG 2.5.3 on the language switcher and NEXA gallery; those were fixed after that run. See axe-final.json."
+  },
+  "before": {
+    "home:mobile": {
+      "performance": 86,
+      "accessibility": 93,
+      "bestPractices": 96,
+      "seo": 100,
+      "lcpMs": 4211,
+      "cls": 0.0005
+    },
+    "home:desktop": {
+      "performance": 99,
+      "accessibility": 93,
+      "bestPractices": 96,
+      "seo": 100,
+      "lcpMs": 854,
+      "cls": 0.0003
+    },
+    "sprint:mobile": {
+      "performance": 88,
+      "accessibility": 93,
+      "bestPractices": 96,
+      "seo": 100,
+      "lcpMs": 3837,
+      "cls": 0
+    },
+    "sprint:desktop": {
+      "performance": 100,
+      "accessibility": 93,
+      "bestPractices": 96,
+      "seo": 100,
+      "lcpMs": 790,
+      "cls": 0
+    },
+    "sprint-light:mobile": {
+      "performance": 100,
+      "accessibility": 93,
+      "bestPractices": 96,
+      "seo": 69,
+      "lcpMs": 1063,
+      "cls": 0
+    },
+    "nexa:mobile": {
+      "performance": 100,
+      "accessibility": 96,
+      "bestPractices": 96,
+      "seo": 100,
+      "lcpMs": 911,
+      "cls": 0.0005
+    }
+  },
+  "after": {
+    "home:mobile": {
+      "performance": 87,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "lcpMs": 4061,
+      "cls": 0.001
+    },
+    "home:desktop": {
+      "performance": 99,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "lcpMs": 853,
+      "cls": 0
+    },
+    "sprint:mobile": {
+      "performance": 100,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "lcpMs": 1057,
+      "cls": 0
+    },
+    "sprint:desktop": {
+      "performance": 100,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "lcpMs": 288,
+      "cls": 0
+    },
+    "sprint-light:mobile": {
+      "performance": 88,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 69,
+      "lcpMs": 3758,
+      "cls": 0
+    },
+    "nexa:mobile": {
+      "performance": 100,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "lcpMs": 913,
+      "cls": 0.001
+    }
+  },
+  "axeBefore": {
+    "home": ["color-contrast", "label-content-name-mismatch", "link-in-text-block"],
+    "sprint": ["aria-hidden-focus", "color-contrast"],
+    "sprint-light": ["aria-hidden-focus", "color-contrast"],
+    "nexa": ["color-contrast", "label-content-name-mismatch"]
+  }
+}

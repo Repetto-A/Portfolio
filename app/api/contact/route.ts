@@ -1,25 +1,71 @@
 import { NextResponse } from "next/server"
+import { cookies } from "next/headers"
 import nodemailer from "nodemailer"
+import {
+  checkRateLimit,
+  contactFormSchema,
+  generateEmailContent,
+  sanitizeInput,
+  validateCsrfToken,
+} from "@/lib/email"
+
+const CORS_HEADERS = {
+  "Access-Control-Allow-Origin":
+    process.env.NODE_ENV === "production" ? "https://repetto-a.com" : "http://localhost:3000",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type, X-CSRF-Token",
+}
 
 export async function POST(request: Request) {
-  try {
-    const body = await request.json()
+  const ip = request.headers.get("x-forwarded-for") || "unknown"
 
-    // Validaciones básicas
-    if (!body.name || !body.email || !body.subject || !body.message) {
+  if (!checkRateLimit(ip)) {
+    return NextResponse.json(
+      { success: false, error: "Demasiadas solicitudes. Por favor, inténtalo más tarde." },
+      { status: 429, headers: CORS_HEADERS }
+    )
+  }
+
+  const contentLength = request.headers.get("content-length")
+  if (contentLength && parseInt(contentLength) > 10240) {
+    return NextResponse.json(
+      { success: false, error: "El contenido es demasiado grande." },
+      { status: 413, headers: CORS_HEADERS }
+    )
+  }
+
+  try {
+    const csrfToken = request.headers.get("X-CSRF-Token")
+    const cookieStore = await cookies()
+    const csrfCookie = cookieStore.get("__Host-csrf")?.value || cookieStore.get("csrf_token")?.value
+
+    if (!validateCsrfToken(csrfToken, csrfCookie || null)) {
       return NextResponse.json(
-        { success: false, error: "Todos los campos son obligatorios" },
-        { status: 400 }
+        { success: false, error: "Token CSRF inválido." },
+        { status: 403, headers: CORS_HEADERS }
       )
     }
 
-    // Validar formato de email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(body.email)) {
+    const body = await request.json()
+    const parsed = contactFormSchema.safeParse(body)
+
+    if (!parsed.success) {
+      const firstError = parsed.error.errors[0]?.message || "Datos inválidos"
       return NextResponse.json(
-        { success: false, error: "Formato de correo electrónico inválido" },
-        { status: 400 }
+        { success: false, error: firstError },
+        { status: 400, headers: CORS_HEADERS }
       )
+    }
+
+    const { name, email, subject, message, interest } = parsed.data
+
+    const payload = {
+      name: sanitizeInput(name),
+      email: sanitizeInput(email),
+      subject: sanitizeInput(subject),
+      message: sanitizeInput(message),
+      interest,
+      timestamp: new Date().toISOString(),
     }
 
     // Verificar variables de entorno
@@ -30,13 +76,12 @@ export async function POST(request: Request) {
       return NextResponse.json(
         {
           success: false,
-          error: `Error de configuración del servidor. Por favor, contacta al administrador.`,
+          error: "Error de configuración del servidor. Por favor, contacta al administrador.",
         },
-        { status: 500 }
+        { status: 500, headers: CORS_HEADERS }
       )
     }
 
-    // Configuración del transporte SMTP
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: parseInt(process.env.SMTP_PORT || "587"),
@@ -46,38 +91,22 @@ export async function POST(request: Request) {
         pass: process.env.SMTP_PASSWORD,
       },
       tls: {
-        rejectUnauthorized: false,
+        rejectUnauthorized: process.env.NODE_ENV === "production",
       },
+      connectionTimeout: 10000,
+      socketTimeout: 10000,
     })
+
+    const { text, html } = generateEmailContent(payload)
 
     // Opciones del correo
     const mailOptions = {
       from: process.env.SMTP_FROM,
       to: "contact@repetto-a.com",
-      replyTo: `${body.name} <${body.email}>`,
-      subject: `[Portfolio] ${body.subject}`,
-      text: `
-        Nombre: ${body.name}
-        Email: ${body.email}
-        Asunto: ${body.subject}
-        
-        Mensaje:
-        ${body.message}
-      `,
-      html: `
-        <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #2563eb;">Nuevo mensaje del formulario de contacto</h2>
-          <div style="background-color: #f8fafc; padding: 20px; border-radius: 8px; margin-top: 20px;">
-            <p><strong>Nombre:</strong> ${body.name}</p>
-            <p><strong>Email:</strong> ${body.email}</p>
-            <p><strong>Asunto:</strong> ${body.subject}</p>
-            <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e2e8f0;">
-              <p><strong>Mensaje:</strong></p>
-              <p style="white-space: pre-line;">${body.message}</p>
-            </div>
-          </div>
-        </div>
-      `,
+      replyTo: `${payload.name} <${payload.email}>`,
+      subject: `[Portfolio] ${payload.subject}`,
+      text,
+      html,
     }
 
     await transporter.sendMail(mailOptions)
@@ -85,30 +114,25 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         success: true,
-        message: "¡Mensaje enviado con éxito! Me pondré en contacto contigo pronto.",
+        message: "Mensaje enviado. Gracias por escribir.",
       },
-      { status: 200 }
+      { status: 200, headers: CORS_HEADERS }
     )
   } catch (error: unknown) {
-    console.error("Error sending email:", error)
+    console.error("Error sending email:", error instanceof Error ? error.message : error)
     return NextResponse.json(
       {
         success: false,
         error: "Error al procesar la solicitud. Por favor, inténtalo de nuevo más tarde.",
       },
-      { status: 500 }
+      { status: 500, headers: CORS_HEADERS }
     )
   }
 }
 
-// Agregar método OPTIONS para CORS
 export async function OPTIONS() {
   return new Response(null, {
     status: 200,
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "POST, OPTIONS",
-      "Access-Control-Allow-Headers": "Content-Type",
-    },
+    headers: CORS_HEADERS,
   })
 }

@@ -31,18 +31,26 @@ export function ProjectImageGallery({ images, projectTitle, className }: Project
 
   return (
     <div className={className}>
-      <div className="grid md:grid-cols-2 gap-6">
+      <div
+        className={
+          images.length === 1 ? "grid max-w-3xl grid-cols-1 gap-6" : "grid gap-6 md:grid-cols-2"
+        }
+      >
         {images.map((image, index) => {
           const fullPath = image.startsWith("/") ? image : `/${image}`
 
           return (
             <div
               key={index}
-              className="group relative aspect-video bg-muted rounded-lg overflow-hidden cursor-pointer border"
+              className="group relative aspect-video cursor-pointer overflow-hidden rounded-lg border bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               onClick={() => openLightbox(index)}
               tabIndex={0}
               role="button"
-              aria-label={`View ${projectTitle} screenshot ${index + 1} in lightbox`}
+              aria-label={
+                images.length > 1
+                  ? `${projectTitle} screenshot ${index + 1}/${images.length}`
+                  : `${projectTitle} screenshot ${index + 1}`
+              }
               onKeyDown={(e) => {
                 if (e.key === "Enter" || e.key === " ") {
                   e.preventDefault()
@@ -52,7 +60,7 @@ export function ProjectImageGallery({ images, projectTitle, className }: Project
             >
               <Image
                 src={fullPath || "/placeholder.svg"}
-                alt={`${projectTitle} screenshot ${index + 1}`}
+                alt=""
                 fill
                 className={cn("object-cover transition-all duration-300", "group-hover:scale-105")}
                 priority={index < 2}
@@ -65,31 +73,37 @@ export function ProjectImageGallery({ images, projectTitle, className }: Project
               />
 
               <div
+                aria-hidden
                 className={cn(
-                  "absolute inset-0 bg-black/0 flex items-center justify-center transition-all duration-300",
+                  "absolute inset-0 flex items-center justify-center bg-black/0 transition-all duration-300",
                   "group-hover:bg-black/20 group-focus:bg-black/20"
                 )}
               >
                 <div
                   className={cn(
-                    "bg-white/90 backdrop-blur-sm rounded-full p-4 transform scale-0 transition-all duration-300",
-                    "group-hover:scale-100 group-focus:scale-100",
-                    "shadow-lg group-hover:shadow-xl"
+                    "scale-0 transform rounded-full bg-white/90 p-4 shadow-lg backdrop-blur-sm transition-all duration-300",
+                    "group-hover:scale-100 group-focus:scale-100 group-hover:shadow-xl"
                   )}
                 >
                   <ZoomIn className="h-6 w-6 text-gray-800" />
                 </div>
               </div>
 
-              {images.length > 1 && (
-                <div className="absolute top-3 right-3 bg-black/70 text-white text-sm px-3 py-1 rounded-full font-medium">
+              {images.length > 1 ? (
+                <div
+                  aria-hidden
+                  className="absolute top-3 right-3 rounded-full bg-black/70 px-3 py-1 text-sm font-medium text-white"
+                >
                   {index + 1}/{images.length}
                 </div>
-              )}
+              ) : null}
 
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <p className="text-white text-sm font-medium">
-                  {projectTitle} - Screenshot {index + 1}
+              <div
+                aria-hidden
+                className="absolute right-0 bottom-0 left-0 bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              >
+                <p className="text-sm font-medium text-white">
+                  {projectTitle} · Screenshot {index + 1}
                 </p>
               </div>
             </div>

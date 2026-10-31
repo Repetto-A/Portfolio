@@ -1,0 +1,65 @@
+# Dependencies
+node_modules
+.pnpm-store
+
+# Build output
+.next
+out
+dist
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing
+coverage
+playwright-report
+test-results
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git
+.gitignore
+
+# CI/CD
+.github
+*.yml
+*.yaml
+!pnpm-lock.yaml
+!pnpm-workspace.yaml
+
+# Documentation
+README.md
+MILESTONES.md
+CHANGELOG.md
+
+# Misc
+*.md
+.eslintrc*
+.prettierrc*
+.commitlintrc*
+.lintstagedrc*
+.husky
+
+# Docker (don't include in build context)
+Dockerfile
+docker-compose.yml
+.dockerignore
