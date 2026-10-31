@@ -1,6 +1,11 @@
 import { SprintSection, SprintHeading, SprintProse } from "./sprint-section"
 import { SprintCalendlyButton } from "./sprint-calendly-button"
-import { SPRINT_ANCHORS, SPRINT_SECTION_LABELS, CALENDLY_URL } from "@/lib/sprint/constants"
+import {
+  CALENDLY_URL,
+  CTA_COPY,
+  SPRINT_ANCHORS,
+  SPRINT_SECTION_LABELS,
+} from "@/lib/sprint/constants"
 import { cn } from "@/lib/utils"
 import { Check, ShieldCheck } from "lucide-react"
 
@@ -133,7 +138,7 @@ export function SprintPricing() {
             <div className="mt-6">
               {t.core ? (
                 <SprintCalendlyButton location="pricing" className="w-full justify-center">
-                  Agendar una charla
+                  {CTA_COPY.primary}
                 </SprintCalendlyButton>
               ) : (
                 <a

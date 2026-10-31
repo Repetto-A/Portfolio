@@ -16,7 +16,8 @@
       "projects": "Projects",
       "resume": "Download resume",
       "sprint": "See the sprint",
-      "talk": "Book a chat"
+      "talk": "Book a 30-min chat",
+      "hint": "Free, no commitment. We see if it fits."
     },
     "stats": {
       "projects": "Projects",
@@ -60,8 +61,8 @@
     "programKicker": "Modular program",
     "programLead": "Five modules. The company chooses.",
     "cta": "See the sprint",
-    "talk": "Book a chat",
-    "ctaHint": "Thirty minutes, free of charge. We see if it fits."
+    "talk": "Book a 30-min chat",
+    "ctaHint": "Free, no commitment. We see if it fits."
   },
   "skills": {
     "eyebrow": "Stack",
@@ -131,8 +132,8 @@
       "today": "Today"
     },
     "collaboration": {
-      "title": "Does your company need execution, not more talks?",
-      "description": "The AI Execution Sprint is the format: applied training and an internal hackathon in 30 days."
+      "title": "The next step is a 30-minute diagnostic chat",
+      "description": "Free, no commitment. We see if there are concrete AI cases in your operation."
     },
     "notFound": {
       "title": "Project Not Found",
@@ -160,12 +161,12 @@
       "projectType": "Project Type",
       "projectTypePlaceholder": "Select project type",
       "message": "Message",
-      "send": "Send Message",
+      "send": "Request the chat",
       "sending": "Sending...",
       "namePlaceholder": "Your name",
       "emailPlaceholder": "your.email@example.com",
-      "subjectPlaceholder": "AI sprint for my team",
-      "messagePlaceholder": "Tell me about your team and what you want to execute with AI.",
+      "subjectPlaceholder": "30-min diagnostic chat",
+      "messagePlaceholder": "Which company are you in, and which process should we look at in the chat?",
       "characters": "characters"
     },
     "validation": {
@@ -188,13 +189,13 @@
     "eyebrow": "Next step",
     "companies": "If your company wants to go from talking about AI to executing, the sprint is here.",
     "companiesCta": "See the sprint",
-    "talk": "Book a chat",
+    "talk": "Book a 30-min chat",
     "write": "Write to me",
     "whatsapp": "WhatsApp",
-    "talkHint": "Thirty minutes, free of charge. We see if it fits.",
+    "talkHint": "Free, no commitment. We see if it fits.",
     "info": {
-      "title": "Let's talk",
-      "description": "A 30-minute diagnostic chat, free of charge. Or write to me, or send a WhatsApp."
+      "title": "30-minute diagnostic chat",
+      "description": "Free of charge, no commitment. We see if there are concrete AI cases in your operation. Or write to me, or send a WhatsApp."
     },
     "methods": {
       "email": "Email",
@@ -203,13 +204,15 @@
     },
     "availability": {
       "title": "Current Availability",
+      "talk": "Diagnostic chat",
+      "talkStatus": "Free, 30 min",
       "consulting": "Consulting",
       "freelance": "Freelance Projects",
       "fulltime": "Full-time Opportunities",
       "available": "Available",
       "discuss": "Open to Discuss"
     },
-    "successMessage": "Message sent. Thanks for writing.",
+    "successMessage": "Done. I will reply to coordinate the 30-minute chat.",
     "errorMessage": "Error sending message. Please try again."
   },
   "footer": {

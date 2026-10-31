@@ -124,7 +124,7 @@ export function SprintContactForm() {
           id="sprint-interest"
           name="interest"
           required
-          defaultValue=""
+          defaultValue="charla"
           className={selectClassName}
           aria-invalid={interestError ? true : undefined}
           aria-describedby={interestError ? "sprint-interest-error" : undefined}
@@ -155,7 +155,7 @@ export function SprintContactForm() {
           rows={5}
           required
           maxLength={5000}
-          placeholder="Contame de tu equipo y qué quieren ejecutar con IA."
+          placeholder="En qué empresa estás y qué proceso querés mirar en la charla?"
         />
       </div>
 
@@ -165,7 +165,7 @@ export function SprintContactForm() {
           aria-live="polite"
         >
           <CheckCircle className="h-4 w-4 shrink-0" aria-hidden />
-          <span>Mensaje enviado. Gracias por escribir.</span>
+          <span>Listo. Te respondo para coordinar la charla de 30 minutos.</span>
         </div>
       ) : null}
 
@@ -185,7 +185,7 @@ export function SprintContactForm() {
         ) : (
           <>
             <Send className="mr-2 h-4 w-4" aria-hidden />
-            Enviar
+            Pedir la charla
           </>
         )}
       </Button>

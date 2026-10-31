@@ -1,6 +1,6 @@
 import { SprintSection, SprintHeading, SprintProse } from "./sprint-section"
 import { SprintCalendlyButton } from "./sprint-calendly-button"
-import { SPRINT_ANCHORS, SPRINT_SECTION_LABELS } from "@/lib/sprint/constants"
+import { CTA_COPY, SPRINT_ANCHORS, SPRINT_SECTION_LABELS } from "@/lib/sprint/constants"
 
 export function SprintGuarantee() {
   return (
@@ -21,7 +21,7 @@ export function SprintGuarantee() {
         </SprintProse>
         <div className="mt-8">
           <SprintCalendlyButton location="guarantee" className="w-full sm:w-auto">
-            Agendar una charla
+            {CTA_COPY.primary}
           </SprintCalendlyButton>
         </div>
       </div>

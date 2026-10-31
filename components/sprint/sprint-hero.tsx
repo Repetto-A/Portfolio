@@ -45,7 +45,7 @@ export function SprintHero() {
         </p>
 
         <div className="sprint-enter sprint-enter-3 mt-8 flex flex-col gap-3 sm:mt-10">
-          <SprintDirectContact location="hero" />
+          <SprintDirectContact location="hero" hint />
           <a
             href={`#${SPRINT_ANCHORS.audience}`}
             className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-md border border-border px-5 py-3 text-sm font-medium transition-[border-color,background-color,color,transform] duration-200 ease-out hover:border-foreground/40 hover:bg-muted/50 active:scale-[0.98] sm:w-fit sm:self-start"

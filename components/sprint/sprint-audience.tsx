@@ -1,6 +1,11 @@
 import { SprintSection, SprintHeading, SprintProse } from "./sprint-section"
 import { SprintCalendlyButton } from "./sprint-calendly-button"
-import { SPRINT_ANCHORS, SPRINT_PACES, SPRINT_SECTION_LABELS } from "@/lib/sprint/constants"
+import {
+  CTA_COPY,
+  SPRINT_ANCHORS,
+  SPRINT_PACES,
+  SPRINT_SECTION_LABELS,
+} from "@/lib/sprint/constants"
 
 const CRITERIA = [
   {
@@ -102,7 +107,7 @@ export function SprintAudience() {
           location="audience"
           className="w-full shrink-0 justify-center sm:w-auto sm:justify-start"
         >
-          Agendar una charla
+          {CTA_COPY.primary}
         </SprintCalendlyButton>
       </div>
     </SprintSection>
