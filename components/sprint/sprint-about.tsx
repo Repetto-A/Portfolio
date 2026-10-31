@@ -1,7 +1,11 @@
 import { SprintSection, SprintHeading, SprintProse } from "./sprint-section"
 import { SprintCriaLink, SprintNexaLink } from "./sprint-ext-link"
-import { SpaceXSIAmbassadorBadge } from "./spacexsi-ambassador-badge"
-import { SPRINT_ANCHORS, SPRINT_SECTION_LABELS, TRAINED_PEOPLE_STAT } from "@/lib/sprint/constants"
+import {
+  SPACEXSI_AMBASSADOR_LABEL,
+  SPRINT_ANCHORS,
+  SPRINT_SECTION_LABELS,
+  TRAINED_PEOPLE_STAT,
+} from "@/lib/sprint/constants"
 import { SPRINT_AWARDS } from "@/lib/sprint/proof"
 
 const HIGHLIGHTS = [
@@ -26,9 +30,10 @@ const FACTS = [
     clases en la Diplomatura de IA aplicada al ejercicio profesional (UCEL). También trabajo de
     forma directa con las empresas.
   </>,
+  SPACEXSI_AMBASSADOR_LABEL,
   <>
-    El programa se llama SpaceXSI. El stack arranca en Cursor y Grok Bot. También di capacitaciones
-    con Copilot y otras herramientas.
+    El stack arranca en Cursor y Grok Bot. También di capacitaciones con Copilot y otras
+    herramientas.
   </>,
   <>
     Fundé <SprintNexaLink />: +50 comunidades y +3M de personas. Soy host de Builders Off The Record
@@ -57,7 +62,6 @@ export function SprintAbout() {
           con deadline y bajo presión.
         </p>
       </SprintProse>
-      <SpaceXSIAmbassadorBadge className="mt-6" />
 
       <div className="mt-8 grid gap-4 sm:grid-cols-3">
         {HIGHLIGHTS.map((h, i) => (

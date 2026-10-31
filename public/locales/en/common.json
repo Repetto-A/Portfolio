@@ -35,22 +35,23 @@
     "title": "About",
     "eyebrow": "Who",
     "bio": {
-      "short": "I train technical and executive teams to execute with AI, not just talk about it. Lecturer in the UCEL Diploma in applied AI, trainer at CRIA, and SpaceXSI Ambassador. Founder of NEXA. Background in competitive programming and cybersecurity.",
+      "short": "I train technical and executive teams to execute with AI, not just talk about it. Lecturer in the UCEL Diploma in applied AI, trainer at CRIA. Founder of NEXA. Background in competitive programming and cybersecurity.",
       "background": {
         "title": "Background",
-        "text": "I've been programming seriously since 2022, when I placed 6th in my first ICPC tournament. A 2024 winter training camp was a turning point that transformed how I approach technical challenges.\n\nToday I'm a lecturer in the Diploma in AI applied to professional practice (UCEL), an AI trainer and consultant for companies at CRIA, founder of NEXA (+3M people across +50 communities), and a SpaceXSI Ambassador. I train teams mainly on Cursor and Grok Bot. I've also trained with Copilot and other tools.\n\nMy projects range from NASA Space Apps prediction algorithms to production systems with RAG architectures."
+        "text": "I've been programming seriously since 2022, when I placed 6th in my first ICPC tournament. A 2024 winter training camp was a turning point that transformed how I approach technical challenges.\n\nToday I'm a lecturer in the Diploma in AI applied to professional practice (UCEL), an AI trainer and consultant for companies at CRIA, and founder of NEXA (+3M people across +50 communities). I train teams mainly on Cursor and Grok Bot. I've also trained with Copilot and other tools.\n\nMy projects range from NASA Space Apps prediction algorithms to production systems with RAG architectures."
       },
       "approach": {
         "title": "Approach",
         "text": "I'm very pragmatic. Competitive programming trained me to always analyze the time and space complexity of my projects, but the multiple hackathons I competed in taught me to build and validate MVPs fast, without losing sight of the architecture and distributed systems design that engineering gave me."
       }
-    }
+    },
+    "credential": "SpaceXSI Ambassador"
   },
   "trainings": {
     "eyebrow": "For companies",
     "title": "From talking about AI to executing with AI",
     "lead": "A 30-day sprint: diagnosis, applied training, and an internal hackathon. Your team leaves with prototypes, usage rules, and a 90-day roadmap.",
-    "proof": "I have already trained +300 people in AI between CRIA and the UCEL Diploma in AI applied to professional practice. The program is called SpaceXSI: Cursor and Grok Bot.",
+    "proof": "I have already trained +300 people in AI between CRIA and the UCEL Diploma in AI applied to professional practice. I train teams mainly on Cursor and Grok Bot.",
     "pacesHeadline": "We set it to your pace: intensive or sustained",
     "paceIntensivo": "Intensive",
     "paceIntensivoDetail": "3 classes of 1 h 30 per week (Monday, Wednesday and Friday).",
@@ -65,7 +66,7 @@
   "skills": {
     "eyebrow": "Stack",
     "title": "Skills and technologies",
-    "subtitle": "The program is SpaceXSI (Cursor and Grok Bot). Also Claude Code, Copilot, and the rest of the tools for systems and automations.",
+    "subtitle": "Cursor, Grok Bot, Claude Code, Copilot, and the rest of the tools for systems and automations.",
     "categories": {
       "languages": "Languages & Frameworks",
       "frameworks": "AI/ML & Data Science",

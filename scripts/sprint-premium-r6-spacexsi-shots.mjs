@@ -1,5 +1,5 @@
 /**
- * Screenshots for the SpaceXSI rename / Ambassador badge correction.
+ * Screenshots for the SpaceXSI low-key credential (plain text in about).
  * Usage: node scripts/sprint-premium-r6-spacexsi-shots.mjs
  */
 import { chromium } from "@playwright/test"
@@ -30,12 +30,12 @@ const SHOTS = [
     id: "sprint-programa",
     url: "/sprint#programa",
     ready: "#programa",
-    expect: "El eje es SpaceXSI",
+    expect: "El eje es Cursor y Grok Bot",
     sprintTheme: "dark",
   },
   { id: "home-about", url: "/#about", ready: "#about", expect: "SpaceXSI Ambassador" },
-  { id: "home-skills", url: "/#skills", ready: "#skills", expect: "SpaceXSI" },
-  { id: "home-trainings", url: "/#trainings", ready: "#trainings", expect: "SpaceXSI" },
+  { id: "home-skills", url: "/#skills", ready: "#skills", expect: "Cursor, Grok Bot" },
+  { id: "home-trainings", url: "/#trainings", ready: "#trainings", expect: "Cursor y Grok Bot" },
 ]
 
 const LIGHT = [

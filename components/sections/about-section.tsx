@@ -4,7 +4,6 @@ import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { SectionHeader } from "@/components/layout/section-header"
 import { useTranslations, getTranslation } from "@/lib/i18n-context"
-import { SpaceXSIAmbassadorBadge } from "@/components/sprint/spacexsi-ambassador-badge"
 
 export function AboutSection() {
   const [translations] = useTranslations()
@@ -13,13 +12,19 @@ export function AboutSection() {
     <Section id="about" variant="default" spacing="compact">
       <Container maxWidth="4xl">
         <div className="space-y-14">
-          <SectionHeader
-            eyebrow={getTranslation(translations, "about.eyebrow")}
-            title={getTranslation(translations, "about.title")}
-            description={getTranslation(translations, "about.bio.short")}
-          >
-            <SpaceXSIAmbassadorBadge className="mt-6" />
-          </SectionHeader>
+          <div>
+            <SectionHeader
+              className="mb-5 sm:mb-6"
+              eyebrow={getTranslation(translations, "about.eyebrow")}
+              title={getTranslation(translations, "about.title")}
+              description={getTranslation(translations, "about.bio.short")}
+            />
+            <ul className="list-none">
+              <li className="text-sm leading-relaxed text-muted-foreground">
+                {getTranslation(translations, "about.credential")}
+              </li>
+            </ul>
+          </div>
 
           <div className="grid gap-10 md:grid-cols-2 lg:gap-16">
             <div className="space-y-5">
