@@ -90,9 +90,9 @@ export async function GET(req: NextRequest) {
               gap: "16px",
             }}
           >
-            <span>Systems Engineer</span>
+            <span>Software Engineer</span>
             <span>•</span>
-            <span>AI/ML Developer</span>
+            <span>IA para empresas</span>
           </div>
         </div>
       </div>,

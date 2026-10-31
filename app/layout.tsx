@@ -4,12 +4,8 @@ import "./globals.css"
 import type { Metadata, Viewport } from "next"
 import { ThemeProvider } from "@/components/theme-provider"
 import { I18nProvider } from "@/lib/i18n-context"
-import {
-  generateMetadata as genMetadata,
-  generatePersonSchema,
-  generateWebSiteSchema,
-  siteConfig,
-} from "@/lib/seo"
+import { generateMetadata as genMetadata, generateSiteGraph, siteConfig } from "@/lib/seo"
+import { JsonLd } from "@/components/json-ld"
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { ScrollProvider } from "@/lib/scroll-context"
@@ -43,11 +39,12 @@ const newsreader = Newsreader({
 })
 
 export const metadata: Metadata = genMetadata({
-  title: siteConfig.name,
+  title: siteConfig.title,
   description: siteConfig.description,
   canonical: siteConfig.url,
   ogType: "profile",
-  keywords: siteConfig.keywords,
+  ogImage: siteConfig.ogImage,
+  ogImageAlt: siteConfig.ogImageAlt,
 })
 
 export const viewport: Viewport = {
@@ -64,28 +61,18 @@ export const viewport: Viewport = {
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  const personSchema = generatePersonSchema()
-  const webSiteSchema = generateWebSiteSchema()
-
   return (
     <html
-      lang="en"
+      lang={siteConfig.language}
       className={`${inter.variable} ${jetbrainsMono.variable} ${newsreader.variable} dark`}
       suppressHydrationWarning
     >
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }}
-        />
+        <JsonLd data={generateSiteGraph()} />
         {/* /sprint fuerza dark (default) o light (?theme=light) antes del paint. No toca otras rutas. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var p=location.pathname.replace(/\\/+$/,"")||"/";if(p!=="/sprint")return;var t=new URLSearchParams(location.search).get("theme")==="light"?"light":"dark";var r=document.documentElement;r.classList.remove("light","dark","sprint-light");r.classList.add(t);if(t==="light")r.classList.add("sprint-light");r.style.colorScheme=t;r.lang="es";}catch(e){}})();`,
+            __html: `(function(){try{var p=location.pathname.replace(/\\/+$/,"")||"/";if(p!=="/sprint")return;var t=new URLSearchParams(location.search).get("theme")==="light"?"light":"dark";var r=document.documentElement;r.classList.remove("light","dark","sprint-light");r.classList.add(t);if(t==="light")r.classList.add("sprint-light");r.style.colorScheme=t;r.lang=${JSON.stringify(siteConfig.language)};}catch(e){}})();`,
           }}
         />
       </head>

@@ -8,18 +8,27 @@ import { ProjectsSection } from "@/components/sections/projects-section"
 import { ContactSection } from "@/components/sections/contact-section"
 import { Footer } from "@/components/footer"
 import type { Metadata } from "next"
-import { generateMetadata, siteConfig } from "@/lib/seo"
+import { generateMetadata, generateProfilePageSchema, siteConfig } from "@/lib/seo"
+import { JsonLd } from "@/components/json-ld"
 
 export const metadata: Metadata = generateMetadata({
   title: siteConfig.title,
   description: siteConfig.description,
   canonical: siteConfig.url,
   ogType: "profile",
+  ogImage: siteConfig.ogImage,
+  ogImageAlt: siteConfig.ogImageAlt,
 })
 
 export default function Home() {
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          ...generateProfilePageSchema(),
+        }}
+      />
       <Navigation />
       <main id="main-content" className="min-h-screen bg-background">
         <HeroSection />
